@@ -1,0 +1,126 @@
+@import ../../../styles/helpers
+
+.section
+    overflow: hidden
+
+.wrapper
+    position: relative
+
+.title
+    margin-bottom: 80px
+    +d
+        margin-bottom: 64px
+    +m
+        margin-bottom: 32px
+        text-align: center
+
+.inner
+    margin: 0 -16px
+
+.gallery
+    display: flex
+    flex-wrap: wrap
+    overflow: hidden
+
+.author
+    position: absolute
+    left: 46%
+    top: 19%
+    span
+        color: #828282
+    
+    
+ 
+.preview
+    margin-top: 105px
+    margin-bottom: 10px
+    margin-left: 10px
+    margin-right: 10px
+    width: 325px
+    height: 110px
+    border-radius: 20px
+    background-color: #000
+    overflow: hidden
+    img
+        min-height: 90%
+        min-width: 90%
+
+
+.subtitle
+    text-align: center
+    padding-top: 20px
+    +body-bold-1
+    color: #191a19
+    z-index: 60
+    +dark 
+        color: #fff
+
+.button
+    svg
+        fill: $neutrals5
+        transition: fill .2s
+    
+
+.line
+    display: flex
+    align-items: center
+
+.user
+    position: absolute
+    top: 5%
+    right: 2%
+    flex-shrink: 0
+
+.avatar
+    position: absolute
+    top: 5%
+    right: 2%
+    flex-shrink: 0
+    width: 35px
+    height: 35px
+    margin-right: 12px
+    img
+        width: 100%
+        height: 100%
+        object-fit: cover
+        border-radius: 50%
+    
+.counter
+    position: absolute
+    top: 45%
+    right: 2%
+    flex-shrink: 0
+    max-height: 30px
+    
+
+.collectioncontainer
+    cursor: pointer
+    background-color:  #808080
+    position: relative
+    top: 0
+    transition: top ease 0.25s
+    max-width: 325px
+    max-height: 275px
+    min-width: 325px
+    min-height: 275px
+    overflow: hidden
+    border-radius: 20px
+    &:hover
+        top: -10px
+    +dark 
+        background-color: $neutrals1
+
+.collectionLogo
+    position: absolute
+    top: 40%
+    left: 37.5%
+    border-radius: 50%
+    border: 5px solid #fff 
+    max-width: 75px
+    max-height: 75px
+    min-width: 75px
+    min-height: 75px
+    display: block
+    z-index: 20
+    +dark 
+        border-color: $neutrals1

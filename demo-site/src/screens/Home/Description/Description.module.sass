@@ -1,0 +1,99 @@
+@import ../../../styles/helpers
+
+@font-face
+    font-family: Best-font
+    src: url('Monument\ Extended\ Regular\ 400.otf') format('opentype')
+
+.section
+    font-family: Best-font
+    display: flex
+    justify-content: center
+    height: 800px
+    width: 90vw
+    padding: 80px 0
+    +d
+        min-height: 576px
+    +m
+        display: block
+        min-height: auto
+        padding: 64px 0
+        text-align: center
+    +dark
+        border-color: $neutrals3
+
+.homeHero
+    width: 100%
+    height: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+
+.homeHeroLeft
+    height: 100%
+    width: 55%
+    margin-right: 5%
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    +d
+        max-width: 420px
+    +m
+        max-width: 100%
+        margin-bottom: 40px
+
+.title
+    font-family: Best-font
+    margin-bottom: 60px
+    font-size: 45px
+    font-family: Best-font
+    letter-spacing: 2px
+    display: inline-block
+    transform: scaleX(2) scaleY(1.8)
+
+.titlePtag
+    font-family: Best-font
+    line-height: 30px
+    text-align: center
+    display: flex
+    align-items: center
+    width: 60%
+    height: 25%
+    margin-bottom: 50px
+    transform: scaleX(1.7) scaleY(1.5)
+    font-size: 18px
+
+// logo
+.heroLogoContainer
+    text-align: center
+    width: 100%
+    height: 40%
+
+.heroLogoContainer img
+    width: 20%
+
+// Btn
+.btns
+    display: flex
+    justify-content: center
+    width: 90%
+    +m
+        display: block
+
+.button
+    font-family: Best-font
+    width: 90%
+    border-radius: 15px
+    font-size: 15px
+    letter-spacing: 3px
+    &:not(:last-child)
+        margin-right: 16px
+        +m
+            margin: 0 0 16px
+// =========================================
+// Cards
+.homeHeroCards
+    position: relative
+    border-radius: 15px
+    height: 106%
+    width: 30%
