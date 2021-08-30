@@ -3,6 +3,7 @@ import "./styles/app.sass";
 import Page from "./components/Page";
 import Home from "./screens/Home";
 import Marketplace from "./screens/Marketplace";
+import CreateAccount from "./screens/CreateAccount";
 
 
 
@@ -10,9 +11,18 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route
+      <Route
           exact
           path="/"
+          render={() => (
+            <Page>
+              <CreateAccount />
+            </Page>
+          )}
+        />
+        <Route
+          exact
+          path="/home"
           render={() => (
             <Page>
               <Home />

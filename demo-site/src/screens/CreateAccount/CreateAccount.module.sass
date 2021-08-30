@@ -1,0 +1,351 @@
+@import ../../styles/helpers
+
+
+
+.head
+    margin-bottom: 80px
+    padding-bottom: 40px
+    border-bottom: 2px solid $neutrals6
+    +m
+        margin-bottom: 40px
+        padding-bottom: 24px
+    +dark
+        border-color: $neutrals3
+
+.back
+    display: inline-flex
+    align-items: center
+    color: $neutrals2
+    svg
+        margin-right: 24px
+        transition: transform .2s
+        +m
+            flex-shrink: 0
+            width: 24px
+            height: 24px
+            margin-right: 16px
+    +dark
+        color: $neutrals8
+        svg
+            fill: $neutrals8
+    &:hover
+        svg
+            transform: translateX(-2px)
+
+.user
+    display: flex
+    margin-top: 50px
+    +d
+        max-width: 416px
+
+
+
+.avatar
+    flex-shrink: 0
+    width: 128px
+    height: 128px
+    margin-right: 32px
+    +m
+        width: 64px
+        height: 64px
+        margin-right: 16px
+    img
+        width: 100%
+        height: 100%
+        border-radius: 50%
+        object-fit: cover
+
+.stage
+    text-align: center
+    +m
+        font-size: 24px
+
+.body
+    display: block
+
+.menu
+    width: 544px
+    margin: auto
+    +d
+        width: 384px
+    +t
+        width: 300px
+    +m
+        width: 100%
+        margin-bottom: 40px
+
+.wrapper
+    flex-grow: 1
+    padding-left: 128px
+    +x
+        padding-left: 64px
+    +t
+        padding-left: 32px
+    +m
+        padding-left: 0
+    & > div
+        &:not(:last-child)
+            margin-bottom: 48px
+    
+.link
+    position: relative
+    display: flex
+    align-items: center
+    padding: 32px 64px 32px 32px
+    border-radius: 12px
+    margin-bottom: 15px
+    +body-bold-1
+    cursor: pointer
+    +t
+        padding: 0 30px 0 0
+        font-size: 20px
+    &:hover
+        .arrow
+            opacity: 1
+    &.active
+        box-shadow: inset 0 0 0 2px $neutrals6
+        +t
+            box-shadow: none
+        +dark
+            box-shadow: inset 0 0 0 2px $neutrals3
+            +t
+                box-shadow: none
+        .icon
+            &:before
+                opacity: 1
+            svg
+                &:first-child
+                    opacity: 0
+                &:nth-child(2)
+                    opacity: 1
+        .arrow
+            opacity: 1
+    &:not(:last-child)
+        +t
+            margin-bottom: 24px
+
+.icon
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 64px
+    height: 64px
+    margin-right: 32px
+    border-radius: 50%
+    flex-shrink: 0
+    +d
+        margin-right: 24px
+    +t
+        margin-right: 16px
+ 
+    
+.arrow
+    position: absolute
+    top: 50%
+    right: 37px
+    transform: translateY(-50%)
+    opacity: 0
+    transition: opacity .2s
+    +d
+        right: 24px
+    +t
+        right: 0
+    svg
+        +dark
+            fill: $neutrals8
+
+.bg
+    img
+        width: 100%
+        border-radius: 24px
+    
+.title
+    margin-bottom: 8px
+    +m
+        text-align: center
+        font-size: 32px
+
+.text
+    margin-bottom: 24px
+    +caption-2
+    color: $neutrals4
+    +m
+        text-align: center
+    span
+        font-weight: 600
+        color: $neutrals2
+        +dark
+            color: $neutrals8
+
+.box
+    margin-bottom: 24px
+    padding: 18%
+    background: $neutrals7
+    border-radius: 16px
+    +m
+        padding: 10%
+    +dark
+        background: $neutrals2
+
+.code
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: 29%
+    border-radius: 12px
+    border: 1px solid $neutrals6
+    background: $neutrals8
+    box-shadow: 0px 64px 64px -48px rgba(31, 47, 70, 0.12)
+    +m
+        padding: 20%
+    +dark
+        background: $neutrals5
+        border-color: $neutrals3
+    img
+        width: 100%
+
+.preview
+    margin: 40px 0
+    img
+        width: 100%
+        border-radius: 12px
+    
+.variants
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    margin-bottom: 40px
+
+.checkbox
+    &:not(:last-child)
+        margin-bottom: 12px
+
+.button
+    +m
+        width: 100%
+
+.menubutton
+    width: 100%
+
+.btns
+    display: flex
+    +m
+        display: block
+    .button
+        &:not(:last-child)
+            margin-right: 8px
+            +m
+                margin: 0 0 8px
+
+img
+    width: 100%
+
+#cancelbutton
+    margin-right: 15px
+
+a
+        font-weight: 600
+        color: $blue
+        transition: color .2s
+        &:hover
+            color: darken($blue, 10)
+
+.col
+    flex: 0 0 calc(50% - 32px)
+    width: 100%
+    margin-right: 16px
+    +d
+        width: 100%
+        margin: 0
+    &:not(:last-child)
+        +d
+            margin-bottom: 64px
+        +m
+            margin-bottom: 32px
+            padding-bottom: 32px
+            border-bottom: 1px solid $neutrals6
+            +dark
+                border-color: $neutrals3
+
+.list
+    margin-bottom: 40px
+    +d
+        display: flex
+        margin: 0 -20px 64px
+    +m
+        display: block
+        margin: 0 0 32px
+
+.item
+    +d
+        flex: 0 0 calc(50% - 40px)
+        width: calc(50% - 40px)
+        margin: 0 20px
+    +m
+        width: 100%
+        margin: 0
+    & > .button
+        margin-top: 32px
+    &:not(:last-child)
+        margin-bottom: 40px
+        +d
+            margin-bottom: 0
+        +m
+            margin-bottom: 32px
+
+.category
+    margin-bottom: 32px
+    text-align: center
+    +body-bold-1
+
+.subcategory
+    margin-bottom: 15px
+    margin-top: 20px
+    text-align: left
+    +body-bold-2
+
+.fieldset 
+    & > .field
+        &:not(:last-child)
+            margin-bottom: 32px
+
+.input
+    width: 100%
+    height: 48px
+    padding: 0 14px
+    margin-bottom: 15px
+    border-radius: 12px
+    border: 2px solid $neutrals6
+    background: none
+    +poppins
+    +caption-bold-1
+    color: $neutrals2
+    transition: border-color .2s
+    +dark
+        border-color: $neutrals3
+        color: $neutrals8
+    +placeholder
+        color: $neutrals4
+    &:focus
+        border-color: $neutrals4
+
+.textarea
+    width: 100%
+    height: 96px
+    padding: 10px 14px
+    resize: none
+    border-radius: 12px
+    border: 2px solid $neutrals6
+    background: none
+    +poppins
+    +caption-bold-1
+    color: $neutrals2
+    transition: border-color .2s
+    +dark
+        border-color: $neutrals3
+        color: $neutrals8
+    +placeholder
+        color: $neutrals4
+    &:focus
+        border-color: $neutrals4

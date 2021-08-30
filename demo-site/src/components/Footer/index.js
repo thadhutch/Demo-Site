@@ -1,45 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import cn from "classnames";
 import styles from "./Footer.module.sass";
 import Image from "../Image";
 import Theme from "../Theme";
 
-const items = [
-  {
-    title: "SpacePath",
-    menu: [
-      {
-        title: "Discover",
-        url: "/search01",
-      },
-      {
-        title: "Connect wallet",
-        url: "/connect-wallet",
-      },
-    ],
-  },
-  {
-    title: "Info",
-    menu: [
-      {
-        title: "FAQ",
-        url: "/faq",
-      },
-      {
-        title: "Create item",
-        url: "/upload-variants",
-      },
-    ],
-  },
-];
 
 const Footers = () => {
-  const [email, setEmail] = useState("");
-
-  const handleSubmit = (e) => {
-    alert();
-  };
 
   return (
     <footer className={styles.footer}>
@@ -95,7 +62,7 @@ const Footers = () => {
                   <a href="/">Home</a>
                 </li>
                 <li>  
-                  <a href="/">Marketplace</a>
+                  <a href="/marketplace">Marketplace</a>
                 </li>
                 <li>
                   <a href="/">Discover</a>

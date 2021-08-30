@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import cn from "classnames";
 import styles from "./MarketPlaceHero.module.sass";
-import Card from "../../../components/Card";
 
 
 const MarketPlaceHero = () => {
