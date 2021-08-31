@@ -48,8 +48,8 @@ const Headers = () => {
         <Link className={styles.logo} to="/">
           <Image
             className={styles.pic}
-            src="/images/logo-dark.png"
-            srcDark="/images/logo-light.png"
+            src="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-dark.png?alt=media&token=0dc78010-319d-426b-9dc0-c17db0479ec4"
+            srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-light.png?alt=media&token=af5f3049-b42b-4094-956d-f8377f8986bf"
             alt="SpacePath Logo"
           />
         </Link>
@@ -67,7 +67,7 @@ const Headers = () => {
           <nav className={styles.nav}>
             <ul className={styles.link}>
               <li>
-                <NavLink to="/" className={styles.navlinks} id="home">
+                <NavLink to="/home" className={styles.navlinks} id="home">
                   <span className={styles.headertitles}>Home</span>
                 </NavLink>
               </li>

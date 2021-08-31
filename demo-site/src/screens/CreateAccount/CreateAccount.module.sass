@@ -59,6 +59,7 @@
     text-align: center
     +m
         font-size: 24px
+           
 
 .body
     display: block
@@ -66,6 +67,7 @@
 .menu
     width: 544px
     margin: auto
+
     +d
         width: 384px
     +t
@@ -74,7 +76,15 @@
         width: 100%
         margin-bottom: 40px
 
+.menu h1
+    margin-bottom: 50px
+    margin-top: -20px
+    text-align: center
+    font-family: best-font
+    font-size: 35px
+
 .wrapper
+    width: 544
     flex-grow: 1
     padding-left: 128px
     +x
@@ -86,6 +96,7 @@
     & > div
         &:not(:last-child)
             margin-bottom: 48px
+
     
 .link
     position: relative
@@ -94,11 +105,14 @@
     padding: 32px 64px 32px 32px
     border-radius: 12px
     margin-bottom: 15px
+    background-image: linear-gradient(to right, #f55f02 0%, #f5e102 100%) 
     +body-bold-1
     cursor: pointer
     +t
         padding: 0 30px 0 0
         font-size: 20px
+    &:nth-child(3)
+        background-image: linear-gradient(to right, #3100e3 0%, #00bde3 100%) 
     &:hover
         .arrow
             opacity: 1
@@ -161,9 +175,8 @@
         border-radius: 24px
     
 .title
-    margin-bottom: 8px
+    padding-left: 150px
     +m
-        text-align: center
         font-size: 32px
 
 .text
@@ -349,3 +362,54 @@ a
         color: $neutrals4
     &:focus
         border-color: $neutrals4
+
+
+.uploaditem
+    &:not(:last-child)
+        margin-bottom: 40px
+        +m
+            margin-bottom: 32px
+
+.note
+    margin-top: 4px
+    +caption-2
+    color: $neutrals4
+
+.file
+    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    height: 182px
+    margin-top: 16px
+    border-radius: 16px
+    overflow: hidden
+    background: $neutrals7
+    +dark
+        background: $neutrals2
+
+.load
+    position: absolute
+    top: 0
+    left: 0
+    font-size: 400px
+    opacity: 0
+    
+.uploadicon
+    margin-bottom: 10px
+    svg
+        fill: $neutrals4
+    
+.format
+    +caption-2
+    color: $neutrals4
+
+.pagecategory
+    +body-bold-2
+
+.createaccounttitle
+    text-align: center
+    margin-top: -20px
+    margin-bottom: 50px
+    font-size: 25px
