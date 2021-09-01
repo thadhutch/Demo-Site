@@ -32,28 +32,50 @@ const CreateAccount = () => {
     setVisibleModal(false);
   };
 
-  async function MetaMaskAuthentication() {
+  function MetaMaskAuthentication() {
+
     try {
-      Moralis.Web3.authenticate().then(function (user) {
-        setAuthenticationChecker(false);
-    })
+      setVisibleModal(true);
+      setLoadingMessage("Authenticating through MetaMask, if nothing happens please click the MetaMask extension.")
       Moralis.Web3.getSigningData = () => 'Welcome to SpacePath Marketplace! Please sign in to create an account.';
-    } catch (error) {
-      if(error === "Error: MetaMask Message Signature: User denied message signature"){
-        setVisibleErrorModal(true);
-       };
-    };
+      Moralis.Web3.authenticate().then((user) => {
+        try { 
+          if(user){
+          setAuthenticationChecker(false);
+          setVisibleModal(false);
+          } else {
+            setVisibleErrorModal(true);
+          };
+        } catch {
+          
+        }
+    })
+  } catch {
+
+  }
   };
 
-  async function WalletConnectAuthentication() {
+  function WalletConnectAuthentication() {
 
     try {
-      Moralis.Web3.authenticate({ provider: "walletconnect" }).then(function (user) {
-        setAuthenticationChecker(false);
-    })
+      setVisibleModal(true);
+      setLoadingMessage("Authenticating through WalletConnect");
       Moralis.Web3.getSigningData = () => 'Welcome to SpacePath Marketplace! Please sign in to create an account.';
+      Moralis.Web3.authenticate({ provider: "walletconnect" }).then((user) => {
+        try { 
+          if(user){
+          setAuthenticationChecker(false);
+          setVisibleModal(false);
+          } else {
+            setVisibleErrorModal(true);
+          };
+        } catch {
+
+        };
+
+    })
     } catch (error) {
-      if (error == "User closed modal") {
+      if (error === "User closed modal") {
         setVisibleErrorModal(true);
        };
     };
@@ -61,16 +83,7 @@ const CreateAccount = () => {
 
   useEffect(() => {
 
-    if(isAuthenticating){
-      setVisibleModal(true);
-      setLoadingMessage("Authenticating through MetaMask, if nothing happens please click the MetaMask extension.")
-    };
-    if(isAuthenticated){
-      setAuthenticationChecker(true);
-      setVisibleModal(false);
-    } ;
-
-}, [visibleModal, visibleErrorModal, isAuthenticating, isAuthenticated, authenticationChecker]);
+}, [visibleModal, visibleErrorModal, authenticationChecker]);
 
 const setProfileAvatar = async () => {
 
