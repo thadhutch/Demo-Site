@@ -32,13 +32,13 @@ const CreateAccount = () => {
     setVisibleModal(false);
   };
 
-  function MetaMaskAuthentication() {
+  async function MetaMaskAuthentication() {
 
     try {
       setVisibleModal(true);
       setLoadingMessage("Authenticating through MetaMask, if nothing happens please click the MetaMask extension.")
       Moralis.Web3.getSigningData = () => 'Welcome to SpacePath Marketplace! Please sign in to create an account.';
-      Moralis.Web3.authenticate().then((user) => {
+      await Moralis.Web3.authenticate().then((user) => {
         try {
           if (user) {
             setAuthenticationChecker(false);
@@ -50,8 +50,11 @@ const CreateAccount = () => {
 
         }
       })
-    } catch {
-
+    } catch (error) {
+      if (error.code === 4001) {
+        setVisibleErrorModal(true);
+        setVisibleModal(false);
+      };
     }
   };
 
