@@ -32,36 +32,48 @@ const CreateAccount = () => {
     setVisibleModal(false);
   };
 
-  function MetaMaskAuthentication() {
+  async function MetaMaskAuthentication() {
 
-    try {
-      setVisibleModal(true);
-      setLoadingMessage("Authenticating through MetaMask, if nothing happens please click the MetaMask extension.")
-      Moralis.Web3.getSigningData = () => 'Welcome to SpacePath Marketplace! Please sign in to create an account.';
-      Moralis.Web3.authenticate().then((user) => {
-        try { 
-          if(user){
-          setAuthenticationChecker(false);
-          setVisibleModal(false);
-          } else {
-            setVisibleErrorModal(true);
+      try {
+        setVisibleModal(true);
+        setLoadingMessage("Authenticating through WalletConnect");
+        Moralis.Web3.getSigningData = () => 'Welcome to SpacePath Marketplace! Please sign in to create an account.';
+        await Moralis.Web3.authenticate().then((user) => {
+          try { 
+            if(user){
+            setAuthenticationChecker(false);
+            setVisibleModal(false);
+            } else {
+              setVisibleErrorModal(true);
+              setVisibleModal(false);
+            };
+          } catch (error){
+            if (error) {
+              setVisibleErrorModal(true);
+              setVisibleModal(false);
+             };
           };
+  
+      })
+      } catch (error) {
+        try {
+        if (error) {
+          setVisibleErrorModal(true);
+          setVisibleModal(false);
+         };
         } catch {
-
-        }
-    })
-  } catch {
-
-  }
+  
+        };
+      };
   };
 
-  function WalletConnectAuthentication() {
+  async function WalletConnectAuthentication() {
 
     try {
       setVisibleModal(true);
       setLoadingMessage("Authenticating through WalletConnect");
       Moralis.Web3.getSigningData = () => 'Welcome to SpacePath Marketplace! Please sign in to create an account.';
-      Moralis.Web3.authenticate({ provider: "walletconnect" }).then((user) => {
+      await Moralis.Web3.authenticate({ provider: "walletconnect" }).then((user) => {
         try { 
           if(user){
           setAuthenticationChecker(false);
@@ -71,7 +83,7 @@ const CreateAccount = () => {
             setVisibleModal(false);
           };
         } catch (error){
-          if (error === "Error: User canceled") {
+          if (error) {
             setVisibleErrorModal(true);
             setVisibleModal(false);
            };
@@ -79,14 +91,14 @@ const CreateAccount = () => {
 
     })
     } catch (error) {
-      if (error === "Error: User closed modal") {
+      try {
+      if (error) {
         setVisibleErrorModal(true);
         setVisibleModal(false);
        };
-       if (error === "Error: User canceled") {
-        setVisibleErrorModal(true);
-        setVisibleModal(false);
-       };
+      } catch {
+
+      };
     };
   };
 
@@ -120,7 +132,6 @@ const setProfileAvatar = async () => {
 
 }
 
-const query = new Moralis.Query(Moralis.User);
 
   return (
       <>
