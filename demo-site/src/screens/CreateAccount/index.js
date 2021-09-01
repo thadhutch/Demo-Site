@@ -12,14 +12,14 @@ import React, { useState, useEffect } from "react";
 
 const CreateAccount = () => {
 
-  const Moralis = require('moralis');  
-  Moralis.initialize("mQR7k1NobAMkMfqKdgIQowcepJpSPcOTCNn2Ds8f"); 
+  const Moralis = require('moralis');
+  Moralis.initialize("mQR7k1NobAMkMfqKdgIQowcepJpSPcOTCNn2Ds8f");
 
 
   const user = Moralis.User.current();
 
-        
-  const { authenticate, isAuthenticated, isAuthenticating, isLoggingOut} = useMoralis();
+
+  const { authenticate, isAuthenticated, isAuthenticating, isLoggingOut } = useMoralis();
   const [visibleModal, setVisibleModal] = useState(false);
   const [visibleErrorModal, setVisibleErrorModal] = useState(false);
 
@@ -39,20 +39,20 @@ const CreateAccount = () => {
       setLoadingMessage("Authenticating through MetaMask, if nothing happens please click the MetaMask extension.")
       Moralis.Web3.getSigningData = () => 'Welcome to SpacePath Marketplace! Please sign in to create an account.';
       Moralis.Web3.authenticate().then((user) => {
-        try { 
-          if(user){
-          setAuthenticationChecker(false);
-          setVisibleModal(false);
+        try {
+          if (user) {
+            setAuthenticationChecker(false);
+            setVisibleModal(false);
           } else {
             setVisibleErrorModal(true);
           };
         } catch {
-          
-        }
-    })
-  } catch {
 
-  }
+        }
+      })
+    } catch {
+
+    }
   };
 
   async function WalletConnectAuthentication() {
@@ -62,105 +62,112 @@ const CreateAccount = () => {
       setLoadingMessage("Authenticating through WalletConnect");
       Moralis.Web3.getSigningData = () => 'Welcome to SpacePath Marketplace! Please sign in to create an account.';
       await Moralis.Web3.authenticate({ provider: "walletconnect" }).then((user) => {
-        try { 
-          if(user){
-          setAuthenticationChecker(false);
-          setVisibleModal(false);
+        try {
+          if (user) {
+            setAuthenticationChecker(false);
+            setVisibleModal(false);
           } else {
             setVisibleErrorModal(true);
+            setVisibleModal(false);
           };
         } catch (error) {
-          console.log(error)
+          if (error) {
+            setVisibleErrorModal(true);
+            setVisibleModal(false);
+          };
         };
 
-    })
+      })
     } catch (error) {
-      if (error === "User closed modal") {
+      let a = error;
+      if (a.toString() === "Error: User closed modal") {
         setVisibleErrorModal(true);
-       };
+        setVisibleModal(false);
+      }
     };
   };
 
+
   useEffect(() => {
 
-}, [visibleModal, visibleErrorModal, authenticationChecker]);
+  }, [visibleModal, visibleErrorModal, authenticationChecker]);
 
-const setProfileAvatar = async () => {
+  const setProfileAvatar = async () => {
 
-  const user = await Moralis.User.current();
+    const user = await Moralis.User.current();
 
-  const userAvatarFile = document.getElementById("profileAvatar");
+    const userAvatarFile = document.getElementById("profileAvatar");
 
-  if (userAvatarFile.files.length > 0) {
-    const file = userAvatarFile.files[0];
-    const name = "photo";
-  
-    const profilePicture = new Moralis.File(name, file);
+    if (userAvatarFile.files.length > 0) {
+      const file = userAvatarFile.files[0];
+      const name = "photo";
 
-    user.set("profile_picture", profilePicture);
+      const profilePicture = new Moralis.File(name, file);
 
-    await user.save()
+      user.set("profile_picture", profilePicture);
 
-    const userAvatar = await user.get("profile_picture");
+      await user.save()
 
-    const userAvatarImg = document.getElementById('imgAvatar');
+      const userAvatar = await user.get("profile_picture");
 
-    userAvatarImg.src = userAvatar.url();
+      const userAvatarImg = document.getElementById('imgAvatar');
 
-  };
+      userAvatarImg.src = userAvatar.url();
 
-}
+    };
 
-const query = new Moralis.Query(Moralis.User);
+  }
+
+  const query = new Moralis.Query(Moralis.User);
 
   return (
-      <>
-        <Modal visible={visibleModal} onClose={modalClose}>
-                <LoadingModal 
-                  loadingMessage={loadingMessage}
-                />
-              </Modal>
-              <Modal visible={visibleErrorModal} onClose={() => setVisibleErrorModal(false)}>
-                <Error
-                errorMessage={errorMessage}
-                />
-          </Modal>
+    <>
+      <Modal visible={visibleModal} onClose={modalClose}>
+        <LoadingModal
+          loadingMessage={loadingMessage}
+        />
+      </Modal>
+      <Modal visible={visibleErrorModal} onClose={() => setVisibleErrorModal(false)}>
+        <Error
+          errorMessage={errorMessage}
+        />
+      </Modal>
       <div className={cn("section-pt80", styles.section)}>
         <div className={cn("container", styles.container)}>
           <div className={styles.head}>
-              <div className={cn("h2", styles.stage)}>Create Account for Demo Access</div>
+            <div className={cn("h2", styles.stage)}>Create Account for Demo Access</div>
           </div>
           <div className={styles.body}>
-          <>
-            {authenticationChecker ? (
             <>
-              <div className={styles.menu}>
-                
-                <h1>Wallet Login</h1>
-                
-                <div
-                  className={cn( [styles.active] , styles.link)} onClick={MetaMaskAuthentication}
-                >
-                  <div
-                    className={styles.icon}
-                  >
-                    <img src='https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/MetaMaskLogo.png?alt=media&token=5a3825d4-fbe3-49f4-af45-76340fb89e03' alt="MetaMask Logo" />
+              {authenticationChecker ? (
+                <>
+                  <div className={styles.menu}>
+
+                    <h1>Wallet Login</h1>
+
+                    <div
+                      className={cn([styles.active], styles.link)} onClick={MetaMaskAuthentication}
+                    >
+                      <div
+                        className={styles.icon}
+                      >
+                        <img src='https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/MetaMaskLogo.png?alt=media&token=5a3825d4-fbe3-49f4-af45-76340fb89e03' alt="MetaMask Logo" />
+                      </div>
+                      <span className={styles.title}>MetaMask Wallet</span>
+                    </div>
+                    <div
+                      className={cn([styles.active], styles.link)} onClick={WalletConnectAuthentication}
+                    >
+                      <div
+                        className={styles.icon}
+                      >
+                        <img src='https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/WalletConnectLogo.png?alt=media&token=25e3b68d-ac7f-4810-a66c-e4c2d59ba112' alt="Wallet Connect Logo" />
+                      </div>
+                      <span className={styles.title}>Wallet Connect</span>
+                    </div>
                   </div>
-                  <span className={styles.title}>MetaMask Wallet</span>
-                </div>
-                <div
-                  className={cn( [styles.active] , styles.link)} onClick={WalletConnectAuthentication}
-                >
-                  <div
-                    className={styles.icon}
-                  >
-                    <img src='https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/WalletConnectLogo.png?alt=media&token=25e3b68d-ac7f-4810-a66c-e4c2d59ba112' alt="Wallet Connect Logo"/>
-                  </div>
-                  <span className={styles.title}>Wallet Connect</span>
-                </div>
-                </div>
                 </>
-                ) : (
+              ) : (
                   <>
                     <h2 className={styles.createaccounttitle}>Enter Profile Details</h2>
                     <div className={styles.menu}>
@@ -180,30 +187,30 @@ const query = new Moralis.Query(Moralis.User);
                         </div>
                       </div>
                       <div className={styles.subcategory}>Enter Your Username</div>
-                    <input className={styles.input} type='text' placeholder='Username' />
-                    <div className={styles.subcategory}>Enter Your Display Name</div>
-                    <input className={styles.input} type='text' placeholder='Display Name' />
-                    <div className={styles.subcategory}>Enter Your Bio</div>
-                    <textarea className={styles.textarea} type='textarea' placeholder='Bio (optional)' />
+                      <input className={styles.input} type='text' placeholder='Username' />
+                      <div className={styles.subcategory}>Enter Your Display Name</div>
+                      <input className={styles.input} type='text' placeholder='Display Name' />
+                      <div className={styles.subcategory}>Enter Your Bio</div>
+                      <textarea className={styles.textarea} type='textarea' placeholder='Bio (optional)' />
                       <Link to='/home'>
                         <button
-                            className={cn("button-small", styles.button)} 
-                          >
-                            Create Profile
+                          className={cn("button-small", styles.button)}
+                        >
+                          Create Profile
                           </button>
                       </Link>
                     </div>
                   </>
                 )}
-                </>
-              </div>
-            <div>
-            </div>
-            <div className={styles.wrapper}>
-            
-            </div>
+            </>
+          </div>
+          <div>
+          </div>
+          <div className={styles.wrapper}>
+
           </div>
         </div>
+      </div>
     </>
   );
 };
