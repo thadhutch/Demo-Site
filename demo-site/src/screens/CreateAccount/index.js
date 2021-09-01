@@ -55,13 +55,13 @@ const CreateAccount = () => {
   }
   };
 
-  function WalletConnectAuthentication() {
+  async function WalletConnectAuthentication() {
 
     try {
       setVisibleModal(true);
       setLoadingMessage("Authenticating through WalletConnect");
       Moralis.Web3.getSigningData = () => 'Welcome to SpacePath Marketplace! Please sign in to create an account.';
-      Moralis.Web3.authenticate({ provider: "walletconnect" }).then((user) => {
+      await Moralis.Web3.authenticate({ provider: "walletconnect" }).then((user) => {
         try { 
           if(user){
           setAuthenticationChecker(false);
@@ -69,8 +69,8 @@ const CreateAccount = () => {
           } else {
             setVisibleErrorModal(true);
           };
-        } catch {
-
+        } catch (error) {
+          console.log(error)
         };
 
     })
