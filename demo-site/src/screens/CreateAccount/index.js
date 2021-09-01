@@ -47,7 +47,7 @@ const CreateAccount = () => {
             setVisibleErrorModal(true);
           };
         } catch {
-          
+
         }
     })
   } catch {
@@ -68,15 +68,24 @@ const CreateAccount = () => {
           setVisibleModal(false);
           } else {
             setVisibleErrorModal(true);
+            setVisibleModal(false);
           };
-        } catch {
-
+        } catch (error){
+          if (error === "Error: User canceled") {
+            setVisibleErrorModal(true);
+            setVisibleModal(false);
+           };
         };
 
     })
     } catch (error) {
-      if (error === "User closed modal") {
+      if (error === "Error: User closed modal") {
         setVisibleErrorModal(true);
+        setVisibleModal(false);
+       };
+       if (error === "Error: User canceled") {
+        setVisibleErrorModal(true);
+        setVisibleModal(false);
        };
     };
   };
