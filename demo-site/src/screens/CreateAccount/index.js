@@ -26,6 +26,10 @@ const CreateAccount = () => {
   const [loadingMessage, setLoadingMessage] = useState("Authenticating through MetaMask");
   const [errorMessage, setErrorMessage] = useState("Authentication has been cancelled");
 
+  const [username, setUsername] = useState();
+  const [displayname, setDisplayname] = useState();
+  const [bio, setBio] = useState();
+
   const [authenticationChecker, setAuthenticationChecker] = useState(true);
 
   const modalClose = () => {
@@ -93,7 +97,7 @@ const CreateAccount = () => {
 
   useEffect(() => {
 
-  }, [visibleModal, visibleErrorModal, authenticationChecker]);
+  }, [visibleModal, visibleErrorModal, authenticationChecker, displayname, username, bio]);
 
   const setProfileAvatar = async () => {
 
@@ -121,6 +125,42 @@ const CreateAccount = () => {
 
   }
 
+  async function setUsernameval(usernameval){
+    const user = await Moralis.User.current();
+
+    setUsername(usernameval.target.value);
+
+    user.set("username", usernameval.target.value);
+
+};
+
+
+async function setBioval(bioval){
+  const user = await Moralis.User.current();
+
+  setBio(bioval.target.value);
+
+  user.set("bio", bioval.target.value);
+
+};
+
+async function setDisplayNameval(displaynameval){
+  const user = await Moralis.User.current();
+
+  setDisplayname(displaynameval.target.value);
+
+  user.set("displayName", displaynameval.target.value);
+
+};
+
+async function saveUser(){   
+    
+  const user = await Moralis.User.current();
+  
+  user.save();
+
+};
+
   const query = new Moralis.Query(Moralis.User);
 
   return (
@@ -137,11 +177,11 @@ const CreateAccount = () => {
       </Modal>
       <div className={cn("section-pt80", styles.section)}>
         <div className={cn("container", styles.container)}>
+        <>
           <div className={styles.head}>
             <div className={cn("h2", styles.stage)}>Create Account for Demo Access</div>
           </div>
           <div className={styles.body}>
-            <>
               {authenticationChecker ? (
                 <>
                   <div className={styles.menu}>
@@ -180,7 +220,7 @@ const CreateAccount = () => {
                           Drag or choose your file to upload
                         </div>
                         <div className={styles.file}>
-                          <input className={styles.load} type="file" id="createNFTFile" onChange={setProfileAvatar} />
+                          <input className={styles.load} type="file" id="profileAvatar" onChange={setProfileAvatar} />
                           <div className={styles.uploadicon}>
                             <Icon name="upload-file" size="24" />
                           </div>
@@ -190,14 +230,14 @@ const CreateAccount = () => {
                         </div>
                       </div>
                       <div className={styles.subcategory}>Enter Your Username</div>
-                      <input className={styles.input} type='text' placeholder='Username' />
+                      <input className={styles.input} type='text' placeholder='Username' onChange={setUsernameval}/>
                       <div className={styles.subcategory}>Enter Your Display Name</div>
-                      <input className={styles.input} type='text' placeholder='Display Name' />
+                      <input className={styles.input} type='text' placeholder='Display Name' onChange={setDisplayNameval}/>
                       <div className={styles.subcategory}>Enter Your Bio</div>
-                      <textarea className={styles.textarea} type='textarea' placeholder='Bio (optional)' />
+                      <textarea className={styles.textarea} type='textarea' placeholder='Bio (optional)' onChange={setBioval}/>
                       <Link to='/home'>
                         <button
-                          className={cn("button-small", styles.button)}
+                          className={cn("button-small", styles.button)} onClick={saveUser}
                         >
                           Create Profile
                           </button>
@@ -205,13 +245,44 @@ const CreateAccount = () => {
                     </div>
                   </>
                 )}
-            </>
-          </div>
-          <div>
-          </div>
-          <div className={styles.wrapper}>
-
-          </div>
+              </div>
+              <div>
+              </div>
+              <div className={styles.wrapper}>
+                {authenticationChecker ? (
+                  <>
+                  </>
+                ) : (
+                  <div className={styles.previewcontainer}>
+                  <div className={cn(styles.wrap)}>
+                        <div className={styles.inner}>
+                          <div className={styles.info}>Profile Card Preview</div>
+                          <div className={styles.artistCardContainer}>
+                            <div className={styles.artistCardImg}>
+                              <img src={"https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/defaultProfileBackground.png?alt=media&token=79e04361-65f6-400d-8527-21220062872d"} id="profileBanner" alt="profile banner" />
+                            </div>
+                            <div className={styles.artistUsernameAvatarContainer}>
+                              <div className={styles.artistUsernameAvatar}>
+                                  <div>
+                                    <div className={styles.artistAvatar} >
+                                      <img src={"https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo.png?alt=media&token=be8595a7-f66f-452e-8adc-0628bf912c1a"} id="imgAvatar" alt="Avatar" />
+                                    </div>
+                                    <div className={styles.realName} id="namePreview">Sample Name</div>
+                                    <h5 id="usernamePreview">@sampleuser</h5>
+                                    <p id="bioPreview">Welcome to SpacePath's demo! Thank you for making an account and supporting our project. #FollowThePath</p>
+                                    <button className={cn("button", styles.followerbutton)}>Follow</button>
+                                    <div className={styles.followers}>Followers</div>
+                                    <div className={styles.followerCount}>0</div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+                </div>
+                  )}
+              </div>
+              </>
         </div>
       </div>
     </>
