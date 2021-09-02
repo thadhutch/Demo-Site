@@ -377,6 +377,7 @@ a
             margin-bottom: 32px
 
 .note
+    text-align: center
     margin-top: 4px
     +caption-2
     color: $neutrals4
@@ -387,6 +388,7 @@ a
     flex-direction: column
     justify-content: center
     align-items: center
+    cursor: pointer
     height: 182px
     margin-top: 16px
     border-radius: 16px
@@ -394,6 +396,8 @@ a
     background: $neutrals7
     +dark
         background: $neutrals2
+    
+        
 
 .load
     position: absolute
@@ -408,10 +412,12 @@ a
         fill: $neutrals4
     
 .format
+    padding: 0 0 0 0
     +caption-2
     color: $neutrals4
 
 .pagecategory
+    text-align: center
     +body-bold-2
 
 .createaccounttitle
@@ -511,6 +517,7 @@ a
 .realName
     font-size: 20px
     padding-top: 45px
+    font-weight: bold
     +dark 
         color: $neutrals6
 
@@ -519,6 +526,12 @@ a
   background: -webkit-linear-gradient(45deg, #f84f00 10%, #dbcd00 70%)
   -webkit-background-clip: text
   -webkit-text-fill-color: transparent
+  &:nth-child(2)
+      position: absolute
+      top: 78px
+      left: 26px
+      text-transform: lowercase
+      
 
 .artistUsernameAvatar p
     padding-top: 30px
@@ -531,9 +544,11 @@ a
     position: absolute
     border-radius: 50%
     border: 6px $neutrals2 solid
+    background: $neutrals2
 
 .artistAvatar img
     width: 60px
+    height: 60px
     border-radius: 50%
 
 .followerbutton
@@ -558,3 +573,15 @@ a
     background: -webkit-linear-gradient(45deg, #f84f00 10%, #dbcd00 70%)
     -webkit-background-clip: text
     -webkit-text-fill-color: transparent
+
+.fileUpload 
+    display: inline-block
+    &:nth-child(1)
+        width: 242px
+        margin-left: 10px
+    &:nth-child(2)
+        width: 242px
+        margin-left: 40px
+        margin-right: 10px
+        
+    

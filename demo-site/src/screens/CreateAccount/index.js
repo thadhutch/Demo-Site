@@ -26,11 +26,15 @@ const CreateAccount = () => {
   const [loadingMessage, setLoadingMessage] = useState("Authenticating through MetaMask");
   const [errorMessage, setErrorMessage] = useState("Authentication has been cancelled");
 
-  const [username, setUsername] = useState();
-  const [displayname, setDisplayname] = useState();
-  const [bio, setBio] = useState();
+  const [username, setUsername] = useState("");
+  const [displayName, setDisplayName] = useState("");
+  const [bio, setBio] = useState("");
 
   const [authenticationChecker, setAuthenticationChecker] = useState(true);
+
+  const usernamePreview = document.getElementById("usernamePreview");
+  const bioPreview = document.getElementById("bioPreview");
+  const namePreview = document.getElementById("namePreview");
 
   const modalClose = () => {
     setVisibleModal(false);
@@ -97,7 +101,18 @@ const CreateAccount = () => {
 
   useEffect(() => {
 
-  }, [visibleModal, visibleErrorModal, authenticationChecker, displayname, username, bio]);
+
+    if(username.length > 0){
+      usernamePreview.innerHTML = username;
+    };
+    if(displayName.length > 0){
+      namePreview.innerHTML = displayName;
+    };
+    if(bio.length > 0){
+      bioPreview.innerHTML = bio;
+    };
+
+  }, [visibleModal, visibleErrorModal, authenticationChecker, displayName, username, bio]);
 
   const setProfileAvatar = async () => {
 
@@ -107,17 +122,43 @@ const CreateAccount = () => {
 
     if (userAvatarFile.files.length > 0) {
       const file = userAvatarFile.files[0];
-      const name = "photo";
+      const name = "avatar";
 
-      const profilePicture = new Moralis.File(name, file);
+      const profilePictureFile = new Moralis.File(name, file);
 
-      user.set("profile_picture", profilePicture);
+      user.set("profile_picture", profilePictureFile);
 
       await user.save()
 
-      const userAvatar = await user.get("profile_picture");
+      const profileAvatar = await user.get("profile_picture");
 
-      const userAvatarImg = document.getElementById('imgAvatar');
+      const userProfileAvatar = document.getElementById('imgAvatar');
+
+      userProfileAvatar.src = profileAvatar.url();
+
+    };
+
+  }
+
+  const setProfileBanner = async () => {
+
+    const user = await Moralis.User.current();
+
+    const userProfileBanner = document.getElementById("profileBannerInput");
+
+    if (userProfileBanner.files.length > 0) {
+      const file = userProfileBanner.files[0];
+      const name = "profile banner";
+
+      const profilePicture = new Moralis.File(name, file);
+
+      user.set("profile_banner", profilePicture);
+
+      await user.save()
+
+      const userAvatar = await user.get("profile_banner");
+
+      const userAvatarImg = document.getElementById('profileBanner');
 
       userAvatarImg.src = userAvatar.url();
 
@@ -125,39 +166,17 @@ const CreateAccount = () => {
 
   }
 
-  async function setUsernameval(usernameval){
-    const user = await Moralis.User.current();
-
-    setUsername(usernameval.target.value);
-
-    user.set("username", usernameval.target.value);
-
-};
 
 
-async function setBioval(bioval){
-  const user = await Moralis.User.current();
-
-  setBio(bioval.target.value);
-
-  user.set("bio", bioval.target.value);
-
-};
-
-async function setDisplayNameval(displaynameval){
-  const user = await Moralis.User.current();
-
-  setDisplayname(displaynameval.target.value);
-
-  user.set("displayName", displaynameval.target.value);
-
-};
 
 async function saveUser(){   
     
   const user = await Moralis.User.current();
-  
-  user.save();
+
+  await user.set("username", username);
+  await user.set("display_name", displayName);
+  await user.set("bio", bio);
+  await user.save();
 
 };
 
@@ -214,27 +233,46 @@ async function saveUser(){
                   <>
                     <h2 className={styles.createaccounttitle}>Enter Profile Details</h2>
                     <div className={styles.menu}>
-                      <div className={styles.uploaditem}>
-                        <div className={styles.pagecategory}>Upload file</div>
-                        <div className={styles.note}>
-                          Drag or choose your file to upload
-                        </div>
-                        <div className={styles.file}>
-                          <input className={styles.load} type="file" id="profileAvatar" onChange={setProfileAvatar} />
-                          <div className={styles.uploadicon}>
-                            <Icon name="upload-file" size="24" />
+                      <div className={styles.fileUpload}>
+                        <div className={styles.uploaditem}>
+                          <div className={styles.pagecategory}>Upload Profile Avatar</div>
+                          <div className={styles.note}>
+                            Drag or choose your file to upload
                           </div>
-                          <div className={styles.format}>
-                            PNG, GIF, WEBP, MP4 or MP3. Max 100Mb.
+                          <div className={styles.file}>
+                            <input className={styles.load} type="file" id="profileAvatar" onChange={setProfileAvatar} />
+                            <div className={styles.uploadicon}>
+                              <Icon name="upload-file" size="24" />
+                            </div>
+                            <div className={styles.format}>
+                              PNG, GIF, WEBP, MP4 or MP3. Max 10Mb.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={styles.fileUpload}>
+                        <div className={styles.uploaditem}>
+                          <div className={styles.pagecategory}>Upload Profile Banner</div>
+                          <div className={styles.note}>
+                            Drag or choose your file to upload
+                          </div>
+                          <div className={styles.file}>
+                            <input className={styles.load} type="file" id="profileBannerInput" onChange={setProfileBanner} />
+                            <div className={styles.uploadicon}>
+                              <Icon name="upload-file" size="24" />
+                            </div>
+                            <div className={styles.format}>
+                              PNG, GIF, JPG, MP4 or MP3. Max 10Mb.
+                            </div>
                           </div>
                         </div>
                       </div>
                       <div className={styles.subcategory}>Enter Your Username</div>
-                      <input className={styles.input} type='text' placeholder='Username' onChange={setUsernameval}/>
+                      <input className={styles.input} type='text' placeholder='Username' onChange={e => setUsername(e.target.value)}/>
                       <div className={styles.subcategory}>Enter Your Display Name</div>
-                      <input className={styles.input} type='text' placeholder='Display Name' onChange={setDisplayNameval}/>
+                      <input className={styles.input} type='text' placeholder='Display Name' onChange={e => setDisplayName(e.target.value)}/>
                       <div className={styles.subcategory}>Enter Your Bio</div>
-                      <textarea className={styles.textarea} type='textarea' placeholder='Bio (optional)' onChange={setBioval}/>
+                      <textarea className={styles.textarea} type='textarea' placeholder='Bio (optional)' onChange={e => setBio(e.target.value)}/>
                       <Link to='/home'>
                         <button
                           className={cn("button-small", styles.button)} onClick={saveUser}
@@ -268,7 +306,10 @@ async function saveUser(){
                                       <img src={"https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo.png?alt=media&token=be8595a7-f66f-452e-8adc-0628bf912c1a"} id="imgAvatar" alt="Avatar" />
                                     </div>
                                     <div className={styles.realName} id="namePreview">Sample Name</div>
-                                    <h5 id="usernamePreview">@sampleuser</h5>
+                                    <span>
+                                      <h5>@</h5>
+                                      <h5 id="usernamePreview">sampleuser</h5>
+                                    </span>
                                     <p id="bioPreview">Welcome to SpacePath's demo! Thank you for making an account and supporting our project. #FollowThePath</p>
                                     <button className={cn("button", styles.followerbutton)}>Follow</button>
                                     <div className={styles.followers}>Followers</div>
