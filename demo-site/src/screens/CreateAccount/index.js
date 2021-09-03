@@ -103,12 +103,15 @@ const CreateAccount = () => {
 
 
     if(username.length > 0){
+      user.set("username", username);
       usernamePreview.innerHTML = username;
     };
     if(displayName.length > 0){
+      user.set("display_name", displayName);
       namePreview.innerHTML = displayName;
     };
     if(bio.length > 0){
+      user.set("bio", bio);
       bioPreview.innerHTML = bio;
     };
 
@@ -173,9 +176,6 @@ async function saveUser(){
     
   const user = await Moralis.User.current();
 
-  await user.set("username", username);
-  await user.set("display_name", displayName);
-  await user.set("bio", bio);
   await user.save();
 
 };
