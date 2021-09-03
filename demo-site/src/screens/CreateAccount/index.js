@@ -6,7 +6,9 @@ import Modal from "../../components/Modal/index";
 import LoadingModal from "../../components/LoadingModal/index";
 import Error from "../../components/Error/index";
 import { useMoralis } from "react-moralis";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { UserContext } from "../../GlobalState/user";
+
 
 
 
@@ -17,6 +19,8 @@ const CreateAccount = () => {
 
 
   const user = Moralis.User.current();
+
+  const { isUserAuthenticated,  setUserAuthenticated} = useContext(UserContext);
 
 
   const { authenticate, isAuthenticated, isAuthenticating, isLoggingOut } = useMoralis();
@@ -175,6 +179,8 @@ const CreateAccount = () => {
 async function saveUser(){   
     
   const user = await Moralis.User.current();
+
+  setUserAuthenticated(true);
 
   await user.save();
 
