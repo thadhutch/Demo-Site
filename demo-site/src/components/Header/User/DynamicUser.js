@@ -2,7 +2,7 @@ import User from "./index";
 import React, { useState, useEffect, useContext } from "react";
 import { useMoralis } from "react-moralis";
 import styles from './User.module.sass';
-import { UserContext } from '../../../GlobalState/user'
+import { AvatarContext } from '../../../GlobalState'
 
 function DynamicUser() {
 
@@ -11,12 +11,13 @@ function DynamicUser() {
 
    const user = Moralis.User.current();
 
-   const { isUserAuthenticated } = useContext(UserContext);
+   const { isAvatar } = useContext(AvatarContext);
+
 
 
     
 
-    if (isUserAuthenticated) {
+    if (isAvatar) {
         const profileAvatar = user.get("profile_picture");
 
         return (
@@ -28,7 +29,7 @@ function DynamicUser() {
     } else {
         return (
             <User 
-                ProfilePic={"/images/content/logo.png"}
+                ProfilePic={"https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo.png?alt=media&token=be8595a7-f66f-452e-8adc-0628bf912c1a"}
                 className={styles.user}/>
         );
     };

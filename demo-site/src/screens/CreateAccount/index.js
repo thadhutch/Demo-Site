@@ -5,9 +5,8 @@ import Icon from "../../components/Icon";
 import Modal from "../../components/Modal/index";
 import LoadingModal from "../../components/LoadingModal/index";
 import Error from "../../components/Error/index";
-import { useMoralis } from "react-moralis";
 import React, { useState, useEffect, useContext } from "react";
-import { UserContext } from "../../GlobalState/user";
+import { UserContext, AvatarContext } from "../../GlobalState";
 
 
 
@@ -20,10 +19,13 @@ const CreateAccount = () => {
 
   const user = Moralis.User.current();
 
-  const { isUserAuthenticated,  setUserAuthenticated} = useContext(UserContext);
+  const { setUserAuthenticated} = useContext(UserContext);
+  const { setAvatar } = useContext(AvatarContext);
+
+  const [profileRequirementsChecker, setProfileRequirementsChecker] = useState(false);
 
 
-  const { authenticate, isAuthenticated, isAuthenticating, isLoggingOut } = useMoralis();
+
   const [visibleModal, setVisibleModal] = useState(false);
   const [visibleErrorModal, setVisibleErrorModal] = useState(false);
 
@@ -104,7 +106,15 @@ const CreateAccount = () => {
 
 
   useEffect(() => {
-
+    
+      if(username.length === 0){
+        setProfileRequirementsChecker(false)
+      } else if(displayName.length === 0) {
+        setProfileRequirementsChecker(false)
+      } else {
+        setProfileRequirementsChecker(true);
+      };
+  
 
     if(username.length > 0){
       user.set("username", username);
@@ -119,7 +129,7 @@ const CreateAccount = () => {
       bioPreview.innerHTML = bio;
     };
 
-  }, [visibleModal, visibleErrorModal, authenticationChecker, displayName, username, bio]);
+  }, [displayName, username, bio]);
 
   const setProfileAvatar = async () => {
 
@@ -176,17 +186,27 @@ const CreateAccount = () => {
 
 
 
-async function saveUser(){   
+  const saveUser = async () => {    
     
-  const user = await Moralis.User.current();
-
-  setUserAuthenticated(true);
-
-  await user.save();
+      const user = await Moralis.User.current();
+      setUserAuthenticated(true);
+      await user.save();
 
 };
 
-  const query = new Moralis.Query(Moralis.User);
+const displayError = async () => {    
+    
+  if(username.length === 0){
+    setErrorMessage("Please enter a username");
+    setVisibleErrorModal(true);
+    return [setVisibleErrorModal, setErrorMessage];
+  } else if(displayName.length === 0) {
+    setErrorMessage("Please enter a display name");
+    setVisibleErrorModal(true);
+    return;
+  };
+};
+
 
   return (
     <>
@@ -274,18 +294,26 @@ async function saveUser(){
                         </div>
                       </div>
                       <div className={styles.subcategory}>Enter Your Username</div>
-                      <input className={styles.input} type='text' placeholder='Username' onChange={e => setUsername(e.target.value)}/>
+                      <input className={styles.input} id="usernameInput" type='text' placeholder='Username' onChange={e => setUsername(e.target.value)}/>
                       <div className={styles.subcategory}>Enter Your Display Name</div>
-                      <input className={styles.input} type='text' placeholder='Display Name' onChange={e => setDisplayName(e.target.value)}/>
+                      <input className={styles.input} id="displayNameInput" type='text' placeholder='Display Name' onChange={e => setDisplayName(e.target.value)}/>
                       <div className={styles.subcategory}>Enter Your Bio</div>
                       <textarea className={styles.textarea} type='textarea' placeholder='Bio (optional)' onChange={e => setBio(e.target.value)}/>
-                      <Link to='/home'>
+                      {profileRequirementsChecker ? (
+                        <Link to='/home'>
+                          <button
+                            className={cn("button-small", styles.button)} onClick={saveUser}
+                          >
+                            Create Profile
+                            </button>
+                        </Link>
+                      ) : (
                         <button
-                          className={cn("button-small", styles.button)} onClick={saveUser}
-                        >
-                          Create Profile
-                          </button>
-                      </Link>
+                            className={cn("button-small", styles.button)} onClick={displayError}
+                          >
+                            Create Profile
+                        </button>
+                      )}
                     </div>
                   </>
                 )}
@@ -293,6 +321,11 @@ async function saveUser(){
               <div>
               </div>
               <div className={styles.wrapper}>
+              <Modal visible={visibleErrorModal} onClose={() => setVisibleErrorModal(false)}>
+                <Error
+                  errorMessage={errorMessage}
+                />
+              </Modal>
                 {authenticationChecker ? (
                   <>
                   </>

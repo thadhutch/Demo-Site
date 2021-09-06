@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import cn from "classnames";
 import OutsideClickHandler from "react-outside-click-handler";
 import styles from "./User.module.sass";
+import Modal from "../../Modal/index";
+import Error from "../../Error";
+
 
 
 
@@ -29,15 +31,22 @@ const items = [
 ];
 
 const User = ({ className, ...props }) => {
-  const [visible, setVisible] = useState(false);
+  const [visibleModal, setVisibleModal] = useState(false);
+
+  const [errorMessage, setErrorMessage] = useState("The Profile Feature isn't avaliable in the demo. This feature will be avaliable in the MVP!");
 
 
     
     
   return (
-    <Link to="/profile">
+    <>
+    <Modal visible={visibleModal} onClose={() => setVisibleModal(false)}>
+      <Error 
+        errorMessage={errorMessage}
+      />
+    </Modal>
       <div className={cn(styles.user, className)}>
-        <div className={styles.head} onClick={() => setVisible(!visible)}>
+        <div className={styles.head} onClick={() => setVisibleModal(true)}>
           <div className={styles.avatar}>
             <img src={props.ProfilePic} id="imgAvatar1" alt="Avatar" />
           </div>
@@ -46,7 +55,7 @@ const User = ({ className, ...props }) => {
           </div>
         </div>
       </div>
-    </Link>
+   </>
   );
 };
 
