@@ -84,6 +84,8 @@
     font-size: 35px
 
 .wrapper
+    position: relative
+    display: inline-block
     width: 544
     flex-grow: 1
     padding-left: 128px
@@ -100,6 +102,10 @@
     
 .link
     position: relative
+    top: 0
+    transition: top ease 0.25s
+    &:hover
+        top: -10px
     display: flex
     align-items: center
     padding: 32px 64px 32px 32px
@@ -371,6 +377,7 @@ a
             margin-bottom: 32px
 
 .note
+    text-align: center
     margin-top: 4px
     +caption-2
     color: $neutrals4
@@ -381,6 +388,7 @@ a
     flex-direction: column
     justify-content: center
     align-items: center
+    cursor: pointer
     height: 182px
     margin-top: 16px
     border-radius: 16px
@@ -388,6 +396,8 @@ a
     background: $neutrals7
     +dark
         background: $neutrals2
+    
+        
 
 .load
     position: absolute
@@ -402,10 +412,12 @@ a
         fill: $neutrals4
     
 .format
+    padding: 0 0 0 0
     +caption-2
     color: $neutrals4
 
 .pagecategory
+    text-align: center
     +body-bold-2
 
 .createaccounttitle
@@ -413,3 +425,163 @@ a
     margin-top: -20px
     margin-bottom: 50px
     font-size: 25px
+
+.inner
+    padding: 48px
+    background: $neutrals8
+    box-shadow: 0px 64px 64px rgba(31, 47, 70, 0.12)
+    border-radius: 16px
+    +d
+        padding: 24px
+    +t
+        position: relative
+        width: 352px
+        margin: auto
+    +dark
+        background: $neutrals1
+        box-shadow: inset 0 0 0 1px $neutrals3
+
+   
+.previewcontainer
+    flex-shrink: 0
+    position: absolute
+    width: 352px  
+    left: 950px
+    top: -500px
+    +d
+        width: 304px 
+    +t
+        display: flex
+        top: 50px
+        left: 0
+        width: 100%
+        height: 100%
+        padding: 48px
+        background: rgba($neutrals1,.9)
+        overflow: auto
+        z-index: 999
+        visibility: hidden
+        opacity: 0
+        transition: all .4s
+        +dark
+            background: rgba($neutrals2,.9)
+        &.active
+            visibility: visible
+            opacity: 1
+    +m
+        padding: 32px 16px
+
+.info
+    margin-bottom: 24px
+    +body-bold-1
+    font-size: 20px
+
+.artistCardContainer
+    position: relative
+    border-radius: 15px
+    height: 400px
+    width: 256px
+    overflow: hidden
+    background-color: $neutrals2
+    cursor: pointer
+    top: 0
+    transition: top ease 0.25s
+    &:hover
+        top: -10px
+
+
+.artistCardImg img
+    height: 135px
+    width: 100%
+    border-radius: 20px
+    padding: 10px
+
+
+.artistUsernameAvatarContainer
+    position: absolute
+    background-color: $neutrals2
+    top: 125px
+    width: 100%
+    height: 100%
+    
+
+.artistUsernameAvatar
+    padding-left: 15px
+    
+
+.artistUsernameAvatar h2
+    color: $neutrals5
+    padding-top: 45px
+    font-size: 12px
+    
+.realName
+    font-size: 20px
+    padding-top: 45px
+    font-weight: bold
+    +dark 
+        color: $neutrals6
+
+
+.artistUsernameAvatar h5
+  background: -webkit-linear-gradient(45deg, #f84f00 10%, #dbcd00 70%)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  &:nth-child(2)
+      position: absolute
+      top: 78px
+      left: 26px
+      text-transform: lowercase
+      
+
+.artistUsernameAvatar p
+    padding-top: 30px
+    font-size: 12px
+    color: $neutrals5
+       
+.artistAvatar
+    top: -30px
+    left: 92px
+    position: absolute
+    border-radius: 50%
+    border: 6px $neutrals2 solid
+    background: $neutrals2
+
+.artistAvatar img
+    width: 60px
+    height: 60px
+    border-radius: 50%
+
+.followerbutton
+    position: absolute
+    top: 190px
+    left: 15px
+    margin-top: 35px
+    height: 35px
+    border-radius: 15px
+
+.followers
+    position: absolute
+    bottom: 155px
+    right: 25px
+    +dark
+    color: $neutrals6
+
+.followerCount
+    position: absolute
+    bottom: 140px
+    right: 77px
+    background: -webkit-linear-gradient(45deg, #f84f00 10%, #dbcd00 70%)
+    -webkit-background-clip: text
+    -webkit-text-fill-color: transparent
+
+.fileUpload 
+    display: inline-block
+    &:nth-child(1)
+        width: 242px
+        margin-left: 10px
+    &:nth-child(2)
+        width: 242px
+        margin-left: 40px
+        margin-right: 10px
+        
+    

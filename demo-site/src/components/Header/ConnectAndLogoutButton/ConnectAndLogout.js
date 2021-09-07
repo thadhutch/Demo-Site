@@ -1,47 +1,42 @@
 import cn from "classnames";
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { useMoralis } from "react-moralis";
 import styles from "../Header.module.sass";
 import { Link } from "react-router-dom";
 import Loader from '../../Loader/index';
+import { UserContext } from "../../../GlobalState/index";
+
 
 function ConnectAndLogout() {
 
     const Moralis = require('moralis'); 
     Moralis.initialize("mQR7k1NobAMkMfqKdgIQowcepJpSPcOTCNn2Ds8f"); 
+    const { isUserAuthenticated, setUserAuthenticated } = useContext(UserContext);
 
-    const { isAuthenticated, logout, isAuthenticating } = useMoralis();
+    function logoutFunc() {
+        logout();
+        setUserAuthenticated(false);
+    };
 
-    const [userCheck, setUserCheck] = useState(false);
+    const { logout } = useMoralis();
 
-
-    if(isAuthenticated) {
+    if(isUserAuthenticated) {
         return (
             <Link to='/'>
             <button
-            className={cn("button-small", styles.button)} onClick={() => logout()}
+            className={cn("button-small", styles.button)} onClick={logoutFunc}
             >
-            Logout 1
+            Logout
             </button>
             </Link>
         );
-    }
+    } else {
 
-    if(isAuthenticating) {
         return (
-            <Loader />
+           <>
+           </>
         );
-    }
-
-    return (
-        <Link to='/'>
-        <button
-          className={cn("button-small", styles.button)}
-        >
-          Logout
-        </button>
-        </Link>
-    );
+    };
 };
 
 export default ConnectAndLogout;
