@@ -3,7 +3,6 @@ import cn from "classnames";
 import styles from "./About.module.sass";
 // data
 
-
 const About = () => {
   let radius = 240;
   let autoRotate = true;
@@ -28,35 +27,26 @@ const About = () => {
   useEffect(() => {
 
     console.log(document.getElementById('spin-container'));
-
+    
     obox = document.getElementById('drag-container');
     ospin = document.getElementById('spin-container');
     aImg = document.getElementsByTagName('img');
     aVid = document.getElementsByTagName('video');
-    aEle = [aImg, aVid];
+    aEle = [...aImg, ...aVid];
+    setTimeout(init, 1000);
   
     ospin.style.width = imgWidth + "px";
     ospin.style.height = imgHeight + "px";
   
   
     ground = document.getElementById('ground');
-    ground.styles.width = radius * 3 + "px";
-    ground.styles.height = radius * 3 + "px";
-    init(100);
+    ground.style.width = radius * 3 + "px";
+    ground.style.height = radius * 3 + "px";
 
 
     if (autoRotate) {
       let animationName = (rotateSpeed > 0 ? 'spin' : 'spinRevert');
-      ospin.styles.animation = `${animationName} ${Math.abs(rotateSpeed)}s infinite linear`;
-    }
-  
-  
-    if (bgMusicURL) {
-      document.getElementById('music-container').innerHTML += `
-    <audio src="${bgMusicURL}" ${bgMusicControls? 'controls': ''} autoplay loop>    
-    <p>If you are reading this, it is because your browser does not support the audio element.</p>
-    </audio>
-    `;
+      ospin.style.animation = `${animationName} ${Math.abs(rotateSpeed)}s infinite linear`;
     }
   
   }, []);
@@ -74,11 +64,11 @@ const About = () => {
     if(tY > 180) tY = 180;
     if(tY < 0) tY = 0;
 
-    obj.styles.transform = "rotateX(" + (-tY) + "deg) rotateY(" + (tX) + "deg)";
+    obj.style.transform = "rotateX(" + (-tY) + "deg) rotateY(" + (tX) + "deg)";
   }
 
   function playSpin(yes) {
-    ospin.styles.animationPlayState = (yes?'running':'paused');
+    ospin.style.animationPlayState = (yes?'running':'paused');
   }
 
   let sX, sY, nX, nY, desX = 0,
@@ -134,8 +124,8 @@ const About = () => {
   return (
     <div className={styles.aboutPageContainer}>
       <div className={styles.aboutPage}>
-        <div id="drag-container">
-          <div id="spin-container">
+        <div className={styles.dragContainer} id="drag-container">
+          <div className={styles.spinContainer}  id="spin-container">
             <img src="https://images.pexels.com/photos/206395/pexels-photo-206395.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
             <img src="https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
             <img src="https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
@@ -145,12 +135,12 @@ const About = () => {
             <a target="_blank" href="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg">
               <img src="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
             </a>
-            <video controls autoplay="autoplay" loop>
+            {/* <video controls autoplay="autoplay" loop>
               <source src="https://player.vimeo.com/external/322244668.sd.mp4?s=338c48ac2dfcb1d4c0689968b5baf94eee6ca0c1&profile_id=165&oauth2_token_id=57447761" type="video/mp4" />
-            </video>
+            </video> */}
             <p>3D Tiktok Carousel</p>
           </div>
-          <div id="ground"></div>
+          <div className={styles.ground} id="ground"></div>
         </div>
       </div>
 
