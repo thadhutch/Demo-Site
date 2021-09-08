@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import cn from "classnames";
 import styles from "./About.module.sass";
 // data
@@ -15,20 +15,51 @@ const About = () => {
   let bgMusicURL = 'https://api.soundcloud.com/tracks/143041228/stream?client_id=587aa2d384f7333a886010d5f52f302a';
   let bgMusicControls = true;
 
-  setTimeout(init, 100);
-  let obox = document.getElementById('drag-container');
-  let ospin = document.getElementById('spin-container');
-  let aImg = document.getElementById('img');
-  let aVid = document.getElementById('video');
-  let aEle = [aImg, aVid];
-
-  ospin.styles.width = imgWidth + "px";
-  ospin.styles.height = imgHeight + "px";
+  // setTimeout(init, 100);
 
 
-  let ground = document.getElementById('ground');
-  ground.styles.width = radius * 3 + "px";
-  ground.styles.height = radius * 3 + "px";
+  let obox;
+  let ospin;
+  let aImg;
+  let aVid;
+  let aEle;
+  let ground;
+
+  useEffect(() => {
+
+    console.log(document.getElementById('spin-container'));
+
+    // obox = document.getElementById('drag-container');
+    // ospin = document.getElementById('spin-container');
+    // aImg = document.getElementById('img');
+    // aVid = document.getElementById('video');
+    // aEle = [aImg, aVid];
+  
+    // ospin.style.width = imgWidth + "px";
+    // ospin.style.height = imgHeight + "px";
+  
+  
+    // ground = document.getElementById('ground');
+    // ground.styles.width = radius * 3 + "px";
+    // ground.styles.height = radius * 3 + "px";
+    // init(100);
+
+
+    // if (autoRotate) {
+    //   let animationName = (rotateSpeed > 0 ? 'spin' : 'spinRevert');
+    //   ospin.styles.animation = `${animationName} ${Math.abs(rotateSpeed)}s infinite linear`;
+    // }
+  
+  
+    // if (bgMusicURL) {
+    //   document.getElementById('music-container').innerHTML += `
+    // <audio src="${bgMusicURL}" ${bgMusicControls? 'controls': ''} autoplay loop>    
+    // <p>If you are reading this, it is because your browser does not support the audio element.</p>
+    // </audio>
+    // `;
+    // }
+  
+  }, []);
 
   function init(delayTime) {
     for (let i = 0; i < aEle.length; i++) {
@@ -54,22 +85,6 @@ const About = () => {
       desY = 0,
       tX = 0,
       tY = 10;
-
-
-  if (autoRotate) {
-    let animationName = (rotateSpeed > 0 ? 'spin' : 'spinRevert');
-    ospin.styles.animation = `${animationName} ${Math.abs(rotateSpeed)}s infinite linear`;
-  }
-
-
-  if (bgMusicURL) {
-    document.getElementById('music-container').innerHTML += `
-  <audio src="${bgMusicURL}" ${bgMusicControls? 'controls': ''} autoplay loop>    
-  <p>If you are reading this, it is because your browser does not support the audio element.</p>
-  </audio>
-  `;
-  }
-
 
   document.onpointerdown = function (e) {
     clearInterval(obox.timer);
@@ -120,7 +135,7 @@ const About = () => {
     <div className={styles.aboutPageContainer}>
       <div className={styles.aboutPage}>
         <div id={styles.dragContainer}>
-          <div id={styles.spinContainer}>
+          <div id="spin-container">
             <img id={styles.img} src="https://images.pexels.com/photos/206395/pexels-photo-206395.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
             <img id={styles.img} src="https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
             <img id={styles.img} src="https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
