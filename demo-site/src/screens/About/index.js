@@ -1,20 +1,21 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import cn from "classnames";
+import "./animation.css"
 import styles from "./About.module.sass";
 // data
 
 const About = () => {
   let radius = 240;
   let autoRotate = true;
+  let autoRotateX = false;
   let rotateSpeed = -60;
-  let imgWidth = 120; 
+  let rotateSpeedX = -20;
+  let imgWidth = 120;
   let imgHeight = 170;
 
 
   let bgMusicURL = 'https://api.soundcloud.com/tracks/143041228/stream?client_id=587aa2d384f7333a886010d5f52f302a';
   let bgMusicControls = true;
-
-  // setTimeout(init, 100);
 
 
   let obox;
@@ -27,28 +28,33 @@ const About = () => {
   useEffect(() => {
 
     console.log(document.getElementById('spin-container'));
-    
+
     obox = document.getElementById('drag-container');
     ospin = document.getElementById('spin-container');
-    aImg = document.getElementsByTagName('img');
-    aVid = document.getElementsByTagName('video');
+    aImg = document.getElementsByClassName('aboutImg');
+    aVid = document.getElementsByClassName('aboutVideo');
     aEle = [...aImg, ...aVid];
     setTimeout(init, 1000);
-  
+
     ospin.style.width = imgWidth + "px";
     ospin.style.height = imgHeight + "px";
-  
-  
+
+
     ground = document.getElementById('ground');
     ground.style.width = radius * 3 + "px";
     ground.style.height = radius * 3 + "px";
 
 
+    // if (autoRotateX) {
+    //   let animationNameX = (rotateSpeedX > 0 ? 'Xspin' : 'XspinRevert');
+    //   ospin.style.animation = `${animationNameX} ${Math.abs(rotateSpeedX)}s infinite linear`;
+    // }
+
     if (autoRotate) {
       let animationName = (rotateSpeed > 0 ? 'spin' : 'spinRevert');
       ospin.style.animation = `${animationName} ${Math.abs(rotateSpeed)}s infinite linear`;
     }
-  
+
   }, []);
 
   function init(delayTime) {
@@ -61,31 +67,31 @@ const About = () => {
 
   function applyTranform(obj) {
 
-    if(tY > 180) tY = 180;
-    if(tY < 0) tY = 0;
+    if (tY > 180) tY = 180;
+    if (tY < 0) tY = 0;
 
     obj.style.transform = "rotateX(" + (-tY) + "deg) rotateY(" + (tX) + "deg)";
   }
 
   function playSpin(yes) {
-    ospin.style.animationPlayState = (yes?'running':'paused');
+    ospin.style.animationPlayState = (yes ? 'running' : 'paused');
   }
 
   let sX, sY, nX, nY, desX = 0,
-      desY = 0,
-      tX = 0,
-      tY = 10;
+    desY = 0,
+    tX = 0,
+    tY = 10;
 
   document.onpointerdown = function (e) {
     clearInterval(obox.timer);
     e = e || window.event;
     let sX = e.clientX,
-        sY = e.clientY;
+      sY = e.clientY;
 
     this.onpointermove = function (e) {
       e = e || window.event;
       let nX = e.clientX,
-          nY = e.clientY;
+        nY = e.clientY;
       desX = nX - sX;
       desY = nY - sY;
       tX += desX * 0.1;
@@ -114,28 +120,28 @@ const About = () => {
     return false;
   };
 
-  document.onmousewheel = function(e) {
-    e = e || window.event;
-    let d = e.wheelDelta / 20 || -e.detail;
-    radius += d;
-    init(1);
-  };
+  // document.onmousewheel = function (e) {
+  //   e = e || window.event;
+  //   let d = e.wheelDelta / 20 || -e.detail;
+  //   radius += d;
+  //   init(1);
+  // };
 
   return (
     <div className={styles.aboutPageContainer}>
       <div className={styles.aboutPage}>
         <div className={styles.dragContainer} id="drag-container">
-          <div className={styles.spinContainer}  id="spin-container">
-            <img src="https://images.pexels.com/photos/206395/pexels-photo-206395.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-            <img src="https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-            <img src="https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-            <img src="https://images.pexels.com/photos/1758144/pexels-photo-1758144.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-            <img src="https://images.pexels.com/photos/1382734/pexels-photo-1382734.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-            <img src="https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
+          <div className={styles.spinContainer} id="spin-container">
+            <img id={styles.aboutImg} className="aboutImg" src="https://images.pexels.com/photos/206395/pexels-photo-206395.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
+            <img  id={styles.aboutImg} className="aboutImg" src="https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
+            <img id={styles.aboutImg} className="aboutImg" src="https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
+            <img id={styles.aboutImg} className="aboutImg" src="https://images.pexels.com/photos/1758144/pexels-photo-1758144.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
+            <img id={styles.aboutImg} className="aboutImg" src="https://images.pexels.com/photos/1382734/pexels-photo-1382734.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
+            <img id={styles.aboutImg} className="aboutImg" src="https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
             <a target="_blank" href="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg">
-              <img src="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
+              <img id={styles.aboutImg} className="aboutImg" src="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
             </a>
-            {/* <video controls autoplay="autoplay" loop>
+            {/* <video className={styles.aboutVideo} controls autoplay="autoplay" loop>
               <source src="https://player.vimeo.com/external/322244668.sd.mp4?s=338c48ac2dfcb1d4c0689968b5baf94eee6ca0c1&profile_id=165&oauth2_token_id=57447761" type="video/mp4" />
             </video> */}
             <p>3D Tiktok Carousel</p>
