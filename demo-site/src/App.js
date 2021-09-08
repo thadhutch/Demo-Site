@@ -4,6 +4,7 @@ import Page from "./components/Page";
 import Home from "./screens/Home";
 import Marketplace from "./screens/Marketplace";
 import CreateAccount from "./screens/CreateAccount";
+import About from "./screens/About";
 import { ContextProvider } from "./GlobalState/state";
 
 
@@ -39,7 +40,15 @@ const App = () => (
               </Page>
             )}
           />
-        </Switch>
+          <Route
+            exact
+            path="/about"
+            render={() => (
+              <Page>
+                <About />
+              </Page>
+            )}
+          />        </Switch>
       </Router>
     </ContextProvider>
   );

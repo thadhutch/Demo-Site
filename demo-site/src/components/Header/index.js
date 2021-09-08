@@ -89,8 +89,8 @@ const { isUserAuthenticated } = useContext(UserContext);
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="search01" className={styles.navlinks}>
-                    <span>Discover</span>
+                  <NavLink to="/about" className={styles.navlinks}>
+                    <span>About</span>
                   </NavLink>
                 </li>
                 <li>
