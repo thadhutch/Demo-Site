@@ -260,6 +260,14 @@ const displayError = async () => {
 
       }
     } catch (error) {
+      if(error.code === 202){
+        setVisibleErrorModal(true);
+        setErrorMessage("An account already exists with that username.");
+      };
+      if(error.code === 203){
+        setVisibleErrorModal(true);
+        setErrorMessage("An account already exists with that email.");
+      };
 
     ;}
 };
