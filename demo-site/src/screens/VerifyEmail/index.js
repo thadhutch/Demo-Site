@@ -38,9 +38,12 @@ const EmailVerified = () => {
                     <div className={styles.head}>
                         <h1>Thanks for verifying your email!</h1>
                     </div>
-                    <Link to="/home">
-                        <button className={cn("button", styles.homebutton)} onClick={saveUser}>Continue To Demo!</button>
-                    </Link>
+                    <div className={styles.body}>
+                        <h2 className={styles.verifiedTitle}>Please Click the Button Below to View the Demo</h2>
+                        <Link to="/home">
+                            <button className={cn("button", styles.homebutton)} onClick={saveUser}>Continue To Demo!</button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </>

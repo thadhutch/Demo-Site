@@ -7,8 +7,10 @@ import LoadingModal from "../../components/LoadingModal/index";
 import VerifyEmail from "../../components/emailModal ";
 import Error from "../../components/Error/index";
 import React, { useState, useEffect, useContext } from "react";
-import { UserContext, AvatarContext } from "../../GlobalState";
+import { UserContext } from "../../GlobalState";
 import Checkbox from "../../components/Checkbox";
+import { useMoralis } from "react-moralis";
+
 
 
 
@@ -21,6 +23,7 @@ const CreateAccount = () => {
 
   const user = Moralis.User.current();
 
+  const { logout } = useMoralis();
 
 
   const { setUserAuthenticated} = useContext(UserContext);
@@ -216,21 +219,6 @@ const CreateAccount = () => {
 
   };
 
-const authCheck = async () => {
-  
-  const user = await Moralis.User.current();
-
-  if(user){
-    const accountStatus = user.get("accountVerified");
-    setAccountVerified(accountStatus);
-  } else {
-    setAccountVerified(false);
-    setVisibleErrorModal(true);
-    setErrorMessage("No session detected, please log back in or create an account.")
-  }
-
-};
-
 const displayError = async () => {    
     
   if(username.length === 0){
@@ -280,7 +268,7 @@ const displayError = async () => {
           loadingMessage={loadingMessage}
         />
       </Modal>
-      <Modal visible={visibleEmailModal} >
+      <Modal visible={visibleEmailModal}  onClose={() => setVisibleEmailModal(false)}>
         <VerifyEmail />
       </Modal>
       <Modal visible={visibleErrorModal} onClose={() => setVisibleErrorModal(false)}>
@@ -297,8 +285,9 @@ const displayError = async () => {
               <div className={cn("h2", styles.stage)}>Thanks for Making an Account!</div>
             </div>
             <div className={styles.body}>
+              <h2 className={styles.verifiedTitle}>Please Click the Button Below to View the Demo</h2>
               <Link to="/home" >
-                <button className={cn("button", styles.homebutton)} onClick={() => setUserAuthenticated(true)}>Continue To Demo</button>
+                <button className={cn("button", styles.homebutton)} onClick={() => setUserAuthenticated(true)}>View Demo</button>
               </Link>
             </div>
           </>
@@ -335,9 +324,7 @@ const displayError = async () => {
                       <span className={styles.title}>Wallet Connect</span>
                     </div>
                     <div className={styles.buttonContainer}>
-                      <button className={cn("button-stroke", styles.accountbutton)} id={styles.cancelbutton} onClick={authCheck}>
-                        Already Logged in on Previous Session?
-                      </button>
+                      
                     </div>
                   </div>
                 </>
@@ -429,7 +416,7 @@ const displayError = async () => {
                                   />
                               </div>
                               <div className={styles.btns}>
-                                  <button className={cn("button-stroke", styles.button)} id={styles.cancelbutton} onClick={() => setAuthenticationChecker(true)}>
+                                  <button className={cn("button-stroke", styles.button)} id={styles.cancelbutton} onClick={() => logout()}>
                                   Cancel
                                   </button>
                             </div>

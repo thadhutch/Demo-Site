@@ -18,9 +18,7 @@ const App = () => (
             exact
             path="/"
             render={() => (
-              <Page>
-                <CreateAccount />
-              </Page>
+              <CreateAccount />
             )}
           />
           <Route
@@ -54,9 +52,7 @@ const App = () => (
             exact
             path="/emailVerified"
             render={() => (
-              <Page>
                 <EmailVerified />
-              </Page>
             )}
           />
         </Switch>

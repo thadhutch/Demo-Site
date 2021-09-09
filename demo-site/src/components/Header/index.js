@@ -1,4 +1,4 @@
-import React, { useState, useLocation, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import cn from "classnames";
 import styles from "./Header.module.sass";
@@ -8,7 +8,6 @@ import Notification from "./Notification";
 import ConnectAndLogout from "./ConnectAndLogoutButton/ConnectAndLogout";
 import DynamicUser from "./User/DynamicUser";
 import Input from './Input/Input';
-import { UserContext } from "../../GlobalState/user";
 
 const nav = [
   {
@@ -37,16 +36,15 @@ const nav = [
 
 
 const Headers = () => {
-const { isUserAuthenticated } = useContext(UserContext);
 
   const [visibleNav, setVisibleNav] = useState(false);
 
   const Moralis = require('moralis');
   Moralis.initialize("mQR7k1NobAMkMfqKdgIQowcepJpSPcOTCNn2Ds8f");
 
+  const [accountVerified, setAccountVerified] = useState(true);
 
   const user = Moralis.User.current();
-
 
   const handleSubmit = (e) => {
     alert();
@@ -54,7 +52,6 @@ const { isUserAuthenticated } = useContext(UserContext);
 
   return (
   <>
-    {isUserAuthenticated ? (
       <header className={styles.header}>
         <div className={cn("container", styles.container)}>
           <Link className={styles.logo} to="/">
@@ -131,7 +128,6 @@ const { isUserAuthenticated } = useContext(UserContext);
           ></button>
         </div>
       </header>
-    ) : null}
   </>
   );
 };
