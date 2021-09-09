@@ -1,5 +1,5 @@
-import Checkbox from "../../../../../../components/Checkbox/index";
-import styles from "../../../../ConnectWallet.module.sass";
+import Checkbox from "../../../components/Checkbox/index";
+import styles from "../CreateAccount.module.sass";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import cn from "classnames";
@@ -15,7 +15,7 @@ function TOSCheckbox () {
           
         const user = await Moralis.User.current();
         
-        user.save();
+        await user.save();
       };
 
         if (conditions) {

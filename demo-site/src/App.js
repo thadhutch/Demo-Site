@@ -5,6 +5,7 @@ import Home from "./screens/Home";
 import Marketplace from "./screens/Marketplace";
 import CreateAccount from "./screens/CreateAccount";
 import About from "./screens/About";
+import EmailVerified from "./screens/VerifyEmail";
 import { ContextProvider } from "./GlobalState/state";
 
 
@@ -48,7 +49,17 @@ const App = () => (
                 <About />
               </Page>
             )}
-          />        </Switch>
+          />        
+           <Route
+            exact
+            path="/emailVerified"
+            render={() => (
+              <Page>
+                <EmailVerified />
+              </Page>
+            )}
+          />
+        </Switch>
       </Router>
     </ContextProvider>
   );

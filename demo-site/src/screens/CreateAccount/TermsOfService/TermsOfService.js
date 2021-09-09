@@ -1,13 +1,11 @@
-import TOSCheckbox from "./TOSCheckboxW/Buttons/Buttons/TOSCheckbox";
-import styles from "../ConnectWallet.module.sass";
-import { useMoralis } from "react-moralis";
+import TOSCheckbox from "./TOSCheckbox";
+import styles from "../CreateAccount.module.sass";
 import cn from "classnames";
 
 
 function TermsOfService() {
-    const { isAuthenticated } = useMoralis();
 
-    if (isAuthenticated) {
+  
         return(
             <div className={styles.item}>
               <div className={cn("h3", styles.title)}>Terms of service</div>
@@ -20,13 +18,7 @@ function TermsOfService() {
             </div>
        
         );
-    };
 
-    return (
-        <>
-
-        </>
-    );
 }
 
 export default TermsOfService;

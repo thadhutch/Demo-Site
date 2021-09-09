@@ -11,13 +11,15 @@ function DynamicUser() {
 
    const user = Moralis.User.current();
 
+   const avatarChecker = user.get("profilePictureChecker")
+
    const { isAvatar } = useContext(AvatarContext);
 
 
 
     
 
-    if (isAvatar) {
+    if (avatarChecker) {
         const profileAvatar = user.get("profile_picture");
 
         return (

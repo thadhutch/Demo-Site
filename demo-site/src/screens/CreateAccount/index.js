@@ -4,9 +4,11 @@ import styles from "./CreateAccount.module.sass";
 import Icon from "../../components/Icon";
 import Modal from "../../components/Modal/index";
 import LoadingModal from "../../components/LoadingModal/index";
+import VerifyEmail from "../../components/emailModal ";
 import Error from "../../components/Error/index";
 import React, { useState, useEffect, useContext } from "react";
 import { UserContext, AvatarContext } from "../../GlobalState";
+import Checkbox from "../../components/Checkbox";
 
 
 
@@ -19,8 +21,9 @@ const CreateAccount = () => {
 
   const user = Moralis.User.current();
 
+
+
   const { setUserAuthenticated} = useContext(UserContext);
-  const { setAvatar } = useContext(AvatarContext);
 
   const [profileRequirementsChecker, setProfileRequirementsChecker] = useState(false);
 
@@ -28,15 +31,22 @@ const CreateAccount = () => {
 
   const [visibleModal, setVisibleModal] = useState(false);
   const [visibleErrorModal, setVisibleErrorModal] = useState(false);
+  const [visibleEmailModal, setVisibleEmailModal] = useState(false);
+
 
   const [loadingMessage, setLoadingMessage] = useState("Authenticating through MetaMask");
   const [errorMessage, setErrorMessage] = useState("Authentication has been cancelled");
 
   const [username, setUsername] = useState("");
   const [displayName, setDisplayName] = useState("");
+  const [email, setEmail] = useState("");
   const [bio, setBio] = useState("");
 
   const [authenticationChecker, setAuthenticationChecker] = useState(true);
+  const [accountVerified, setAccountVerified] = useState(true);
+
+
+  const [conditions, setConditions] = useState(false);
 
   const usernamePreview = document.getElementById("usernamePreview");
   const bioPreview = document.getElementById("bioPreview");
@@ -55,6 +65,8 @@ const CreateAccount = () => {
       await Moralis.Web3.authenticate().then((user) => {
         try {
           if (user) {
+            const accountStatus = user.get("accountVerified");
+            setAccountVerified(accountStatus);
             setAuthenticationChecker(false);
             setVisibleModal(false);
           } else {
@@ -81,7 +93,9 @@ const CreateAccount = () => {
       await Moralis.Web3.authenticate({ provider: "walletconnect" }).then((user) => {
         try {
           if (user) {
+            const accountStatus = user.get("accountVerified");
             setAuthenticationChecker(false);
+            setAccountVerified(accountStatus);
             setVisibleModal(false);
           } else {
             setVisibleErrorModal(true);
@@ -106,10 +120,21 @@ const CreateAccount = () => {
 
 
   useEffect(() => {
+
+      const user = Moralis.User.current();
+
+      if(user){
+        const accountStatus = user.get("accountVerified");
+        setAccountVerified(accountStatus);
+      } else {
+        setAccountVerified(false);
+      }
     
       if(username.length === 0){
         setProfileRequirementsChecker(false)
       } else if(displayName.length === 0) {
+        setProfileRequirementsChecker(false)
+      } else if(email.length === 0) {
         setProfileRequirementsChecker(false)
       } else {
         setProfileRequirementsChecker(true);
@@ -123,6 +148,9 @@ const CreateAccount = () => {
     if(displayName.length > 0){
       user.set("display_name", displayName);
       namePreview.innerHTML = displayName;
+    };
+    if(email.length > 0){
+      user.set("email", email);
     };
     if(bio.length > 0){
       user.set("bio", bio);
@@ -138,14 +166,17 @@ const CreateAccount = () => {
     const userAvatarFile = document.getElementById("profileAvatar");
 
     if (userAvatarFile.files.length > 0) {
+
       const file = userAvatarFile.files[0];
       const name = "avatar";
 
       const profilePictureFile = new Moralis.File(name, file);
 
-      user.set("profile_picture", profilePictureFile);
+      await user.set("profile_picture", profilePictureFile);
 
       await user.save()
+
+      await user.set("profilePictureChecker", true);
 
       const profileAvatar = await user.get("profile_picture");
 
@@ -179,18 +210,24 @@ const CreateAccount = () => {
 
       userAvatarImg.src = userAvatar.url();
 
+      
+
     };
 
+  };
+
+const authCheck = async () => {
+  
+  const user = await Moralis.User.current();
+
+  if(user){
+    const accountStatus = user.get("accountVerified");
+    setAccountVerified(accountStatus);
+  } else {
+    setAccountVerified(false);
+    setVisibleErrorModal(true);
+    setErrorMessage("No session detected, please log back in or create an account.")
   }
-
-
-
-
-  const saveUser = async () => {    
-    
-      const user = await Moralis.User.current();
-      setUserAuthenticated(true);
-      await user.save();
 
 };
 
@@ -204,7 +241,27 @@ const displayError = async () => {
     setErrorMessage("Please enter a display name");
     setVisibleErrorModal(true);
     return;
+  } else if(email.length === 0) {
+    setErrorMessage("Please enter an email");
+    setVisibleErrorModal(true);
+    return;
   };
+
+  await user.set("password", "spacepath")
+
+  try {
+    await user.signUp();
+      try {
+        if(user){
+          setVisibleEmailModal(true);
+        };
+
+      } catch {
+
+      }
+    } catch (error) {
+
+    ;}
 };
 
 
@@ -215,6 +272,9 @@ const displayError = async () => {
           loadingMessage={loadingMessage}
         />
       </Modal>
+      <Modal visible={visibleEmailModal} >
+        <VerifyEmail />
+      </Modal>
       <Modal visible={visibleErrorModal} onClose={() => setVisibleErrorModal(false)}>
         <Error
           errorMessage={errorMessage}
@@ -223,6 +283,19 @@ const displayError = async () => {
       <div className={cn("section-pt80", styles.section)}>
         <div className={cn("container", styles.container)}>
         <>
+        {accountVerified ? ( 
+          <>
+            <div className={styles.head}>
+              <div className={cn("h2", styles.stage)}>Thanks for Making an Account!</div>
+            </div>
+            <div className={styles.body}>
+              <Link to="/home" >
+                <button className={cn("button", styles.homebutton)} onClick={() => setUserAuthenticated(true)}>Continue To Demo</button>
+              </Link>
+            </div>
+          </>
+            ) : (
+          <>
           <div className={styles.head}>
             <div className={cn("h2", styles.stage)}>Create Account for Demo Access</div>
           </div>
@@ -252,6 +325,11 @@ const displayError = async () => {
                         <img src='https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/WalletConnectLogo.png?alt=media&token=25e3b68d-ac7f-4810-a66c-e4c2d59ba112' alt="Wallet Connect Logo" />
                       </div>
                       <span className={styles.title}>Wallet Connect</span>
+                    </div>
+                    <div className={styles.buttonContainer}>
+                      <button className={cn("button-stroke", styles.accountbutton)} id={styles.cancelbutton} onClick={authCheck}>
+                        Already Logged in on Previous Session?
+                      </button>
                     </div>
                   </div>
                 </>
@@ -297,23 +375,60 @@ const displayError = async () => {
                       <input className={styles.input} id="usernameInput" type='text' placeholder='Username' onChange={e => setUsername(e.target.value)}/>
                       <div className={styles.subcategory}>Enter Your Display Name</div>
                       <input className={styles.input} id="displayNameInput" type='text' placeholder='Display Name' onChange={e => setDisplayName(e.target.value)}/>
+                      <div className={styles.subcategory}>Enter Your Email</div>
+                      <input className={styles.input} id="emailInput" type='text' placeholder='Email' onChange={e => setEmail(e.target.value)}/>
                       <div className={styles.subcategory}>Enter Your Bio</div>
                       <textarea className={styles.textarea} type='textarea' placeholder='Bio (optional)' onChange={e => setBio(e.target.value)}/>
-                      {profileRequirementsChecker ? (
-                        <Link to='/home'>
-                          <button
-                            className={cn("button-small", styles.button)} onClick={saveUser}
-                          >
-                            Create Profile
-                            </button>
-                        </Link>
-                      ) : (
-                        <button
-                            className={cn("button-small", styles.button)} onClick={displayError}
-                          >
-                            Create Profile
-                        </button>
-                      )}
+                      <div className={styles.item}>
+                        <div className={cn("h3", styles.title)}>Terms of service</div>
+                        <div className={styles.text}>
+                          Please take a few minutes to read and understand{" "}
+                          <span>SpacePaths <a href="/#">Terms of Service</a> {" "} and {" "} <a href="/#">Privacy Policy</a></span>. To continue, you’ll need
+                          to accept the terms of services by checking the box.
+                        </div>
+                        <>
+                          {conditions ? ( 
+                            <>
+                            <div className={styles.variants}>
+                                <Checkbox
+                                className={styles.checkbox}
+                                value={conditions}
+                                onChange={() => setConditions(!conditions)}
+                                content="I agree to SpacePaths Terms of Service and Privacy Policy"
+                                />
+                                </div>
+                                <div className={styles.btns}>
+                                <Link to='/'>
+                                    <button className={cn("button-stroke", styles.button)} id={styles.cancelbutton}>
+                                    Cancel
+                                    </button>
+                                </Link>
+                                <Link to='/'>
+                                    <button className={cn("button", styles.button)} onClick={displayError}>
+                                        Create Profile
+                                    </button>
+                                </Link>
+                            </div>
+                            </>
+                          ) : (
+                            <>
+                            <div className={styles.variants}>
+                                  <Checkbox
+                                  className={styles.checkbox}
+                                  value={conditions}
+                                  onChange={() => setConditions(!conditions)}
+                                  content="I agree to SpacePaths Terms of Service and Privacy Policy"
+                                  />
+                              </div>
+                              <div className={styles.btns}>
+                                  <button className={cn("button-stroke", styles.button)} id={styles.cancelbutton} onClick={() => setAuthenticationChecker(true)}>
+                                  Cancel
+                                  </button>
+                            </div>
+                            </>
+                          )}
+                        </>
+                      </div>
                     </div>
                   </>
                 )}
@@ -321,11 +436,6 @@ const displayError = async () => {
               <div>
               </div>
               <div className={styles.wrapper}>
-              <Modal visible={visibleErrorModal} onClose={() => setVisibleErrorModal(false)}>
-                <Error
-                  errorMessage={errorMessage}
-                />
-              </Modal>
                 {authenticationChecker ? (
                   <>
                   </>
@@ -361,8 +471,11 @@ const displayError = async () => {
                   </div>
                 </div>
                   )}
+                 
               </div>
               </>
+              )}
+            </>
         </div>
       </div>
     </>
