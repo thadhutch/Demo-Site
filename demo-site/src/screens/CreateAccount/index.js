@@ -65,12 +65,10 @@ const CreateAccount = () => {
 
   const handleToggle = () => {
     setCollector(true);
-    setArtist(false);
   };
 
   const handleToggle1 = () => {
-    setArtist(true);
-    setCollector(false);
+    setArtist(!artist);
   };
 
   async function MetaMaskAuthentication() {
@@ -298,6 +296,11 @@ const displayError = async () => {
         {accountVerified ? ( 
           <>
             <div className={styles.head}>
+              <Image 
+                src="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-dark.png?alt=media&token=0dc78010-319d-426b-9dc0-c17db0479ec4"
+                srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-light.png?alt=media&token=af5f3049-b42b-4094-956d-f8377f8986bf"
+                alt="SpacePath Logo"
+              />
               <div className={cn("h2", styles.stage)}>Thanks for Making an Account!</div>
             </div>
             <div className={styles.body}>
@@ -310,6 +313,11 @@ const displayError = async () => {
             ) : (
           <>
           <div className={styles.head}>
+              <Image 
+                src="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-dark.png?alt=media&token=0dc78010-319d-426b-9dc0-c17db0479ec4"
+                srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-light.png?alt=media&token=af5f3049-b42b-4094-956d-f8377f8986bf"
+                alt="SpacePath Logo"
+              />
             <div className={cn("h2", styles.stage)}>Create Account for Demo Access</div>
           </div>
           <div className={styles.body}>
@@ -382,11 +390,11 @@ const displayError = async () => {
                           </div>
                         </div>
                       </div>
-                      <div className={styles.subcategory}>Enter Your Username</div>
+                      <div className={styles.subcategory}>Enter Your Username*</div>
                       <input className={styles.input} id="usernameInput" type='text' placeholder='Username' onChange={e => setUsername(e.target.value)}/>
-                      <div className={styles.subcategory}>Enter Your Display Name</div>
+                      <div className={styles.subcategory}>Enter Your Display Name*</div>
                       <input className={styles.input} id="displayNameInput" type='text' placeholder='Display Name' onChange={e => setDisplayName(e.target.value)}/>
-                      <div className={styles.subcategory}>Enter Your Email</div>
+                      <div className={styles.subcategory}>Enter Your Email*</div>
                       <input className={styles.input} id="emailInput" type='text' placeholder='Email' onChange={e => setEmail(e.target.value)}/>
                       <div className={styles.subcategory}>Enter Your Bio</div>
                       <textarea className={styles.textarea} type='textarea' placeholder='Bio (optional)' onChange={e => setBio(e.target.value)}/>
