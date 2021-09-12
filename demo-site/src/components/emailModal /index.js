@@ -28,7 +28,7 @@ const VerifyEmail = ({ className }) => {
 
    };
    
-   setEmailTitle("Email has been sent! Please check your inbox to complete the sign up process.")
+   setEmailTitle("Email has been sent! Please check your inbox/spam to complete the sign up process.")
    setButtonText("Sent!")
    setSent(true);
 };
