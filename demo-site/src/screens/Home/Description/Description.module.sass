@@ -22,67 +22,65 @@
         border-color: $neutrals3
 
 .homeHero
+    position: relative
     width: 100%
     height: 100%
     display: flex
-    justify-content: center
-    align-items: center
 
 .homeHeroLeft
+    position: absolute
+    z-index: 1
+    left: 0
     height: 100%
-    width: 55%
+    width: 60%
     margin-right: 5%
-    display: flex
-    justify-content: center
-    align-items: center
-    flex-direction: column
     +d
         max-width: 420px
     +m
         max-width: 100%
         margin-bottom: 40px
 
+
+.homeHeroWords
+    height: 70%
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: space-evenly
+    flex-direction: column
+
 .title
     font-family: Best-font
     margin-bottom: 60px
-    font-size: 45px
+    font-size: 40px
     font-family: Best-font
     letter-spacing: 2px
     display: inline-block
     transform: scaleX(2) scaleY(1.8)
 
-.titlePtag
-    font-family: Best-font
-    line-height: 30px
-    text-align: center
-    display: flex
-    align-items: center
-    width: 60%
-    height: 25%
-    margin-bottom: 50px
-    transform: scaleX(1.7) scaleY(1.5)
-    font-size: 18px
 
 // logo
 .heroLogoContainer
     text-align: center
-    width: 100%
-    height: 40%
+    width: 90%
+    height: 30%
 
 .heroLogoContainer img
-    width: 20%
+    width: 15%
 
 // Btn
 .btns
     display: flex
+    align-items: center
     justify-content: center
-    width: 90%
+    height: 30%
+    width: 100%
     +m
         display: block
 
 .button
     font-family: Best-font
-    width: 90%
+    width: 70%
     border-radius: 15px
     font-size: 15px
     letter-spacing: 3px
@@ -93,7 +91,9 @@
 // =========================================
 // Cards
 .homeHeroCards
-    position: relative
+    position: absolute
+    z-index: 100
+    right: -300px
     border-radius: 15px
     height: 106%
-    width: 30%
+    width: 80%

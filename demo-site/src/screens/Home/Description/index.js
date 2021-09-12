@@ -4,29 +4,33 @@ import { Link } from "react-router-dom";
 import styles from "./Description.module.sass";
 import VerifiedArtistButton from "./VerifiedArtistButton";
 import HomeHeroCards from "./HomeHeroCards";
+import Carousel from "./Carousel/Carousel";
+
 
 const Description = () => {
   return (
     <div className={styles.section}>
         <div className={styles.homeHero}>
           <div className={styles.homeHeroLeft}>
+          <div className={styles.homeHeroWords}>
               <h1 className={styles.title}>SPACEPATH</h1>
               {/* logo */}
               <div className={styles.heroLogoContainer}>
                 <img src="https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/logoHome.jpeg?alt=media&token=9a87744c-2760-4fa3-a75f-0b7cd9b4536e"></img>
               </div>
-              <p className={styles.titlePtag}>
+              <h2>
                 Blurring the line between art and technology.
-              </p>
+              </h2>
+              </div>
             <div className={styles.btns}>
-              <Link className={cn("button", styles.button)} to="/search01">
+              <Link className={cn("button", styles.button)} to="/marketplace">
                 Discover More
               </Link>
               <VerifiedArtistButton />
             </div>
           </div>
           <div className={styles.homeHeroCards}>
-            <HomeHeroCards />
+            <Carousel />
           </div>
       </div>
     </div>

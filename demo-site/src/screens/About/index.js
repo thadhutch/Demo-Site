@@ -9,7 +9,7 @@ const About = () => {
     <div className={cn("section", styles.section)}>
       <div className={styles.aboutPageContainer}>
         <AboutHero />
-        <Carousel />
+        {/* <Carousel /> */}
       </div>
     </div>
   );
