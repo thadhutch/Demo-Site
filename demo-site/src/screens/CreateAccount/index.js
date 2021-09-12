@@ -415,9 +415,9 @@ const displayError = async () => {
                       <div className={styles.item}>
                         <div className={cn("h3", styles.tostitle)}>Terms of Service</div>
                         <div className={styles.text}>
-                          Please take a few minutes to read and understand{" "}
-                          <span>SpacePaths <a className={styles.toslink} href="/#">Terms of Service</a> {" "} and {" "} <a className={styles.toslink} href="/#">Privacy Policy</a></span>. To continue, you’ll need
-                          to accept the terms of services by checking the box.
+                          Please take some time to read and understand{" "}
+                          <span>SpacePath's <a className={styles.toslink} href="/#">Terms of Service</a> {" "} and {" "} <a className={styles.toslink} href="/#">Privacy Policy</a></span>. To continue to the demo, you’ll need
+                          to accept our terms of service and privacy policy.
                         </div>
                         <>
                           {conditions ? ( 
@@ -427,7 +427,7 @@ const displayError = async () => {
                                 className={styles.checkbox}
                                 value={conditions}
                                 onChange={() => setConditions(!conditions)}
-                                content="I agree to SpacePaths Terms of Service and Privacy Policy"
+                                content="I agree to SpacePath's Terms of Service and Privacy Policy"
                                 />
                                 </div>
                                 <div className={styles.btns}>
@@ -450,7 +450,7 @@ const displayError = async () => {
                                   className={styles.checkbox}
                                   value={conditions}
                                   onChange={() => setConditions(!conditions)}
-                                  content="I agree to SpacePaths Terms of Service and Privacy Policy"
+                                  content="I agree to SpacePath's Terms of Service and Privacy Policy"
                                   />
                               </div>
                               <div className={styles.btns}>
@@ -492,7 +492,7 @@ const displayError = async () => {
                                       <h5>@</h5>
                                       <h5 id="usernamePreview">sampleuser</h5>
                                     </span>
-                                    <p id="bioPreview">Welcome to SpacePath's demo! Thank you for making an account and supporting our project. #FollowThePath</p>
+                                    <h6 className={styles.bioPreview} id="bioPreview">Welcome to SpacePath's demo! Thank you for making an account and supporting our project. #FollowThePath</h6>
                                     <button className={cn("button", styles.followerbutton)}>Follow</button>
                                     <div className={styles.followers}>Followers</div>
                                     <div className={styles.followerCount}>0</div>
