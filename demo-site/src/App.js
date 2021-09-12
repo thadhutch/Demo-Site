@@ -52,7 +52,9 @@ const App = () => (
             exact
             path="/emailVerified"
             render={() => (
+                <Page>
                 <EmailVerified />
+                </Page>
             )}
           />
         </Switch>

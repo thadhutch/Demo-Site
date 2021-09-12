@@ -10,6 +10,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { UserContext } from "../../GlobalState";
 import Checkbox from "../../components/Checkbox";
 import { useMoralis } from "react-moralis";
+import Image from "../../components/Image"
 
 
 
@@ -27,6 +28,7 @@ const CreateAccount = () => {
 
 
   const { setUserAuthenticated} = useContext(UserContext);
+
 
   const [profileRequirementsChecker, setProfileRequirementsChecker] = useState(false);
 
@@ -48,6 +50,8 @@ const CreateAccount = () => {
   const [authenticationChecker, setAuthenticationChecker] = useState(true);
   const [accountVerified, setAccountVerified] = useState(true);
 
+  const [collector, setCollector] = useState(true);
+  const [artist, setArtist] = useState(false);
 
   const [conditions, setConditions] = useState(false);
 
@@ -57,6 +61,16 @@ const CreateAccount = () => {
 
   const modalClose = () => {
     setVisibleModal(false);
+  };
+
+  const handleToggle = () => {
+    setCollector(true);
+    setArtist(false);
+  };
+
+  const handleToggle1 = () => {
+    setArtist(true);
+    setCollector(false);
   };
 
   async function MetaMaskAuthentication() {
@@ -235,6 +249,8 @@ const displayError = async () => {
     return;
   };
 
+  await user.set("artist", artist);
+
   await user.set("password", "spacepath")
 
   try {
@@ -374,11 +390,33 @@ const displayError = async () => {
                       <input className={styles.input} id="emailInput" type='text' placeholder='Email' onChange={e => setEmail(e.target.value)}/>
                       <div className={styles.subcategory}>Enter Your Bio</div>
                       <textarea className={styles.textarea} type='textarea' placeholder='Bio (optional)' onChange={e => setBio(e.target.value)}/>
+                      <div className={styles.row}>
+                          <div className={styles.col}>
+                            <button className={styles.accountType} type="button" style={{background: collector ? 'linear-gradient(to right, #f55a00 0%, #ff1c59 51%, #ad1177 100%)' : ""}} onClick={handleToggle} >
+                                <Image
+                                src="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-layer-22-240.png?alt=media&token=fb7d1811-3312-4932-95d3-d2c0ce245643"
+                                srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-layer-22-240%20(1).png?alt=media&token=2e25c667-cc29-4e79-9b2d-9e046673005c"
+                                alt="Fixed Price Icon"
+                                />
+                                <div>Collector</div> 
+                            </button>
+                          </div>
+                          <div className={styles.col}>
+                            <button className={styles.accountType} type="button" style={{background: artist ? 'linear-gradient(to right, #f55a00 0%, #ff1c59 51%, #ad1177 100%)' : ""}} onClick={handleToggle1}>
+                              <Image 
+                              src="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-paintbrush-7-240%20(2).png?alt=media&token=bbc0fc47-de30-4086-b604-54f76c080623"
+                              srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-paintbrush-7-240%20(1).png?alt=media&token=8890bbf7-8a65-42fe-81ff-d443b2492c78"
+                              alt="Artist Icon"
+                              />
+                              <div>Artist</div>
+                            </button>
+                          </div>
+                      </div>
                       <div className={styles.item}>
-                        <div className={cn("h3", styles.title)}>Terms of service</div>
+                        <div className={cn("h3", styles.tostitle)}>Terms of Service</div>
                         <div className={styles.text}>
                           Please take a few minutes to read and understand{" "}
-                          <span>SpacePaths <a href="/#">Terms of Service</a> {" "} and {" "} <a href="/#">Privacy Policy</a></span>. To continue, you’ll need
+                          <span>SpacePaths <a className={styles.toslink} href="/#">Terms of Service</a> {" "} and {" "} <a className={styles.toslink} href="/#">Privacy Policy</a></span>. To continue, you’ll need
                           to accept the terms of services by checking the box.
                         </div>
                         <>
