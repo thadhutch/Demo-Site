@@ -8,11 +8,24 @@ function DynamicUser() {
 
     const Moralis = require('moralis'); 
     Moralis.initialize("5BQEzo7yhMp4zrM9RIdJ7S6leAkE5BFDtLMp3QPv"); 
+   
+    const [ isAvatar, setAvatar] = useState(false);
 
-   const user = Moralis.User.current();
+    const user = Moralis.User.current();
 
-   const { isAvatar } = useContext(AvatarContext);
+   
+    useEffect(() => {
 
+        const user = Moralis.User.current();
+      
+        if(user){
+          const avatarStatus = user.get("profilePictureChecker");
+          setAvatar(avatarStatus);
+        } else {
+          setAvatar(false);
+        }
+      
+      }, []);
 
 
     
