@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import cn from "classnames";
-import OutsideClickHandler from "react-outside-click-handler";
 import styles from "./User.module.sass";
 import Modal from "../../Modal/index";
 import Error from "../../Error";
@@ -26,7 +25,7 @@ const items = [
   {
     title: "Disconnect",
     icon: "exit",
-    url: "https://ui8.net/ui8/products/crypter-nft-marketplace-ui-kit",
+    url: "",
   },
 ];
 

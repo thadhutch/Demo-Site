@@ -7,7 +7,7 @@ import { AvatarContext } from '../../../GlobalState'
 function DynamicUser() {
 
     const Moralis = require('moralis'); 
-    Moralis.initialize("5BQEzo7yhMp4zrM9RIdJ7S6leAkE5BFDtLMp3QPv"); 
+    Moralis.initialize("7Ku6X8CPeLsTB1hNuxKbkK3zsNXRW9GrRid3wCnD"); 
    
     const [ isAvatar, setAvatar] = useState(false);
 

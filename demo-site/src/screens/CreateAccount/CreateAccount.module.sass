@@ -76,7 +76,6 @@
 .menu
     width: 544px
     margin: auto
-
     +d
         width: 384px
     +t
@@ -129,8 +128,9 @@
     margin-bottom: 15px
     background-image: linear-gradient(to right, #f55f02 0%, #f5e102 100%) 
     +body-bold-1
-    cursor: pointer
+    cursor: pointer       
     +t
+        min-height: 125px
         padding: 0 30px 0 0
         font-size: 20px
     &:nth-child(3)
@@ -147,6 +147,10 @@
             +t
                 box-shadow: none
         .icon
+            +t 
+                margin-left: 120px
+            +m 
+                margin-left: 25px
             &:before
                 opacity: 1
             svg
@@ -197,10 +201,26 @@
         border-radius: 24px
     
 .title
-    color: $neutrals1
+    color: $neutrals7
     padding-left: 150px
+    +dark 
+    color: $neutrals1
+    +d 
+        flex-shrink: 0
+        padding-left: 75px
+        font-size: 20px
+    +t 
+        display: none
     +m
+        display: flex
+        padding-left: 200px
         font-size: 32px
+    +a 
+        padding-left: 100px
+        font-size: 25px
+    +s 
+        padding-left: 50px
+        font-size: 20px
 
 .tostitle
     text-align: center
