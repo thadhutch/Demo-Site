@@ -420,11 +420,41 @@ const displayError = async () => {
                             </button>
                           </div>
                       </div>
+                      <div className={styles.previewcontainer1}>
+                       <div className={cn(styles.wrap)}>
+                        <div className={styles.inner}>
+                          <div className={styles.info}>Profile Card Preview</div>
+                          <div className={styles.artistCardContainer}>
+                            <div className={styles.artistCardImg}>
+                              <img src={"https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/defaultProfileBackground.png?alt=media&token=79e04361-65f6-400d-8527-21220062872d"} id="profileBanner" alt="profile banner" />
+                            </div>
+                            <div className={styles.artistUsernameAvatarContainer}>
+                              <div className={styles.artistUsernameAvatar}>
+                                  <div>
+                                    <div className={styles.artistAvatar} >
+                                      <img src={"https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo.png?alt=media&token=be8595a7-f66f-452e-8adc-0628bf912c1a"} id="imgAvatar" alt="Avatar" />
+                                    </div>
+                                    <div className={styles.realName} id="namePreview">Sample Name</div>
+                                    <span>
+                                      <h5>@</h5>
+                                      <h5 id="usernamePreview">sampleuser</h5>
+                                    </span>
+                                    <h6 className={styles.bioPreview} id="bioPreview">Welcome to SpacePath's demo! Thank you for making an account and supporting our project. #FollowThePath</h6>
+                                    <button className={cn("button", styles.followerbutton)}>Follow</button>
+                                    <div className={styles.followers}>Followers</div>
+                                    <div className={styles.followerCount}>0</div>
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       <div className={styles.item}>
                         <div className={cn("h3", styles.tostitle)}>Terms of Service</div>
                         <div className={styles.text}>
                           Please take some time to read and understand{" "}
-                          <span>SpacePath's <a className={styles.toslink} href="/#">Terms of Service</a> {" "} and {" "} <a className={styles.toslink} href="/#">Privacy Policy</a></span>. To continue to the demo, you’ll need
+                          <span>SpacePath's <a className={styles.toslink} href="/tos" target="_blank" rel="noopener noreferrer">Terms of Service</a> {" "} and {" "} <a className={styles.toslink} href="/privacypolicy" target="_blank" rel="noopener noreferrer">Privacy Policy</a></span>. To continue to the demo, you’ll need
                           to accept our terms of service and privacy policy.
                         </div>
                         <>
@@ -445,7 +475,7 @@ const displayError = async () => {
                                     </button>
                                 </Link>
                                 <Link to='/'>
-                                    <button className={cn("button", styles.button)} onClick={displayError}>
+                                    <button className={cn("button", styles.createbutton)} onClick={displayError}>
                                         Create Profile
                                     </button>
                                 </Link>
