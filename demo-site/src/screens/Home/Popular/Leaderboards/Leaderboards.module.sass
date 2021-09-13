@@ -1,0 +1,215 @@
+@import ../../../../styles/helpers
+
+.leftSection
+    overflow: hidden
+    width: 60%
+    height: 100%
+    padding-bottom: 140px
+
+// ====================================================================
+// Top Leaderboard Content
+.topLeaderboardContent
+    width: 95%
+    height: 300px
+    padding: 24px
+    margin-top: 40px
+    margin-bottom: 40px
+    border: 5px solid
+    border-image-slice: 1
+    border-image-source: linear-gradient(to left, #cbd53a, #ff5e00)
+    border-radius: 1em
+
+// Head
+.head
+    width: 100%
+    height: 40px
+    display: flex
+    margin-bottom: 24px
+    padding-bottom: 24px
+    border-bottom: 1px solid $neutrals6
+    +dark
+        border-color: $neutrals3
+
+.rating
+    display: flex
+    width: 10%
+    align-items: center
+    height: 24px
+    margin-right: auto
+    padding: 0 8px
+    border-radius: 12px
+    +caption-bold-2
+    color: $neutrals8
+
+.icon
+    margin-right: 4px
+
+    img
+        border-radius: 50%
+        width: 16px
+
+.control
+    display: flex
+
+.button
+    svg
+        fill: $neutrals5
+        transition: fill .2s
+    &:hover
+        svg
+            fill: (darken($neutrals5,10))
+    &:not(:last-child)
+        margin-right: 8px
+    +dark
+    &:hover
+        svg
+            fill: (lighten($neutrals5,10))
+
+// Number One 
+.bodyAndNFT
+    display: flex
+    justify-content: space-evenly
+    width: 100%
+
+.body
+    display: flex
+    flex-direction: column
+    justify-content: center
+    text-align: center
+    width: 30%
+    height: 175px
+
+.avatar
+    text-align: center
+    display: flex
+    justify-content: center
+    width: 100%
+
+.avatar img
+    border-radius: 50%
+    width: 115px
+
+.reward
+    display: none
+
+.name
+    width: 100%
+    margin-bottom: 2px
+    font-family: Best-font
+
+.price
+    width: 100%
+    color: #ffffff
+    font-weight: 900
+
+// NFTS  
+.favoritesContainer
+    display: flex
+    justify-content: space-evenly
+    width: 65%
+
+.favorites
+    width: 18%
+    border-radius: 10px
+    overflow: hidden
+    img
+        height: 100%
+
+.leadersSection
+    width: 100%
+    display: flex
+// ====================================================================
+// Top Leaderboard Content
+.leaderboardSection
+    height: 120vh
+    width: 100%
+    display: flex
+
+.leftSection
+    width: 100%
+
+.bottomLeaderboard
+    width: 100%
+    margin-bottom: 35px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+.leaderboard
+    height: 75px
+    width: 90%
+    padding: 10px
+    border-radius: 15px
+    background-color: #474747
+    margin-bottom: 35px
+    display: flex
+    justify-content: center
+    align-items: center
+
+.top
+    margin-bottom: 54px
+    +m
+        display: block
+        margin-bottom: 32px
+
+.stage
+    +body-bold-1
+    color: $neutrals4
+
+.label
+    margin-bottom: 12px
+    +hairline-2
+    color: $neutrals5
+
+.field
+    .dropdown
+        min-width: 256px
+        +m
+            min-width: 100%
+
+.box
+    margin-right: auto
+    +m
+        margin: 0 0 16px
+    .dropdown
+        min-width: auto
+        margin-left: -24px
+        +m
+            display: inline-block
+
+.leaderboardLeft
+    width: 100%
+    display: flex
+    align-items: center
+
+.leaderboardavatar
+    margin: 0 20px 0 20px
+    height: 50px
+    width: 50px
+
+.leaderboardavatar img
+    border-radius: 50%
+
+.ranking
+    color: #828282
+    font-weight: bold
+    font-size: 30px
+
+.displayName
+    font-size: 25px
+    color: #828282
+    font-weight: bold
+    +dark
+        color: #fff
+
+.displayUserName
+    font-family: Best-font
+    background: -webkit-linear-gradient(45deg, #f84f00 10%, #dbcd00 50%)
+    -webkit-background-clip: text
+    -webkit-text-fill-color: transparent
+
+.amount
+    font-family: Best-font
+    font-size: 20px
+    color: #828282

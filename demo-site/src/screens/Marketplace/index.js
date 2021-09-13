@@ -3,7 +3,6 @@ import cn from "classnames";
 import styles from "./Marketplace.module.sass";
 import MarketPlaceHero from "./MarketPlaceHero/index";
 import MarketPlaceCardSlider from "./MarketplaceCardSliders/index";
-
 // data
 
 
@@ -13,7 +12,7 @@ const Marketplace = () => {
     <div className={cn("section-pt80", styles.section)}>
         <MarketPlaceHero />
       <div className={cn("container", styles.container)}>
-        <MarketPlaceCardSlider />
+        <MarketPlaceCardSlider/>
       </div>
     </div>
   );

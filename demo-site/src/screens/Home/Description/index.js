@@ -30,7 +30,7 @@ const Description = () => {
             </div>
           </div>
           <div className={styles.homeHeroCards}>
-            <Carousel />
+            <HomeHeroCards />
           </div>
       </div>
     </div>
