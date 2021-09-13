@@ -6,6 +6,8 @@ import Marketplace from "./screens/Marketplace";
 import CreateAccount from "./screens/CreateAccount";
 import About from "./screens/About";
 import EmailVerified from "./screens/VerifyEmail";
+import PrivacyPolicy from "./screens/PrivacyPolicy";
+import TermsOfService from "./screens/TermsOfService";
 import { ContextProvider } from "./GlobalState/state";
 
 
@@ -52,9 +54,21 @@ const App = () => (
             exact
             path="/emailVerified"
             render={() => (
-                <Page>
-                <EmailVerified />
-                </Page>
+                  <EmailVerified /> 
+            )}
+          />
+          <Route
+            exact
+            path="/tos"
+            render={() => (
+                  <TermsOfService/>
+            )}
+          />
+          <Route
+            exact
+            path="/privacypolicy"
+            render={() => (
+                  <PrivacyPolicy /> 
             )}
           />
         </Switch>

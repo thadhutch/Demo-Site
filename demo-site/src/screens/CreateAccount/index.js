@@ -65,12 +65,10 @@ const CreateAccount = () => {
 
   const handleToggle = () => {
     setCollector(true);
-    setArtist(false);
   };
 
   const handleToggle1 = () => {
-    setArtist(true);
-    setCollector(false);
+    setArtist(!artist);
   };
 
   async function MetaMaskAuthentication() {
@@ -298,6 +296,11 @@ const displayError = async () => {
         {accountVerified ? ( 
           <>
             <div className={styles.head}>
+              <Image 
+                src="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-dark.png?alt=media&token=0dc78010-319d-426b-9dc0-c17db0479ec4"
+                srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-light.png?alt=media&token=af5f3049-b42b-4094-956d-f8377f8986bf"
+                alt="SpacePath Logo"
+              />
               <div className={cn("h2", styles.stage)}>Thanks for Making an Account!</div>
             </div>
             <div className={styles.body}>
@@ -310,6 +313,11 @@ const displayError = async () => {
             ) : (
           <>
           <div className={styles.head}>
+              <Image 
+                src="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-dark.png?alt=media&token=0dc78010-319d-426b-9dc0-c17db0479ec4"
+                srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-light.png?alt=media&token=af5f3049-b42b-4094-956d-f8377f8986bf"
+                alt="SpacePath Logo"
+              />
             <div className={cn("h2", styles.stage)}>Create Account for Demo Access</div>
           </div>
           <div className={styles.body}>
@@ -382,11 +390,11 @@ const displayError = async () => {
                           </div>
                         </div>
                       </div>
-                      <div className={styles.subcategory}>Enter Your Username</div>
+                      <div className={styles.subcategory}>Enter Your Username*</div>
                       <input className={styles.input} id="usernameInput" type='text' placeholder='Username' onChange={e => setUsername(e.target.value)}/>
-                      <div className={styles.subcategory}>Enter Your Display Name</div>
+                      <div className={styles.subcategory}>Enter Your Display Name*</div>
                       <input className={styles.input} id="displayNameInput" type='text' placeholder='Display Name' onChange={e => setDisplayName(e.target.value)}/>
-                      <div className={styles.subcategory}>Enter Your Email</div>
+                      <div className={styles.subcategory}>Enter Your Email*</div>
                       <input className={styles.input} id="emailInput" type='text' placeholder='Email' onChange={e => setEmail(e.target.value)}/>
                       <div className={styles.subcategory}>Enter Your Bio</div>
                       <textarea className={styles.textarea} type='textarea' placeholder='Bio (optional)' onChange={e => setBio(e.target.value)}/>
@@ -412,12 +420,42 @@ const displayError = async () => {
                             </button>
                           </div>
                       </div>
+                      <div className={styles.previewcontainer1}>
+                       <div className={cn(styles.wrap)}>
+                        <div className={styles.inner}>
+                          <div className={styles.info}>Profile Card Preview</div>
+                          <div className={styles.artistCardContainer}>
+                            <div className={styles.artistCardImg}>
+                              <img src={"https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/defaultProfileBackground.png?alt=media&token=79e04361-65f6-400d-8527-21220062872d"} id="profileBanner" alt="profile banner" />
+                            </div>
+                            <div className={styles.artistUsernameAvatarContainer}>
+                              <div className={styles.artistUsernameAvatar}>
+                                  <div>
+                                    <div className={styles.artistAvatar} >
+                                      <img src={"https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo.png?alt=media&token=be8595a7-f66f-452e-8adc-0628bf912c1a"} id="imgAvatar" alt="Avatar" />
+                                    </div>
+                                    <div className={styles.realName} id="namePreview">Sample Name</div>
+                                    <span>
+                                      <h5>@</h5>
+                                      <h5 id="usernamePreview">sampleuser</h5>
+                                    </span>
+                                    <h6 className={styles.bioPreview} id="bioPreview">Welcome to SpacePath's demo! Thank you for making an account and supporting our project. #FollowThePath</h6>
+                                    <button className={cn("button", styles.followerbutton)}>Follow</button>
+                                    <div className={styles.followers}>Followers</div>
+                                    <div className={styles.followerCount}>0</div>
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       <div className={styles.item}>
                         <div className={cn("h3", styles.tostitle)}>Terms of Service</div>
                         <div className={styles.text}>
-                          Please take a few minutes to read and understand{" "}
-                          <span>SpacePaths <a className={styles.toslink} href="/#">Terms of Service</a> {" "} and {" "} <a className={styles.toslink} href="/#">Privacy Policy</a></span>. To continue, you’ll need
-                          to accept the terms of services by checking the box.
+                          Please take some time to read and understand{" "}
+                          <span>SpacePath's <a className={styles.toslink} href="/tos" target="_blank" rel="noopener noreferrer">Terms of Service</a> {" "} and {" "} <a className={styles.toslink} href="/privacypolicy" target="_blank" rel="noopener noreferrer">Privacy Policy</a></span>. To continue to the demo, you’ll need
+                          to accept our terms of service and privacy policy.
                         </div>
                         <>
                           {conditions ? ( 
@@ -427,7 +465,7 @@ const displayError = async () => {
                                 className={styles.checkbox}
                                 value={conditions}
                                 onChange={() => setConditions(!conditions)}
-                                content="I agree to SpacePaths Terms of Service and Privacy Policy"
+                                content="I agree to SpacePath's Terms of Service and Privacy Policy"
                                 />
                                 </div>
                                 <div className={styles.btns}>
@@ -437,7 +475,7 @@ const displayError = async () => {
                                     </button>
                                 </Link>
                                 <Link to='/'>
-                                    <button className={cn("button", styles.button)} onClick={displayError}>
+                                    <button className={cn("button", styles.createbutton)} onClick={displayError}>
                                         Create Profile
                                     </button>
                                 </Link>
@@ -450,7 +488,7 @@ const displayError = async () => {
                                   className={styles.checkbox}
                                   value={conditions}
                                   onChange={() => setConditions(!conditions)}
-                                  content="I agree to SpacePaths Terms of Service and Privacy Policy"
+                                  content="I agree to SpacePath's Terms of Service and Privacy Policy"
                                   />
                               </div>
                               <div className={styles.btns}>
@@ -492,7 +530,7 @@ const displayError = async () => {
                                       <h5>@</h5>
                                       <h5 id="usernamePreview">sampleuser</h5>
                                     </span>
-                                    <p id="bioPreview">Welcome to SpacePath's demo! Thank you for making an account and supporting our project. #FollowThePath</p>
+                                    <h6 className={styles.bioPreview} id="bioPreview">Welcome to SpacePath's demo! Thank you for making an account and supporting our project. #FollowThePath</h6>
                                     <button className={cn("button", styles.followerbutton)}>Follow</button>
                                     <div className={styles.followers}>Followers</div>
                                     <div className={styles.followerCount}>0</div>

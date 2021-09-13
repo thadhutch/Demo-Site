@@ -6,9 +6,18 @@
     margin-bottom: 80px
     padding-bottom: 40px
     border-bottom: 2px solid $neutrals5
+    img
+        display: block
+        width: 400px
+        margin: auto
+        margin-top: -60px
+        margin-bottom: 60px
     +m
         margin-bottom: 40px
         padding-bottom: 24px
+        img
+            width: 250px
+            margin-top: 10px
     +dark
         border-color: $neutrals3
 
@@ -196,14 +205,25 @@
 .tostitle
     text-align: center
     margin-bottom: 30px
+    +d 
+        width: 352px
+    +t 
+        margin-left: -45px
     +m
+        width: 100%
+        margin-left: 0
         font-size: 32px
 
 .text
     margin-bottom: 24px
     +caption-2
     color: $neutrals4
+    +d 
+        min-width: 352px
+    +t 
+        margin-left: -45px
     +m
+        margin-left: 0
         text-align: center
     span
         font-weight: 600
@@ -251,6 +271,10 @@
     margin-bottom: 40px
 
 .checkbox
+    +t 
+        margin-left: -45px
+    +m 
+        margin: 0
     &:not(:last-child)
         margin-bottom: 12px
 
@@ -258,13 +282,24 @@
     +m
         width: 100%
 
+.createbutton
+    height: 48px
+    +d 
+        width: 150px
+    +m
+        margin-top: 15px
+        width: 100%
+
 .menubutton
     width: 100%
 
 .btns
     display: flex
+    +t 
+        margin-left: -45px
     +m
         display: block
+        margin: 0
     .button
         &:not(:last-child)
             margin-right: 8px
@@ -295,8 +330,9 @@ img
     margin-bottom: 75px
     margin-left: -140px
     +m
-        display: block
         margin: 0
+        margin-top: 20px
+        margin-bottom: 20px
 
     
 
@@ -320,6 +356,14 @@ img
     margin-left: 125px
     color: $neutrals1
     border-color: $neutrals3
+    +d 
+        margin-left: 70px
+    +t 
+        margin-left: 60px
+    +m 
+        display: inline-block
+    +a 
+        margin: auto
     img
         width: 65px
         height: 65px
@@ -490,39 +534,36 @@ img
     flex-shrink: 0
     position: absolute
     width: 352px  
-    left: 950px
-    top: -500px
-    +d
-        width: 304px 
-    +t
-        display: flex
-        top: 50px
-        left: 0
-        width: 100%
-        height: 100%
-        padding: 48px
-        background: rgba($neutrals1,.9)
-        overflow: auto
-        z-index: 999
-        visibility: hidden
-        opacity: 0
-        transition: all .4s
-        +dark
-            background: rgba($neutrals2,.9)
-        &.active
-            visibility: visible
-            opacity: 1
-    +m
-        padding: 32px 16px
+    left: 975px
+    top: -1070px
+    +w 
+        display: none
+
+.previewcontainer1
+    display: none
+    +w 
+        display: block
+        margin: auto
+        max-width: 352px
+        margin-bottom: 30px
+    +t 
+        margin-left: -25px
+    +m 
+        margin: auto
+        margin-bottom: 30px
+    
 
 .info
     margin-bottom: 24px
     +body-bold-1
     font-size: 20px
+    +d  
+        text-align: center
 
 .artistCardContainer
     position: relative
     border-radius: 15px
+    margin: auto
     height: 400px
     width: 256px
     overflow: hidden
@@ -560,6 +601,7 @@ img
     
 .realName
     font-size: 20px
+    color: $neutrals6
     padding-top: 45px
     font-weight: bold
     +dark 
@@ -577,10 +619,11 @@ img
       text-transform: lowercase
       
 
-.artistUsernameAvatar p
-    padding-top: 30px
-    font-size: 12px
-    color: $neutrals5
+.bioPreview
+    position: relative
+    margin-top: 30px
+    font-size: 11px
+    text-color: $neutrals3
        
 .artistAvatar
     top: -30px
@@ -602,6 +645,9 @@ img
     margin-top: 35px
     height: 35px
     border-radius: 15px
+    +w 
+        top: 10px
+        left: 0px
 
 .followers
     position: absolute
@@ -623,10 +669,17 @@ img
     &:nth-child(1)
         width: 242px
         margin-left: 10px
+        +d 
+            display: block
+            margin: auto
+            margin-bottom: 20px
     &:nth-child(2)
         width: 242px
         margin-left: 40px
         margin-right: 10px
+        +d 
+            display: block
+            margin: auto
         
 .emailbutton
     display: block

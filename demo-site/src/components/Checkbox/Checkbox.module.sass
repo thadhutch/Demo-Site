@@ -13,8 +13,8 @@
     left: 0
     opacity: 0 
     &:checked + .inner .tick
-        background: $blue
-        border-color: $blue
+        background: $orange
+        border-color: $orange
         &:before
             opacity: 1
 
@@ -22,7 +22,7 @@
     display: flex
     &:hover
         .tick
-            border-color: $blue
+            border-color: $orange
 
 .tick
     position: relative
@@ -52,5 +52,8 @@
     line-height: (24/14)
     font-weight: 500
     color: $neutrals2 
+    +d 
+        min-width: 352px
+        font-size: 13px
     +dark
         color: $neutrals8
