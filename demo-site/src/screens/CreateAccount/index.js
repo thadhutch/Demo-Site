@@ -19,7 +19,7 @@ import Image from "../../components/Image"
 const CreateAccount = () => {
 
   const Moralis = require('moralis');
-  Moralis.initialize("mQR7k1NobAMkMfqKdgIQowcepJpSPcOTCNn2Ds8f");
+  Moralis.initialize("7Ku6X8CPeLsTB1hNuxKbkK3zsNXRW9GrRid3wCnD");
 
 
   const user = Moralis.User.current();
@@ -70,6 +70,11 @@ const CreateAccount = () => {
   const handleToggle1 = () => {
     setArtist(!artist);
   };
+
+  async function returnFunc(){
+    logout();
+    setAuthenticationChecker(true);
+  }
 
   async function MetaMaskAuthentication() {
 
@@ -136,41 +141,52 @@ const CreateAccount = () => {
 
   useEffect(() => {
 
-      const user = Moralis.User.current();
+    const usernamePreview = document.getElementById("usernamePreview");
+    const bioPreview = document.getElementById("bioPreview");
+    const namePreview = document.getElementById("namePreview");
 
-      if(user){
-        const accountStatus = user.get("accountVerified");
-        setAccountVerified(accountStatus);
-      } else {
-        setAccountVerified(false);
-      }
-    
-      if(username.length === 0){
-        setProfileRequirementsChecker(false)
-      } else if(displayName.length === 0) {
-        setProfileRequirementsChecker(false)
-      } else if(email.length === 0) {
-        setProfileRequirementsChecker(false)
-      } else {
-        setProfileRequirementsChecker(true);
-      };
+    const usernamePreview1 = document.getElementById("usernamePreview1");
+    const bioPreview1 = document.getElementById("bioPreview1");
+    const namePreview1 = document.getElementById("namePreview1");
+
+    const user = Moralis.User.current();
+
+    if(user){
+      const accountStatus = user.get("accountVerified");
+      setAccountVerified(accountStatus);
+    } else {
+      setAccountVerified(false);
+    }
+  
+    if(username.length === 0){
+      setProfileRequirementsChecker(false)
+    } else if(displayName.length === 0) {
+      setProfileRequirementsChecker(false)
+    } else if(email.length === 0) {
+      setProfileRequirementsChecker(false)
+    } else {
+      setProfileRequirementsChecker(true);
+    };
   
 
-    if(username.length > 0){
-      user.set("username", username);
-      usernamePreview.innerHTML = username;
-    };
-    if(displayName.length > 0){
-      user.set("display_name", displayName);
-      namePreview.innerHTML = displayName;
-    };
-    if(email.length > 0){
-      user.set("email", email);
-    };
-    if(bio.length > 0){
-      user.set("bio", bio);
-      bioPreview.innerHTML = bio;
-    };
+  if(username.length > 0){
+    user.set("username", username);
+    usernamePreview.innerHTML = username;
+    usernamePreview1.innerHTML = username;
+  };
+  if(displayName.length > 0){
+    user.set("display_name", displayName);
+    namePreview.innerHTML = displayName;
+    namePreview1.innerHTML = displayName;
+  };
+  if(email.length > 0){
+    user.set("email", email);
+  };
+  if(bio.length > 0){
+    user.set("bio", bio);
+    bioPreview.innerHTML = bio;
+    bioPreview1.innerHTML = bio;
+  };
 
   }, [displayName, username, bio]);
 
@@ -434,12 +450,12 @@ const displayError = async () => {
                                     <div className={styles.artistAvatar} >
                                       <img src={"https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo.png?alt=media&token=be8595a7-f66f-452e-8adc-0628bf912c1a"} id="imgAvatar" alt="Avatar" />
                                     </div>
-                                    <div className={styles.realName} id="namePreview">Sample Name</div>
+                                    <div className={styles.realName} id="namePreview1">Sample Name</div>
                                     <span>
                                       <h5>@</h5>
-                                      <h5 id="usernamePreview">sampleuser</h5>
+                                      <h5 id="usernamePreview1">sampleuser</h5>
                                     </span>
-                                    <h6 className={styles.bioPreview} id="bioPreview">Welcome to SpacePath's demo! Thank you for making an account and supporting our project. #FollowThePath</h6>
+                                    <h6 className={styles.bioPreview} id="bioPreview1">Welcome to SpacePath's demo! Thank you for making an account and supporting our project. #FollowThePath</h6>
                                     <button className={cn("button", styles.followerbutton)}>Follow</button>
                                     <div className={styles.followers}>Followers</div>
                                     <div className={styles.followerCount}>0</div>
@@ -492,7 +508,7 @@ const displayError = async () => {
                                   />
                               </div>
                               <div className={styles.btns}>
-                                  <button className={cn("button-stroke", styles.button)} id={styles.cancelbutton} onClick={() => logout()}>
+                                  <button className={cn("button-stroke", styles.button)} id={styles.cancelbutton} onClick={returnFunc}>
                                   Cancel
                                   </button>
                             </div>

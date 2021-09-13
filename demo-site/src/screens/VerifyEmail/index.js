@@ -10,7 +10,7 @@ import Image from "../../components/Image";
 const EmailVerified = () => {
 
     const Moralis = require('moralis');
-    Moralis.initialize("mQR7k1NobAMkMfqKdgIQowcepJpSPcOTCNn2Ds8f");
+    Moralis.initialize("7Ku6X8CPeLsTB1hNuxKbkK3zsNXRW9GrRid3wCnD");
   
   
     const user = Moralis.User.current();
@@ -25,9 +25,9 @@ const EmailVerified = () => {
     const saveUser = async () => {    
     
         const user = await Moralis.User.current();
-        setUserAuthenticated(true);
         await user.set("accountVerified", true);
         await user.save();
+        setUserAuthenticated(true);
   
   };
 

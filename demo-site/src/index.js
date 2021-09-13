@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { MoralisProvider } from "react-moralis";
 
-const appId = 'mQR7k1NobAMkMfqKdgIQowcepJpSPcOTCNn2Ds8f';
-const serverUrl = 'https://4nunoqoexvrk.usemoralis.com:2053/server';
+const appId = '7Ku6X8CPeLsTB1hNuxKbkK3zsNXRW9GrRid3wCnD';
+const serverUrl = 'https://kp2g9eqiyitu.bigmoralis.com:2053/server';
 
 ReactDOM.render(
   <React.StrictMode>

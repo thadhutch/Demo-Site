@@ -40,7 +40,7 @@ const Headers = () => {
   const [visibleNav, setVisibleNav] = useState(false);
 
   const Moralis = require('moralis');
-  Moralis.initialize("mQR7k1NobAMkMfqKdgIQowcepJpSPcOTCNn2Ds8f");
+  Moralis.initialize("7Ku6X8CPeLsTB1hNuxKbkK3zsNXRW9GrRid3wCnD");
 
   const [accountVerified, setAccountVerified] = useState(true);
 
