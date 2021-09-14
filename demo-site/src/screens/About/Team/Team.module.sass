@@ -8,7 +8,7 @@
   height: 100vh
   overflow: hidden
   position: relative
-  background: #333
+  background: #000
 
 .cardWrapper
   position: relative
@@ -18,6 +18,14 @@
   &:active,&:hover,&:focus
     outline: none
     border: none
+
+.carousel span
+  position: absolute
+  top: 150%
+  height: 200px
+  width: 2px
+  background: #88000081
+
 
 .slider_title
   font-size: 2.5vw
@@ -33,58 +41,58 @@
 
 .carousel
   width: 80%
-.carousel .slick-dots
-  bottom: -2.5vw
+// .carousel .slick-dots
+//   bottom: -2.5vw
 
-.carousel .slick-dots li button
-  width: 20px
-  height: 20px
-  border: 1px solid #fff
-  border-radius: 20px
+// .carousel .slick-dots li button
+//   width: 20px
+//   height: 20px
+//   border: 1px solid #fff
+//   border-radius: 20px
 
-.carousel .slick-dots li button:before
-  position: absolute
-  top: 50%
-  left: 50%
-  width: 10px
-  height: 10px
-  border-radius: 10px
-  content: ""
-  text-align: center
-  opacity: .5
-  color: #000
-  background-color: #fff
-  -webkit-transform: translate(-50%, -50%)
-  transform: translate(-50%, -50%)
-  -webkit-transition: all .3s ease-in-out
-  transition: all .3s ease-in-out
+// .carousel .slick-dots li button:before
+//   position: absolute
+//   top: 50%
+//   left: 50%
+//   width: 10px
+//   height: 10px
+//   border-radius: 10px
+//   content: ""
+//   text-align: center
+//   opacity: .5
+//   color: #000
+//   background-color: #fff
+//   -webkit-transform: translate(-50%, -50%)
+//   transform: translate(-50%, -50%)
+//   -webkit-transition: all .3s ease-in-out
+//   transition: all .3s ease-in-out
 
-.carousel .slick-dots li.slick-active button, .carousel .slick-dots li:hover button
-  border-color: tomato
+// .carousel .slick-dots li.slick-active button, .carousel .slick-dots li:hover button
+//   border-color: tomato
 
-.carousel .slick-dots li.slick-active button:before, .carousel .slick-dots li:hover button:before
-  background-color: tomato
-  opacity: 1
+// .carousel .slick-dots li.slick-active button:before, .carousel .slick-dots li:hover button:before
+//   background-color: tomato
+//   opacity: 1
 
-.carousel .slick-prev, .carousel .slick-next
-  width: 50px
-  height: 50px
-  background-color: #fff
+// .carousel .slick-prev, .carousel .slick-next
+//   width: 50px
+//   height: 50px
+//   background-color: #fff
 
-.carousel .slick-prev:hover, .carousel .slick-prev:focus, .carousel .slick-next:hover, .carousel .slick-next:focus
-  color: #fff
-  outline: none
-  background: #fff
+// .carousel .slick-prev:hover, .carousel .slick-prev:focus, .carousel .slick-next:hover, .carousel .slick-next:focus
+//   color: #fff
+//   outline: none
+//   background: #fff
 
-.carousel .slick-prev:before, .carousel .slick-next:before
-  color: #000
-  font-family: "Raleway", sans-serif
+// .carousel .slick-prev:before, .carousel .slick-next:before
+//   color: #000
+//   font-family: "Raleway", sans-serif
 
-.carousel .slick-next
-  right: -55px
+// .carousel .slick-next
+//   right: -55px
 
-.carousel .slick-prev
-  left: -55px
+// .carousel .slick-prev
+//   left: -55px
 
 //cardWrapper
 
@@ -103,7 +111,6 @@
     width: 100%
     height: 100%
     z-index: 2
-    background-color: #000
     transition: .5s
     img
       width: 100%
@@ -139,7 +146,6 @@
       border-radius: 50%
       text-align: center
       font-size: 23px
-      color: #ff0000
       font-weight: bold
       margin: 0 6px
       transition: .4s
@@ -183,11 +189,11 @@
 
 .details
   position: absolute
-  bottom: 350px
+  bottom: 400px
   left: 0
-  background: black
+  background: #2a2a2a
   width: 100%
-  height: 100px
+  height: 50px
   z-index: 3
   padding: 10px
   -webkit-transition: .6s
@@ -209,12 +215,24 @@
   -webkit-background-clip: text
   -webkit-text-fill-color: transparent
   font-size: 15px
+  display: none
 
 
 .card:hover .details
   bottom: 0
-  background: black
+  background: white
+  height: 100px
+  h2:nth-child(2)
+    display: block
+
+
+
 .card:hover .details h2
-  color: white
+  color: black
 
 
+.details h2:nth-child(2)
+  background: -webkit-linear-gradient(#f84f00 50%, #000000 70%,)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  font-size: 15px

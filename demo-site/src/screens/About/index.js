@@ -10,6 +10,7 @@ const About = () => {
       <div className={styles.aboutPageContainer}>
         <AboutHero />
         <div className={styles.teamContainer}>
+        <span></span>
         <Team />
         </div>
       </div>
