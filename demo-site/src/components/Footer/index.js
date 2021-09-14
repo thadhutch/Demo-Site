@@ -40,7 +40,7 @@ const Footers = () => {
                   alt="Twitter Logo"
                 />
               </a>
-              <a href="https://discord.gg/GfdAgp8n" target="_blank" rel="noopener noreferrer">
+              <a href="https://discord.gg/bdUsVc5B" target="_blank" rel="noopener noreferrer">
                 <Image
                   src="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-discord-5-240.png?alt=media&token=365448a8-8542-4bc4-87a6-ee52d2e93de3"
                   srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-discord-5-240.png?alt=media&token=365448a8-8542-4bc4-87a6-ee52d2e93de3"
@@ -65,19 +65,16 @@ const Footers = () => {
                   <a href="/marketplace">Marketplace</a>
                 </li>
                 <li>
-                  <a href="/">Discover</a>
+                  <a href="/about">About</a>
                 </li>
                 <li>
-                  <a href="/">Collectors</a>
+                  <a href="/tos">TOS</a>
                 </li>
                 <li>
-                  <a href="/">Help</a>
-                </li>
-                <li>
-                  <a href="/">About us</a>
+                  <a href="/privacypolicy">Privacy Policy</a>
                 </li>
               </ul>
-              <div className={styles.footertheme}>
+              {/* <div className={styles.footertheme}>
                 <span className={styles.sunicon}>
                 <img src="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-weather-2-240.png?alt=media&token=54ed330f-02c9-457d-a515-34a9eaf4d0e7" className={styles.sun} yalt="sun icon"/>
                 </span>
@@ -85,7 +82,7 @@ const Footers = () => {
                 <span className={styles.moonicon}>
                 <img src="/images/content/iconmonstr-weather-115-240.png" className={styles.moon} alt="moon icon"/>
                 </span>
-              </div>
+              </div> */}
           </div>
         </div>
         <div className={styles.foot}>

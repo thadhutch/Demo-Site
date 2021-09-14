@@ -22,15 +22,11 @@ const VerifyEmail = ({ className }) => {
    const email = await user.get("email"); 
    const username = await user.get("username"); 
 
-   if(setSent === false){
-    await Moralis.Cloud.run("sendWelcomeEmail", {email, username});
-   } else {
-
-   };
+   await Moralis.Cloud.run("sendWelcomeEmail", {email, username});
+   
    
    setEmailTitle("Email has been sent! Please check your inbox/spam to complete the sign up process.")
-   setButtonText("Sent!")
-   setSent(true);
+   setButtonText("Resend Verification Email")
 };
   
     return (

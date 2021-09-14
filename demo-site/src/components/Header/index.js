@@ -58,7 +58,7 @@ const Headers = () => {
   <>
       <header className={styles.header}>
         <div className={cn("container", styles.container)}>
-          <Link className={styles.logo} to="/">
+          <Link className={styles.logo} to="/home">
             <Image
               className={styles.pic}
               src="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-dark.png?alt=media&token=0dc78010-319d-426b-9dc0-c17db0479ec4"
