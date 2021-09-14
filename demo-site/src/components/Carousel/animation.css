@@ -2,7 +2,6 @@
   font-family: Best-font;
   src: url("./Monument\ Extended\ Regular\ 400.otf") format("opentype");
 }
-
 #carousel-container {
   height: 80%;
   display: flex;
@@ -22,27 +21,26 @@
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
-
 .dragContainer,
-.spinContainer::before {
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -webkit-transform: rotateX(-100deg);
-  transform: rotateX(-100deg);
+  .spinContainer::before {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: rotateX(-100deg);
+    transform: rotateX(-100deg);
 }
-
 .dragContainer,
-.spinContainer {
-  width: 500px;
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: auto;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -webkit-transform: rotateX(-10deg);
-  transform: rotateX(-10deg);
+  .spinContainer {
+    display: none;
+    width: 400px;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: auto;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: rotateX(-10deg);
+    transform: rotateX(-10deg);
 }
 .dragContainer #aboutImg,
 .aboutVideo {
@@ -163,53 +161,11 @@ p {
   }
 }
 
-/* ======================================================= */
-/* 
-  @-webkit-keyframes Xspin {
-    from {
-      -webkit-transform: rotateX(0deg);
-      transform: rotateX(0deg);
-    }
-    to {
-      -webkit-transform: rotateX(360deg);
-      transform: rotateX(360deg);
-    }
-  }
-  @keyframes Xspin {
-    from {
-      -webkit-transform: rotateX(0deg);
-      transform: rotateX(0deg);
-    }
-    to {
-      -webkit-transform: rotateX(360deg);
-      transform: rotateX(360deg);
-    }
-  }
-  @-webkit-keyframes XspinRevert {
-    from {
-      -webkit-transform: rotateX(360deg);
-      transform: rotateX(360deg);
-    }
-    to {
-      -webkit-transform: rotateX(0deg);
-      transform: rotateX(0deg);
-    }
-  }
-  @keyframes XspinRevert {
-    from {
-      -webkit-transform: rotateX(360deg);
-      transform: rotateX(360deg);
-    }
-    to {
-      -webkit-transform: rotateX(0deg);
-      transform: rotateX(0deg);
-    }
-  } */
-@media only screen and (max-width: 425px) {
+/* @media only screen and (min-width: 425px) {
   .spinContainer p{
     font-size: 1rem;
   }
   #aboutImg h2 {
     font-size: 10px;
   }
-}
+} */
