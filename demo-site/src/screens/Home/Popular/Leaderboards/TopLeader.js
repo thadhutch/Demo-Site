@@ -9,15 +9,15 @@ import DropdownEmpty from "../../../../components/DropdownEmpty";
 const topCollector = [
   {
     name: "Kristaps Dokans",
-    sign: "/images/content/cup.svg",
+    sign: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/iconmonstr-trophy-3-240.png?alt=media&token=37cd6404-fb8a-46ed-8263-76f33d849b12",
     number: "1",
-    url: "/profile",
+    url: "",
     color: "#d4af37",
-    avatar: "/images/content/KristapsDokansprofilepic.jpeg",
+    avatar: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/KristapsDokansprofilepic.jpeg?alt=media&token=649fde2b-30d2-49fd-802a-d2e02f4b13be",
     reward: "/images/content/reward-1.svg",
     price: "<span>$20,000</span>",
     gallery: [
-      "images/content/KDSpringtimeBliss.jpg",
+      "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/118142294_142594964167058_2325249536339833724_n.jpg?alt=media&token=7193f021-cc86-4534-b420-2d46daa39147",
       "/images/content/Dolorianphoto.jpg",
       "/images/content/spacejellyfish.jpeg",
       "images/content/KDSpringtimeBliss.jpg",

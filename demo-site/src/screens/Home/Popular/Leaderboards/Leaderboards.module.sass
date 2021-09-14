@@ -36,8 +36,7 @@
     color: $neutrals8
 
 .icon
-    margin-right: 4px
-
+    margin-right: 30px
     img
         border-radius: 50%
         width: 16px
@@ -83,10 +82,15 @@
     display: flex
     justify-content: center
     width: 100%
+    +m
+        margin-top: 60px
 
 .avatar img
     border-radius: 50%
     width: 115px
+    +m 
+        width: 60px
+        height: 60px
 
 .reward
     display: none
@@ -109,12 +113,21 @@
     width: 65%
     +m
         width: 100%
+        margin-top: 20px
 .favorites
     width:
     border-radius: 10px
     overflow: hidden
+    +m 
+        margin-bottom: -40px
     img
         height: 100%
+        +m
+            display: none
+                
+                
+            
+
 
 // ====================================================================
 // Top Leaderboard Content

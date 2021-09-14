@@ -23,7 +23,10 @@ const Footers = () => {
             </Link>
             <div className={styles.info}>The Premier Art Gallery</div>
             <div className={styles.version}>
-              <div className={styles.details}>SpacePath is the first NFT Marketplace that offers no minting or platform fees. (Write out more detailed description)</div>
+              <div className={styles.details}> SpacePath Marketplace is an NFT marketplace designed with you in
+            mind. Whether you’re an artist or creator, we’ve spent countless
+            hours refining our platform to enhance the user experience from all
+            angles. Read more about the project on the About page!</div>
             </div>
             <div className={styles.socials}>
               <a href="https://www.instagram.com/spacepathhq/" target="_blank" rel="noopener noreferrer">

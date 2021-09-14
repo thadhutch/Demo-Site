@@ -74,7 +74,7 @@ const Collections = () => {
       {
         breakpoint: 500,
         settings: {
-          slidesToShow: 1,
+        slidesToShow: 1,
         },
       },
     ],
