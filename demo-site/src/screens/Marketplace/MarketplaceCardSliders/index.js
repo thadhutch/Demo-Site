@@ -16,7 +16,7 @@ const SlickArrow = ({ currentSlide, slideCount, children, ...props }) => (
   <button {...props}>{children}</button>
 );
 
-const MarketPlaceCardSlider = ({ classSection }) => {
+const MarketPlaceCardSlider = ({  }) => {
   const sliderSettings = {
     infinite: false,
     speed: 500,

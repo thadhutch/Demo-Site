@@ -4,42 +4,43 @@ import "./animation.css"
 const items = [
     {
         image:"https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/cevenova3.jpeg?alt=media&token=3366586e-fc37-4d6f-a9cc-43feabbbf26f",
-        NFTname:"NFT Name",
+        NFTname:"NFT",
     },
     {
         image:"https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/homeCard2.jpeg?alt=media&token=cf84406a-292e-4fa0-a602-271fd6729312",
-        NFTname:"NFT Name",
+        NFTname:"NFT",
     },
     {
         image:"https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/cevenova1.jpeg?alt=media&token=c2a6941b-c78d-4a19-8bab-ceb826f8230d",
-        NFTname:"NFT Name",
+        NFTname:"NFT",
     },
     {
         image:"https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/homeCard3.gif?alt=media&token=5398c957-3da4-41a1-976b-545a61d36324",
-        NFTname:"NFT Name",
+        NFTname:"NFT",
     },
     {
         image:"https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/cevenova1.jpeg?alt=media&token=c2a6941b-c78d-4a19-8bab-ceb826f8230d",
-        NFTname:"NFT Name",
+        NFTname:"NFT",
     },
     {
         image:"https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/card2.gif?alt=media&token=52936dc1-3c09-48c7-8f1d-6a14fe706b6c",
-        NFTname:"NFT Name",
+        NFTname:"NFT",
     },
     {
         image:"https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/card2.gif?alt=media&token=52936dc1-3c09-48c7-8f1d-6a14fe706b6c",
-        NFTname:"NFT Name",
+        NFTname:"NFT",
     },
 ];
 
 const Carousel = () => {
-    let radius = 350;
+    const mediaQuery = window.matchMedia('(min-width: 425px)');  
+    let radius = 100;
     let autoRotate = true;
     let autoRotateX = false;
     let rotateSpeed = -60;
     let rotateSpeedX = -20;
-    let imgWidth = 150;
-    let imgHeight = 225;
+    let imgWidth = 50;
+    let imgHeight = 125;
 
 
     let bgMusicURL = 'https://api.soundcloud.com/tracks/143041228/stream?client_id=587aa2d384f7333a886010d5f52f302a';

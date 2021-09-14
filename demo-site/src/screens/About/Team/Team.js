@@ -1,6 +1,8 @@
-import React from 'react';
+import React from "react";
 import Slider from "react-slick";
 import styles from "./Team.module.sass";
+import Icon from "../../../components/Icon";
+
 
 const items = [
     {
@@ -37,7 +39,26 @@ function Team() {
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,
-        cssEase: "linear"
+        responsive: [
+            {
+              breakpoint: 1023,
+              settings: {
+                slidesToShow: 2,
+              },
+            },
+            {
+              breakpoint: 767,
+              settings: {
+                slidesToShow: 2,
+              },
+            },
+            {
+              breakpoint: 500,
+              settings: {
+              slidesToShow: 1,
+              },
+            },
+          ],
     }
     return (
         <div className={styles.carousel}>

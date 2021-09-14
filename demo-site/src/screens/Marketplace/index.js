@@ -10,7 +10,7 @@ const Marketplace = () => {
 
   return (
     <div className={cn("section-pt80", styles.section)}>
-        <MarketPlaceHero />
+        <MarketPlaceHero/>
       <div className={cn("container", styles.container)}>
         <MarketPlaceCardSlider/>
       </div>

@@ -1,9 +1,9 @@
 @font-face {
-    font-family: Best-font;
-    src: url('./Monument\ Extended\ Regular\ 400.otf') format('opentype');
+  font-family: Best-font;
+  src: url("./Monument\ Extended\ Regular\ 400.otf") format("opentype");
 }
 
-#carousel-container{
+#carousel-container {
   height: 80%;
   display: flex;
   align-items: center;
@@ -84,7 +84,7 @@
   -webkit-box-reflect: below 10px
     linear-gradient(transparent, transparent, #0007);
 }
-#aboutImg:hover img{
+#aboutImg:hover img {
   -webkit-box-shadow: 0 0 15px #fffd;
   box-shadow: 0 0 15px #fffd;
   -webkit-box-reflect: below 10px
@@ -117,7 +117,8 @@ p {
   background: -webkit-radial-gradient(
     center center,
     farthest-side,
-    #f84f009c 20%, #dbcc009a 50%,
+    #f84f009c 20%,
+    #dbcc009a 50%,
     transparent
   );
 }
@@ -204,3 +205,11 @@ p {
       transform: rotateX(0deg);
     }
   } */
+@media only screen and (max-width: 425px) {
+  .spinContainer p{
+    font-size: 1rem;
+  }
+  #aboutImg h2 {
+    font-size: 10px;
+  }
+}
