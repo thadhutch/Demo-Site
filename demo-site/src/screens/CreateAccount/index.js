@@ -64,7 +64,7 @@ const CreateAccount = () => {
   };
 
   const handleToggle = () => {
-    setCollector(true);
+    setCollector(!collector);
   };
 
   const handleToggle1 = () => {
@@ -212,8 +212,10 @@ const CreateAccount = () => {
       const profileAvatar = await user.get("profile_picture");
 
       const userProfileAvatar = document.getElementById('imgAvatar');
+      const userProfileAvatar1 = document.getElementById('imgAvatar1');
 
       userProfileAvatar.src = profileAvatar.url();
+      userProfileAvatar1.src = profileAvatar.url();
 
     };
 
@@ -238,8 +240,10 @@ const CreateAccount = () => {
       const userAvatar = await user.get("profile_banner");
 
       const userAvatarImg = document.getElementById('profileBanner');
+      const userAvatarImg1 = document.getElementById('profileBanner1');
 
       userAvatarImg.src = userAvatar.url();
+      userAvatarImg1.src = userAvatar.url();
 
       
 
@@ -334,7 +338,7 @@ const displayError = async () => {
                 srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-light.png?alt=media&token=af5f3049-b42b-4094-956d-f8377f8986bf"
                 alt="SpacePath Logo"
               />
-            <div className={cn("h2", styles.stage)}>Create Account for Demo Access</div>
+            <div className={cn("h2", styles.stage)}>Welcome! Create an Account to get Demo Access</div>
           </div>
           <div className={styles.body}>
               {authenticationChecker ? (
@@ -442,13 +446,13 @@ const displayError = async () => {
                           <div className={styles.info}>Profile Card Preview</div>
                           <div className={styles.artistCardContainer}>
                             <div className={styles.artistCardImg}>
-                              <img src={"https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/defaultProfileBackground.png?alt=media&token=79e04361-65f6-400d-8527-21220062872d"} id="profileBanner" alt="profile banner" />
+                              <img src={"https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/defaultProfileBackground.png?alt=media&token=79e04361-65f6-400d-8527-21220062872d"} id="profileBanner1" alt="profile banner" />
                             </div>
                             <div className={styles.artistUsernameAvatarContainer}>
                               <div className={styles.artistUsernameAvatar}>
                                   <div>
                                     <div className={styles.artistAvatar} >
-                                      <img src={"https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo.png?alt=media&token=be8595a7-f66f-452e-8adc-0628bf912c1a"} id="imgAvatar" alt="Avatar" />
+                                      <img src={"https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo.png?alt=media&token=be8595a7-f66f-452e-8adc-0628bf912c1a"} id="imgAvatar1" alt="Avatar" />
                                     </div>
                                     <div className={styles.realName} id="namePreview1">Sample Name</div>
                                     <span>

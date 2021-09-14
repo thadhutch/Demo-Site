@@ -22,7 +22,7 @@ const ArtistCard = ({ className, item }) => {
               </div>
               <div className={styles.realName}>{x.realName}</div>
               <h5>@{x.username}</h5>
-              <p>{x.bio}</p>
+              <h6>{x.bio}</h6>
               <button className={cn("button", styles.button)}>Follow</button>
               <div className={styles.followers}>Followers</div>
               <div className={styles.followerCount}>{x.followerCount}</div>

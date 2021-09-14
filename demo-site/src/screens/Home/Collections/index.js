@@ -7,33 +7,33 @@ import Icon from "../../../components/Icon";
 
 const items = [
   {
-    title: "Retro Space",
+    title: "PNK Collection",
     username: "cevenova",
-    collectionLogo: "/images/content/cevenovaeth.jpg",
+    collectionLogo: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/pnk%20normal.png?alt=media&token=c3ebcf18-1839-4e41-8de5-b854a1305a61",
     counter: "4",
-    avatar: "/images/content/cevenovaprofilepic.jpeg",
+    avatar: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/161733479_1339226993118522_4040893446396386252_n.jpg?alt=media&token=c73ad287-7ec7-40c9-8486-4593ccf2fa3eg",
     gallery: [
-      "/images/content/Dolorianphoto.jpg",
+      "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/pnk%20crop.png?alt=media&token=8fe17335-2f9c-49e1-9cd8-2d09fbcecd18",
     ],
   },
   {
-    title: "Vintage Mercedes",
+    title: "Liam Collection",
     username: "willie",
-    collectionLogo: "/images/content/MercedesVintageLogo.png",
+    collectionLogo: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/liam%20normal.png?alt=media&token=855320bc-c30d-48cd-8fce-cdc821fa6015",
     counter: "12",
     avatar: "/images/content/avatar-3.jpg",
     gallery: [
-      "/images/content/MercedesVintageCar.jpeg",
+      "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/liam%20crop.png?alt=media&token=6fec4254-e526-429d-97e8-358e132b608c",
     ],
   },
   {
-    title: "Weird Whales",
+    title: "Kelvin Collection",
     username: "halle",
-    collectionLogo: "/images/content/WeirdWhalesLogo.png",
+    collectionLogo: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/kelvin%20normal.png?alt=media&token=237b16e1-802c-464a-9133-f8fc69ed224b",
     counter: "28",
     avatar: "/images/content/avatar-4.jpg",
     gallery: [
-      "/images/content/WeirdWhalesBanner.png",
+      "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/kelvin%20crop.png?alt=media&token=9733930f-0ae4-48a1-ae88-715dcf76f75a",
     ],
   },
 ];
