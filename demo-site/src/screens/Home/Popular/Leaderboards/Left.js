@@ -31,7 +31,7 @@ const goodCollectors = [
     avatar: "/images/content/avatar-2.jpg",
     url: "",
     amountSpent: "$14,621",
-    ranking: "1",
+    ranking: "2",
   },
   {
     displayName: "Taylor",
@@ -39,7 +39,7 @@ const goodCollectors = [
     avatar: "/images/content/avatar-1.jpg",
     url: "",
     amountSpent: "$15,654",
-    ranking: "2",
+    ranking: "3",
   },
   {
     displayName: "Mike",
@@ -47,7 +47,7 @@ const goodCollectors = [
     avatar: "/images/content/avatar-2.jpg",
     url: "",
     amountSpent: "$14,621",
-    ranking: "3",
+    ranking: "4",
   },
   {
     displayName: "Bobby",
@@ -55,7 +55,7 @@ const goodCollectors = [
     avatar: "/images/content/avatar-3.jpg",
     url: "",
     amountSpent: "$11,351",
-    ranking: "4",
+    ranking: "5",
   },
   {
     displayName: "Tripp",
@@ -63,7 +63,7 @@ const goodCollectors = [
     avatar: "/images/content/avatar-4.jpg",
     url: "",
     amountSpent: "$9,824",
-    ranking: "5",
+    ranking: "6",
   },
 ];
 

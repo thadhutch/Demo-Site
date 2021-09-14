@@ -93,7 +93,7 @@ const Footers = () => {
             Copyright © 2021 SpacePath Inc. All rights reserved
           </div>
           <div className={styles.note}>
-            <a href="/#">Privacy Policy</a> <a href="/#">Terms Of Service</a>
+            <a href="/privacypolicy">Privacy Policy</a> <a href="/tos">Terms Of Service</a>
           </div>
         </div>
       </div>

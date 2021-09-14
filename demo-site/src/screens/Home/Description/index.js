@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import styles from "./Description.module.sass";
 import VerifiedArtistButton from "./VerifiedArtistButton";
 import HomeHeroCards from "./HomeHeroCards";
-import Carousel from "./Carousel/Carousel";
 
 
 const Description = () => {

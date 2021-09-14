@@ -7,14 +7,14 @@ export const bids = [
     currentBid: "5.4",
     convertedPrice: "16,200",
     auctionTime: "12H 30M 15S",
-    image: "/images/content/KSImage.jpg",
-    image2x: "/images/content/KSImage.jpg",
+    image: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/KSImage.jpg?alt=media&token=8acd2fa9-22f9-48e9-adb9-c7f92fd883c0",
+    image2x: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/KSImage.jpg?alt=media&token=8acd2fa9-22f9-48e9-adb9-c7f92fd883c0",
     category: "green",
     categoryText: "purchasing !",
-    url: "/item",
+    url: "",
     users: [
       {
-        avatar: "/images/content/KelvinStagramprofilepic.jpeg",
+        avatar: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/KelvinStagramprofilepic.jpeg?alt=media&token=5655cb6c-8ee9-46c3-9e66-b37a241dd2ff",
         username: "KStagram"
       },
       
@@ -28,14 +28,14 @@ export const bids = [
     convertedPrice: "34,200",
     auctionTime: "10H 22M 10S",
     counter: "1 of 1",
-    image: "/images/content/KDSpringtimeBliss.jpg",
-    image2x: "/images/content/KDSpringtimeBliss.jpg",
+    image: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/KDSpringtimeBliss.jpg?alt=media&token=6bf60f5c-c5a6-4b09-9a69-f467edfca9e3",
+    image2x: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/KDSpringtimeBliss.jpg?alt=media&token=6bf60f5c-c5a6-4b09-9a69-f467edfca9e3",
     category: "green",
     categoryText: "purchasing !",
-    url: "/item",
+    url: "",
     users: [
       {
-        avatar: "/images/content/KristapsDokansprofilepic.jpeg",
+        avatar: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/KristapsDokansprofilepic.jpeg?alt=media&token=649fde2b-30d2-49fd-802a-d2e02f4b13be",
         username: "Kpsd"
       },
     ],
@@ -48,14 +48,14 @@ export const bids = [
     convertedPrice: "15,300",
     auctionTime: "8H 49M 56S",
     counter: "1 of 3",
-    image: "/images/content/card-pic-3.jpg",
-    image2x: "/images/content/card-pic-3.jpg",
+    image: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/card-pic-3.jpg?alt=media&token=e1dce58d-91d3-4611-b1f5-a180613602ea",
+    image2x: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/card-pic-3.jpg?alt=media&token=e1dce58d-91d3-4611-b1f5-a180613602ea",
     category: "green",
     categoryText: "purchasing !",
     url: "/item",
     users: [
       {
-        avatar: "/images/content/livinginmarsplanetprofilepic.jpeg",
+        avatar: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/livinginmarsplanetprofilepic.jpeg?alt=media&token=0109a748-9fd7-4b51-9873-a29cd09177e3",
         username: "LivingMP"
       },
       
@@ -69,14 +69,14 @@ export const bids = [
     convertedPrice: "26,700",
     auctionTime: "22H 5M 34S",
     counter: "1 of 10",
-    image: "/images/content/tunnelphoto.jpg",
-    image2x: "/images/content/tunnelphoto.jpg",
+    image: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/tunnelphoto.jpg?alt=media&token=a3343b87-d4ee-4db7-9078-fcd24eb327f7",
+    image2x: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/tunnelphoto.jpg?alt=media&token=a3343b87-d4ee-4db7-9078-fcd24eb327f7",
     category: "green",
     categoryText: "purchasing !",
-    url: "/item",
+    url: "",
     users: [
       {
-        avatar: "/images/content/cevenovaprofilepic.jpeg",
+        avatar: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/cevenovaAvatar.jpeg?alt=media&token=29ac1d64-a166-4540-93ea-77313aedff83",
         username: "Cevenova"
       },
       
