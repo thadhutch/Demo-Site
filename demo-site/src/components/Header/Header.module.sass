@@ -6,6 +6,12 @@
   padding: 0
   font-family: 'Ubuntu', sans-serif
 
+.usercontainer
+    display: inline-flex
+    +x 
+        margin-top: 10px
+    +m 
+        display: none
 
 .header
     position: relative
@@ -23,6 +29,7 @@
     align-items: center
     margin-top: 20px
     & > .button
+        margin-left: -150px
         margin-right: 12px
         +m
             display: none
@@ -44,7 +51,25 @@
     align-items: center
     flex-grow: 1
     +d
-        flex-grow: 0
+     &.active 
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        flex-direction: column
+        align-items: stretch
+        height: 100vh
+        margin: 0
+        padding: 140px 32px 40px
+        box-shadow: 0px 64px 64px rgba(31, 47, 70, 0.2)
+        background: $neutrals8
+        visibility: hidden
+        opacity: 0
+        transition: all .2s
+        visibility: visible
+        opacity: 1
+        +dark
+            background: $neutrals1
     +m
         position: absolute
         top: 0
@@ -68,7 +93,7 @@
     .button
         display: none
         +m
-            display: inline-flex
+            display: none
             margin-top: 16px
 
 
@@ -88,20 +113,35 @@
 .link
     position: relative
     float: right
-    margin-left: 75px
+    flex-shrink: 0
+    padding-left: 350px
     +dm-sans
     line-height: 40px
     color: $neutrals4
     transition: color .2s
+    &.active
+        display: flex
+        flex-direction: column
+        margin-top: 200px
+        margin-left: -550px
+        font-size: 27px
+        &:hover
+            border: none
+    +w 
+        position: absolute
+        padding-left: 0px
+        top: 0
+        left: 580px
     +m
-        margin-left: 0
-        font-size: 24px
-        line-height: 64px
-    &:nth-child(n+3)
-        display: none
-        +m
-            display: block
-
+        display: flex
+        flex-direction: column
+        margin-top: 200px
+        margin-left: -550px
+        font-size: 27px
+        &:hover
+            border: none
+       
+    
 .navlinks 
   color: #fff
   text-decoration: none
@@ -116,16 +156,26 @@
 
 
 .search
-    position: relative
+    position: absolute
     flex-shrink: 0
     width: 256px
     margin-right: 24px
+    top: 10px
+    +d 
+        left: 225px
     +t
         display: none
+        &.active
+            display: block
+            width: 350px
+            left: 140px
+            top: 140px
     +m
         display: block
-        width: 100%
-        margin: auto 0 0
+        width: 350px
+        left: 160px
+        top: 140px
+
 
 .input
     width: 100%
@@ -140,6 +190,8 @@
     right: -60px
     bottom: 0
     width: 42px
+    +m 
+        right: -85px
     svg
         fill: $neutrals4
         transition: fill .2s
@@ -155,7 +207,7 @@
 
 .burger
     display: none
-    +m
+    +d
         display: block
         position: relative
         margin-left: 20px
@@ -185,22 +237,46 @@
             transform: translateY(3px)
 
 li
-    display: inline
+    display: inline-block
     padding: 7px
-    +m
-        display: block
+    span
+    color: $neutrals2
+    transition: color .2s
+    font-weight: 600
+    +dark
+        color: $neutrals7
+    &.active
+        position: absolute
+        right: 60px
+        font-size: 30px
+        top: 200px
+        &:nth-child(2)
+            top: 300px
+            right: 390px
+        &:nth-child(3)
+            top: 350px
+            right: 460px
+    
+            
+    
 
 .mobileview
     display: none
+    
     +m 
         display: block
 
 
-span
-    color: $neutrals2
-    transition: color .2s
-    +dark
-        color: $neutrals7
+.mobilebutton
+    display: none
+    +m
+        display: block
+        margin-top: 250px
+        padding-top: 10px
+
+
+
+
         
 
 

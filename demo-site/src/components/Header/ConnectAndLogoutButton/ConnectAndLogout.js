@@ -3,14 +3,15 @@ import React, { useContext } from "react";
 import { useMoralis } from "react-moralis";
 import styles from "../Header.module.sass";
 import { Link } from "react-router-dom";
-import Loader from '../../Loader/index';
 import { UserContext } from "../../../GlobalState/index";
 
 
 function ConnectAndLogout() {
 
     const Moralis = require('moralis'); 
-    Moralis.initialize("mQR7k1NobAMkMfqKdgIQowcepJpSPcOTCNn2Ds8f"); 
+    Moralis.initialize("7Ku6X8CPeLsTB1hNuxKbkK3zsNXRW9GrRid3wCnD"); 
+
+    const user = Moralis.User.current();
     const { isUserAuthenticated, setUserAuthenticated } = useContext(UserContext);
 
     function logoutFunc() {
@@ -20,7 +21,7 @@ function ConnectAndLogout() {
 
     const { logout } = useMoralis();
 
-    if(isUserAuthenticated) {
+    if(user) {
         return (
             <Link to='/'>
             <button
