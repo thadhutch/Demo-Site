@@ -8,6 +8,8 @@ import Notification from "./Notification";
 import ConnectAndLogout from "./ConnectAndLogoutButton/ConnectAndLogout";
 import DynamicUser from "./User/DynamicUser";
 import Input from './Input/Input';
+import { useMoralis } from "react-moralis";
+
 
 const nav = [
   {
@@ -45,6 +47,8 @@ const Headers = () => {
   const [accountVerified, setAccountVerified] = useState(true);
 
   const user = Moralis.User.current();
+
+  const { logout } = useMoralis();
 
   const handleSubmit = (e) => {
     alert();
@@ -90,38 +94,30 @@ const Headers = () => {
                     <span>About</span>
                   </NavLink>
                 </li>
-                <li>
-                    <NavLink to="/item" className={styles.navlinks}>
-                      <span>Leaderboard</span>
-                    </NavLink>
-                </li>
               </ul>
               <div className={styles.link}>
-                <ul className={styles.mobileview}>
-                  <li>
-                    <NavLink to="/profile" className={styles.navlinks}>
-                      <span>Profile</span>
-                    </NavLink>
-                  </li>
-                </ul>
+                
               </div>
             </nav>
             <Link
-              className={cn("button-small", styles.button)}
-              to="/upload-variants"
+              className={cn("button-small", styles.mobilebutton)}
+              to="/"
+              onClick={() => logout()}
             >
-              Upload
+              Logout
             </Link>
           </div>
           <Notification className={styles.notification} />
-          <ConnectAndLogout />
-          {/* <Link
-            className={cn("button-stroke button-small", styles.button)}
-            to="/connect-wallet"
-          >
-            Connect Wallet
-          </Link> */}
-          <DynamicUser />
+          <div className={styles.usercontainer}>
+            <ConnectAndLogout />
+            {/* <Link
+              className={cn("button-stroke button-small", styles.button)}
+              to="/connect-wallet"
+            >
+              Connect Wallet
+            </Link> */}
+            <DynamicUser />
+          </div>
           <button
             className={cn(styles.burger, { [styles.active]: visibleNav })}
             onClick={() => setVisibleNav(!visibleNav)}
