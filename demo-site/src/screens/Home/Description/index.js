@@ -15,7 +15,7 @@ const Description = () => {
               <h1 className={styles.title}>SPACEPATH</h1>
               {/* logo */}
               <div className={styles.heroLogoContainer}>
-                <img src="https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/logoHome.jpeg?alt=media&token=9a87744c-2760-4fa3-a75f-0b7cd9b4536e"></img>
+                <img src="https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/logopng_copy.png?alt=media&token=14959f5a-cd1f-44a5-9739-81ea0bce95b9"></img>
               </div>
               <h2>
                 Blurring the line between art and technology.
