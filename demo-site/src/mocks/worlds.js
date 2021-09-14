@@ -88,18 +88,18 @@ export const worlds = [
   },
   {
     title: "Future City",
-    world:"Abstract",
+    world:"Fantasy",
     price: "6.87 ETH",
     highestBid: "0.001 ETH",
     currentBid: "5.1",
     convertedPrice: "15,300",
     auctionTime: "8H 49M 56S",
     counter: "1 of 3",
-    image: "/images/content/FultonHobbsCottonCandy.jpeg",
-    image2x: "/images/content/FultonHobbsCottonCandy.jpeg",
+    image: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/238440199_424261332320485_7718056230513269929_n.jpg?alt=media&token=ab737ec4-5e92-427f-85e0-83437782fad9",
+    image2x: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/238440199_424261332320485_7718056230513269929_n.jpg?alt=media&token=ab737ec4-5e92-427f-85e0-83437782fad9",
     category: "green",
     categoryText: "Cevenova !",
-    url: "/",
+    url: "",
     users: [
       {
         avatar: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/cevenovaAvatar.jpeg?alt=media&token=29ac1d64-a166-4540-93ea-77313aedff83",
