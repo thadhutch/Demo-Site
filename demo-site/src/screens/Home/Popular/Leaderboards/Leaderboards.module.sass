@@ -1,15 +1,11 @@
 @import ../../../../styles/helpers
 
-.leftSection
-    overflow: hidden
-    width: 60%
-    height: 100%
-    padding-bottom: 140px
+
 
 // ====================================================================
 // Top Leaderboard Content
 .topLeaderboardContent
-    width: 95%
+    width: 100%
     height: 300px
     padding: 24px
     margin-top: 40px
@@ -68,6 +64,8 @@
     display: flex
     justify-content: space-evenly
     width: 100%
+    +m
+        flex-direction: column
 
 .body
     display: flex
@@ -76,6 +74,9 @@
     text-align: center
     width: 30%
     height: 175px
+    +m
+        width: 100%
+        height: 100px
 
 .avatar
     text-align: center
@@ -106,8 +107,8 @@
     flex-direction: row
     justify-content: space-evenly
     width: 65%
-    +t
-
+    +m
+        width: 100%
 .favorites
     width:
     border-radius: 10px
@@ -115,29 +116,33 @@
     img
         height: 100%
 
+// ====================================================================
+// Top Leaderboard Content
 .leadersSection
     width: 100%
     display: flex
-// ====================================================================
-// Top Leaderboard Content
-.leaderboardSection
-    height: 120vh
-    width: 100%
-    display: flex
+    align-items: center
+    justify-content: space-evenly
 
 .leftSection
-    width: 50%
+    width: 48%
+    height: 100%
+    padding-bottom: 140px
+    +m
+        width: 500px
 
 .rightSection
-    width: 50%
+    width: 48%
+    height: 100%
+    padding-bottom: 140px
+    +m
+        display: none
 
-.bottomLeaderboard
+.bottomLeaderboardLeft
     width: 100%
-    margin-bottom: 35px
-    display: flex
-    flex-direction: column
-    justify-content: center
-    align-items: center
+.bottomLeaderboardRight
+    width: 100%
+
 
 .leaderboard
     height: 75px
@@ -150,6 +155,10 @@
     justify-content: center
     align-items: center
 
+.leaderboardLeft
+
+.leaderboardRight
+    
 .top
     margin-bottom: 54px
     +m
@@ -181,9 +190,10 @@
         +m
             display: inline-block
 
-.leaderboardLeft
+.leaderboardLeft, .leaderboardRight
     width: 100%
     display: flex
+    flex-direction: row
     align-items: center
 
 .leaderboardavatar

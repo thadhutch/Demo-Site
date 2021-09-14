@@ -30,12 +30,6 @@ const Hot = ({ classSection }) => {
     ),
     responsive: [
       {
-        breakpoint: 1179,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
         breakpoint: 1023,
         settings: {
           slidesToShow: 2,
@@ -45,12 +39,10 @@ const Hot = ({ classSection }) => {
         breakpoint: 767,
         settings: {
           slidesToShow: 2,
-          infinite: true,
         },
       },
     ],
   };
-
   return (
     <div className={cn(classSection, styles.section)}>
       <div className={cn("container", styles.container)}>

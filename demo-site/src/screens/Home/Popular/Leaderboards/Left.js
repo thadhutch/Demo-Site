@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Leaderboards.module.sass";
 import Add from "../Add";
-import Icon from "../../../../components/Icon";
-import Dropdown from "../../../../components/Dropdown";
-import DropdownEmpty from "../../../../components/DropdownEmpty";
 
 const topCollector = [
   {
@@ -67,54 +64,13 @@ const goodCollectors = [
   },
 ];
 
-const SlickArrow = ({ currentSlide, slideCount, children, ...props }) => (
-  <button {...props}>{children}</button>
-);
+
 
 const Left = () => {
-  const settings = {
-    infinite: false,
-    speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    adaptiveHeight: true,
-    nextArrow: (
-      <SlickArrow>
-        <Icon name="arrow-next" size="14" />
-      </SlickArrow>
-    ),
-    prevArrow: (
-      <SlickArrow>
-        <Icon name="arrow-prev" size="14" />
-      </SlickArrow>
-    ),
-    responsive: [
-      {
-        breakpoint: 1340,
-        settings: {
-          slidesToShow: 4,
-        },
-      },
-      {
-        breakpoint: 1023,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 767,
-        settings: {
-          slidesToShow: 2,
-          infinite: true,
-        },
-      },
-    ],
-  };
-
   return (
     <div className={styles.leadersSection}>
       <div className={styles.leftSection}>
-        <div className={styles.bottomLeaderboard}>
+        <div className={styles.bottomLeaderboardLeft}>
           {goodCollectors.map((x, index) => (
             <div className={styles.leaderboard}>
               <div className={styles.leaderboardLeft}>
@@ -134,11 +90,11 @@ const Left = () => {
           ))}
         </div>
       </div>
-      <div className={styles.leftSection}>
-        <div className={styles.bottomLeaderboard}>
+      <div className={styles.rightSection}>
+        <div className={styles.bottomLeaderboardRight}>
           {goodCollectors.map((x, index) => (
             <div className={styles.leaderboard}>
-              <div className={styles.leaderboardLeft}>
+              <div className={styles.leaderboardRight}>
                 <div className={styles.ranking}>{x.ranking}</div>
                 <div className={styles.leaderboardavatar}>
                   <img src={x.avatar} />
