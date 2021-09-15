@@ -11,7 +11,7 @@ const About = () => {
         <AboutHero />
         <div className={styles.teamContainer}>
         <span></span>
-        <Team />
+        {/* <Team /> */}
         </div>
       </div>
     </div>
