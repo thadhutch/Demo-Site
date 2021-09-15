@@ -77,15 +77,15 @@ const Footers = () => {
                   <a href="/privacypolicy">Privacy Policy</a>
                 </li>
               </ul>
-              {/* <div className={styles.footertheme}>
+              <div className={styles.footertheme}>
                 <span className={styles.sunicon}>
-                <img src="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-weather-2-240.png?alt=media&token=54ed330f-02c9-457d-a515-34a9eaf4d0e7" className={styles.sun} yalt="sun icon"/>
+                <img src="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-weather-2-240.png?alt=media&token=54ed330f-02c9-457d-a515-34a9eaf4d0e7" className={styles.sun} alt="sun icon"/>
                 </span>
                 <Theme className={styles.theme}/>
                 <span className={styles.moonicon}>
-                <img src="/images/content/iconmonstr-weather-115-240.png" className={styles.moon} alt="moon icon"/>
+                <img src="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-weather-115-240.png?alt=media&token=122e0e08-8851-47bd-9eb7-6e58f67a88b3" className={styles.moon} alt="moon icon"/>
                 </span>
-              </div> */}
+              </div> 
           </div>
         </div>
         <div className={styles.foot}>

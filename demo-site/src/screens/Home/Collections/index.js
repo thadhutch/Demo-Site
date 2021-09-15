@@ -72,7 +72,7 @@ const Collections = () => {
         },
       },
       {
-        breakpoint: 500,
+        breakpoint: 740,
         settings: {
         slidesToShow: 1,
         },

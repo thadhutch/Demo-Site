@@ -1,6 +1,8 @@
 @import ../../../../styles/helpers
 
-
+.container
+    +t 
+        height: 180vh
 
 // ====================================================================
 // Top Leaderboard Content
@@ -120,15 +122,37 @@
     width:
     border-radius: 10px
     overflow: hidden
+    ul 
+        
+    li 
+        margin: auto
+        margin-right: 20px
+        +d 
+            &:nth-child(4)
+                display: none 
+        +t 
+            &:nth-child(3)
+                display: none
     +m 
         margin-bottom: -40px
     img
         height: 150px
-        width: 200px
+        width: 200px 
+        border-radius: 10px   
+        +d 
+            width: 175px
+            height: 125px
+             
+        +t 
         +m
             display: none
-                
-                
+
+.favoriteimg
+    img
+        +t 
+            height: 75px
+            width: 100px
+        margin-right: 20px               
             
 
 
@@ -139,6 +163,7 @@
     display: flex
     align-items: center
     justify-content: space-evenly
+  
 
 .leftSection
     width: 48%
@@ -158,6 +183,7 @@
 
 .bottomLeaderboardLeft
     width: 100%
+    margin: auto
 .bottomLeaderboardRight
     width: 100%
 
@@ -168,10 +194,12 @@
     padding: 10px
     border-radius: 15px
     background-color: $neutrals3
-    margin-bottom: 35px
     display: flex
     justify-content: center
     align-items: center
+    margin: auto
+    margin-bottom: 35px
+
 
 .leaderboardLeft
 

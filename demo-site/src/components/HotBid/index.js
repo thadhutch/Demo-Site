@@ -41,6 +41,12 @@ const Hot = ({ classSection }) => {
           slidesToShow: 2,
         },
       },
+      {
+        breakpoint: 571,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
     ],
   };
   return (

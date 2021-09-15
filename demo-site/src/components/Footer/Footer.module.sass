@@ -110,9 +110,12 @@
             color: darken(#828282, 10)   
 .footertheme
     padding-top: 40px
+    +t 
+        float: right
+        margin-top: -90px
     +m 
-        margin-left: 400px
-        margin-bottom: -40px
+        margin-top: -60px
+        margin-right: 20px
     img
         width: 25px
         padding-bottom: 8px
@@ -123,6 +126,15 @@
     padding-right: 5px
 
 .footerlist
+    ul 
+        +t
+            float: right
+            margin-top: -415px
+        +m 
+            margin-top: -120px
+        +a 
+            display: none
+        
     li
         display: block
         font-size: 1rem
@@ -130,10 +142,13 @@
         +m 
             margin-left: 400px
             margin-top: -90px
-        
+        +a 
+            margin-top: -75px
     a
         color: $neutrals4
         font-size: 1.2rem
+        +a 
+            font-size: .9rem
         &:hover
             color: #0000
             +dark
@@ -141,6 +156,10 @@
 
 .socials
     padding-top: 120px
+    +t 
+        margin-bottom: -35px
+    +m 
+        margin-bottom: -70px
     +s 
         padding-top: 50px
         margin-bottom: 50px
