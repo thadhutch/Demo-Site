@@ -24,6 +24,10 @@
             position: relative
             margin-bottom: 32px
             padding: 0
+        +a 
+            width: 100%
+            display: block
+            margin: auto
     &:nth-child(2)
         display: flex
         flex-shrink: 0
@@ -40,6 +44,8 @@
             border-color: $neutrals6
             +dark
                 border-color: $neutrals3
+        +a 
+            display: none
     &:nth-child(3)
         flex-shrink: 0
         width: 384px
@@ -49,10 +55,13 @@
         +t
             width: 100%
             padding: 0
+        +a 
+            display: none
     
 .logo
     display: inline-block
     margin-bottom: 32px
+    +a 
     +s 
         margin-left: -10px
     img
@@ -74,6 +83,8 @@
     margin-right: 16px
     max-width: 250px
     +caption-2
+    +a 
+        margin-bottom: 40px
     
 .category
     margin-bottom: 40px
@@ -92,15 +103,22 @@
     +m
         display: block
         padding: 24px 0 32px
+    +a 
+        
 
 .copyright
     color: $neutrals4
     +m
         text-align: center
-
+        margin-top: -10px
+        margin-bottom: 10px
+    +a 
+        width: 100%
+        
 .note
     +m 
-        display: none
+        display: block
+        text-align: center
     a
         margin-left: 16px 
         font-weight: 600
@@ -110,12 +128,20 @@
             color: darken(#828282, 10)   
 .footertheme
     padding-top: 40px
+    float: right
+    margin-top: 110px
     +t 
-        float: right
         margin-top: -90px
     +m 
         margin-top: -60px
         margin-right: 20px
+    +a 
+        display: inline-block
+        margin-top: -60px
+        float: right
+    +s 
+        margin-top: -60px
+
     img
         width: 25px
         padding-bottom: 8px
@@ -160,11 +186,17 @@
         margin-bottom: -35px
     +m 
         margin-bottom: -70px
+    +a 
+        margin-bottom: -15px
+        float: left
+        padding: 0 
     +s 
         padding-top: 50px
-        margin-bottom: 50px
+        margin-top: -40px
     img
         width: 35px
+        +s 
+            width: 30px
         &:hover
             cursor: pointer
     a

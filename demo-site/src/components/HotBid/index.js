@@ -30,13 +30,19 @@ const Hot = ({ classSection }) => {
     ),
     responsive: [
       {
-        breakpoint: 1023,
+        breakpoint: 1200,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
         },
       },
       {
-        breakpoint: 767,
+        breakpoint: 1023,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 890,
         settings: {
           slidesToShow: 2,
         },

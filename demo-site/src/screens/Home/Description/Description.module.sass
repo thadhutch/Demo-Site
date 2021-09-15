@@ -84,17 +84,20 @@
 
 .homeHeroWords h1
     font-family: Best-font
-    font-size: 13px
-    margin-top: 40px
+    font-size: 40px
+    margin-top: 20px
+    margin-bottom: 20px
     width: 40%
     font-family: Best-font
     text-align: center
     letter-spacing: 2px
     transform: scaleX(2) scaleY(1.8)
+    +x 
+        font-size: 34px
     +d
         letter-spacing: 01px
         width: 70%
-        font-size: 34px
+        font-size: 36px
     +t
         letter-spacing: 01px
         width: 80%
@@ -118,6 +121,7 @@
         letter-spacing: 01px
         width: 70%
         font-size: 8px
+        margin-top: 90px
     +t
         width: 60%
         letter-spacing: 01px
@@ -131,6 +135,10 @@
     text-align: center
     width: 17%
     height: 40%
+    margin-bottom: -10px
+    +d 
+        width: 125px
+        margin-bottom: -20px
     +t
         width: 100px
         height: 100px
@@ -148,7 +156,8 @@
     height: 40%
     width: 100%
     +d
-        width: 90%
+        width: 50%
+        margin: auto
     +t
         width: 90%
         margin: auto
@@ -162,7 +171,6 @@
     font-size: 15px
     letter-spacing: 3px
     +d
-        margin-left: 30px
         font-size: 16px
     +t
         font-size: 15px

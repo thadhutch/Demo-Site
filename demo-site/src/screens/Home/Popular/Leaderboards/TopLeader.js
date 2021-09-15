@@ -122,9 +122,7 @@ const TopLeader = () => {
                   <li>
                     <img src={"https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/118142294_142594964167058_2325249536339833724_n.jpg?alt=media&token=7193f021-cc86-4534-b420-2d46daa39147"} className={styles.favoriteimg} alt="Favorite Items" />
                   </li>
-                  <li>
-                    <img src={"https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/118142294_142594964167058_2325249536339833724_n.jpg?alt=media&token=7193f021-cc86-4534-b420-2d46daa39147"} className={styles.favoriteimg} alt="Favorite Items" />
-                  </li>
+                  
                 </ul>
               </div>
           </div>

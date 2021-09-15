@@ -60,7 +60,19 @@ const Collections = () => {
     ),
     responsive: [
       {
-        breakpoint: 1023,
+        breakpoint: 1440,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 1053,
         settings: {
           slidesToShow: 2,
         },
@@ -88,7 +100,7 @@ const Collections = () => {
           <div className={styles.inner}>
             <Slider className="collection-slider" {...settings}>
               {items.map((x, index) => (
-                <Link className={styles.item} to="" key={index}>
+                <Link className={styles.item} to="/home" key={index}>
                   <div className={styles.collectioncontainer}>
                     <div className={styles.subtitle}>{x.title}</div>
                     <div className={styles.user}>
