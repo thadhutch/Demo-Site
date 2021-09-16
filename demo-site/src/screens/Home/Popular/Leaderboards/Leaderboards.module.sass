@@ -13,8 +13,11 @@
     margin-top: 40px
     margin-bottom: 40px
     border: 5px solid
-    border-color: $neutrals3
+    border-color: $neutrals5
     border-radius: 1em
+    +dark 
+        border-color: $neutrals3
+
 
 // Head
 .head
@@ -23,7 +26,9 @@
     display: flex
     margin-bottom: 24px
     padding-bottom: 24px
-    border-bottom: 1px solid $neutrals6
+    border-bottom: 1px solid $neutrals1
+    +dark
+        border-bottom: 1px solid $neutrals6
 
 .rating
     display: flex
@@ -106,6 +111,10 @@
     width: 100%
     color: #ffffff
     font-weight: 900
+    color: $neutrals1
+    +dark 
+        color: $neutrals8
+
 
 // NFTS  
 .favoritesContainer
@@ -190,12 +199,15 @@
     width: 90%
     padding: 10px
     border-radius: 15px
-    background-color: $neutrals3
+    background-color: $neutrals5
     display: flex
     justify-content: center
     align-items: center
     margin: auto
     margin-bottom: 35px
+    +dark 
+        background-color: $neutrals3
+
 
 
 .leaderboardLeft
@@ -248,7 +260,7 @@
     border-radius: 50%
 
 .ranking
-    color: #828282
+    color: $neutrals3
     font-weight: bold
     font-size: 30px
     +dark
@@ -257,10 +269,10 @@
 
 .displayName
     font-size: 25px
-    color: #828282
+    color: $neutrals3
     font-weight: bold
     +dark
-        color: #fff
+        color: $neutrals8
 
 .displayUserName
     font-family: Best-font

@@ -1,14 +1,14 @@
 @import ../../styles/helpers
 
 .footer
-    border-top: 1px solid $neutrals6
+    border-top: 1px solid $neutrals4
     +dark
         border-color: $neutrals3
 
 .row
     display: flex
     padding: 75px 0 20px
-    border-bottom: 1px solid $neutrals6
+    border-bottom: 1px solid $neutrals4
     +t
         display: block
     +m
@@ -107,7 +107,9 @@
         
 
 .copyright
-    color: $neutrals4
+    color: $neutrals3
+    +dark 
+        color: $neutrals4
     +m
         text-align: center
         margin-top: -10px
@@ -122,8 +124,10 @@
     a
         margin-left: 16px 
         font-weight: 600
-        color: #828282
+        color: $neutrals3
         transition: color .2s
+        +dark 
+            color: $neutrals4
         &:hover
             color: darken(#828282, 10)   
 .footertheme
@@ -171,14 +175,18 @@
         +a 
             margin-top: -75px
     a
-        color: $neutrals4
+        color: $neutrals3
         font-size: 1.2rem
+        &:hover
+            color: $neutrals1
+        +dark 
+            color: $neutrals4
+            &:hover
+               color: $neutrals6
         +a 
             font-size: .9rem
-        &:hover
-            color: #0000
-            +dark
-                color: #fff 
+        
+    
 
 .socials
     padding-top: 120px

@@ -17,7 +17,7 @@
     position: relative
     z-index: 20
     height: 60px
-    border-bottom: 2px solid $neutrals6
+    border-bottom: 2px solid $neutrals5
     +m
         padding: 10px 0 24px
         margin-bottom: 15px
@@ -30,6 +30,7 @@
     align-items: center
     margin-top: 20px
     & > .button
+        color: $neutrals3
         margin-left: -150px
         margin-right: 12px
         +m
@@ -144,15 +145,20 @@
        
     
 .navlinks 
-  color: #fff
+  color: $neutrals1
   text-decoration: none
   padding-bottom: 25px
   margin-right: 10px
+  +dark 
+    color: #fff
+  &:hover
+    border-bottom: 4px solid $neutrals1
+    transition: all 0.2s ease-out
+    +dark 
+        border-bottom: 4px solid #fff
   &:active
     border-bottom: 4px solid #fc4e03
-  &:hover
-    border-bottom: 4px solid #fff
-    transition: all 0.2s ease-out
+  
 
 
 

@@ -50,7 +50,7 @@ const User = ({ className, ...props }) => {
             <img src={props.ProfilePic} id="imgAvatar1" alt="Avatar" />
           </div>
           <div className={styles.wallet}>
-            7.00898 <span className={styles.currency}>ETH</span>
+            3.0546 <span className={styles.currency}>ETH</span>
           </div>
         </div>
       </div>

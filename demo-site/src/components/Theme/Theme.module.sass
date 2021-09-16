@@ -17,7 +17,9 @@
     left: 0
     opacity: 0
     &:checked + .inner .box
-        background: #828282
+        background: $neutrals3
+        +dark
+            background: #828282
         &:before
             transform: translate(20px,-50%)
             background: $neutrals8
@@ -36,7 +38,7 @@
     margin-left: 5px
     width: 40px
     height: 20px
-    background: $neutrals6
+    background: $neutrals3
     border-radius: 10px 
     transition: all .2s
     +dark

@@ -20,7 +20,7 @@
     padding: 4px 16px 4px 4px
     border-radius: 20px
     margin-right: 20px
-    box-shadow: inset 0 0 0 2px $neutrals6
+    box-shadow: inset 0 0 0 2px $neutrals5
     +button-2
     cursor: pointer
     transition: box-shadow .2s
@@ -37,7 +37,9 @@
         +m
             box-shadow: none
     &:hover
-        box-shadow: inset 0 0 0 2px #fff
+        box-shadow: inset 0 0 0 2px $neutrals1
+        +dark
+            box-shadow: inset 0 0 0 2px #fff
         +m
             box-shadow: none
 
@@ -113,10 +115,10 @@
     +body-bold-1
 
 .wallet
-    color: #828282
+    color: $neutrals1
     flex-shrink: 0
     span
-        color: #828282
+        color: $neutrals1
     +dark 
         color: #fff
         span

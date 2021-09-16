@@ -2,7 +2,6 @@ import User from "./index";
 import React, { useState, useEffect, useContext } from "react";
 import { useMoralis } from "react-moralis";
 import styles from './User.module.sass';
-import { AvatarContext } from '../../../GlobalState'
 
 function DynamicUser() {
 

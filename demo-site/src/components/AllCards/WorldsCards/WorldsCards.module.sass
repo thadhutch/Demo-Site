@@ -6,6 +6,14 @@
     height: 375px
     width: 256px
     overflow: hidden
+    top: 0
+    transition: top ease 0.25s
+    cursor: pointer
+    box-shadow: 10px 0 15px -4px $neutrals5
+    +dark 
+        box-shadow: 10px 0 15px -4px $neutrals2
+    &:hover
+        top: -10px
 
 .worldsCardsImg
   position: relative

@@ -54,6 +54,8 @@ const CreateAccount = () => {
   const [artist, setArtist] = useState(false);
 
   const [conditions, setConditions] = useState(false);
+  const [conditions1, setConditions1] = useState(true);
+
 
   const usernamePreview = document.getElementById("usernamePreview");
   const bioPreview = document.getElementById("bioPreview");
@@ -106,6 +108,10 @@ const CreateAccount = () => {
 
   async function WalletConnectAuthentication() {
 
+    const walletconnectauth = document.getElementById("walletconnectauth");
+    
+    walletconnectauth.setAttribute("href", "https://www.spacepath.net/");
+
     try {
       setVisibleModal(true);
       setLoadingMessage("Authenticating through WalletConnect");
@@ -148,6 +154,7 @@ const CreateAccount = () => {
     const usernamePreview1 = document.getElementById("usernamePreview1");
     const bioPreview1 = document.getElementById("bioPreview1");
     const namePreview1 = document.getElementById("namePreview1");
+    
 
     const user = Moralis.User.current();
 
@@ -267,6 +274,8 @@ const displayError = async () => {
     return;
   };
 
+  await user.set ("emailList", conditions1);
+
   await user.set("artist", artist);
 
   await user.set("password", "spacepath")
@@ -358,7 +367,7 @@ const displayError = async () => {
                       <span className={styles.title}>MetaMask Wallet</span>
                     </div>
                     <div
-                      className={cn([styles.active], styles.link)} onClick={WalletConnectAuthentication}
+                      className={cn([styles.active], styles.link)} id="walletconnectauth" onClick={WalletConnectAuthentication}
                     >
                       <div
                         className={styles.icon}
@@ -422,7 +431,7 @@ const displayError = async () => {
                           <div className={styles.col}>
                             <button className={styles.accountType} type="button" style={{background: collector ? 'linear-gradient(to right, #f55a00 0%, #ff1c59 51%, #ad1177 100%)' : ""}} onClick={handleToggle} >
                                 <Image
-                                src="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-layer-22-240.png?alt=media&token=fb7d1811-3312-4932-95d3-d2c0ce245643"
+                                src="https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/iconmonstr-layer-22-240%20(2).png?alt=media&token=02344e59-331d-4a6d-8349-463de7eeecb3"
                                 srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-layer-22-240%20(1).png?alt=media&token=2e25c667-cc29-4e79-9b2d-9e046673005c"
                                 alt="Fixed Price Icon"
                                 />
@@ -432,11 +441,11 @@ const displayError = async () => {
                           <div className={styles.col}>
                             <button className={styles.accountType} type="button" style={{background: artist ? 'linear-gradient(to right, #f55a00 0%, #ff1c59 51%, #ad1177 100%)' : ""}} onClick={handleToggle1}>
                               <Image 
-                              src="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-paintbrush-7-240%20(2).png?alt=media&token=bbc0fc47-de30-4086-b604-54f76c080623"
+                              src="https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/iconmonstr-paintbrush-7-240%20(3).png?alt=media&token=11449bdf-7a72-473c-b29a-f72d8ef246b7"
                               srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-paintbrush-7-240%20(1).png?alt=media&token=8890bbf7-8a65-42fe-81ff-d443b2492c78"
                               alt="Artist Icon"
                               />
-                              <div>Artist</div>
+                              <div className={styles.profilechoice}>Artist</div>
                             </button>
                           </div>
                       </div>
@@ -509,6 +518,12 @@ const displayError = async () => {
                                   value={conditions}
                                   onChange={() => setConditions(!conditions)}
                                   content="I agree to SpacePath's Terms of Service and Privacy Policy"
+                                  />
+                                  <Checkbox
+                                  className={styles.checkbox}
+                                  value={conditions1}
+                                  onChange={() => setConditions1(!conditions1)}
+                                  content="I want to receive updates and news about SpacePath"
                                   />
                               </div>
                               <div className={styles.btns}>
