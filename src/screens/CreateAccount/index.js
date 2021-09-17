@@ -110,8 +110,6 @@ const CreateAccount = () => {
 
     const walletconnectauth = document.getElementById("walletconnectauth");
     
-    walletconnectauth.setAttribute("href", "https://www.spacepath.net/");
-
     try {
       setVisibleModal(true);
       setLoadingMessage("Authenticating through WalletConnect");
@@ -119,6 +117,7 @@ const CreateAccount = () => {
       await Moralis.Web3.authenticate({ provider: "walletconnect" }).then((user) => {
         try {
           if (user) {
+            user.save();
             const accountStatus = user.get("accountVerified");
             setAuthenticationChecker(false);
             setAccountVerified(accountStatus);
@@ -272,6 +271,10 @@ const displayError = async () => {
     setErrorMessage("Please enter an email");
     setVisibleErrorModal(true);
     return;
+  } else if(bio.length === 0) {
+    setErrorMessage("Please enter a bio");
+    setVisibleErrorModal(true);
+    return;
   };
 
   await user.set ("emailList", conditions1);
@@ -377,7 +380,9 @@ const displayError = async () => {
                       <span className={styles.title}>Wallet Connect</span>
                     </div>
                     <div className={styles.buttonContainer}>
-                      
+                    <a href="https://www.youtube.com/watch?v=4KL5pZPt67g" target="_blank" rel="noopener noreferrer">
+                        <button className={cn("button", styles.helpbutton)}>Wallet Download Tutorial</button>
+                      </a>
                     </div>
                   </div>
                 </>
@@ -425,8 +430,8 @@ const displayError = async () => {
                       <input className={styles.input} id="displayNameInput" type='text' placeholder='Display Name' onChange={e => setDisplayName(e.target.value)}/>
                       <div className={styles.subcategory}>Enter Your Email*</div>
                       <input className={styles.input} id="emailInput" type='text' placeholder='Email' onChange={e => setEmail(e.target.value)}/>
-                      <div className={styles.subcategory}>Enter Your Bio</div>
-                      <textarea className={styles.textarea} type='textarea' placeholder='Bio (optional)' onChange={e => setBio(e.target.value)}/>
+                      <div className={styles.subcategory}>Enter Your Bio*</div>
+                      <textarea className={styles.textarea} type='textarea' placeholder='Bio' onChange={e => setBio(e.target.value)}/>
                       <div className={styles.row}>
                           <div className={styles.col}>
                             <button className={styles.accountType} type="button" style={{background: collector ? 'linear-gradient(to right, #f55a00 0%, #ff1c59 51%, #ad1177 100%)' : ""}} onClick={handleToggle} >
