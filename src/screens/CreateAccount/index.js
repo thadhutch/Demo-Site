@@ -116,6 +116,9 @@ const CreateAccount = () => {
       Moralis.Web3.getSigningData = () => 'Welcome to SpacePath Marketplace! Please sign in to create an account.';
       await Moralis.Web3.authenticate({ provider: "walletconnect" }).then((user) => {
         try {
+          window.localStorage.removeItem(
+            'WALLETCONNECT_DEEPLINK_CHOICE'
+          );
           if (user) {
             user.save();
             const accountStatus = user.get("accountVerified");
@@ -380,7 +383,7 @@ const displayError = async () => {
                       <span className={styles.title}>Wallet Connect</span>
                     </div>
                     <div className={styles.buttonContainer}>
-                    <a href="https://www.youtube.com/watch?v=4KL5pZPt67g" target="_blank" rel="noopener noreferrer">
+                      <a href="https://www.youtube.com/watch?v=4KL5pZPt67g" target="_blank" rel="noopener noreferrer">
                         <button className={cn("button", styles.helpbutton)}>Wallet Download Tutorial</button>
                       </a>
                     </div>
