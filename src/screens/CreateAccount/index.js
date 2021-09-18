@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import cn from "classnames";
 import styles from "./CreateAccount.module.sass";
 import Icon from "../../components/Icon";
@@ -116,12 +116,10 @@ const CreateAccount = () => {
       Moralis.Web3.getSigningData = () => 'Welcome to SpacePath Marketplace! Please sign in to create an account.';
       await Moralis.Web3.authenticate({ provider: "walletconnect" }).then((user) => {
         try {
-          window.localStorage.removeItem(
-            'WALLETCONNECT_DEEPLINK_CHOICE'
-          );
+          
           if (user) {
-            user.save();
             const accountStatus = user.get("accountVerified");
+            <Redirect to="/" />
             setAuthenticationChecker(false);
             setAccountVerified(accountStatus);
             setVisibleModal(false);
