@@ -41,7 +41,7 @@ const EmailVerified = () => {
                             srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-light.png?alt=media&token=af5f3049-b42b-4094-956d-f8377f8986bf"
                             alt="SpacePath Logo"
                         />
-                        <div className={cn("h2", styles.stage)}>Thanks for Verify Your Email!</div>
+                        <div className={cn("h2", styles.stage)}>Thanks for Verifying Your Email!</div>
                     </div>
                     <div className={styles.body}>
                         <h2 className={styles.verifiedTitle}>Please Click the Button Below to View the Demo</h2>
