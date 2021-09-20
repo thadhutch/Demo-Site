@@ -32,6 +32,12 @@ const CreateAccount = () => {
 
   const [profileRequirementsChecker, setProfileRequirementsChecker] = useState(false);
 
+  window.localStorage.removeItem('walletconnect');
+
+  window.localStorage.removeItem(
+    'WALLETCONNECT_DEEPLINK_CHOICE'
+  );
+
 
 
   const [visibleModal, setVisibleModal] = useState(false);
@@ -109,17 +115,18 @@ const CreateAccount = () => {
   async function WalletConnectAuthentication() {
 
     const walletconnectauth = document.getElementById("walletconnectauth");
+
+    
     
     try {
       setVisibleModal(true);
       setLoadingMessage("Authenticating through WalletConnect");
       Moralis.Web3.getSigningData = () => 'Welcome to SpacePath Marketplace! Please sign in to create an account.';
       await Moralis.Web3.authenticate({ provider: "walletconnect" }).then((user) => {
+
         try {
-          
           if (user) {
             const accountStatus = user.get("accountVerified");
-            <Redirect to="/" />
             setAuthenticationChecker(false);
             setAccountVerified(accountStatus);
             setVisibleModal(false);
