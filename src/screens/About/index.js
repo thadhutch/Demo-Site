@@ -8,6 +8,7 @@ const About = () => {
   return (
     <div>
       <div className={styles.aboutPageContainer}>
+        <h1>hi</h1>
         <AboutHero />
         <div className={styles.teamContainer}>
         <span></span>
