@@ -33,15 +33,23 @@
         color: $neutrals3
         margin-left: -150px
         margin-right: 12px
+        +poppins 
+        text-transform: uppercase
         +m
             display: none
+
+.button
+    +poppins 
+    text-transform: uppercase
+    +dark 
+        color: $neutrals6
 
 .logo
     position: relative
     z-index: 12
     display: inline-block
     flex-shrink: 0
-    width: 128px
+    width: 175px
     margin-right: 32px
     +d
         margin-right: auto
@@ -94,6 +102,8 @@
             opacity: 1
     .button
         display: none
+        +poppins 
+        text-transform: uppercase
         +m
             display: none
             margin-top: 16px
@@ -120,6 +130,7 @@
     +dm-sans
     line-height: 40px
     color: $neutrals4
+    max-width: 600px
     transition: color .2s
     &.active
         display: flex

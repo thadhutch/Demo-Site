@@ -69,6 +69,7 @@
     justify-content: space-evenly
     flex-direction: column
 
+
 .title
     +poppins 
     text-transform: uppercase
@@ -86,11 +87,10 @@
 .homeHeroWords h1
     +poppins 
     text-transform: uppercase    
-    font-size: 40px
+    font-size: 30px
     margin-top: 20px
-    margin-bottom: 20px
     width: 40%
-    text-align: center
+    text-align: left
     letter-spacing: 2px
     transform: scaleX(2) scaleY(1.8)
     +x 
@@ -111,13 +111,15 @@
 
 .homeHeroWords h2
     +poppins 
-    text-transform: uppercase
-    font-size: 13px
-    margin-top: 40px
+    font-size: 12px
+    margin-top: 0px
     width: 40%
-    text-align: center
+    text-align: left
     letter-spacing: 2px
     transform: scaleX(2) scaleY(1.8)
+    color: $neutrals4
+    +dark 
+        color: $neutrals3
     +d
         letter-spacing: 01px
         width: 70%
@@ -152,8 +154,9 @@
 // Btn
 .btns
     display: flex
-    align-items: center
-    justify-content: center
+    align-items: left
+    justify-content: left
+    margin-left: 10%
     height: 40%
     width: 100%
     +d
@@ -168,10 +171,12 @@
 .button
     +poppins 
     text-transform: uppercase
-    width: 70%
+    width: 20%
     border-radius: 15px
     font-size: 15px
-    letter-spacing: 3px
+    letter-spacing: 1px
+    +dark 
+        color: $neutrals6
     +d
         font-size: 16px
     +t
@@ -185,11 +190,13 @@
             margin: 0 0 16px
 // =========================================
 // Cards
-.homeHeroCards
+.homeHeroFeature
     position: relative
     border-radius: 15px
-    height: 106%
+    height: 90%
     width: 30%
+    margin-right: 5%
+    margin-top: 5%
     +d
         height: 800px
         width: 500px
@@ -203,3 +210,24 @@
     +m
         height: 1000px
         width: 300px
+
+.homeHeroCards h2
+    color: $neutrals6
+    margin-top: -5%
+    text-align: center
+    font-size: 23px
+    letter-spacing: 1px
+    +dark 
+        color: $neutrals1
+
+.artistInfo
+    position: relative
+    border-radius: 15px
+    margin-top: 104%
+    min-height: 
+    min-width: 30%
+    background: $neutrals5
+
+.featuredContent
+    height: 85%
+    width: 20%

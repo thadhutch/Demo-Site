@@ -52,7 +52,7 @@ export const bids = [
     image2x: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/card-pic-3.jpg?alt=media&token=e1dce58d-91d3-4611-b1f5-a180613602ea",
     category: "green",
     categoryText: "purchasing !",
-    url: "/item",
+    url: "",
     users: [
       {
         avatar: "https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/livinginmarsplanetprofilepic.jpeg?alt=media&token=0109a748-9fd7-4b51-9873-a29cd09177e3",
