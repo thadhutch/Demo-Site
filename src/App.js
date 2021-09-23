@@ -10,71 +10,44 @@ import PrivacyPolicy from "./screens/PrivacyPolicy";
 import TermsOfService from "./screens/TermsOfService";
 import { ContextProvider } from "./GlobalState/state";
 
-
-
 const App = () => (
-    <ContextProvider>
-      <Router>
-        <Switch>
+  <ContextProvider>
+    <Router>
+      <Switch>
+        <Route exact path="/" render={() => <CreateAccount />} />
         <Route
-            exact
-            path="/"
-            render={() => (
-              <CreateAccount />
-            )}
-          />
-          <Route
-            exact
-            path="/home"
-            render={() => (
-              <Page>
-                <Home />
-              </Page>
-            )}
-          />
-          <Route
-            exact
-            path="/marketplace"
-            render={() => (
-              <Page>
-                <Marketplace />
-              </Page>
-            )}
-          />
-          <Route
-            exact
-            path="/about"
-            render={() => (
-              <Page>
-                <About />
-              </Page>
-            )}
-          />        
-           <Route
-            exact
-            path="/emailVerified"
-            render={() => (
-                  <EmailVerified /> 
-            )}
-          />
-          <Route
-            exact
-            path="/tos"
-            render={() => (
-                  <TermsOfService/>
-            )}
-          />
-          <Route
-            exact
-            path="/privacypolicy"
-            render={() => (
-                  <PrivacyPolicy /> 
-            )}
-          />
-        </Switch>
-      </Router>
-    </ContextProvider>
-  );
-
+          exact
+          path="/home"
+          render={() => (
+            <Page>
+              <Home />
+            </Page>
+          )}
+        />
+        <Route
+          exact
+          path="/marketplace"
+          render={() => (
+            <Page>
+              <Marketplace />
+            </Page>
+          )}
+        />
+        <Route
+          exact
+          path="/about"
+          render={() => (
+            <Page>
+              <About />
+            </Page>
+          )}
+        />
+        <Route exact path="/emailVerified" render={() => <EmailVerified />} />
+        <Route exact path="/tos" render={() => <TermsOfService />} />
+        <Route exact path="/privacypolicy" render={() => <PrivacyPolicy />} />
+      </Switch>
+    </Router>
+  </ContextProvider>
+);
 
 export default App;
