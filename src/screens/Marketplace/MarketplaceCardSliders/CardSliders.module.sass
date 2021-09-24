@@ -3,13 +3,13 @@
 .cardSliderSection
     overflow: hidden
     margin-bottom: 30px
-    +m 
+    +m
         height: 90vh
 
 .cardSliderSection1
     overflow: hidden
     margin-bottom: 50px
-    +m 
+    +m
         height: 110vh
 
 .SliderWrapper
@@ -21,19 +21,46 @@
     position: relative
 
 .cardSliderTitle
-    +poppins 
+    padding-left: 20px
+    width: 95%
+    height: 90px
+    display: flex
+    border-bottom: 1px solid #8d8d8d
+    +poppins
     text-transform: uppercase
     font-size: 3rem
     margin-bottom: 20px
     +m
-        font-size: 25px
-        margin-bottom: 40px
+        font-size: 20px
+        margin-bottom: 35px
+        height: 45px
+        padding-left: 10px
+
+.cardSliderTitle h3:nth-child(2)
+    position: absolute
+    right: 6%
+    top: 55px
+    color: #5c5c5c
+    font-size: .9rem
+    a 
+        color: #5c5c5c
+        text-decoration: none
+    a:hover 
+        color:#f55a00 
+        text-decoration: none
+        cursor: pointer
+    +m
+        top: 25px
+        font-size: .65rem
+
 
 .inner
     margin: 0 -16px
-    +m 
-        margin: 0 -8px 
+    +m
+        margin: 0 -8px
 
 .card
     width: 100%
-    
+
+.slick-arrow
+    top: 1000px
