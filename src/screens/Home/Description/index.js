@@ -27,12 +27,8 @@ const Description = () => {
             </div>
           </div>
           <div className={styles.homeHeroFeature}>
-            <h2 className={styles.featuretitle}>Artist Spotlight</h2>
-            <div className={styles.FeaturedContent}>
+            <div className={styles.featuredContent}>
               <HomeHeroCards />
-            </div>
-            <div className={styles.artistInfo}>
-              hello
             </div>
           </div>
         </div>
