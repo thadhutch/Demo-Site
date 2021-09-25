@@ -2,8 +2,9 @@
 
 .section
     overflow: hidden
-    margin-top: 120px
-    background-color: #cfcfcf
+    background-color: #141416 !important
+    margin-top: 100px
+    margin-bottom: 150px
     +t 
         margin-top: 180px
     +m 
@@ -11,7 +12,7 @@
 
 .wrapper
     position: relative
-    
+
    
 
 .title
@@ -49,14 +50,14 @@
     
  
 .preview
-    margin-top: 105px
+    margin-top: 90px
     margin-bottom: 10px
     margin-left: 10px
     margin-right: 10px
     width: 325px
     height: 110px
     border-radius: 20px
-    background-color: #000
+    background: #23262F
     overflow: hidden
     img
         height: 100%
@@ -65,7 +66,9 @@
 
 .subtitle
     text-align: center
-    padding-top: 20px
+    padding-top: 30px
+    // padding-bottom: 10px
+    // border-bottom: solid #ffffff54 1px
     +body-bold-1
     color: #191a19
     z-index: 60
@@ -104,7 +107,7 @@
     
 .counter
     position: absolute
-    top: 45%
+    top: 43%
     right: 2%
     flex-shrink: 0
     max-height: 30px
@@ -115,22 +118,25 @@
     background-color: $neutrals6
     position: relative
     top: 0
-    transition: top ease 0.25s
+    transition: all ease 0.45s
     max-width: 325px
     max-height: 275px
     min-width: 325px
     min-height: 275px
     overflow: hidden
     border-radius: 20px
+    // box-shadow: 10px 0 15px -4px $neutrals5
     margin: auto
     &:hover
         top: -10px
+        // box-shadow: 10px 10px 15px 3px $neutrals4
     +dark 
-        background-color: $neutrals1
+        background: #23262F
+        // box-shadow: 10px 7px 15px -2px $neutrals3
 
 .collectionLogo
     position: absolute
-    top: 40%
+    top: 35%
     left: 37.5%
     border-radius: 50%
     border: 5px solid #fff 

@@ -77,6 +77,13 @@ const Hero = () => {
     <>
       <div className={cn("section", styles.section)}>
         <div className={cn("container", styles.container)}>
+        <div className={styles.move}>
+                    <div className={styles.mouse}>
+                        <div className={styles.mouseIcon}>
+                            <span className={styles.mouseWheel}></span>
+                        </div>
+                    </div>
+                </div>
           <div className={styles.head}>
             <div className={styles.stage}>
               Create, explore, & collect digital art NFTs.
