@@ -69,6 +69,7 @@
     justify-content: space-evenly
     flex-direction: column
 
+
 .title
     +poppins 
     text-transform: uppercase
@@ -86,51 +87,67 @@
 .homeHeroWords h1
     +poppins 
     text-transform: uppercase    
-    font-size: 40px
+    font-size: 29px
     margin-top: 20px
-    margin-bottom: 20px
     width: 40%
-    text-align: center
+    text-align: left
     letter-spacing: 2px
     transform: scaleX(2) scaleY(1.8)
+    +w 
+        font-size: 25px
     +x 
-        font-size: 34px
+        font-size: 22px
     +d
         letter-spacing: 01px
         width: 70%
-        font-size: 36px
+        text-align: center
+        margin-bottom: -15px
+        font-size: 20px
     +t
         letter-spacing: 01px
         width: 80%
-        font-size: 30px
+        font-size: 14px
         margin-top: 0px
     +m
         width: 50%
         letter-spacing: 01px
-        font-size: 22px
+        font-size: 11px
+    +a 
+        font-size: 9px
+    +s 
+        font-size: 8px
+        margin-top: -60px
 
 .homeHeroWords h2
     +poppins 
-    text-transform: uppercase
-    font-size: 13px
-    margin-top: 40px
+    font-size: 12px
+    margin-top: 0px
     width: 40%
-    text-align: center
+    text-align: left
     letter-spacing: 2px
     transform: scaleX(2) scaleY(1.8)
+    color: $neutrals4
+    +dark 
+        color: $neutrals3
+    +x 
+        font-size: 10px
     +d
         letter-spacing: 01px
         width: 70%
         font-size: 8px
-        margin-top: 90px
+        text-align: center
     +t
         width: 60%
         letter-spacing: 01px
-        font-size: 8px
+        font-size: 7px
     +m
         width: 50%
         letter-spacing: 01px
-        font-size: 8px
+        font-size: 6px
+        margin-top: -40px
+    +s 
+        margin-top: -20px
+        font-size: 5px
 // logo
 .heroLogoContainer
     text-align: center
@@ -152,44 +169,54 @@
 // Btn
 .btns
     display: flex
-    align-items: center
-    justify-content: center
+    align-items: left
+    justify-content: left
+    margin: auto
+    margin-left: 10%
     height: 40%
     width: 100%
     +d
-        width: 50%
+        width: 70%
         margin: auto
+        align-items: center
+        justify-content: center
+        margin-top: -30px
     +t
-        width: 90%
-        margin: auto
+        width: 60%
+        margin-top: -20px
     +m
-        width: 90%
+        width: 70%
+        margin-top: -50px
 
 .button
     +poppins 
     text-transform: uppercase
-    width: 70%
+    width: 20%
     border-radius: 15px
     font-size: 15px
-    letter-spacing: 3px
+    letter-spacing: 1px
+    &:nth-child(2)
+        margin-left: 4%
+    +dark 
+        color: $neutrals6
     +d
         font-size: 16px
     +t
         font-size: 15px
         margin: auto
+        width: 40%
     +m
         font-size: 12px
-    &:not(:last-child)
-        margin-right: 16px
-        +m
-            margin: 0 0 16px
+    
 // =========================================
 // Cards
-.homeHeroCards
+.homeHeroFeature
     position: relative
     border-radius: 15px
-    height: 106%
+    height: 90%
     width: 30%
+    margin-right: 5%
+    margin-top: 5%
     +d
         height: 800px
         width: 500px
@@ -203,3 +230,24 @@
     +m
         height: 1000px
         width: 300px
+
+.homeHeroCards h2
+    color: $neutrals6
+    margin-top: -5%
+    text-align: center
+    font-size: 23px
+    letter-spacing: 1px
+    +dark 
+        color: $neutrals1
+
+.artistInfo
+    position: relative
+    border-radius: 15px
+    margin-top: 104%
+    min-height: 
+    min-width: 30%
+    background: $neutrals5
+
+.featuredContent
+    height: 85%
+    width: 20%

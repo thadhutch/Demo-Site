@@ -33,18 +33,29 @@
         color: $neutrals3
         margin-left: -150px
         margin-right: 12px
+        +poppins 
+        text-transform: uppercase
         +m
             display: none
+
+.button
+    +poppins 
+    text-transform: uppercase
+    +dark 
+        color: $neutrals6
+    +d 
+        margin-top: -5px
 
 .logo
     position: relative
     z-index: 12
     display: inline-block
     flex-shrink: 0
-    width: 128px
+    width: 175px
     margin-right: 32px
     +d
         margin-right: auto
+        margin-bottom: -10px
     img
         width: 100%
     
@@ -94,6 +105,8 @@
             opacity: 1
     .button
         display: none
+        +poppins 
+        text-transform: uppercase
         +m
             display: none
             margin-top: 16px
@@ -120,6 +133,7 @@
     +dm-sans
     line-height: 40px
     color: $neutrals4
+    max-width: 600px
     transition: color .2s
     &.active
         display: flex
@@ -133,12 +147,12 @@
         position: absolute
         padding-left: 0px
         top: 0
-        left: 580px
+        left: 620px
     +m
         display: flex
         flex-direction: column
-        margin-top: 200px
-        margin-left: -550px
+        margin-top: 230px
+        margin-left: -585px
         font-size: 27px
         &:hover
             border: none
@@ -169,7 +183,7 @@
     margin-right: 24px
     top: 10px
     +d 
-        left: 225px
+        left: 275px
     +t
         display: none
         &.active
@@ -181,7 +195,7 @@
         position: relative
         display: block
         width: 72vw
-        margin-left: -220px
+        margin-left: -270px
         margin-right: 450px
     +a 
         width: 71vw
@@ -282,6 +296,9 @@ li
 
 .mobilebutton
     display: none
+    color: $neutrals1
+    +dark 
+        color: $neutrals6
     +m
         display: block
         margin-top: 250px

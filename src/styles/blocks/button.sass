@@ -1,3 +1,5 @@
+@import ../helpers
+  
 [class^="button"]
   display: inline-flex
   justify-content: center
@@ -7,19 +9,21 @@
   background-image: linear-gradient(to right, #f55a00 0%, #ff1c59 51%, #ad1177 100%) 
   +button-1
   text-align: center
-  color: $neutrals8
+  color: $neutrals1
   transition: all .25s
+  +dark
+    color: $neutrals6
+    &:hover
+      background: none
+      border: 2px solid #fff
+      color: #fff
   &:hover
       background: -webkit-linear-gradient(45deg, #f55a00 0%, #ff1c59 51%, #ad1177 100%)
       border: 2px solid #B1B5C3
       color: #fff
       -webkit-background-clip: text
       -webkit-text-fill-color: transparent
-  +dark
-    &:hover
-      background: none
-      border: 2px solid #fff
-      color: #fff
+  
   &.disabled
     opacity: .5
     pointer-events: none
