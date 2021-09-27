@@ -1,15 +1,9 @@
 import React, { useState } from "react";
 import cn from "classnames";
-import Slider from "react-slick";
-import { Link } from "react-router-dom";
 import styles from "./Popular.module.sass";
-import Add from "./Add";
-import Icon from "../../../components/Icon";
-import Dropdown from "../../../components/Dropdown";
 import DropdownEmpty from "../../../components/DropdownEmpty";
-import TopLeader from "./Leaderboards/TopLeader";
-import Left from "./Leaderboards/Left";
-import Right from "./Leaderboards/Right";
+import TopLeaderboard from "./Leaderboards/TopLeaderboard";
+import BottomLeaderboard from "./Leaderboards/BottomLeaderboard";
 
 const dateOptions = ["7 Days", "30 Days", "All Time"];
 const directionOptions = ["Artists", "Collectors"];
@@ -32,14 +26,14 @@ const Popular = () => {
           </div>
         </div>
         <div className={styles.bothLeaderboard}>
-          <div className={styles.topSection}>
-            <TopLeader />
-          </div>
-          <div className={styles.bottomSection}>
-            <Left />
-          </div>
+              <div className={styles.topSection}>
+                <TopLeaderboard type={direction}/>
+              </div>
+              </div>
+              <div className={styles.bottomSection}>
+                <BottomLeaderboard type={direction}/>
+              </div>
         </div>
-      </div>
     </div>
   );
 };

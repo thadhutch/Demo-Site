@@ -1,6 +1,5 @@
 .move {
-  background: rgba(0, 0, 0, 0);
-  width: 100%;
+  width: 40px;
 }
 
 .mouse {
@@ -11,6 +10,7 @@
 }
 
 .mouse-icon {
+  opacity: .3;
   width: 25px;
   height: 45px;
   border: 2px solid white; /*you can change 'white' to a hex color*/

@@ -4,6 +4,7 @@ import cn from "classnames";
 import styles from "./Header.module.sass";
 import Icon from "../Icon";
 import Image from "../Image";
+import Theme from "../Theme";
 import Notification from "./Notification";
 import ConnectAndLogout from "./ConnectAndLogoutButton/ConnectAndLogout";
 import DynamicUser from "./User/DynamicUser";
@@ -112,7 +113,7 @@ const Headers = () => {
             {/* <Link
               className={cn("button-stroke button-small", styles.button)}
               to="/connect-wallet"
-            >
+              >
               Connect Wallet
             </Link> */}
             <DynamicUser />
@@ -121,6 +122,25 @@ const Headers = () => {
             className={cn(styles.burger, { [styles.active]: visibleNav })}
             onClick={() => setVisibleNav(!visibleNav)}
           ></button>
+            {/* <div className={styles.navtheme}>
+                <span className={styles.sunicon}>
+                <Image 
+                    src="https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/iconmonstr-weather-2-240%20(2).png?alt=media&token=36c037b7-c92b-4522-a12b-a20ee5e9e830"
+                    srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-weather-2-240.png?alt=media&token=54ed330f-02c9-457d-a515-34a9eaf4d0e7"
+                    className={styles.sun} 
+                    alt="sun icon"
+                  />
+                </span>
+                <Theme className={styles.theme}/>
+                <span className={styles.moonicon}>
+                  <Image 
+                    src="https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/iconmonstr-weather-115-240%20(1).png?alt=media&token=9f8b72fd-5d7d-4575-8539-affe38d1072f"
+                    srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-weather-115-240.png?alt=media&token=122e0e08-8851-47bd-9eb7-6e58f67a88b3"
+                    className={styles.moon} 
+                    alt="moon icon"
+                  />
+                </span>
+              </div>  */}
         </div>
       </header>
   </>

@@ -1,7 +1,7 @@
 @import ../../../../styles/helpers
 
 .container
-    +t 
+    +t
         height: 180vh
 
 // ====================================================================
@@ -15,10 +15,12 @@
     border: 5px solid
     border-color: $neutrals5
     border-radius: 1em
-    +dark 
+    +dark
         border-color: $neutrals3
-
-
+    +m
+        margin-top: 0px
+        margin-bottom: 0px
+        height: 250px
 // Head
 .head
     width: 100%
@@ -95,7 +97,7 @@
 .avatar img
     border-radius: 50%
     width: 115px
-    +m 
+    +m
         width: 60px
         height: 60px
 
@@ -105,7 +107,7 @@
 .name
     width: 100%
     margin-bottom: 2px
-    +poppins 
+    +poppins
     text-transform: uppercase
 
 .price
@@ -113,9 +115,8 @@
     color: #ffffff
     font-weight: 900
     color: $neutrals1
-    +dark 
+    +dark
         color: $neutrals8
-
 
 // NFTS  
 .favoritesContainer
@@ -129,91 +130,84 @@
         width: 100%
         margin-top: 20px
 .favorites
-    width:
+    width: 100%
+    display: flex
+    justify-content: space-evenly
     border-radius: 10px
     overflow: hidden
-    ul 
-        
-    li 
+    ul
+
+    li
         margin: auto
         margin-right: 20px
-        +d 
+        +d
             &:nth-child(3)
                 display: none
-    +m 
+    +m
         margin-bottom: -40px
     img
         height: 150px
-        width: 200px 
-        border-radius: 10px   
-        +x 
+        width: 200px
+        border-radius: 10px
+        +x
             width: 175px
             height: 125px
-             
-        +t 
+
+        +t
         +m
             display: none
 
 .favoriteimg
     img
-        +t 
+        +t
             height: 75px
             width: 100px
-        margin-right: 20px               
-            
-
+            margin-right: 20px
 
 // ====================================================================
 // Top Leaderboard Content
 .leadersSection
     width: 100%
+    max-width: 1000px
+    height: 70%
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+    +m
+        width: 50%
+        flex-wrap: nowrap
+        height: 100%
+
+.leaderboardRow
+    height: 75px
+    width: 63.5%
+    margin-bottom: 20px
+    margin-right: 75px
     display: flex
     align-items: center
-    justify-content: space-evenly
-  
-
-.leftSection
-    width: 48%
-    height: 100%
-    padding-bottom: 140px
-    +m
-        width: 500px
-    +s 
-        margin-left: 20px
-
-.rightSection
-    width: 48%
-    height: 100%
-    padding-bottom: 140px
-    +m
-        display: none
-
-.bottomLeaderboardLeft
-    width: 100%
-    margin: auto
-.bottomLeaderboardRight
-    width: 100%
-
-
-.leaderboard
-    height: 75px
-    width: 90%
-    padding: 10px
     border-radius: 15px
     background-color: $neutrals5
-    display: flex
-    justify-content: center
-    align-items: center
-    margin: auto
-    margin-bottom: 35px
-    +dark 
+    flex-grow: 1
+    transition: all ease-in-out .2s
+    box-shadow: 1px 1px 10px -2px $neutrals3
+    +dark
+        box-shadow: 1px 1px 10px -2px $neutrals3
         background-color: $neutrals3
+    &:hover
+        box-shadow: 2px 2px 10px $neutrals2
+        +dark
+            box-shadow: 2px 2px 10px $neutrals4
+    +t
+        width: 47%
+        height: 75px
+        margin-right: 40px
+    +m
+        width: 200%
+        height: 75px
 
-
-
-.leaderboardLeft
-
-.leaderboardRight
+.leaderboardRow:nth-child(5),.leaderboardRow:nth-child(6),.leaderboardRow:nth-child(7),.leaderboardRow:nth-child(8),.leaderboardRow:nth-child(9),.leaderboardRow:nth-child(10)
+    +m
+        display: none
     
 .top
     margin-bottom: 54px
@@ -246,12 +240,6 @@
         +m
             display: inline-block
 
-.leaderboardLeft, .leaderboardRight
-    width: 100%
-    display: flex
-    flex-direction: row
-    align-items: center
-
 .leaderboardavatar
     margin: 0 20px 0 20px
     height: 50px
@@ -264,9 +252,10 @@
     color: $neutrals3
     font-weight: bold
     font-size: 30px
+    width: 70px
+    text-align: center
     +dark
         color: $neutrals8
-
 
 .displayName
     font-size: 25px
@@ -276,14 +265,15 @@
         color: $neutrals8
 
 .displayUserName
-    +poppins 
+    +poppins
     text-transform: uppercase
     background: -webkit-linear-gradient(45deg, #f84f00 10%, #dbcd00 50%)
     -webkit-background-clip: text
     -webkit-text-fill-color: transparent
+    padding-left: 10px
 
 .amount
-    +poppins 
+    +poppins
     text-transform: uppercase
     font-size: 20px
     color: #828282

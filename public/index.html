@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
   <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
   <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -24,6 +25,17 @@
     -->
 </head>
 <body>
+  <script>
+    $(window).scroll(function () {
+            if ($(this).scrollTop() > 0) {
+              // can be whatever, 0 refers to the top space you allow
+              $('.move').slideUp('slow'); // Hide your element
+              } else {
+                $('.move').slideDown('slow'); 
+              // It's justmouse if you want to show back the element if we're back on top
+          }
+        });
+  </script>
   <script>
     // Insert this script in your index.html right after the <body> tag.
     // This will help to prevent a flash if dark mode is the default.
