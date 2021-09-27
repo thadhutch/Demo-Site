@@ -8,7 +8,6 @@ import ArtistCard from "../../../components/AllCards/ArtistCard";
 import WorldsCards from "../../../components/AllCards/WorldsCards";
 import "./card.sass"
 // data
-import { bids } from "../../../mocks/bids";
 import { artistCards } from "../../../mocks/artistCards";
 import { worlds } from "../../../mocks/worlds";
 
@@ -22,6 +21,7 @@ const MarketPlaceCardSlider = ({ currentSlide, slideCount, children }) => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
+    centerMode: true,
     nextArrow: (
       <SlickArrow>
         <Icon name="arrow-next" size="26" />
@@ -62,23 +62,6 @@ const MarketPlaceCardSlider = ({ currentSlide, slideCount, children }) => {
 
   return (
     <div>
-      <div className={styles.cardSliderSection1}>
-        <div className={styles.cardSliderContainer}>
-          <div className={styles.SliderWrapper1}>
-          <div className={styles.cardSliderTitle}>
-              <h3>Live Auctions</h3>
-              <h3><a href="/home">view all</a></h3>
-            </div>
-            <div className={styles.inner}>
-              <Slider className="bid-slider"  {...settings}>
-                {bids.map((x, index) => (
-                  <Card key={index} className={styles.card} item={x} />
-                ))}
-              </Slider>
-            </div>
-          </div>
-        </div>
-      </div>
       <div className={styles.cardSliderSection}>
         <div className={styles.cardSliderContainer}>
           <div className={styles.SliderWrapper}>

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import styles from "./Collections.module.sass";
 import Icon from "../../../components/Icon";
 
+
 const items = [
   {
     title: "PNK Collection",
@@ -50,12 +51,12 @@ const Collections = () => {
     slidesToScroll: 1,
     nextArrow: (
       <SlickArrow>
-        <Icon name="arrow-next" size="14" />
+        <Icon name="arrow-next" size="18" />
       </SlickArrow>
     ),
     prevArrow: (
       <SlickArrow>
-        <Icon name="arrow-prev" size="14" />
+        <Icon name="arrow-prev" size="18" />
       </SlickArrow>
     ),
     responsive: [
