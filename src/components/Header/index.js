@@ -44,7 +44,6 @@ const Headers = () => {
   const Moralis = require('moralis');
   Moralis.initialize("7Ku6X8CPeLsTB1hNuxKbkK3zsNXRW9GrRid3wCnD");
 
-  const [accountVerified, setAccountVerified] = useState(true);
 
   const user = Moralis.User.current();
 

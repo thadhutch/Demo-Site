@@ -3,7 +3,6 @@ import React, { useContext } from "react";
 import { useMoralis } from "react-moralis";
 import styles from "../Header.module.sass";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../../GlobalState/index";
 
 
 function ConnectAndLogout() {
