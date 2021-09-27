@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import styles from "./Collections.module.sass";
 import Icon from "../../../components/Icon";
 
+
 const items = [
   {
     title: "PNK Collection",
