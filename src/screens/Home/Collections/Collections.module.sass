@@ -2,7 +2,6 @@
 
 .section
     overflow: hidden
-    background-color: #141416 !important
     margin-top: 100px
     margin-bottom: 150px
     +t 
@@ -110,11 +109,18 @@
     right: 2%
     flex-shrink: 0
     max-height: 30px
+    color: $neutrals1
+    +dark 
+        color: $neutrals6
+    span 
+        color: $neutrals1
+        +dark 
+            color: $neutrals6
     
 
 .collectioncontainer
     cursor: pointer
-    background-color: $neutrals6
+    background-color: $neutrals5
     position: relative
     top: 0
     transition: all ease 0.45s
@@ -138,7 +144,7 @@
     top: 35%
     left: 37.5%
     border-radius: 50%
-    border: 5px solid #fff 
+    border: 5px solid $neutrals5 
     max-width: 75px
     max-height: 75px
     min-width: 75px
@@ -146,4 +152,4 @@
     display: block
     z-index: 20
     +dark 
-        border-color: $neutrals1
+        border-color: $neutrals2

@@ -512,6 +512,12 @@ const displayError = async () => {
                                 onChange={() => setConditions(!conditions)}
                                 content="I agree to SpacePath's Terms of Service and Privacy Policy"
                                 />
+                                <Checkbox
+                                  className={styles.checkbox}
+                                  value={conditions1}
+                                  onChange={() => setConditions1(!conditions1)}
+                                  content="I want to receive updates and news about SpacePath"
+                                  />
                                 </div>
                                 <div className={styles.btns}>
                                 <Link to='/'>

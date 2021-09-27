@@ -93,7 +93,7 @@ const Collections = () => {
   };
 
   return (
-    <div className={cn("section-bg", styles.section)}>
+    <div className={cn("section", styles.section)}>
       <div className={cn("container", styles.container)}>
         <div className={styles.wrapper}>
           <h3 className={cn("h3", styles.title)}>Featured Collections</h3>

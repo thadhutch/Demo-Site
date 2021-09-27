@@ -6,7 +6,7 @@ import Icon from "../../../components/Icon";
 import Card from "../../../components/Card";
 import ArtistCard from "../../../components/AllCards/ArtistCard";
 import WorldsCards from "../../../components/AllCards/WorldsCards";
-import "./card.css"
+import "./card.sass"
 // data
 import { bids } from "../../../mocks/bids";
 import { artistCards } from "../../../mocks/artistCards";
@@ -70,7 +70,7 @@ const MarketPlaceCardSlider = ({ currentSlide, slideCount, children }) => {
               <h3><a href="/home">view all</a></h3>
             </div>
             <div className={styles.inner}>
-              <Slider className="bid-slider" {...settings}>
+              <Slider className="bid-slider"  {...settings}>
                 {bids.map((x, index) => (
                   <Card key={index} className={styles.card} item={x} />
                 ))}

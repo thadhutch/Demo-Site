@@ -8,10 +8,12 @@
     border-radius: 18px
     box-shadow: 10px 0 15px -4px $neutrals5
     +dark 
-        box-shadow: 10px 7px 15px -2px $neutrals3
+        box-shadow: 10px 7px 15px -2px $neutrals2
     &:hover
         top: -10px
         box-shadow: 10px 10px 15px 3px $neutrals4
+        +dark
+            box-shadow: 10px 10px 15px 3px $neutrals3
 .card
     display: flex
     flex-direction: column
@@ -31,8 +33,8 @@
 .preview
     position: relative
     overflow: hidden
-    min-height: 320px
-    height: 320px
+    min-height: 250px
+    height: 250px
     & > img
         width: 100%
         height: 100%
