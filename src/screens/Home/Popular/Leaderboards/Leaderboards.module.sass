@@ -150,7 +150,7 @@
         width: 200px
         border-radius: 10px
         +x
-            width: 175px
+            width: 125px
             height: 125px
 
         +t
@@ -168,19 +168,23 @@
 // Top Leaderboard Content
 .leadersSection
     width: 100%
-    max-width: 1000px
     height: 70%
     display: flex
     flex-direction: column
     flex-wrap: wrap
+    +x
+        min-width: 900px
+    +t
+        min-width: 765px
     +m
-        width: 50%
+        width: 100%
+        min-width: 950px
         flex-wrap: nowrap
         height: 100%
 
 .leaderboardRow
     height: 75px
-    width: 63.5%
+    width: 47%
     margin-bottom: 20px
     margin-right: 75px
     display: flex
@@ -199,12 +203,13 @@
             box-shadow: 2px 2px 10px $neutrals4
     +t
         width: 47%
-        height: 75px
         margin-right: 40px
+    +x
+        width: 47%
     +m
-        width: 200%
-        height: 75px
-
+        width: 65%
+    +a
+        width: 33%
 .leaderboardRow:nth-child(5),.leaderboardRow:nth-child(6),.leaderboardRow:nth-child(7),.leaderboardRow:nth-child(8),.leaderboardRow:nth-child(9),.leaderboardRow:nth-child(10)
     +m
         display: none
@@ -247,7 +252,11 @@
 
 .leaderboardavatar img
     border-radius: 50%
-
+    +m
+        width: 55px
+    +a
+        padding-top: 10px
+        width: 40px
 .ranking
     color: $neutrals3
     font-weight: bold
@@ -256,14 +265,20 @@
     text-align: center
     +dark
         color: $neutrals8
-
+    +m
+        font-size: 30px
+    +a
+        font-size: 20px
 .displayName
     font-size: 25px
     color: $neutrals3
     font-weight: bold
     +dark
         color: $neutrals8
-
+    +m
+        font-size: 25px
+    +a
+        font-size: 20px
 .displayUserName
     +poppins
     text-transform: uppercase
@@ -271,7 +286,10 @@
     -webkit-background-clip: text
     -webkit-text-fill-color: transparent
     padding-left: 10px
-
+    +m
+        font-size: 15px
+    +a
+        font-size: 10px
 .amount
     +poppins
     text-transform: uppercase
