@@ -19,7 +19,6 @@ const SlickArrow = ({ currentSlide, slideCount, children, ...props }) => (
       speed: 500,
       slidesToShow: 4,
       slidesToScroll: 1,
-      centerMode: true,
       nextArrow: (
         <SlickArrow>
           <Icon name="arrow-next" size="26" />

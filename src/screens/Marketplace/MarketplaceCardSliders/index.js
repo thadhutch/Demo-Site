@@ -6,7 +6,6 @@ import Icon from "../../../components/Icon";
 import Card from "../../../components/Card";
 import ArtistCard from "../../../components/AllCards/ArtistCard";
 import WorldsCards from "../../../components/AllCards/WorldsCards";
-import "./card.sass"
 // data
 import { artistCards } from "../../../mocks/artistCards";
 import { worlds } from "../../../mocks/worlds";
@@ -21,7 +20,6 @@ const MarketPlaceCardSlider = ({ currentSlide, slideCount, children }) => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    centerMode: true,
     nextArrow: (
       <SlickArrow>
         <Icon name="arrow-next" size="26" />
