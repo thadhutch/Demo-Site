@@ -6,6 +6,7 @@ import TextInput from "../../components/TextInput";
 import Modal from "../../components/Modal";
 import Image from "../../components/Image";
 import Error from "../../components/Error";
+import Success from "../../components/Success"
 
 function Upload() {
 
@@ -18,8 +19,11 @@ function Upload() {
   const profileUsername = user.get("username");
 
   const [visibleModal, setVisibleModal] = useState(false);
+  const [visibleSuccessModal, setVisibleSuccessModal] = useState(false);
+
 
   const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const [ isAvatar, setAvatar] = useState(false);
 
@@ -129,10 +133,7 @@ useEffect(() => {
     const createNFTItemFile = document.getElementById("createNFTFile");
     const NFTName = document.getElementById("itemName");
     const NFTDescription = document.getElementById("itemDescription");
-    const royaltyPercentage = document.getElementById("royaltyPercentage");
     const amountOfCopies = document.getElementById("copies#");
-    const NFTMinimumBid = document.getElementById("minbid");
-    const NFTFixedPrice = document.getElementById("buyNowAmount");
 
 
       if (createNFTItemFile.files.length === 0){
@@ -143,27 +144,13 @@ useEffect(() => {
         setVisibleModal(true);
         setErrorMessage("Please enter a name!");
         return;
-      } else if (royaltyPercentage.value.length === 0){
-        setVisibleModal(true);
-        setErrorMessage("Please specify a royalty percentage!");
-        return;
       } else if (amountOfCopies.value.length === 0){
         setVisibleModal(true);
         setErrorMessage("Please specify how many items will be minted!");
         return;
-      } else if (fixedPrice === true){
-          if(NFTFixedPrice.value.length === 0){
-            setVisibleModal(true);
-            setErrorMessage("Please specify the nft price!");
-          return;
-          };
-      } else if (fixedPrice !== true){
-        if(NFTMinimumBid.value.length === 0){
-          setVisibleModal(true);
-          setErrorMessage("Please specify the minimum bid!");
-          return;
-          };
-      };
+      }
+      setVisibleSuccessModal(true)
+      setSuccessMessage("Your file has been uploaded!");
 
       const NFTPreview = await user.get("nftPreview");
 
@@ -173,12 +160,10 @@ useEffect(() => {
       const nftFileHash = NFTPreview.hash();
 
       const metadata = {
+          artist: profileUsername,
           name: NFTName.value,
           description: NFTDescription.value,
-          royaltyPercent: NFTRoyaltyPercentage,
           copiesAmount: NumberOfCopies,
-          price: price,
-          buyNowChecker: fixedPrice,
           nftFilePath: nftFilePath,
           nftFileHash: nftFileHash
       };
@@ -194,10 +179,7 @@ useEffect(() => {
       const nft = new NFT();
       nft.set('name', NFTName.value);
       nft.set('description', NFTDescription.value);
-      nft.set('royaltyPercent', NFTRoyaltyPercentage);
       nft.set('copiesAmount', NumberOfCopies);
-      nft.set('price', price);
-      nft.set('buyNowChecker', fixedPrice);
       nft.set('nftFilePath', nftFilePath);
       nft.set('nftFileHash', nftFileHash);
       nft.set('MetadataFilePath', nftMetadataFilePath);
@@ -356,6 +338,11 @@ useEffect(() => {
       <Modal visible={visibleModal} onClose={() => setVisibleModal(false)}>
         <Error 
           errorMessage={errorMessage}
+        />
+      </Modal>
+      <Modal visible={visibleSuccessModal} onClose={() => setVisibleSuccessModal(false)}>
+        <Success 
+          successMessage={successMessage}
         />
       </Modal>
     </>
