@@ -8,6 +8,7 @@ import About from "./screens/About";
 import EmailVerified from "./screens/VerifyEmail";
 import PrivacyPolicy from "./screens/PrivacyPolicy";
 import TermsOfService from "./screens/TermsOfService";
+import Upload from "./screens/Upload";
 import { ContextProvider } from "./GlobalState/state";
 
 
@@ -69,6 +70,13 @@ const App = () => (
             path="/privacypolicy"
             render={() => (
                   <PrivacyPolicy /> 
+            )}
+          />
+          <Route
+            exact
+            path="/upload"
+            render={() => (
+                  <Upload /> 
             )}
           />
         </Switch>

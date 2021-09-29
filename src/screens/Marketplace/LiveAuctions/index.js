@@ -5,7 +5,6 @@ import styles from "../MarketplaceCardSliders/CardSliders.module.sass";
 import Icon from "../../../components/Icon";
 import Card from "../../../components/Card";
 import { bids } from "../../../mocks/bids";
-import "./liveauctionslider.sass";
 
 
 

@@ -82,7 +82,7 @@ const MarketPlaceCardSlider = ({ currentSlide, slideCount, children }) => {
           <div className={styles.SliderWrapper}>
             <div className={styles.cardSliderTitle}>
               <h3>Artists</h3>
-              <h3><a href="/home">view all</a></h3>
+              <h3><a href="/marketplace">view all</a></h3>
             </div>
             <div className={styles.inner}>
               <Slider className="bid-slider" {...settings}>

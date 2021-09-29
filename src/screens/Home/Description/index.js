@@ -25,6 +25,9 @@ const Description = () => {
             <Link className={cn("button-stroke", styles.button)} to="/">
               Earn SP
             </Link>
+            <Link className={cn("button-stroke", styles.button)} to="/upload">
+              Upload
+            </Link>
           </div>
         </div>
         <div className={styles.homeHeroFeature}>
