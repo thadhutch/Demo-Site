@@ -2,6 +2,12 @@ import React from "react";
 import cn from "classnames";
 import styles from "./About.module.sass";
 import PieChart from "./pieChart.png";
+import AboutHeroImg from "./SPAboutLogo_1.gif";
+import AboutHeroImgNoGlow from "./logoSPLines(noGlow).gif";
+import Rec1 from "./Rectangle1.png";
+import Rec2 from "./Rectangle2.png";
+import Rec3 from "./Rectangle3.png";
+import Rec4 from "./Rectangle4.png";
 import EarnIcon from "./earnIcon.png";
 import GovIcon from "./govIcon.png";
 import VoteIcon from "./voteIcon.png";
@@ -11,6 +17,7 @@ const About = () => {
       <div className={styles.aboutPageContainer}>
         <div className={styles.aboutHeroContainer}>
           <div className={styles.aboutHero}>
+            <img src={AboutHeroImgNoGlow} />
             <h1 className={styles.aboutHeroHeader}>ABOUT SPACEPATH</h1>
           </div>
         </div>
@@ -80,7 +87,9 @@ const About = () => {
           <h3>A Platform Controlled By You</h3>
           <div className={styles.earnGovVoteContainer}>
             <div className={styles.earnGovVote}>
-              <img className={styles.Icon} src={EarnIcon} />
+              <div className={styles.Icon}>
+                <img src={EarnIcon} />
+              </div>
               <h1>Earn</h1>
               <div className={styles.earnGovVoteDiv}>
                 Foundation is a platform that aims to build a new creative
@@ -89,7 +98,9 @@ const About = () => {
               </div>
             </div>
             <div className={styles.earnGovVote}>
-              <img className={styles.Icon} src={GovIcon} />
+              <div className={styles.Icon}>
+                <img src={GovIcon} />
+              </div>
               <h1>Governace</h1>
               <div className={styles.earnGovVoteDiv}>
                 Foundation is a platform that aims to build a new creative
@@ -98,11 +109,9 @@ const About = () => {
               </div>
             </div>
             <div className={styles.earnGovVote}>
-              <img
-                className={styles.Icon}
-                id={styles.voteIcon}
-                src={VoteIcon}
-              />
+              <div className={styles.Icon}>
+                <img src={VoteIcon} />
+              </div>
               <h1>Vote</h1>
               <div className={styles.earnGovVoteDiv}>
                 Foundation is a platform that aims to build a new creative
@@ -115,28 +124,50 @@ const About = () => {
         <div className={styles.distributionContainer}>
           <h1>$SP Token Distribution</h1>
           <div className={styles.distributionContent}>
-              <img src={PieChart}/>
-              <div className={styles.distributionWords}>
-            <div>
-            <h3>Title</h3>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <div className={styles.pieChartContainer}>
+              <div className={styles.pieChartImgContainer}>
+                <img src={PieChart} />
+              </div>
+              <div className={styles.pieChartDiv}>
+                <div className={styles.pieChartList}>
+                  <img src={Rec1} />
+                  <h1>Public Owenership</h1>
+                </div>
+                <div className={styles.pieChartList}>
+                  <img src={Rec2} />
+                  <h1>Dev Owenership</h1>
+                </div>
+                <div className={styles.pieChartList}>
+                  <img src={Rec3} />
+                  <h1>Weekly AirDrop Fund</h1>
+                </div>
+                <div className={styles.pieChartList}>
+                  <img src={Rec4} />
+                  <h1>Treasury Fund</h1>
+                </div>
+              </div>
             </div>
-            <div>
-            <h3>Title</h3>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </div>
+            <div className={styles.distributionWords}>
+              <div>
+                <h3>Title</h3>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </div>
+              <div>
+                <h3>Title</h3>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </div>
             </div>
           </div>
         </div>
