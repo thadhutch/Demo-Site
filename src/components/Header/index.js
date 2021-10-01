@@ -109,7 +109,7 @@ const Headers = () => {
           </div>
           <Notification className={styles.notification} />
           <div className={styles.usercontainer}>
-            <ConnectAndLogout />
+            {/* <ConnectAndLogout /> */}
             {/* <Link
               className={cn("button-stroke button-small", styles.button)}
               to="/connect-wallet"

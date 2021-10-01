@@ -1905,6 +1905,11 @@
     lodash.snakecase "^4.1.1"
     p-defer "^3.0.0"
 
+"@graphql-typed-document-node/core@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@graphql-typed-document-node/core/-/core-3.1.0.tgz#0eee6373e11418bfe0b5638f654df7a4ca6a3950"
+  integrity sha512-wYn6r8zVZyQJ6rQaALBEln5B1pzxb9shV5Ef97kTvn6yVGrqyXVnDqnU24MXnFubR+rZjBY9NWuxX3FB2sTsjg==
+
 "@grpc/grpc-js@^1.3.2", "@grpc/grpc-js@~1.3.0":
   version "1.3.7"
   resolved "https://registry.yarnpkg.com/@grpc/grpc-js/-/grpc-js-1.3.7.tgz#58b687aff93b743aafde237fd2ee9a3259d7f2d8"
@@ -2969,6 +2974,14 @@
   dependencies:
     "@typescript-eslint/types" "4.31.0"
     eslint-visitor-keys "^2.0.0"
+
+"@urql/core@^2.3.2":
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/@urql/core/-/core-2.3.3.tgz#e4777b95c31d8ad0ba21ea1f5c851cbbe1d0ac17"
+  integrity sha512-Bi9mafTFu0O1XZmI7/HrEk12LHZW+Fs/V1FqSJoUDgYIhARIJW6cCh3Havy1dJJ0FETxYmmQQXPf6kst+IP2qQ==
+  dependencies:
+    "@graphql-typed-document-node/core" "^3.1.0"
+    wonka "^4.0.14"
 
 "@use-it/event-listener@^0.1.2":
   version "0.1.6"
@@ -8236,6 +8249,11 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6
   version "4.2.8"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.8.tgz#e412b8d33f5e006593cbd3cee6df9f2cebbe802a"
   integrity sha512-qkIilPUYcNhJpd33n0GBXTB1MMPp14TxEsEs0pTrsSVucApsYzW5V+Q8Qxhik6KU3evy+qkAAowTByymK0avdg==
+
+graphql@^15.6.0:
+  version "15.6.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.6.0.tgz#e69323c6a9780a1a4b9ddf7e35ca8904bb04df02"
+  integrity sha512-WJR872Zlc9hckiEPhXgyUftXH48jp2EjO5tgBBOyNMRJZ9fviL2mJBD6CAysk6N5S0r9BTs09Qk39nnJBkvOXQ==
 
 growly@^1.3.0:
   version "1.3.0"
@@ -16045,6 +16063,14 @@ url@^0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
+urql@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/urql/-/urql-2.0.5.tgz#ab56bdc659fc0f4b3bc5b286359a354c74817bdb"
+  integrity sha512-UOl37CkNO1sfhw8jPihq+9NKUpTLnsRjpK7vmOVqPceqSO0rYXHOAEJp2TWDhyLjn2lYDlDlAfDaxNyK5m1FOA==
+  dependencies:
+    "@urql/core" "^2.3.2"
+    wonka "^4.0.14"
+
 use-dark-mode@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/use-dark-mode/-/use-dark-mode-2.3.1.tgz#d506349c7b7e09e9977cb8a6ab4470896aa3779a"
@@ -16793,6 +16819,11 @@ winston@^3.0.0:
     stack-trace "0.0.x"
     triple-beam "^1.3.0"
     winston-transport "^4.4.0"
+
+wonka@^4.0.14:
+  version "4.0.15"
+  resolved "https://registry.yarnpkg.com/wonka/-/wonka-4.0.15.tgz#9aa42046efa424565ab8f8f451fcca955bf80b89"
+  integrity sha512-U0IUQHKXXn6PFo9nqsHphVCE5m3IntqZNB9Jjn7EB1lrR7YTDY3YWgFvEvwniTzXSvOH/XMzAZaIfJF/LvHYXg==
 
 word-wrap@^1.2.3, word-wrap@~1.2.3:
   version "1.2.3"

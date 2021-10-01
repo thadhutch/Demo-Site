@@ -19,14 +19,14 @@ const App = () => (
         <Switch>
         <Route
             exact
-            path="/"
+            path="/createaccount"
             render={() => (
               <CreateAccount />
             )}
           />
           <Route
             exact
-            path="/home"
+            path="/"
             render={() => (
               <Page>
                 <Home />

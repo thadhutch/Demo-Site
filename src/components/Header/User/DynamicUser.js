@@ -13,36 +13,32 @@ function DynamicUser() {
     const user = Moralis.User.current();
 
    
-    useEffect(() => {
-
-        const user = Moralis.User.current();
-      
-        if(user){
-          const avatarStatus = user.get("profilePictureChecker");
-          setAvatar(avatarStatus);
-        } else {
-          setAvatar(false);
-        }
-      
-      }, []);
+   
 
 
     
 
-    if (isAvatar) {
-        const profileAvatar = user.get("profile_picture");
+    if (user) {
 
-        return (
-            <User 
-            ProfilePic={profileAvatar.url()}
-            className={styles.user}/>
-        );
+      const profileAvatar = user.get("profile_picture");
+          return (
+            <>
+              {isAvatar ? ( 
+                <User 
+                ProfilePic={profileAvatar.url()}
+                className={styles.user}/>
+              ) : ( 
+                  <User 
+                  ProfilePic={"https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo.png?alt=media&token=be8595a7-f66f-452e-8adc-0628bf912c1a"}
+                  className={styles.user}/>
+              )}
+            </>
+          );
     
     } else {
         return (
-            <User 
-                ProfilePic={"https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo.png?alt=media&token=be8595a7-f66f-452e-8adc-0628bf912c1a"}
-                className={styles.user}/>
+            <>
+            </>
         );
     };
 

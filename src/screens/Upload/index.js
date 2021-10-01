@@ -134,6 +134,7 @@ useEffect(() => {
     const NFTName = document.getElementById("itemName");
     const NFTDescription = document.getElementById("itemDescription");
     const amountOfCopies = document.getElementById("copies#");
+    const profileUsername = user.get("username");
 
 
       if (createNFTItemFile.files.length === 0){
@@ -152,40 +153,43 @@ useEffect(() => {
       setVisibleSuccessModal(true)
       setSuccessMessage("Your file has been uploaded!");
 
-      const NFTPreview = await user.get("nftPreview");
+      const ItemPreview = await user.get("nftPreview");
 
-      await NFTPreview.saveIPFS();
+      await ItemPreview.saveIPFS();
 
-      const nftFilePath = NFTPreview.ipfs();
-      const nftFileHash = NFTPreview.hash();
+      const itemFilePath = ItemPreview.ipfs();
+      const itemFileHash = ItemPreview.hash();
 
       const metadata = {
           artist: profileUsername,
           name: NFTName.value,
           description: NFTDescription.value,
           copiesAmount: NumberOfCopies,
-          nftFilePath: nftFilePath,
-          nftFileHash: nftFileHash
+          itemFilePath: itemFilePath,
+          itemFileHash: itemFileHash,
+          content: ItemPreview
       };
 
-      const nftMetadataFile = new Moralis.File("metadata.json", {base64 : btoa(JSON.stringify(metadata))});
-      await nftMetadataFile.saveIPFS();
+      const itemMetadataFile = new Moralis.File("metadata.json", {base64 : btoa(JSON.stringify(metadata))});
+      await itemMetadataFile.saveIPFS();
 
-      const nftMetadataFilePath = nftMetadataFile.ipfs();
-      const nftMetadataFileHash = nftMetadataFile.hash();
+      const itemMetadataFilePath = itemMetadataFile.ipfs();
+      const itemMetadataFileHash = itemMetadataFile.hash();
 
-      const NFT = Moralis.Object.extend("NFT");
+      const ITEM = Moralis.Object.extend("ITEM");
 
-      const nft = new NFT();
-      nft.set('name', NFTName.value);
-      nft.set('description', NFTDescription.value);
-      nft.set('copiesAmount', NumberOfCopies);
-      nft.set('nftFilePath', nftFilePath);
-      nft.set('nftFileHash', nftFileHash);
-      nft.set('MetadataFilePath', nftMetadataFilePath);
-      nft.set('MetadataFileHash', nftMetadataFileHash);
+      const item = new ITEM();
+      item.set('name', NFTName.value);
+      item.set('artist', profileUsername)
+      item.set('description', NFTDescription.value);
+      item.set('copiesAmount', NumberOfCopies);
+      item.set('file', ItemPreview);
+      item.set('itemFilePath', itemFilePath);
+      item.set('itemFileHash', itemFileHash);
+      item.set('MetadataFilePath', itemMetadataFilePath);
+      item.set('MetadataFileHash', itemMetadataFileHash);
 
-      await nft.save();
+      await item.save();
     };
 
 
