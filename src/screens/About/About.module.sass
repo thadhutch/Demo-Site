@@ -1,22 +1,333 @@
 @import ../../styles/helpers
-
+// =d
+// 	@media only screen and (max-width: "1179px")
+// 		@content
+// =t
+// 	@media only screen and (max-width: "1023px")
+// 		@content
+// =m
+// 	@media only screen and (max-width: "767px")
+// 		@content
+// =a
+//   	@media only screen and (max-width: "639px")
+// 		@content
+// =s
+// 	@media only screen and (max-width: "474px")
+// 		@content
 .aboutPageContainer
-    display: none
-.teamContainer
-    background: #000
+    background: #000000
+    +m
+        margin-left: 10px
+    +a
+// Hero
+.aboutHeroContainer
+    padding-top: 50px
+    padding-bottom: 100px
+    +m
+        padding-bottom: 50px
+    +a
+        padding-top: 25px
+        padding-bottom: 50px
+    +s
+        padding-bottom: 25px
+
+.aboutHero
+    height: 60vh
     width: 100%
-    padding-top: 250px
     display: flex
     justify-content: center
     align-items: center
-    padding-bottom: 100px
-
-.teamContainer span
-    position: absolute
-    top: 180%
-    height: 200px
-    width: 2px
-    background: #88000081
+    background: url(./ezgif.com-gif-maker.gif) center center
+    background-repeat: no-repeat
+    background-size: 50vw
     +m
-        top: 135%
-        height: 100px
+        height: 50vh
+        background-size: 80vw
+    +a
+        background-size: 75vw
+    +s
+        height: 30vh
+.aboutHeroHeader
+    font-size: 4.5vw
+    +m
+        font-size: 8vw
+    +a
+        font-size: 7.5vw
+
+// ==============================================================
+// About Company
+.aboutCompanyContainer
+    width: 100%
+    display: block
+    display: flex
+    flex-direction: column
+    align-items: center
+    text-align: center
+    padding-bottom: 200px
+    +a
+        padding-bottom: 150px
+    +s
+        padding-bottom: 100px
+.aboutCompanyWords
+    font-size: 1.5vw
+    width: 75%
+    padding-bottom: 70px
+    padding-top: 30px
+    color: white
+    +m
+        font-size: 3vw
+        width: 85%
+    +a
+        width: 85%
+        font-size: 3vw
+    +s
+        width: 80%
+        font-size: 3.8vw
+        padding-top: 0px
+// Company Info
+.companyInfo
+    display: flex
+    justify-content: space-evenly
+    width: 85%
+    +m
+        width: 95%
+    +a
+        width: 95%
+
+.aboutNums
+    margin: 10px
+    +a
+        margin: 0px
+
+.aboutNums h1
+    font-size: 3.5vw
+    +m
+        font-size: 5.3vw
+    +a
+        font-size: 5.5vw
+
+.aboutNums h3
+    font-size: 1.5vw
+    +m
+        font-size: 2.7vw
+    +a
+        font-size: 3.2vw
+
+// ==============================================================
+// How It Works Container
+.howItWorksContainer
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding-bottom: 200px
+    +a
+        padding-bottom: 150px
+    +s
+        padding-bottom: 100px
+.howItWorksHeader
+    font-size: 3.5vw
+    margin-bottom: 50px
+    +m
+        font-size: 8vw
+    +a
+        font-size: 7.5vw
+
+// Creators-Collectors
+.creatorsCollectorsContainer
+    display: flex
+    width: 80%
+    justify-content: space-evenly
+    text-align: center
+    +m
+        width: 90%
+    +a
+        flex-direction: column
+        align-items: center
+        width: 90%
+.creatorsCollectorsCards
+    width: 38%
+    border-radius: 20px
+    border: solid white 1px
+    +m
+        width: 45%
+    +a
+        margin-bottom: 50px
+        width: 90%
+.creatorsCollectorsCards h1
+    width: 100%
+    background: #3d3d3d
+    border-radius: 20px 20px 0px 0px
+    font-size: 2.2vw
+    +m
+        font-size: 4.3vw
+    +a
+        font-size: 5.5vw
+.creatorsCollectorsDiv
+    padding: 15px
+    background: #747474
+    border-top: solid white 1px
+    border-radius: 0 0 20px 20px
+    font-size: 1.1vw
+    font-weight: 700
+    +m
+        font-size: 2vw
+
+    +a
+        font-size: 3vw
+
+// ==============================================================
+// Governace Token
+.govTokenContainer
+    text-align: center
+    padding-bottom: 200px
+    +a
+        padding-bottom: 150px
+    +s
+        padding-bottom: 100px
+.govTokenContainer h1
+    font-size: 4vw
+    +m
+        font-size: 6vw
+    +a
+        font-size: 7vw
+        width: 90%
+.govTokenContainer h3
+    font-size: 2.5vw
+    margin-bottom: 50px
+    +m
+        font-size: 4.5vw
+    +a
+        font-size: 4.7vw
+        width: 90%
+.govTokenContainer
+    width: 100%
+    display: flex
+    align-items: center
+    flex-direction: column
+    +m
+    +a
+// Governace Cards
+.earnGovVoteContainer
+    width: 85%
+    display: flex
+    justify-content: space-evenly
+    +m
+        width: 99%
+    +a
+        width: 95%
+
+.earnGovVote
+    width: 25%
+    margin: 20px
+    +m
+        margin: 0px
+    +a
+        margin: 10px
+        width: 30%
+
+.earnGovVote h1
+    font-size: 2vw
+    +m
+        font-size: 3.5vw
+
+    +a
+        font-size: 3.3vw
+
+.earnGovVoteDiv
+    font-size: 1.2vw
+    padding: 30px
+    +m
+        font-size: 2vw
+        padding: 5px
+    +a
+        font-size: 2.2vw
+        padding: 10px
+    +s
+        padding: 5px
+        font-size: 2.6vw
+
+// Icons
+.Icon
+    width: 150px
+    height: 100px
+    +a
+        width: 100px
+        height: 75px
+    +s
+        width: 105px
+        height: 75px
+#voteIcon
+    width: 115px
+    height: 100px
+    +a
+        width: 90px
+        height: 75px
+    +s
+        width: 100px
+        height: 72px
+// ==============================================================
+// Token Distribution
+.distributionContainer
+    text-align: center
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding-bottom: 200px
+    +s
+        padding-bottom: 100px
+.distributionContainer h1
+    font-size: 3.5vw
+    +m
+        font-size: 5.5vw
+    +a
+        font-size: 6vw
+
+.distributionContent
+    width: 90%
+    display: flex
+    flex-direction: column
+    align-items: center
+.distributionContent img
+    width: 35%
+    margin-right: -175px
+    +m
+        width: 65%
+        margin-right: -150px
+    +a
+        width: 60%
+        margin-right: -120px
+    +s
+        width: 80%
+        margin-right: -75px
+
+.distributionWords
+    display: flex
+    justify-content: space-evenly
+    width: 90%
+    +m
+        width: 100%
+    +a
+        width: 100%
+
+.distributionWords h3
+    font-size: 3vw
+    +m
+        font-size: 4.5vw
+
+    +a
+        font-size: 4vw
+    +s
+        font-size: 4.5vw
+.distributionWords div
+    width: 43%
+    font-weight: 700
+    font-size: 1.5vw
+
+    +m
+        font-size: 2.2vw
+        width: 42%
+    +a
+        font-size: 2.3vw
+        width: 45%
+    +s
+        font-size: 2.7vw
