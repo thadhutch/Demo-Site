@@ -110,8 +110,6 @@ const CreateAccount = () => {
 
   async function WalletConnectAuthentication() {
 
-
-    
     
     try {
       setVisibleModal(true);

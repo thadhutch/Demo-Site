@@ -4,12 +4,13 @@ import cn from "classnames";
 import styles from "./Header.module.sass";
 import Icon from "../Icon";
 import Image from "../Image";
-import Theme from "../Theme";
 import Notification from "./Notification";
-import ConnectAndLogout from "./ConnectAndLogoutButton/ConnectAndLogout";
 import DynamicUser from "./User/DynamicUser";
 import Input from './Input/Input';
 import { useMoralis } from "react-moralis";
+import Modal from '../Modal/index';
+import Login from '../Login/index';
+import ModalTextTitle from '../ModalTextTitle/index';
 
 
 const nav = [
@@ -41,10 +42,13 @@ const nav = [
 const Headers = () => {
 
   const [visibleNav, setVisibleNav] = useState(false);
+  const [visibleLoginModal, setVisibleLoginModal] = useState(false);
+  const [visibleLogoutModal, setVisibleLogoutModal] = useState(false);
+
+
 
   const Moralis = require('moralis');
   Moralis.initialize("7Ku6X8CPeLsTB1hNuxKbkK3zsNXRW9GrRid3wCnD");
-
 
   const user = Moralis.User.current();
 
@@ -54,11 +58,28 @@ const Headers = () => {
     alert();
   };
 
+  async function LogoutFunc(){
+
+    logout();
+    setVisibleLogoutModal(true);
+
+
+  }
+
+ 
+
+
   return (
   <>
-      <header className={styles.header}>
+    <Modal visible={visibleLoginModal} onClose={() => setVisibleLoginModal(false)}>      
+      <Login />
+    </Modal>
+    <Modal visible={visibleLogoutModal} onClose={() => setVisibleLogoutModal(false)}>      
+      <ModalTextTitle title={"Success!"} message={"You have signed out."} />
+    </Modal>
+]      <header className={styles.header}>
         <div className={cn("container", styles.container)}>
-          <Link className={styles.logo} to="/home">
+          <Link className={styles.logo} to="/">
             <Image
               className={styles.pic}
               src="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-dark.png?alt=media&token=0dc78010-319d-426b-9dc0-c17db0479ec4"
@@ -99,48 +120,48 @@ const Headers = () => {
                 
               </div>
             </nav>
-            <Link
-              className={cn("button-small", styles.mobilebutton)}
-              to="/"
-              onClick={() => logout()}
-            >
-              Logout
-            </Link>
+            <>
+              {user ? (
+                  <Link
+                    className={cn("button-small", styles.mobilebutton)}
+                    to="/"
+                    onClick={() => logout()}
+                  >
+                    Logout
+                  </Link>
+                  ) : (
+                    <Link
+                      className={cn("button-small", styles.mobilebutton)}
+                      to="/"
+                      onClick={() => setVisibleLoginModal(true)}
+                    >
+                        Connect Wallet
+                    </Link>
+                  )} 
+            </>
           </div>
           <Notification className={styles.notification} />
           <div className={styles.usercontainer}>
-            {/* <ConnectAndLogout /> */}
-            {/* <Link
-              className={cn("button-stroke button-small", styles.button)}
-              to="/connect-wallet"
-              >
-              Connect Wallet
-            </Link> */}
-            <DynamicUser />
+                {user ? (
+                    <button
+                    className={cn("button-small", styles.button)} onClick={() => logout()}
+                    >
+                    Logout
+                    </button>
+                ) : (
+                    <button
+                        className={cn("button-small", styles.button)} 
+                        onClick={() => setVisibleLoginModal(true)}
+                        >
+                        Connect Wallet
+                    </button>
+                )} 
+            <DynamicUser realUserStatus=""/>
           </div>
           <button
             className={cn(styles.burger, { [styles.active]: visibleNav })}
             onClick={() => setVisibleNav(!visibleNav)}
           ></button>
-            {/* <div className={styles.navtheme}>
-                <span className={styles.sunicon}>
-                <Image 
-                    src="https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/iconmonstr-weather-2-240%20(2).png?alt=media&token=36c037b7-c92b-4522-a12b-a20ee5e9e830"
-                    srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-weather-2-240.png?alt=media&token=54ed330f-02c9-457d-a515-34a9eaf4d0e7"
-                    className={styles.sun} 
-                    alt="sun icon"
-                  />
-                </span>
-                <Theme className={styles.theme}/>
-                <span className={styles.moonicon}>
-                  <Image 
-                    src="https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/iconmonstr-weather-115-240%20(1).png?alt=media&token=9f8b72fd-5d7d-4575-8539-affe38d1072f"
-                    srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-weather-115-240.png?alt=media&token=122e0e08-8851-47bd-9eb7-6e58f67a88b3"
-                    className={styles.moon} 
-                    alt="moon icon"
-                  />
-                </span>
-              </div>  */}
         </div>
       </header>
   </>

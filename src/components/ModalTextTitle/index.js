@@ -1,18 +1,18 @@
 import React from "react";
 import cn from "classnames";
-import styles from "./Error.module.sass";
+import styles from "./ModalTextTitle.module.sass";
 
-const Error = ({ className, ...props }) => {
+const ModalTextTitle = ({ className, ...props }) => {
   return (
     <div className={cn(className, styles.transfer)}>
-      <div className={cn("h4", styles.title)}>Error</div>
+      <div className={cn("h4", styles.title)}>{props.title}</div>
       <div className={styles.textContainer}>
         <div className={styles.text}>
-          {props.errorMessage}
+          {props.message}
         </div>
       </div>
     </div>
   );
 };
 
-export default Error;
+export default ModalTextTitle;
