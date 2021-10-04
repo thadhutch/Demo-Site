@@ -178,6 +178,7 @@ useEffect(() => {
 
       const ITEM = Moralis.Object.extend("ITEM");
 
+<<<<<<< Updated upstream
       const item = new ITEM();
       item.set('name', NFTName.value);
       item.set('artist', profileUsername)
@@ -188,6 +189,17 @@ useEffect(() => {
       item.set('itemFileHash', itemFileHash);
       item.set('MetadataFilePath', itemMetadataFilePath);
       item.set('MetadataFileHash', itemMetadataFileHash);
+=======
+      const nft = new NFT();
+      nft.set('name', NFTName.value);
+      nft.set('artist', profileUsername);
+      nft.set('description', NFTDescription.value);
+      nft.set('copiesAmount', NumberOfCopies);
+      nft.set('nftFilePath', nftFilePath);
+      nft.set('nftFileHash', nftFileHash);
+      nft.set('MetadataFilePath', nftMetadataFilePath);
+      nft.set('MetadataFileHash', nftMetadataFileHash);
+>>>>>>> Stashed changes
 
       await item.save();
     };
