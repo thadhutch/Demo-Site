@@ -5,7 +5,7 @@ import Icon from "../../components/Icon";
 import Modal from "../../components/Modal/index";
 import LoadingModal from "../../components/LoadingModal/index";
 import VerifyEmail from "../../components/emailModal ";
-import Error from "../../components/Error/index";
+import ModalTextTitle from "../../components/ModalTextTitle/index";
 import React, { useState, useEffect, useContext } from "react";
 import { UserContext } from "../../GlobalState";
 import Checkbox from "../../components/Checkbox";
@@ -327,8 +327,8 @@ const displayError = async () => {
         <VerifyEmail />
       </Modal>
       <Modal visible={visibleErrorModal} onClose={() => setVisibleErrorModal(false)}>
-        <Error
-          errorMessage={errorMessage}
+        <ModalTextTitle
+          message={errorMessage}
         />
       </Modal>
       <div className={cn("section-pt80", styles.section)}>

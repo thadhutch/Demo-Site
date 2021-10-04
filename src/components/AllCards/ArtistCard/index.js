@@ -4,7 +4,7 @@ import styles from "./ArtistCard.module.sass";
 import Icon from "../../Icon";
 import cn from "classnames";
 import Modal from "../../Modal/index";
-import Error from "../../Error/index";
+import ModalTextTitle from "../../ModalTextTitle/index";
 
 
 const ArtistCard = ({ className, item }) => {
@@ -20,8 +20,8 @@ const ArtistCard = ({ className, item }) => {
   return (
     <>
       <Modal visible={visibleErrorModal} onClose={() => setVisibleErrorModal(false)}>
-          <Error
-            errorMessage={errorMessage}
+          <ModalTextTitle
+            message={errorMessage}
           />
         </Modal>
       <Link className={styles.artistCardContainer} to="/marketplace">

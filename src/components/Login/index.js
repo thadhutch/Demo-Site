@@ -2,7 +2,7 @@ import cn from "classnames";
 import styles from "./Login.module.sass";
 import React, { useState, useEffect } from "react";
 import { useMoralis } from "react-moralis";
-import Error from '../Error/index';
+import ModalTextTitle from '../ModalTextTitle/index';
 
 const Login = ({ className, ...props }) => {
 

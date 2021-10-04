@@ -3,7 +3,7 @@ import styles from "./FooterHero.module.sass";
 import cn from "classnames";
 import Image from "../Image";
 import Modal from "../Modal/index";
-import Error from "../Error/index";
+import ModalTextTitle from "../ModalTextTitle/index";
 
 const FooterHero = () => {
 
@@ -18,8 +18,8 @@ const FooterHero = () => {
   return (
     <>
       <Modal visible={visibleErrorModal} onClose={() => setVisibleErrorModal(false)}>
-          <Error
-            errorMessage={errorMessage}
+          <ModalTextTitle
+            message={errorMessage}
           />
         </Modal>
         <div className={cn("section-bg", styles.footerHeroContainer)}>

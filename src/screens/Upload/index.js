@@ -5,7 +5,7 @@ import Icon from "../../components/Icon";
 import TextInput from "../../components/TextInput";
 import Modal from "../../components/Modal";
 import Image from "../../components/Image";
-import Error from "../../components/Error";
+import ModalTextTitle from "../../components/ModalTextTitle";
 import Success from "../../components/Success"
 
 function Upload() {
@@ -178,10 +178,9 @@ useEffect(() => {
 
       const ITEM = Moralis.Object.extend("ITEM");
 
-<<<<<<< Updated upstream
       const item = new ITEM();
       item.set('name', NFTName.value);
-      item.set('artist', profileUsername)
+      item.set('artist', profileUsername);
       item.set('description', NFTDescription.value);
       item.set('copiesAmount', NumberOfCopies);
       item.set('file', ItemPreview);
@@ -189,17 +188,6 @@ useEffect(() => {
       item.set('itemFileHash', itemFileHash);
       item.set('MetadataFilePath', itemMetadataFilePath);
       item.set('MetadataFileHash', itemMetadataFileHash);
-=======
-      const nft = new NFT();
-      nft.set('name', NFTName.value);
-      nft.set('artist', profileUsername);
-      nft.set('description', NFTDescription.value);
-      nft.set('copiesAmount', NumberOfCopies);
-      nft.set('nftFilePath', nftFilePath);
-      nft.set('nftFileHash', nftFileHash);
-      nft.set('MetadataFilePath', nftMetadataFilePath);
-      nft.set('MetadataFileHash', nftMetadataFileHash);
->>>>>>> Stashed changes
 
       await item.save();
     };
@@ -352,8 +340,8 @@ useEffect(() => {
         </div>
       </div>
       <Modal visible={visibleModal} onClose={() => setVisibleModal(false)}>
-        <Error 
-          errorMessage={errorMessage}
+        <ModalTextTitle 
+          message={errorMessage}
         />
       </Modal>
       <Modal visible={visibleSuccessModal} onClose={() => setVisibleSuccessModal(false)}>

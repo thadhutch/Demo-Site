@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import cn from "classnames";
 import styles from "./MarketPlaceHero.module.sass";
 import Carousel from "../../../components/Carousel/Carousel";
-import Error from "../../../components/Error";
+import ModalTextTitle from "../../../components/ModalTextTitle";
 import Modal from "../../../components/Modal";
 
 const MarketPlaceHero = () => {
@@ -18,8 +18,8 @@ const MarketPlaceHero = () => {
   return (
     <>
       <Modal visible={visibleErrorModal} onClose={() => setVisibleErrorModal(false)}>
-          <Error
-            errorMessage={errorMessage}
+          <ModalTextTitle
+            message={errorMessage}
           />
         </Modal>
       <div className={styles.marketPlaceHeroContainer}>

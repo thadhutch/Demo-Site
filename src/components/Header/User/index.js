@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import cn from "classnames";
 import styles from "./User.module.sass";
 import Modal from "../../Modal/index";
-import Error from "../../Error";
+import ModalTextTitle from "../../ModalTextTitle";
 
 
 
@@ -40,8 +40,8 @@ const User = ({ className, ...props }) => {
   return (
     <>
     <Modal visible={visibleModal} onClose={() => setVisibleModal(false)}>
-      <Error 
-        errorMessage={errorMessage}
+      <ModalTextTitle 
+        message={errorMessage}
       />
     </Modal>
       <div className={cn(styles.user, className)}>
