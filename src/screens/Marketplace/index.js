@@ -4,23 +4,31 @@ import styles from "./Marketplace.module.sass";
 import MarketPlaceHero from "./MarketPlaceHero/index";
 import MarketPlaceCardSlider from "./MarketplaceCardSliders/index";
 import LiveAuctionSlider from "./LiveAuctions";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import FooterHero from "../../components/FooterHero";
+
 // data
 
 
 const Marketplace = () => {
 
   return (
-    <div className={cn("section-pt80", styles.section)}>
-        <MarketPlaceHero/>
-      <div className={cn("container", styles.container)}>
-        <LiveAuctionSlider />
-        <MarketPlaceCardSlider/>
+    <>
+      <Header />
+      <div className={cn("section-pt80", styles.section)}>
+        <MarketPlaceHero />
+        <div className={cn("container", styles.container)}>
+          <LiveAuctionSlider />
+          <MarketPlaceCardSlider />
+        </div>
       </div>
-    </div>
+      <FooterHero />
+      <Footer />
+    </>
   );
 };
 
 export default Marketplace;
 
 
- 

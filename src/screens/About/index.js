@@ -11,9 +11,14 @@ import Rec4 from "./Rectangle4.png";
 import EarnIcon from "./earnIcon.png";
 import GovIcon from "./govIcon.png";
 import VoteIcon from "./voteIcon.png";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import FooterHero from "../../components/FooterHero";
+
 const About = () => {
   return (
     <div>
+          <Header />
       <div className={styles.aboutPageContainer}>
         <div className={styles.aboutHeroContainer}>
           <div className={styles.aboutHero}>
@@ -172,6 +177,8 @@ const About = () => {
           </div>
         </div>
       </div>
+      <FooterHero />
+      <Footer />
     </div>
   );
 };
