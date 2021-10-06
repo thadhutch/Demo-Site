@@ -12,9 +12,7 @@ export default function UserProfile(props) {
 
     async function getData() {
         try {
-            const query = new Moralis.Query("User");
-            // query.equalTo("username", "99FdU8HnEWBtrQHU75gvkG0wL");
-            const results = await query.find();
+            const results = await Moralis.Cloud.run("userQuery", {username: "owenrob"});
             // setUserData(results);
             console.log(results);
         } catch (error) {
