@@ -24,7 +24,7 @@ const LiveAuctionSlider = ({ currentSlide, slideCount, children }) => {
     try {
       const query = new Moralis.Query("ITEM");
       // query.equalTo("objectId", "SMNfm3RUcd6KMHEmwSFKoiFC");
-      query.limit(4);
+      // query.limit(4);
       query.descending("createdAt");
       const results = await query.find();
       setAuctionData(results);
