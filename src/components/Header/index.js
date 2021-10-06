@@ -77,7 +77,7 @@ const Headers = () => {
     <Modal visible={visibleLogoutModal} onClose={() => setVisibleLogoutModal(false)}>      
       <ModalTextTitle title={"Success!"} message={"You have signed out."} />
     </Modal>
-]      <header className={styles.header}>
+      <header className={styles.header}>
         <div className={cn("container", styles.container)}>
           <Link className={styles.logo} to="/">
             <Image
