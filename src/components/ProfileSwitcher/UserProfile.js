@@ -6,19 +6,19 @@ export default function UserProfile(props) {
     Moralis.serverURL = 'https://kp2g9eqiyitu.bigmoralis.com:2053/server';
     const [userData, setUserData] = useState([]);
 
-    useEffect(() => {
-        getData();
-    }, []);
+    // useEffect(() => {
+    //     getData();
+    // }, []);
 
-    async function getData() {
-        try {
-            const results = await Moralis.Cloud.run("userQuery", {username: "owenrob"});
-            // setUserData(results);
-            console.log(results);
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    // async function getData() {
+    //     try {
+    //         const results = await Moralis.Cloud.run("userQuery", {username: props.user});
+    //         setUserData(results[0].attributes);
+    //         console.log(results[0].attributes);
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
 
     return (
         <div>
