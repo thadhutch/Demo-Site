@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>SpacePath Marketplace</title>
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://blogfonts.com/css/aWQ9MTczNDkzJnN1Yj00OTMmYz1hJnR0Zj1Ba2lyYStFeHBhbmRlZCtEZW1vLm90ZiZuPWFraXJhLWV4cGFuZGVk/Akira Expanded.otf" rel="stylesheet" type="text/css"/>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-<head>
-  <title>SpacePath Marketplace</title>
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Poppins:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-  <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-  <!--
+    <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -25,91 +26,94 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-</head>
+  </head>
 
-<body>
-  <script>
-    causeRepaintsOn = $("h1, h2, h3, p");
+  <body>
+    <script>
+      causeRepaintsOn = $("h1, h2, h3, p");
 
-    $(window).resize(function () {
-      causeRepaintsOn.css("z-index", 1);
-    });
-    $(window).scroll(function () {
-      if ($(this).scrollTop() > 0) {
-        // can be whatever, 0 refers to the top space you allow
-        $('.move').slideUp('slow'); // Hide your element
-      } else {
-        $('.move').slideDown('slow');
-        // It's justmouse if you want to show back the element if we're back on top
-      }
-    });
-  </script>
-  <script>
-    // Insert this script in your index.html right after the <body> tag.
-    // This will help to prevent a flash if dark mode is the default.
+      $(window).resize(function () {
+        causeRepaintsOn.css("z-index", 1);
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 0) {
+          // can be whatever, 0 refers to the top space you allow
+          $(".move").slideUp("slow"); // Hide your element
+        } else {
+          $(".move").slideDown("slow");
+          // It's justmouse if you want to show back the element if we're back on top
+        }
+      });
+    </script>
+    <script>
+      // Insert this script in your index.html right after the <body> tag.
+      // This will help to prevent a flash if dark mode is the default.
 
-    (function () {
-      // Change these if you use something different in your hook.
-      var storageKey = 'darkMode';
-      var classNameDark = 'dark-mode';
-      var classNameLight = 'light-mode';
+      (function () {
+        // Change these if you use something different in your hook.
+        var storageKey = "darkMode";
+        var classNameDark = "dark-mode";
+        var classNameLight = "light-mode";
 
-      function setClassOnDocumentBody(darkMode) {
-        document.body.classList.add(darkMode ? classNameDark : classNameLight);
-        document.body.classList.remove(darkMode ? classNameLight : classNameDark);
-      }
+        function setClassOnDocumentBody(darkMode) {
+          document.body.classList.add(
+            darkMode ? classNameDark : classNameLight
+          );
+          document.body.classList.remove(
+            darkMode ? classNameLight : classNameDark
+          );
+        }
 
-      var preferDarkQuery = '(prefers-color-scheme: dark)';
-      var mql = window.matchMedia(preferDarkQuery);
-      var supportsColorSchemeQuery = mql.media === preferDarkQuery;
-      var localStorageTheme = null;
-      try {
-        localStorageTheme = localStorage.getItem(storageKey);
-      } catch (err) { }
-      var localStorageExists = localStorageTheme !== null;
-      if (localStorageExists) {
-        localStorageTheme = JSON.parse(localStorageTheme);
-      }
+        var preferDarkQuery = "(prefers-color-scheme: dark)";
+        var mql = window.matchMedia(preferDarkQuery);
+        var supportsColorSchemeQuery = mql.media === preferDarkQuery;
+        var localStorageTheme = null;
+        try {
+          localStorageTheme = localStorage.getItem(storageKey);
+        } catch (err) {}
+        var localStorageExists = localStorageTheme !== null;
+        if (localStorageExists) {
+          localStorageTheme = JSON.parse(localStorageTheme);
+        }
 
-      // Determine the source of truth
-      if (localStorageExists) {
-        // source of truth from localStorage
-        setClassOnDocumentBody(localStorageTheme);
-      } else if (supportsColorSchemeQuery) {
-        // source of truth from system
-        setClassOnDocumentBody(mql.matches);
-        localStorage.setItem(storageKey, mql.matches);
-      } else {
-        // source of truth from document.body
-        var isDarkMode = document.body.classList.contains(classNameDark);
-        localStorage.setItem(storageKey, JSON.stringify(isDarkMode));
-      }
-    })();
-  </script>
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
+        // Determine the source of truth
+        if (localStorageExists) {
+          // source of truth from localStorage
+          setClassOnDocumentBody(localStorageTheme);
+        } else if (supportsColorSchemeQuery) {
+          // source of truth from system
+          setClassOnDocumentBody(mql.matches);
+          localStorage.setItem(storageKey, mql.matches);
+        } else {
+          // source of truth from document.body
+          var isDarkMode = document.body.classList.contains(classNameDark);
+          localStorage.setItem(storageKey, JSON.stringify(isDarkMode));
+        }
+      })();
+    </script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
 
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyBj4m4eY3AsKbr4ACLlxf2Rk6niyjTGUAY",
-      authDomain: "spacepath-demo.firebaseapp.com",
-      projectId: "spacepath-demo",
-      storageBucket: "spacepath-demo.appspot.com",
-      messagingSenderId: "83231714550",
-      appId: "1:83231714550:web:17b668f0d51aa132c990d7",
-      measurementId: "G-SXMDEHHWJ4"
-    };
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyBj4m4eY3AsKbr4ACLlxf2Rk6niyjTGUAY",
+        authDomain: "spacepath-demo.firebaseapp.com",
+        projectId: "spacepath-demo",
+        storageBucket: "spacepath-demo.appspot.com",
+        messagingSenderId: "83231714550",
+        appId: "1:83231714550:web:17b668f0d51aa132c990d7",
+        measurementId: "G-SXMDEHHWJ4",
+      };
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-  </script>
-  <div id="root"></div>
-</body>
-
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
+    <div id="root"></div>
+  </body>
 </html>

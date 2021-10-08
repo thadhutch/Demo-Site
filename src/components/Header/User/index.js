@@ -3,6 +3,7 @@ import cn from "classnames";
 import styles from "./User.module.sass";
 import Modal from "../../Modal/index";
 import ModalTextTitle from "../../ModalTextTitle";
+import { Link } from "react-router-dom";
 
 
 
@@ -45,7 +46,8 @@ const User = ({ className, ...props }) => {
       />
     </Modal>
       <div className={cn(styles.user, className)}>
-        <div className={styles.head} onClick={() => setVisibleModal(true)}>
+        <Link to="/profile">
+        <div className={styles.head} onClick={() => setVisibleModal(false)}>
           <div className={styles.avatar}>
             <img src={props.ProfilePic} id="imgAvatar1" alt="Avatar" />
           </div>
@@ -53,6 +55,7 @@ const User = ({ className, ...props }) => {
             3.0546 <span className={styles.currency}>ETH</span>
           </div>
         </div>
+        </Link>
       </div>
    </>
   );

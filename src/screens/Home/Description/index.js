@@ -5,9 +5,32 @@ import "./mouse.css"
 import styles from "./Description.module.sass";
 import VerifiedArtistButton from "./VerifiedArtistButton";
 import HomeHeroCards from "./HomeHeroCards";
+import { useMoralis } from "react-moralis";
 
 
 const Description = () => {
+
+  
+  const Moralis = require('moralis');
+  Moralis.initialize("7Ku6X8CPeLsTB1hNuxKbkK3zsNXRW9GrRid3wCnD");
+
+  const user = Moralis.User.current();
+
+  const [ isArtist, setArtist] = useState(false);
+
+
+  useEffect(() => {
+
+    if(user){
+      const artistStatus = user.get("profilePictureChecker");
+      setArtist(artistStatus);
+    } else {
+      setArtist(false);
+    }
+
+  }, [user]);
+
+
   return (
     <div className={styles.section}>
       <div className={styles.homeHero}>
@@ -25,9 +48,14 @@ const Description = () => {
             <Link className={cn("button-stroke", styles.button)} to="/">
               Earn SP
             </Link>
-            <Link className={cn("button-stroke", styles.button)} to="/upload">
-              Upload
-            </Link>
+            {isArtist ? (
+              <Link className={cn("button-stroke", styles.button)} to="/upload">
+                Upload
+              </Link>
+            ) : (
+              <>
+              </>
+            )}
           </div>
         </div>
         <div className={styles.homeHeroFeature}>

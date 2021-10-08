@@ -339,7 +339,122 @@ li
     padding-right: 5px
 
 
-        
+@import ../../styles/helpers
+
+.menumodal
+    width: 90%
+    margin-top: 25px
+    margin-left: 5%
+    h1
+        text-align: center
+        font-size: 34px
+        margin-bottom: 40px
+        +s 
+            margin-top: 50px
+            margin-bottom: 30px
+            font-size: 28px
+
+.linkmodal
+    position: relative
+    top: 0
+    transition: top ease 0.25s
+    &:hover
+        top: -10px
+    display: flex
+    align-items: center
+    padding: 32px 64px 32px 32px
+    border-radius: 12px
+    margin-bottom: 15px
+    background-image: linear-gradient(to right, #f55f02 0%, #f5e102 100%) 
+    +body-bold-1
+    cursor: pointer   
+    +m 
+        margin-top: 45px
+        &:nth-child(2)
+            display: none
+    &:nth-child(3)
+        background-image: linear-gradient(to right, #3100e3 0%, #00bde3 100%) 
+        margin-top: 5px
+    &:hover
+        .arrow
+            opacity: 1
+    &.active
+        box-shadow: inset 0 0 0 2px $neutrals6
+        +t
+            box-shadow: none
+        +dark
+            box-shadow: inset 0 0 0 2px $neutrals3
+            +t
+                box-shadow: none
+        .icon
+            &:before
+                opacity: 1
+            svg
+                &:first-child
+                    opacity: 0
+                &:nth-child(2)
+                    opacity: 1
+        .arrow
+            opacity: 1
+
+.iconmodal
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 64px
+    height: 64px
+    margin-right: 32px
+    border-radius: 50%
+    flex-shrink: 0
+    +d
+        margin-right: 24px
+    +t
+        margin-right: 16px
+    
+
+.buttonContainermodal
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-top: 40px
+    button
+        width: 80%
+        margin: auto
+        display: flex
+        align-items: center
+        justify-content: center
+        border-radius: 5px
+        color: $neutrals1
+        +dark 
+            color: $neutrals6
+        +m 
+            font-size: 14px
+
+.textContainer
+    max-width: 250px
+    width: 250px
+    min-width: 250px
+    margin-bottom: 40px
+    margin-left: auto
+    margin-right: auto
+
+.titlemodal
+    +s 
+        font-size: 14px
+        width: max-content
+
+.textmodal
+    text-align: center
+    color: $neutrals6
+    +body-bold-2
+    font-size: 15px
+    font-weight: 700
+    +dark
+    color: $neutrals4
+
+
 
 
 

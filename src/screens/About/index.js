@@ -2,8 +2,9 @@ import React from "react";
 import cn from "classnames";
 import styles from "./About.module.sass";
 import PieChart from "./pieChart.png";
-import AboutHeroImg from "./SPAboutLogo_1.gif";
-import AboutHeroImgNoGlow from "./logoSPLines(noGlow).gif";
+// import AboutHeroImg from "./SPAboutLogo_1.gif";
+
+
 import Rec1 from "./Rectangle1.png";
 import Rec2 from "./Rectangle2.png";
 import Rec3 from "./Rectangle3.png";
@@ -11,13 +12,18 @@ import Rec4 from "./Rectangle4.png";
 import EarnIcon from "./earnIcon.png";
 import GovIcon from "./govIcon.png";
 import VoteIcon from "./voteIcon.png";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import FooterHero from "../../components/FooterHero";
+
 const About = () => {
   return (
     <div>
+          <Header />
       <div className={styles.aboutPageContainer}>
         <div className={styles.aboutHeroContainer}>
+        <div className={styles.aboutHeroContainerBG}></div>
           <div className={styles.aboutHero}>
-            <img src={AboutHeroImgNoGlow} />
             <h1 className={styles.aboutHeroHeader}>ABOUT SPACEPATH</h1>
           </div>
         </div>
@@ -172,6 +178,8 @@ const About = () => {
           </div>
         </div>
       </div>
+      <FooterHero />
+      <Footer />
     </div>
   );
 };
