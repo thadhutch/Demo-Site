@@ -2,8 +2,9 @@ import React from "react";
 import cn from "classnames";
 import styles from "./About.module.sass";
 import PieChart from "./pieChart.png";
-import AboutHeroImg from "./SPAboutLogo_1.gif";
-import AboutHeroImgNoGlow from "./logoSPLines(noGlow).gif";
+// import AboutHeroImg from "./SPAboutLogo_1.gif";
+
+
 import Rec1 from "./Rectangle1.png";
 import Rec2 from "./Rectangle2.png";
 import Rec3 from "./Rectangle3.png";
@@ -21,8 +22,8 @@ const About = () => {
           <Header />
       <div className={styles.aboutPageContainer}>
         <div className={styles.aboutHeroContainer}>
+        <div className={styles.aboutHeroContainerBG}></div>
           <div className={styles.aboutHero}>
-            <img src={AboutHeroImgNoGlow} />
             <h1 className={styles.aboutHeroHeader}>ABOUT SPACEPATH</h1>
           </div>
         </div>

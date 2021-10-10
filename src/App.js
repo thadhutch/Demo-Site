@@ -6,6 +6,7 @@ import Home from "./screens/Home";
 import Marketplace from "./screens/Marketplace";
 import CreateAccount from "./screens/CreateAccount";
 import About from "./screens/About";
+import Profile from "./screens/Profile";
 import EmailVerified from "./screens/VerifyEmail";
 import PrivacyPolicy from "./screens/PrivacyPolicy";
 import TermsOfService from "./screens/TermsOfService";
@@ -36,6 +37,5 @@ const App = () => (
     </Router>
   </ContextProvider>
 );
-
 
 export default App;

@@ -17,14 +17,34 @@
 .aboutPageContainer
     background: $neutrals6
     +dark
-        background: #000
+        background: $neutrals1
     +m
         margin-left: 10px
     +a
 // Hero
 .aboutHeroContainer
+    position: relative
     padding-top: 50px
     padding-bottom: 50px
+    display: flex
+    align-items: center
+    justify-content: center
+    +m
+        padding-bottom: 50px
+    +a
+        padding-top: 25px
+        padding-bottom: 50px
+    +s
+        padding-bottom: 25px
+
+.aboutHeroContainerBG
+    position: absolute
+    width: 1400px
+    height: 100%
+    z-index: 4
+    background: radial-gradient(#ffffff00 10%, #6e6e6e1f 30%, #ffffffaf 50%, $neutrals6 70%)
+    +dark 
+        background: radial-gradient(#ffffff00 20%, #cacaca00 50%, #ffffff00 70%)
     +m
         padding-bottom: 50px
     +a
@@ -40,32 +60,23 @@
     display: flex
     justify-content: center
     align-items: center
+    background: url(./spacepathGifLight.gif) center center no-repeat
+    background-size: 60vw
+    +dark 
+        background: url(./spacepathGifDark.gif) center center no-repeat
+
     +m
         height: 50vh
+        background-size: 150vw
     +a
-    +s
-        height: 30vh
-.aboutHero img
-    position: absolute
-    z-index: 0
-    -webkit-filter: drop-shadow(5px 5px 5px #ff9d00)
-    filter: drop-shadow(5px 5px 10px #f35900a2)
-    width: 50vw
-    +dark
-        -webkit-filter: drop-shadow(5px 5px 5px #ff9d00)
-        filter: drop-shadow(5px 5px 10px #ff0138)
-    +m
-        width: 80vw
-    +a
-        width: 75vw
     +s
         height: 30vh
 
 .aboutHeroHeader
     z-index: 1
     font-size: 4.5vw
-    color: $neutrals1
-    text-shadow: 2px 2px 10px #333333
+    color: $neutrals3
+    text-shadow: 2px 2px 10px #ffffff
     +dark
         color: $neutrals6
         text-shadow: 2px 2px 10px #000000
