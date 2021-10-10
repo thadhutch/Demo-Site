@@ -33,6 +33,7 @@ const App = () => (
         <Route exact path="/tos" component={TermsOfService} />
         <Route exact path="/privacypolicy" component={PrivacyPolicy} />
         <Route exact path="/upload" component={Upload} />
+        <Route exact path="/profile" component={Profile} />
       </Switch>
     </Router>
   </ContextProvider>

@@ -11,8 +11,6 @@ export default function ProfileSwitcher(props) {
         if (props.match.params.user) {
             setUserValue(props.match.params.user);
         }
-        // const user = Moralis.User.current();
-        // console.log(user.attributes.username)
     }, [props.match.params.user]);
 
     if (userValue === username) {
