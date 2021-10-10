@@ -11,13 +11,15 @@ function UserProvider(props) {
         if (user) {
             setUserAuthenticated(true);
             setUsername(user.attributes.username);
+            // console.log(user.attributes.username);
+        } else {
+            setUserAuthenticated(false);
+            setUsername(null);
         }
     }, []);
 
     return (
-        <UserContext.Provider
-            value={{ isUserAuthenticated, setUserAuthenticated, username }}
-        >
+        <UserContext.Provider value={{ isUserAuthenticated, setUserAuthenticated, username }}>
             {props.children}
         </UserContext.Provider>
     );
