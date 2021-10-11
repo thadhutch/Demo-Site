@@ -5,18 +5,14 @@
   margin: 0
   padding: 0
   font-family: 'Ubuntu', sans-serif
-
-.usercontainer
-    display: inline-flex
-    +x 
-        margin-top: 10px
-    +m 
-        display: none
-
 .header
     position: relative
-    z-index: 20
-    height: 60px
+    display: flex
+    align-items: center
+    padding: 0px 100px 0px 50px
+
+    // z-index: 20
+    height: 90px
     border-bottom: 2px solid $neutrals5
     +m
         padding: 10px 0 24px
@@ -27,18 +23,139 @@
         
 .container
     display: flex
+    width: 100%
     align-items: center
-    margin-top: 20px
     & > .button
-        color: $neutrals3
-        margin-left: -150px
-        margin-right: 12px
+        // color: $neutrals3
+        // margin-left: -150px
+        // margin-right: 12px
         +poppins 
         text-transform: uppercase
         +m
             display: none
 
+.logo
+    width: 14%
+    // text-align: end
+.pic
+    // margin-left: 120px
+    width: 200px
+    // margin-right: 32px
+    // +d
+    //     margin-right: auto
+    //     margin-bottom: -10px
+// Search and Nav Container
+.wrapper
+    display: flex
+    align-items: center
+    width: 35%
+    // +d
+    //  &.active 
+    //     position: absolute
+    //     top: 0
+    //     left: 0
+    //     right: 0
+    //     flex-direction: column
+    //     align-items: stretch
+    //     height: 100vh
+    //     margin: 0
+    //     padding: 140px 32px 40px
+    //     box-shadow: 0px 64px 64px rgba(31, 47, 70, 0.2)
+    //     background: $neutrals8
+    //     visibility: hidden
+    //     opacity: 0
+    //     transition: all .2s
+    //     visibility: visible
+    //     opacity: 1
+    //     +dark
+    //         background: $neutrals1
+    // +m
+    //     position: absolute
+    //     top: 0
+    //     left: 0
+    //     right: 0
+    //     flex-direction: column
+    //     align-items: stretch
+    //     height: 100vh
+    //     margin: 0
+    //     padding: 140px 32px 40px
+    //     box-shadow: 0px 64px 64px rgba(31, 47, 70, 0.2)
+    //     background: $neutrals8
+    //     visibility: hidden
+    //     opacity: 0
+    //     transition: all .2s
+    //     +dark
+    //         background: $neutrals1
+    //     &.active
+    //         visibility: visible
+    //         opacity: 1
+    // .button
+    //     display: none
+    //     +poppins 
+    //     text-transform: uppercase
+    //     +m
+    //         display: none
+    //         margin-top: 16px
+
+// Search\
+.search
+    // position: relative
+    width: 256px
+    height: 40px
+    padding: 15px
+    margin-right: 50px
+    border-radius: 15px
+    border: 2px solid $neutrals5
+    display: flex
+    align-items: center
+    // justify-content: center
+    // +d 
+    //     left: 275px
+    // +t
+    //     display: none
+    //     &.active
+    //         display: block
+    //         width: 350px
+    //         left: 140px
+    //         top: 140px
+    // +m
+    //     position: relative
+    //     display: block
+    //     width: 72vw
+    //     margin-left: -270px
+    //     margin-right: 450px
+    // +a 
+    //     width: 71vw
+    // +s  
+    //     width: 69vw
+.inputComponentContainer
+    width: 100%
+    height: 100%
+
+// .result
+//     position: absolute
+//     top: 0px
+//     right: -60px
+//     bottom: 0
+//     width: 42px
+//     +m 
+//         right: -18vw
+//     +s  
+//         right: -17vw
+//     svg
+//         fill: $neutrals4
+//         transition: fill .2s
+//     &:hover
+//         svg
+//             fill: #f55a00
+
+.input
+    width: 100%
+    height: 100%
+    background: none
+   
 .button
+    margin-right: 15px
     +poppins 
     text-transform: uppercase
     +dark 
@@ -46,75 +163,9 @@
     +d 
         margin-top: -5px
 
-.logo
-    position: relative
-    z-index: 12
-    display: inline-block
-    flex-shrink: 0
-    width: 175px
-    margin-right: 32px
-    +d
-        margin-right: auto
-        margin-bottom: -10px
-    img
-        width: 100%
-    
-.wrapper
-    display: flex
-    align-items: center
-    flex-grow: 1
-    +d
-     &.active 
-        position: absolute
-        top: 0
-        left: 0
-        right: 0
-        flex-direction: column
-        align-items: stretch
-        height: 100vh
-        margin: 0
-        padding: 140px 32px 40px
-        box-shadow: 0px 64px 64px rgba(31, 47, 70, 0.2)
-        background: $neutrals8
-        visibility: hidden
-        opacity: 0
-        transition: all .2s
-        visibility: visible
-        opacity: 1
-        +dark
-            background: $neutrals1
-    +m
-        position: absolute
-        top: 0
-        left: 0
-        right: 0
-        flex-direction: column
-        align-items: stretch
-        height: 100vh
-        margin: 0
-        padding: 140px 32px 40px
-        box-shadow: 0px 64px 64px rgba(31, 47, 70, 0.2)
-        background: $neutrals8
-        visibility: hidden
-        opacity: 0
-        transition: all .2s
-        +dark
-            background: $neutrals1
-        &.active
-            visibility: visible
-            opacity: 1
-    .button
-        display: none
-        +poppins 
-        text-transform: uppercase
-        +m
-            display: none
-            margin-top: 16px
-
-
 .nav
     display: flex
-    margin-right: auto
+    // margin-right: auto
     +d
         display: none
     +m
@@ -126,14 +177,14 @@
         border-color: $neutrals3
 
 .link
-    position: relative
-    float: right
-    flex-shrink: 0
-    padding-left: 350px
+    // position: relative
+    // float: right
+    // flex-shrink: 0
+    display: flex
     +dm-sans
-    line-height: 40px
+    // line-height: 40px
     color: $neutrals4
-    max-width: 600px
+    // max-width: 600px
     transition: color .2s
     &.active
         display: flex
@@ -156,78 +207,58 @@
         font-size: 27px
         &:hover
             border: none
-       
+    
     
 .navlinks 
   color: $neutrals1
   text-decoration: none
-  padding-bottom: 25px
   margin-right: 10px
+  padding-bottom: 3px
+  width: 400px
   +dark 
     color: #fff
   &:hover
-    border-bottom: 4px solid $neutrals1
+    border-bottom: 2px solid $neutrals1
     transition: all 0.2s ease-out
     +dark 
-        border-bottom: 4px solid #fff
+        border-bottom: 2px solid #fff
   &:active
-    border-bottom: 4px solid #fc4e03
-  
-.search
-    position: absolute
-    flex-shrink: 0
-    width: 256px
-    margin-right: 24px
-    top: 10px
-    +d 
-        left: 275px
-    +t
-        display: none
-        &.active
-            display: block
-            width: 350px
-            left: 140px
-            top: 140px
-    +m
-        position: relative
-        display: block
-        width: 72vw
-        margin-left: -270px
-        margin-right: 450px
-    +a 
-        width: 71vw
-    +s  
-        width: 69vw
+    border-bottom: 2px solid #fc4e03 
+#cDrop
+    display: flex
+    width: 100px
+    height: 25px
+    padding-top: 2px
+#cDrop svg
+    width: 20px
+    height: 20px
+    margin-top: 2px
 
-.input
-    width: 100%
-    height: 40px
-    padding: 0 42px 0 16px
-    background: none
-    
 
-.result
-    position: absolute
-    top: 0px
-    right: -60px
-    bottom: 0
-    width: 42px
+.usercontainer
+    width: 55%
+    display: flex
+    justify-content: flex-end
+    +x 
+        margin-top: 10px
     +m 
-        right: -18vw
-    +s  
-        right: -17vw
-    svg
-        fill: $neutrals4
-        transition: fill .2s
-    &:hover
-        svg
-            fill: #f55a00
+        display: none
 
 .notification
-    display: none
-    margin-right: 24px
+    // display: none
+    margin-left: 20px
     +m
         margin-right: 20px
+#community2
+    display: flex
+    width: 100px
+#community2, i
+    width: 100px
+    background: $white
+
+
+// ===================================================================
+// burger css
 
 .burger
     display: none
@@ -338,8 +369,6 @@ li
 .sunicon
     padding-right: 5px
 
-
-@import ../../styles/helpers
 
 .menumodal
     width: 90%

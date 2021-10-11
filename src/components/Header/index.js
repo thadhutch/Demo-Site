@@ -6,6 +6,8 @@ import Icon from "../Icon";
 import Image from "../Image";
 import Notification from "./Notification";
 import DynamicUser from "./User/DynamicUser";
+import DynamicUserNav from "./NavDropdowns/DynamicUserNav";
+import CommunityNav from "./NavDropdowns/CommunityNav";
 import Input from './Input/Input';
 import { useMoralis } from "react-moralis";
 import Modal from '../Modal/index';
@@ -99,7 +101,7 @@ const Headers = (className) => {
       setLoadingMessage("Authenticating through WalletConnect");
       Moralis.Web3.getSigningData = () => 'Welcome to SpacePath Marketplace! Please sign in to create an account.';
       await Moralis.Web3.authenticate({ provider: "walletconnect" }).then((user) => {
-        
+
         try {
           if (user) {
             setVisibleModal(false);
@@ -126,65 +128,65 @@ const Headers = (className) => {
 
   useEffect(() => {
 
-    document.addEventListener('visibilitychange', () => { 
-      if (document.visibilityState === 'hidden') { 
-          window.localStorage.removeItem('WALLETCONNECT_DEEPLINK_CHOICE'); 
-      } 
-  });
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') {
+        window.localStorage.removeItem('WALLETCONNECT_DEEPLINK_CHOICE');
+      }
+    });
 
   }, []);
 
   return (
-  <>
-    <Modal visible={visibleLoginModal} onClose={() => setVisibleLoginModal(false)}>      
+    <>
+      <Modal visible={visibleLoginModal} onClose={() => setVisibleLoginModal(false)}>
         <div className={cn(className, styles.transfer)}>
-          <div className={cn("h4", styles.menumodal)}>  
-                <h1>Wallet Login</h1>
-                <div
-                  className={cn([styles.active], styles.linkmodal)} onClick={MetaMaskAuthentication}
-                >
-                  <div
-                    className={styles.iconmodal}
-                  >
-                    <img src='https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/MetaMaskLogo.png?alt=media&token=5a3825d4-fbe3-49f4-af45-76340fb89e03' alt="MetaMask Logo" />
-                  </div>
-                  <span className={styles.titlemodal}>MetaMask Wallet</span>
-                </div>
-                <div
-                  className={cn([styles.active], styles.linkmodal)} id="walletconnectauth" onClick={WalletConnectAuthentication}
-                >
-                  <div
-                    className={styles.iconmodal}
-                  >
-                    <img src='https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/WalletConnectLogo.png?alt=media&token=25e3b68d-ac7f-4810-a66c-e4c2d59ba112' alt="Wallet Connect Logo" />
-                  </div>
-                  <span className={styles.titlemodal}>Wallet Connect</span>
-                </div>
-                <div className={styles.buttonContainermodal}>
-                  <a href="https://www.youtube.com/watch?v=4KL5pZPt67g" target="_blank" rel="noopener noreferrer">
-                    <button className={cn("button", styles.helpbuttonmodal)}>Wallet Download Tutorial</button>
-                  </a>
-                </div>
+          <div className={cn("h4", styles.menumodal)}>
+            <h1>Wallet Login</h1>
+            <div
+              className={cn([styles.active], styles.linkmodal)} onClick={MetaMaskAuthentication}
+            >
+              <div
+                className={styles.iconmodal}
+              >
+                <img src='https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/MetaMaskLogo.png?alt=media&token=5a3825d4-fbe3-49f4-af45-76340fb89e03' alt="MetaMask Logo" />
+              </div>
+              <span className={styles.titlemodal}>MetaMask Wallet</span>
+            </div>
+            <div
+              className={cn([styles.active], styles.linkmodal)} id="walletconnectauth" onClick={WalletConnectAuthentication}
+            >
+              <div
+                className={styles.iconmodal}
+              >
+                <img src='https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/WalletConnectLogo.png?alt=media&token=25e3b68d-ac7f-4810-a66c-e4c2d59ba112' alt="Wallet Connect Logo" />
+              </div>
+              <span className={styles.titlemodal}>Wallet Connect</span>
+            </div>
+            <div className={styles.buttonContainermodal}>
+              <a href="https://www.youtube.com/watch?v=4KL5pZPt67g" target="_blank" rel="noopener noreferrer">
+                <button className={cn("button", styles.helpbuttonmodal)}>Wallet Download Tutorial</button>
+              </a>
+            </div>
           </div>
           <div className={styles.textContainer}>
             <div className={styles.text}>
             </div>
           </div>
         </div>
-    </Modal>
-    <Modal visible={visibleLogoutModal} onClose={() => setVisibleLogoutModal(false)}>      
-      <ModalTextTitle title={"Success!"} message={"You have signed out."} />
-    </Modal>
-    <Modal visible={visibleErrorModal} onClose={() => setVisibleErrorModal(false)}>      
-      <ModalTextTitle title={"Error"} message={errorMessage} />
-    </Modal>
-    <Modal visible={visibleModal} onClose={() => setVisibleModal(false)}>      
-      <LoadingModal
-            loadingMessage={loadingMessage} />
-    </Modal>
+      </Modal>
+      <Modal visible={visibleLogoutModal} onClose={() => setVisibleLogoutModal(false)}>
+        <ModalTextTitle title={"Success!"} message={"You have signed out."} />
+      </Modal>
+      <Modal visible={visibleErrorModal} onClose={() => setVisibleErrorModal(false)}>
+        <ModalTextTitle title={"Error"} message={errorMessage} />
+      </Modal>
+      <Modal visible={visibleModal} onClose={() => setVisibleModal(false)}>
+        <LoadingModal
+          loadingMessage={loadingMessage} />
+      </Modal>
       <header className={styles.header}>
-        <div className={cn("container", styles.container)}>
-          <Link className={styles.logo} to="/">
+        <div className={styles.container}>
+          <Link className={styles.logo} to="">
             <Image
               className={styles.pic}
               src="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-dark.png?alt=media&token=0dc78010-319d-426b-9dc0-c17db0479ec4"
@@ -194,15 +196,15 @@ const Headers = (className) => {
           </Link>
           <div className={cn(styles.wrapper, { [styles.active]: visibleNav })}>
             <form
-                className={styles.search}
-                action=""
-                onSubmit={() => handleSubmit()}
-              >
+              className={styles.search}
+              action=""
+              onSubmit={() => handleSubmit()}
+            >
                 <Input />
-                <button className={styles.result}>
+                {/* <button className={styles.result}>
                   <Icon name="search" size="20" />
-                </button>
-              </form>
+                </button> */}
+            </form>
             <nav className={styles.nav}>
               <ul className={styles.link}>
                 <li>
@@ -220,53 +222,54 @@ const Headers = (className) => {
                     <span>About</span>
                   </NavLink>
                 </li>
+                  <CommunityNav/>
               </ul>
               <div className={styles.link}>
-                
+
               </div>
             </nav>
             <>
               {user ? (
-                  <Link
-                    className={cn("button-small", styles.mobilebutton)}
-                    to="/"
-                    onClick={() => logout()}
-                  >
-                    Logout
-                  </Link>
-                  ) : (
-                    <Link
-                      className={cn("button-small", styles.mobilebutton)}
-                      to="/"
-                      onClick={() => setVisibleLoginModal(true)}
-                    >
-                        Connect Wallet
-                    </Link>
-                  )} 
+                <Link
+                  className={cn("button-small", styles.mobilebutton)}
+                  to="/"
+                  onClick={() => logout()}
+                >
+                  Logout
+                </Link>
+              ) : (
+                <Link
+                  className={cn("button-small", styles.mobilebutton)}
+                  to="/"
+                  onClick={() => setVisibleLoginModal(true)}
+                >
+                  Connect Wallet
+                </Link>
+              )}
             </>
           </div>
-          <Notification className={styles.notification} />
           <div className={styles.usercontainer}>
-                {user ? (
-                    <button
-                    className={cn("button-small", styles.button)} onClick={() => logout()}
-                    >
-                    Logout
-                    </button>
-                ) : (
-                    <button
-                        className={cn("button-small", styles.button)} 
-                        onClick={() => setVisibleLoginModal(true)}
-                        >
-                        Connect Wallet
-                    </button>
-                )} 
-                {user ? (
-                  <DynamicUser />
-                ) : (
-                  <>
-                  </>
-                )}
+            {user ? (
+              <button
+                className={cn("button-small", styles.button)} onClick={() => logout()}
+              >
+                Logout
+              </button>
+            ) : (
+              <button
+                className={cn("button-small", styles.button)}
+                onClick={() => setVisibleLoginModal(true)}
+              >
+                Connect Wallet
+              </button>
+            )}
+            {user ? (
+              <DynamicUserNav />
+            ) : (
+              <>
+              </>
+            )}
+          <Notification className={styles.notification} />
           </div>
           <button
             className={cn(styles.burger, { [styles.active]: visibleNav })}
@@ -274,7 +277,7 @@ const Headers = (className) => {
           ></button>
         </div>
       </header>
-  </>
+    </>
   );
 };
 

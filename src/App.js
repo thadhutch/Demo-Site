@@ -11,6 +11,7 @@ import EmailVerified from "./screens/VerifyEmail";
 import PrivacyPolicy from "./screens/PrivacyPolicy";
 import TermsOfService from "./screens/TermsOfService";
 import Upload from "./screens/Upload";
+// import NewDropdown from "./screens/NewDropdown";
 import ProfileSwitcher from "./components/ProfileSwitcher";
 import { ContextProvider } from "./GlobalState/state";
 import "./app.css";
@@ -26,6 +27,7 @@ const App = () => (
       <Switch>
         <Route exact path={["/", "/home"]} component={Home} />
         <Route exact path="/marketplace" component={Marketplace} />
+        <Route exact path="/profile" component={Profile} />
         <Route exact path="/about" component={About} />
         <Route exact path="/user/:user" component={ProfileSwitcher} />
         <Route exact path="/createaccount" component={Home} />
@@ -33,6 +35,7 @@ const App = () => (
         <Route exact path="/tos" component={TermsOfService} />
         <Route exact path="/privacypolicy" component={PrivacyPolicy} />
         <Route exact path="/upload" component={Upload} />
+        {/* <Route exact path="/newdrop" component={NewDropdown} /> */}
       </Switch>
     </Router>
   </ContextProvider>
