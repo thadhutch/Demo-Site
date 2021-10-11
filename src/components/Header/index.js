@@ -250,13 +250,13 @@ const Headers = (className) => {
           </div>
           <div className={styles.usercontainer}>
             {user ? (
-              <button
+              <button id={styles.btn56}
                 className={cn("button-small", styles.button)} onClick={() => logout()}
               >
                 Logout
               </button>
             ) : (
-              <button
+              <button id={styles.btn56}
                 className={cn("button-small", styles.button)}
                 onClick={() => setVisibleLoginModal(true)}
               >

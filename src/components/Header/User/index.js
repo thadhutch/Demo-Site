@@ -41,7 +41,7 @@ function User({ className, ...props }) {
       />
     </Modal>
       <div className={cn(styles.user, className)}>
-        <Link to={"/user/" + username}>
+        <Link to="#">
         <div className={styles.head} onClick={() => setVisibleModal(false)}>
           <div className={styles.avatar}>
             <img src={props.ProfilePic} id="imgAvatar1" alt="Avatar" />

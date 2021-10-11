@@ -25,7 +25,6 @@ const App = () => (
       <ScrollToTop />
       <Switch>
         <Route exact path="/marketplace" component={Marketplace} />
-        <Route exact path="/profile" component={Profile} />
         <Route exact path="/about" component={About} />
         <Route exact path="/user/:user" component={ProfileSwitcher} />
         <Route exact path="/createaccount" component={Home} />
