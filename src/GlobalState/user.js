@@ -3,6 +3,7 @@ export const UserContext = React.createContext(false);
 
 function UserProvider(props) {
     const Moralis = require('moralis');
+    Moralis.initialize("7Ku6X8CPeLsTB1hNuxKbkK3zsNXRW9GrRid3wCnD");
     const [isUserAuthenticated, setUserAuthenticated] = useState(false);
     const [username, setUsername] = useState();
 

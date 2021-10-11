@@ -5,6 +5,7 @@ import ScrollToTop from "./scrollToTop";
 import Home from "./screens/Home";
 import Marketplace from "./screens/Marketplace";
 import CreateAccount from "./screens/CreateAccount";
+import Search from "./components/Search";
 import About from "./screens/About";
 import EmailVerified from "./screens/VerifyEmail";
 import PrivacyPolicy from "./screens/PrivacyPolicy";
@@ -30,6 +31,9 @@ const App = () => (
         <Route exact path="/tos" component={TermsOfService} />
         <Route exact path="/privacypolicy" component={PrivacyPolicy} />
         <Route exact path="/upload" component={Upload} />
+        <Route exact path="/search" component={Search} />
+
+
         <Route path={["/", "/home"]} component={Home} />
       </Switch>
     </Router>
