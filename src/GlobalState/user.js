@@ -4,7 +4,7 @@ export const UserContext = React.createContext(false);
 function UserProvider(props) {
     const Moralis = require('moralis');
     const [isUserAuthenticated, setUserAuthenticated] = useState(false);
-    const [username, setUsername] = useState("charlie");
+    const [username, setUsername] = useState();
 
     useEffect(() => {
         const user = Moralis.User.current();

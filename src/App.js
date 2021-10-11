@@ -17,13 +17,11 @@ import "./app.css";
 import PrivateRoute from './restrictions/PrivateRoute';
 import UserRestrictedRoute from './restrictions/UserRestrictedRoute';
 
-
 const App = () => (
   <ContextProvider>
     <Router>
       <ScrollToTop />
       <Switch>
-        <Route exact path={["/", "/home"]} component={Home} />
         <Route exact path="/marketplace" component={Marketplace} />
         <Route exact path="/about" component={About} />
         <Route exact path="/user/:user" component={ProfileSwitcher} />
@@ -32,6 +30,7 @@ const App = () => (
         <Route exact path="/tos" component={TermsOfService} />
         <Route exact path="/privacypolicy" component={PrivacyPolicy} />
         <Route exact path="/upload" component={Upload} />
+        <Route path={["/", "/home"]} component={Home} />
       </Switch>
     </Router>
   </ContextProvider>

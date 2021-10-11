@@ -5,7 +5,7 @@ import NonUserProfile from "../../screens/Profile/NonUserProfile";
 
 export default function ProfileSwitcher(props) {
     const { username } = useContext(UserContext);
-    const [userValue, setUserValue] = useState(props.match.params.user);
+    const [userValue, setUserValue] = useState();
 
     useEffect(() => {
         if (props.match.params.user) {
