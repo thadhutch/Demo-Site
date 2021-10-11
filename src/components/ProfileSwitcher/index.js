@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { UserContext } from "../../GlobalState";
-import NonUserProfile from "./NonUserProfile";
-import Profile from "../../screens/Profile";
+import UserProfile from "../../screens/Profile/UserProfile";
+import NonUserProfile from "../../screens/Profile/NonUserProfile";
 
 export default function ProfileSwitcher(props) {
     const { username } = useContext(UserContext);
@@ -15,7 +15,7 @@ export default function ProfileSwitcher(props) {
 
     if (userValue === username) {
         return (
-            <Profile user={userValue} />
+            <UserProfile user={userValue} />
         );
     } else {
         return (

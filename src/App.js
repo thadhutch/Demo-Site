@@ -6,7 +6,6 @@ import Home from "./screens/Home";
 import Marketplace from "./screens/Marketplace";
 import CreateAccount from "./screens/CreateAccount";
 import About from "./screens/About";
-import Profile from "./screens/Profile";
 import EmailVerified from "./screens/VerifyEmail";
 import PrivacyPolicy from "./screens/PrivacyPolicy";
 import TermsOfService from "./screens/TermsOfService";
@@ -33,7 +32,6 @@ const App = () => (
         <Route exact path="/tos" component={TermsOfService} />
         <Route exact path="/privacypolicy" component={PrivacyPolicy} />
         <Route exact path="/upload" component={Upload} />
-        <Route exact path="/profile" component={Profile} />
       </Switch>
     </Router>
   </ContextProvider>
