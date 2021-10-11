@@ -1,19 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 export default function Search() {
     const Moralis = require('moralis');
     Moralis.initialize("7Ku6X8CPeLsTB1hNuxKbkK3zsNXRW9GrRid3wCnD");
-    Moralis.serverURL = 'https://kp2g9eqiyitu.bigmoralis.com:2053/server';
     const [query, setQuery] = useState("");
     const [results, setResults] = useState([]);
 
     async function getData() {
         if (query) {
             try {
-                console.log(query)
                 const data = await Moralis.Cloud.run("searchQueryUser", { value: query });
                 setResults(data);
-                console.log(results)
             } catch (error) {
                 console.log(error)
             }
