@@ -1,18 +1,16 @@
 import React, { useEffect, useState, useContext } from "react";
 import { UserContext } from "../../GlobalState";
-import UserProfile from "./UserProfile";
-import NonUserProfile from "./NonUserProfile";
+import UserProfile from "../../screens/Profile/UserProfile";
+import NonUserProfile from "../../screens/Profile/NonUserProfile";
 
 export default function ProfileSwitcher(props) {
     const { username } = useContext(UserContext);
-    const [userValue, setUserValue] = useState(props.match.params.user);
+    const [userValue, setUserValue] = useState();
 
     useEffect(() => {
         if (props.match.params.user) {
             setUserValue(props.match.params.user);
         }
-        // const user = Moralis.User.current();
-        // console.log(user.attributes.username)
     }, [props.match.params.user]);
 
     if (userValue === username) {

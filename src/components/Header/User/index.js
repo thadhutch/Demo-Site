@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import cn from "classnames";
 import styles from "./User.module.sass";
 import Modal from "../../Modal/index";
 import ModalTextTitle from "../../ModalTextTitle";
+import { UserContext } from "../../../GlobalState";
 import { Link } from "react-router-dom";
-
-
-
 
 const items = [
   {
@@ -30,13 +28,10 @@ const items = [
   },
 ];
 
-const User = ({ className, ...props }) => {
+function User({ className, ...props }) {
+  const { username } = useContext(UserContext);
   const [visibleModal, setVisibleModal] = useState(false);
-
   const [errorMessage, setErrorMessage] = useState("The Profile Feature isn't avaliable in the demo. This feature will be avaliable in the MVP!");
-
-
-    
     
   return (
     <>
@@ -46,7 +41,7 @@ const User = ({ className, ...props }) => {
       />
     </Modal>
       <div className={cn(styles.user, className)}>
-        <Link to="#">
+        <Link to={"/user/" + username}>
         <div className={styles.head} onClick={() => setVisibleModal(false)}>
           <div className={styles.avatar}>
             <img src={props.ProfilePic} id="imgAvatar1" alt="Avatar" />

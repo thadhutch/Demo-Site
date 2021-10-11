@@ -5,8 +5,8 @@ import ScrollToTop from "./scrollToTop";
 import Home from "./screens/Home";
 import Marketplace from "./screens/Marketplace";
 import CreateAccount from "./screens/CreateAccount";
+import Search from "./components/Search";
 import About from "./screens/About";
-import Profile from "./screens/Profile";
 import EmailVerified from "./screens/VerifyEmail";
 import PrivacyPolicy from "./screens/PrivacyPolicy";
 import TermsOfService from "./screens/TermsOfService";
@@ -19,13 +19,11 @@ import "./app.css";
 import PrivateRoute from './restrictions/PrivateRoute';
 import UserRestrictedRoute from './restrictions/UserRestrictedRoute';
 
-
 const App = () => (
   <ContextProvider>
     <Router>
       <ScrollToTop />
       <Switch>
-        <Route exact path={["/", "/home"]} component={Home} />
         <Route exact path="/marketplace" component={Marketplace} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/about" component={About} />
@@ -35,7 +33,8 @@ const App = () => (
         <Route exact path="/tos" component={TermsOfService} />
         <Route exact path="/privacypolicy" component={PrivacyPolicy} />
         <Route exact path="/upload" component={Upload} />
-        {/* <Route exact path="/newdrop" component={NewDropdown} /> */}
+        <Route exact path="/search" component={Search} />
+        <Route path={["/", "/home"]} component={Home} />
       </Switch>
     </Router>
   </ContextProvider>
