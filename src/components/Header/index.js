@@ -208,7 +208,7 @@ const Headers = (className) => {
             <nav className={styles.nav}>
               <ul className={styles.link}>
                 <li>
-                  <NavLink to="/home" className={styles.navlinks} id="home" onClick={() => setVisibleNav(!visibleNav)}>
+                  <NavLink to="/" className={styles.navlinks} id="home" onClick={() => setVisibleNav(!visibleNav)}>
                     <span className={styles.headertitles}>Home</span>
                   </NavLink>
                 </li>

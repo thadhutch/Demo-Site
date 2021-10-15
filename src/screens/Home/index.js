@@ -1,6 +1,6 @@
 import React from "react";
 import Popular from "./Popular";
-import HotBid from "../../components/HotBid";
+import HotBid from "../../components/Header/HotBid";
 import Collections from "./Collections";
 import Description from "./Description";
 import Header from "../../components/Header";

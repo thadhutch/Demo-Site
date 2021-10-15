@@ -2,11 +2,11 @@ import React from "react";
 import cn from "classnames";
 import Slider from "react-slick";
 import styles from "./HotBid.module.sass";
-import Icon from "../Icon";
-import Card from "../Card";
+import Icon from "../../Icon";
+import Card from "../../Card";
 
 // data
-import { bids } from "../../mocks/bids";
+import { bids } from "../../../mocks/bids";
 
 const SlickArrow = ({ currentSlide, slideCount, children, ...props }) => (
   <button {...props}>{children}</button>
