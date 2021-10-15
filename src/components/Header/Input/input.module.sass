@@ -1,0 +1,49 @@
+@import ../../../styles/helpers
+
+$primary: #ad1177
+$secondary: #f55a00
+$white: #fff
+$gray: #9b9b9b
+
+
+.form__group 
+  position: relative
+  width: 100%
+  display: flex
+  justify-content: space-between
+  +t 
+    justify-content: center
+
+.form__field 
+  font-family: inherit
+  font-size: 1rem
+  color: $white
+  background: transparent
+  +w 
+    width: 70%
+  +t
+    display: none
+  &::placeholder 
+    padding-left: 3px
+  
+
+  &:placeholder-shown ~ .form__label 
+    font-size: 1rem
+    cursor: text
+  
+
+
+.form__label 
+  transition: 0.2s
+  font-size: 1rem
+  color: $gray
+
+
+.form__field:focus 
+  ~ .form__label 
+    display: none
+    font-weight: 100
+
+.head, svg
+  fill: $gray
+  transition: fill .2s

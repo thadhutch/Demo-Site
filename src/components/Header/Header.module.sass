@@ -1,17 +1,15 @@
 @import ../../styles/helpers
 
 *
-  box-sizing: border-box
-  margin: 0
-  padding: 0
-  font-family: 'Ubuntu', sans-serif
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+    font-family: 'Ubuntu', sans-serif
 .header
     position: relative
     display: flex
     align-items: center
     padding: 0px 100px 0px 50px
-
-    // z-index: 20
     height: 90px
     border-bottom: 2px solid $neutrals5
     +m
@@ -20,83 +18,61 @@
         border: none
     +dark
         border-color: $neutrals3
-        
+
 .container
     display: flex
     width: 100%
     align-items: center
     & > .button
-        // color: $neutrals3
-        // margin-left: -150px
-        // margin-right: 12px
-        +poppins 
+        +poppins
         text-transform: uppercase
         +m
             display: none
 
 .logo
     width: 14%
+    +t
+        width: 23%
+    +m
+        width: 70%
+        padding-top: 10px
 .pic
     width: 200px
-    // +d
-    //     margin-right: auto
-    //     margin-bottom: -10px
+    +w
+        width: 175px
+    +x
+        width: 200px
+    +m
+        display: none
+        width: 400px
+.pic2
+    display: none
+    width: 200px
+    +w
+        width: 175px
+    +x
+        width: 200px
+    +m
+        margin-left: 50px
+        display: block
+        width: 50px
 // Search and Nav Container
 .wrapper
+    padding-left: 20px
     display: flex
     align-items: center
-    width: 35%
-    // +d
-    //  &.active 
-    //     position: absolute
-    //     top: 0
-    //     left: 0
-    //     right: 0
-    //     flex-direction: column
-    //     align-items: stretch
-    //     height: 100vh
-    //     margin: 0
-    //     padding: 140px 32px 40px
-    //     box-shadow: 0px 64px 64px rgba(31, 47, 70, 0.2)
-    //     background: $neutrals8
-    //     visibility: hidden
-    //     opacity: 0
-    //     transition: all .2s
-    //     visibility: visible
-    //     opacity: 1
-    //     +dark
-    //         background: $neutrals1
-    // +m
-    //     position: absolute
-    //     top: 0
-    //     left: 0
-    //     right: 0
-    //     flex-direction: column
-    //     align-items: stretch
-    //     height: 100vh
-    //     margin: 0
-    //     padding: 140px 32px 40px
-    //     box-shadow: 0px 64px 64px rgba(31, 47, 70, 0.2)
-    //     background: $neutrals8
-    //     visibility: hidden
-    //     opacity: 0
-    //     transition: all .2s
-    //     +dark
-    //         background: $neutrals1
-    //     &.active
-    //         visibility: visible
-    //         opacity: 1
-    // .button
-    //     display: none
-    //     +poppins 
-    //     text-transform: uppercase
-    //     +m
-    //         display: none
-    //         margin-top: 16px
+    width: 100%
+    +t
+        width: 70%
+    +x
+        display: none
+    +m
+        display: none
+
 
 // Search\
 .search
-    // position: relative
+    position: relative
     width: 256px
     height: 40px
     padding: 15px
@@ -105,48 +81,25 @@
     border: 2px solid $neutrals5
     display: flex
     align-items: center
-    +m 
+    +w
+        margin-right: 20px
+        margin-left: 10px
         display: none
-    // justify-content: center
-    // +d 
-    //     left: 275px
-    // +t
-    //     display: none
-    //     &.active
-    //         display: block
-    //         width: 350px
-    //         left: 140px
-    //         top: 140px
-    // +m
-    //     position: relative
-    //     display: block
-    //     width: 72vw
-    //     margin-left: -270px
-    //     margin-right: 450px
-    // +a 
-    //     width: 71vw
-    // +s  
-    //     width: 69vw
+    +t
+        position: absolute
+        width: 50px
+        height: 50px
+        right: 22%
+        border-radius: 100%
+        display: none
+    +m
+        right: 0%
+        position: absolute
+
+    +d
 .inputComponentContainer
     width: 100%
     height: 100%
-
-// .result
-//     position: absolute
-//     top: 0px
-//     right: -60px
-//     bottom: 0
-//     width: 42px
-//     +m 
-//         right: -18vw
-//     +s  
-//         right: -17vw
-//     svg
-//         fill: $neutrals4
-//         transition: fill .2s
-//     &:hover
-//         svg
-//             fill: #f55a00
 
 .input
     width: 100%
@@ -155,35 +108,29 @@
 
 .button
     margin-right: 15px
-    +poppins 
+    +poppins
     text-transform: uppercase
-    +dark 
+    +dark
         color: $neutrals6
-    +d 
+    +d
         margin-top: -5px
 
 .nav
     display: flex
-    // margin-right: auto
-    +d
+    +w
         display: none
     +m
         display: flex
         flex-direction: column
-        margin: 0 0 40px
+        margin: 0 0 10px
         border: none
     +dark
         border-color: $neutrals3
 
 .link
-    // position: relative
-    // float: right
-    // flex-shrink: 0
     display: flex
     +dm-sans
-    // line-height: 40px
     color: $neutrals4
-    // max-width: 600px
     transition: color .2s
     &.active
         display: flex
@@ -193,62 +140,94 @@
         font-size: 27px
         &:hover
             border: none
-    +w 
-        position: absolute
-        padding-left: 0px
-        top: 0
-        left: 620px
+    +w
     +m
+
+.ListIcon
+    display: none
+    +w
+        width: 45px
+        height: 45px
+        background: black
+        border-radius: 100%
         display: flex
-        flex-direction: column
-        margin-top: 200px
-        margin-left: -250px
-        font-size: 27px
-        z-index: 10000
-        &:hover
-            border: none
-    
-    
-.navlinks 
-  color: $neutrals1
-  text-decoration: none
-  margin-right: 10px
-  padding-bottom: 3px
-  width: 400px
-  +dark 
-    color: #fff
-  &:hover
-    border-bottom: 2px solid $neutrals1
-    transition: all 0.2s ease-out
-    +dark 
-        border-bottom: 2px solid #fff
-  &:active
-    border-bottom: 2px solid #fc4e03 
+        align-items: center
+        justify-content: center
+    &:hover
+        transition: all 0.2s ease-out
+        box-shadow: 0px 0px 10px $white
+.ListIcon li
+    +w
+        display: flex
+        align-items: center
+        justify-content: center
+        width: 22px
+.navlinks
+    color: $neutrals1
+    text-decoration: none
+    margin-right: 10px
+    padding-bottom: 3px
+    width: 500px
+    +t
+        width: 300px
+    +dark
+        color: #fff
+    &:hover
+        border-bottom: 2px solid $neutrals1
+        transition: all 0.2s ease-out
+        +dark
+            border-bottom: 2px solid #fff
+    &:active
+        border-bottom: 2px solid #fc4e03
+    +w
+
 #cDrop
     display: flex
     width: 100px
-    height: 25px
-    padding-top: 2px
+    +w
+        width: 100px
+        align-items: center
+    +w
+#cDrop, li
+    color: $neutrals4
+    transition: color .2s
+    font-weight: 600
+    +dark
+        color: $neutrals7
 #cDrop svg
     width: 20px
     height: 20px
     margin-top: 2px
-
+    cursor: pointer
+    fill: $white
 
 .usercontainer
-    width: 55%
+    width: 45%
     display: flex
     justify-content: flex-end
-    +x 
-        margin-top: 10px
-    +m 
-        // display: none
+    +w
+        width: 20%
+    +x
+        width: 100%
+        justify-content: flex-end
 
+    +m
+        margin-right: 50px
+#logoutBtn
+    +w
+        display: none
+        width: 45px
+        height: 45px
+        font-size: 8px
+        border-radius: 100%
+        margin: 0
+#walletBtn
+    +w
+        width: 75px
+        font-size: 13px
 .notification
     display: none
-    // margin-left: 20px
     +m
-        // margin-right: 20px
 #community2
     display: flex
     width: 100px
@@ -256,120 +235,45 @@
     width: 100px
     background: $white
 
-
 // ===================================================================
 // burger css
 #btn56
-    +m 
+    +m
         display: none
 .burger
     display: none
-    +d
-        display: block
-        position: absolute
-        right: 50px
-        width: 32px
-        height: 32px
-        background: none
-        -webkit-tap-highlight-color: rgba(0,0,0,0)
-        &.active
-            &:before
-                transform: translateY(0) rotate(-45deg)
-            &:after
-                transform: translateY(0) rotate(45deg)
-        &:before,
-        &:after
-            content: ''
-            position: absolute
-            top: 16px
-            left: 6px
-            width: 20px
-            height: 2px
-            background: $neutrals4
-            border-radius: 2px
-            transition: transform .2s
-        &:before
-            transform: translateY(-4px)
-        &:after
-            transform: translateY(3px)
 
-li
+.link, li
     display: inline-block
     padding: 7px
     span
-    color: $neutrals2
-    transition: color .2s
-    font-weight: 600
-    +dark
-        color: $neutrals7
-    &.active
-        position: absolute
-        right: 60px
-        font-size: 30px
-        top: 200px
-        &:nth-child(2)
-            top: 300px
-            right: 390px
-        &:nth-child(3)
-            top: 350px
-            right: 460px
-    
-            
-    
-
-.mobileview
-    display: none
-    +m 
-        display: block
-
+        color: $neutrals4
+        transition: color .2s
+        font-weight: 600
+        +dark
+            color: $neutrals7
 
 .mobilebutton
     display: none
     color: $neutrals1
-    +dark 
+    +dark
         color: $neutrals6
     +m
+        display: none
         display: block
         margin-top: 250px
         padding-top: 10px
         width: 90vw
-    +a 
+    +a
         width: 89vw
-    +s  
+    +s
         width: 87vw
 
-
-.navtheme
-    position: absolute
-    right: 2%
-    width: 8%
-    margin-top: -15px
-    +t 
-        margin-top: -90px
-        display: none
-    +m 
-        margin-top: -60px
-        margin-right: 20px
-        display: none
-    +a 
-        display: inline-block
-        margin-top: -60px
-        float: right
-        display: none
-
-    +s 
-        margin-top: -60px
-        display: none
-
-    img
-        width: 25px
-        padding-bottom: 8px
 .moonicon
     padding-left: 13px
 
 .sunicon
     padding-right: 5px
-
 
 .menumodal
     width: 90%
@@ -379,7 +283,7 @@ li
         text-align: center
         font-size: 34px
         margin-bottom: 40px
-        +s 
+        +s
             margin-top: 50px
             margin-bottom: 30px
             font-size: 28px
@@ -390,20 +294,20 @@ li
     transition: top ease 0.25s
     &:hover
         top: -10px
-    display: flex
-    align-items: center
-    padding: 32px 64px 32px 32px
-    border-radius: 12px
-    margin-bottom: 15px
-    background-image: linear-gradient(to right, #f55f02 0%, #f5e102 100%) 
+        display: flex
+        align-items: center
+        padding: 32px 64px 32px 32px
+        border-radius: 12px
+        margin-bottom: 15px
+        background-image: linear-gradient(to right, #f55f02 0%, #f5e102 100%)
     +body-bold-1
-    cursor: pointer   
-    +m 
+    cursor: pointer
+    +m
         margin-top: 45px
         &:nth-child(2)
             display: none
     &:nth-child(3)
-        background-image: linear-gradient(to right, #3100e3 0%, #00bde3 100%) 
+        background-image: linear-gradient(to right, #3100e3 0%, #00bde3 100%)
         margin-top: 5px
     &:hover
         .arrow
@@ -441,7 +345,6 @@ li
         margin-right: 24px
     +t
         margin-right: 16px
-    
 
 .buttonContainermodal
     width: 100%
@@ -457,9 +360,9 @@ li
         justify-content: center
         border-radius: 5px
         color: $neutrals1
-        +dark 
+        +dark
             color: $neutrals6
-        +m 
+        +m
             font-size: 14px
 
 .textContainer
@@ -471,7 +374,7 @@ li
     margin-right: auto
 
 .titlemodal
-    +s 
+    +s
         font-size: 14px
         width: max-content
 
@@ -482,12 +385,110 @@ li
     font-size: 15px
     font-weight: 700
     +dark
-    color: $neutrals4
+        color: $neutrals4
 
+.containerInput
+    display: none
+    +w 
+        position: relative
+        padding-left: 65px
+        display: flex
+        align-items: center
+.Search123
+    position: absolute
+    margin: auto
+    left: 0
+    width: 45px
+    height: 45px
+    background: black
+    border-radius: 50%
+    transition: all 1s
+    z-index: 4
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4)
+    &:hover
+        cursor: pointer
+    &::before 
+        content: ""
+        position: absolute
+        margin: auto
+        top: 16px
+        right: 3px
+        bottom: 0
+        left: 20px
+        width: 10px
+        height: 2px
+        background: white
+        transform: rotate(45deg)
+        transition: all .5s
+    &::after 
+        content: ""
+        position: absolute
+        margin: auto
+        top: -5px
+        right: 0
+        bottom: 0
+        left: -5px
+        width: 17px
+        height: 17px
+        border-radius: 50%
+        border: 2px solid white
+        transition: all .5s
+.input 
+    position: absolute
+    margin: auto
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    width: 100%
+    height: 50px
+    outline: none
+    border: none
+    background: #f55a00
+    color: white
+    text-shadow: 0 0 10px crimson
+    padding: 0 0 0 53px
+    border-radius: 30px
+    box-shadow: 0 0 25px 0 crimson, 0 20px 25px 0 rgba(0, 0, 0, 0.2)
+    transition: all 1s
+    opacity: 0
+    z-index: 5
+    font-weight: bolder
+    letter-spacing: 0.1em
+    &:hover 
+        cursor: pointer
+    &:focus 
+        width: 200px
+        opacity: 1
+        cursor: text
+        left: -200px
 
-
-
-
-       
-
-
+    &:focus ~ .Search123 
+        left: -165px
+        background: #151515
+        z-index: 6
+        &::before 
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+            width: 25px
+            height: 2px
+        &::after 
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+            width: 25px
+            height: 2px
+            border: none
+            background: white
+            border-radius: 0%
+            transform: rotate(-45deg)
+    &::placeholder 
+        color: white
+        opacity: 1
+        font-weight: bolder
+    
+  
+    

@@ -1,17 +1,16 @@
 import { useState } from 'react';
-import "./input.scss";
 import Icon from "../../Icon";
-import styles from "./input.scss"
+import styles from "./input.module.sass"
 
 function Input() {
 
     const [search, setSearch] = useState("");
 
     return (
-        <div class="form__group field">
-            <input type="input" class="form__field" placeholder="Search" name="search" value={search}
+<div className={styles.form__group}>
+            <input type="input" className={styles.form__field} placeholder="Search" name="search" value={search}
                 onChange={(e) => setSearch(e.target.value)} required />
-            {/* <label for="name" class="form__label">Search</label> */}
+            {/* <label for="name" className="form__label">Search</label> */}
             <button>
                   <Icon name="search" size="20"/>
                 </button>

@@ -5,6 +5,7 @@ import Modal from "../../Modal/index";
 import ModalTextTitle from "../../ModalTextTitle";
 import { UserContext } from "../../../GlobalState";
 import { Link } from "react-router-dom";
+import Avatar from "./logopng copy.png";
 
 const items = [
   {
@@ -44,7 +45,7 @@ function User({ className, ...props }) {
         <Link to="#">
         <div className={styles.head} onClick={() => setVisibleModal(false)}>
           <div className={styles.avatar}>
-            <img src={props.ProfilePic} id="imgAvatar1" alt="Avatar" />
+            <img src={Avatar} />
           </div>
           <div className={styles.wallet}>
             3.0546 <span className={styles.currency}>ETH</span>
