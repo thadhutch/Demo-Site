@@ -77,7 +77,7 @@ const Footers = () => {
                   <a href="/privacypolicy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
                 </li>
               </ul>
-              <div className={styles.footertheme}>
+              {/* <div className={styles.footertheme}>
                 <span className={styles.sunicon}>
                 <Image 
                     src="https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/iconmonstr-weather-2-240%20(2).png?alt=media&token=36c037b7-c92b-4522-a12b-a20ee5e9e830"
@@ -95,7 +95,7 @@ const Footers = () => {
                     alt="moon icon"
                   />
                 </span>
-              </div> 
+              </div>  */}
           </div>
         </div>
         <div className={styles.foot}>

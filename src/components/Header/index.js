@@ -237,13 +237,8 @@ const Headers = (className) => {
             </nav>
             <>
               {user ? (
-                <Link
-                  className={cn("button-small", styles.mobilebutton)}
-                  to="/"
-                  onClick={() => logout()}
-                >
-                  Logout
-                </Link>
+                <>
+                </>
               ) : (
                 <Link
                   className={cn("button-small", styles.mobilebutton)}
@@ -265,11 +260,8 @@ const Headers = (className) => {
                 <CommunityNavMobile/>
                 </div>
             {user ? (
-              <button
-                className={cn("button-small", styles.button)} id={styles.logoutBtn} onClick={() => logout()}
-              >
-                Logout
-              </button>
+              <>
+              </>
             ) : (
               <button id={styles.walletBtn}
                 className={cn("button-small", styles.button)}

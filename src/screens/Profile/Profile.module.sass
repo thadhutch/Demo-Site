@@ -19,8 +19,10 @@
     display: flex
 .LeftRightContentOut
     width: 100vw
-    background: $neutrals3
+    background: $white
     padding: 20px 30px 100px 30px
+    +dark 
+        background: $neutrals3
     +d 
     +t
     +m
@@ -69,10 +71,13 @@
     left: 100px
     height: 225px
     width: 225px
-    border: $neutrals3 solid 15px
+    border: $white solid 15px
     border-radius: 100%
     // background: url(./profileBanner.jpeg) center center no-repeat
     background-size: cover
+    +dark 
+        border: $neutrals3 solid 15px
+
     +d
         height: 175px
         width: 175px
@@ -112,12 +117,13 @@
 //     +s
 // User Info
 .rankAddy
-    width: 100%
+    width: 90%
     display: flex
+
 .waletAddy, .rank
-    width: 30%
     display: flex
     margin-bottom: 30px
+    margin-top: 20px
     +d 
         margin-bottom: 20px
         width: 50%
@@ -132,7 +138,7 @@
     font-weight: 200
     padding: 10px
     border-radius: 20px
-    font-size: 1.2vw
+    font-size: 1vw
     +d 
         font-size: 1.8vw
     +t
@@ -144,15 +150,27 @@
 
     +s
 .rank h4
-    background: $neutrals1
-    color: $white
+    background: $neutrals5
+    color: $neutrals1
+    padding-right: 100px
+    padding-top: 10px
+    padding-bottom: 10px
+    +dark 
+        color: $white
+        background: $neutrals1
+
     +t
     +m
         margin-left: -20px    
     +a
     +s
 .waletAddy h4
-    color: $white
+    margin-left: -50px
+    color: $neutrals6
+    background: $neutrals2
+    +dark 
+        color: $neutrals1
+        background: $neutrals7
 
 .userInfoContainer
     padding-left: 25px
@@ -167,7 +185,7 @@
 .displayedName
     width: 150%
     font-weight: 900
-    font-size: 2vw
+    font-size: 1.7vw
     +d 
         font-size: 3.3vw
     +t
@@ -180,12 +198,16 @@
     +s
 .userName
     font-weight: 900
-    font-size: 1.5vw
+    font-size: 1.3vw
     margin-bottom: 30px
     width: 100%
-    background: -webkit-linear-gradient(45deg, #ffffff 0%, #f55a00 20%, #ff1c59 51%, #ad1177 80%)
+    background: -webkit-linear-gradient(45deg, #f55a00 20%, #ff1c59 51%, #ad1177 80%)
     -webkit-background-clip: text
     -webkit-text-fill-color: transparent
+    +dark 
+        background: -webkit-linear-gradient(45deg, #ffffff 0%, #f55a00 20%, #ff1c59 51%, #ad1177 80%)
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
     +d 
         font-size: 2.5vw
         margin-bottom: 20px
@@ -217,7 +239,7 @@
     +s
 .follows
     font-weight: 700
-    font-size: 1.5vw
+    font-size: 1.1vw
     +d 
         font-size: 2.3vw
     +t
@@ -242,7 +264,7 @@
 .followsNum
     height: 40px
     font-weight: 700
-    font-size: 1.8vw
+    font-size: 1.4vw
     +d
         font-size: 3vw
     +t
@@ -271,8 +293,8 @@
 
 .followedByHeader
     font-weight: 700
-    font-size: 1.5vw
-    padding-left: 20px
+    font-size: 1.1vw
+    padding-left: 10px
     +d 
         font-size: 2.5vw
     +t
@@ -298,8 +320,8 @@
     +s
 .followedByPic
     margin-left: -7px
-    height: 40px
-    width: 40px
+    height: 35px
+    width: 35px
     border-radius: 50%
     background: url(./profilePic.jpeg) center center no-repeat
     background-size: cover
@@ -345,9 +367,11 @@
     text-align: center
     border-radius: 10px
     font-weight: 700
-    font-size: 1.6vw
-    padding: 8px
-
+    font-size: 1.3vw
+    padding: 6px
+    color: white
+    +dark 
+        color: black
     +d 
         font-weight: 700
         font-size: 2vw
@@ -387,9 +411,12 @@
     +s
 .bioWebHeader
     font-weight: 900
-    font-size: 1.5vw
-    border-bottom: solid $neutrals6 3px
+    font-size: 1.3vw
+    border-bottom: solid $neutrals2 3px
     margin-bottom: 15px
+    +dark 
+        border-bottom: solid $neutrals6 3px
+
     +d 
         font-size: 2.5vw
         border-bottom: solid $neutrals6 2px
@@ -408,7 +435,7 @@
     +s
 .bioWebLink
     font-weight: 600
-    font-size: 1.1vw
+    font-size: 1vw
     width: 100%
     +d
         font-size: 1.8vw
@@ -448,10 +475,14 @@
         padding-left: 15px
 
 #bioWebLink
-    background: -webkit-linear-gradient(45deg, #ffffff 0%, #f55a00 20%, #ff1c59 51%, #ad1177 80%)
+    font-size: 1vw
+    background: -webkit-linear-gradient(45deg, #f55a00 20%, #ff1c59 51%, #ad1177 80%)
     -webkit-background-clip: text
-    -webkit-text-fill-color: transparent  
-    font-size: 1.1vw
+    -webkit-text-fill-color: transparent
+    +dark 
+        background: -webkit-linear-gradient(45deg, #ffffff 0%, #f55a00 20%, #ff1c59 51%, #ad1177 80%)
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
     +d
         font-size: 1.8vw
     +t

@@ -6,6 +6,7 @@
     padding: 0
     font-family: 'Ubuntu', sans-serif
 .header
+    user-select: none
     position: relative
     display: flex
     align-items: center
@@ -129,6 +130,7 @@
 
 .link
     display: flex
+    flex-direction: row
     +dm-sans
     color: $neutrals4
     transition: color .2s
@@ -161,15 +163,13 @@
         display: flex
         align-items: center
         justify-content: center
-        width: 22px
-.navlinks
+        // width: 22px
+.navlinks, .navlinksDrop
+    user-select: none
     color: $neutrals1
     text-decoration: none
     margin-right: 10px
     padding-bottom: 3px
-    width: 500px
-    +t
-        width: 300px
     +dark
         color: #fff
     &:hover
@@ -177,34 +177,43 @@
         transition: all 0.2s ease-out
         +dark
             border-bottom: 2px solid #fff
-    &:active
-        border-bottom: 2px solid #fc4e03
     +w
-
-#cDrop
-    display: flex
-    width: 100px
-    +w
-        width: 100px
-        align-items: center
-    +w
-#cDrop, li
-    color: $neutrals4
-    transition: color .2s
-    font-weight: 600
-    +dark
-        color: $neutrals7
-#cDrop svg
-    width: 20px
-    height: 20px
-    margin-top: 2px
+.navlinksDrop
+    padding: 5px
+    padding-bottom: 0px
+    margin-left: 5px
     cursor: pointer
-    fill: $white
+.navlinksDrop svg
+    margin-left: 5px
+    width: 15px
+    
+
+// #cDrop
+//     display: flex
+//     width: 100px
+//     +w
+//         width: 100px
+//         align-items: center
+//     +w
+// #cDrop, li
+//     color: $neutrals4
+//     transition: color .2s
+//     font-weight: 600
+//     +dark
+//         color: $neutrals7
+// #cDrop svg
+//     width: 20px
+//     height: 20px
+//     margin-top: 2px
+//     cursor: pointer
+//     fill: $white
 
 .usercontainer
     width: 45%
     display: flex
     justify-content: flex-end
+    border: none
+    
     +w
         width: 20%
     +x
@@ -292,16 +301,16 @@
     position: relative
     top: 0
     transition: top ease 0.25s
-    &:hover
-        top: -10px
-        display: flex
-        align-items: center
-        padding: 32px 64px 32px 32px
-        border-radius: 12px
-        margin-bottom: 15px
-        background-image: linear-gradient(to right, #f55f02 0%, #f5e102 100%)
+    display: flex
+    align-items: center
+    padding: 32px 64px 32px 32px
+    border-radius: 12px
+    margin-bottom: 15px
+    background-image: linear-gradient(to right, #f55f02 0%, #f5e102 100%)
     +body-bold-1
     cursor: pointer
+    &:hover
+        top: -10px
     +m
         margin-top: 45px
         &:nth-child(2)
@@ -444,7 +453,7 @@
     height: 50px
     outline: none
     border: none
-    background: #f55a00
+    background: #f55a0083
     color: white
     text-shadow: 0 0 10px crimson
     padding: 0 0 0 53px
@@ -489,6 +498,10 @@
         color: white
         opacity: 1
         font-weight: bolder
-    
-  
-    
+
+.themeNav
+    position: relative
+    width: 50px
+    position: absolute
+    right: 0
+    top: 0

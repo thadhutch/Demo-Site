@@ -2,13 +2,17 @@
 
 .statsContent
     margin-left: 20px
-    // background: $neutrals1
+    background: $neutrals6
     border-radius: 15px
     height: 50%
     margin-top: 30px
     padding-top: 15px
     padding-right: 15px
-    border: solid 1.7px $neutrals6
+    border: solid 1.7px $neutrals5
+    +dark 
+        background: $neutrals1
+        border: solid 1.7px $neutrals6
+
     +t
         margin-left: 15px
     +m
@@ -42,7 +46,9 @@
     width: 225px
     font-size: 1vw
     font-weight: 700
-    color: $neutrals8
+    color: $neutrals2
+    +dark 
+        color: $neutrals8
     +d 
         font-size: 1.8vw
     +t
@@ -56,8 +62,10 @@
     margin-bottom: 10px
     font-weight: 700
     font-size: 1vw
-    color: #e98400
+    color: #ff1c59
     position: relative
+    +dark 
+        color: #e98400
     +d
         display: flex
         font-size: 1.8vw
@@ -70,7 +78,7 @@
     +s
 #stats2
     font-size: .7vw
-    color: #e98400
+    color: #ff1c59
     position: absolute
     +d
         position: relative

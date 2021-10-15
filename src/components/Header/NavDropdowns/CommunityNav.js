@@ -1,23 +1,48 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { CSSTransition } from 'react-transition-group';
+import React, { useState, useEffect, useRef } from "react";
+import { CSSTransition } from "react-transition-group";
 import { NavLink, Link } from "react-router-dom";
-import styles from "../Header.module.sass"
-import './newDropdown.css';
-import { ReactComponent as BellIcon } from './icons/bell.svg';
-import { ReactComponent as MessengerIcon } from './icons/messenger.svg';
-import { ReactComponent as CaretIcon } from './icons/caret.svg';
-import { ReactComponent as PlusIcon } from './icons/plus.svg';
-import { ReactComponent as CogIcon } from './icons/cog.svg';
-import { ReactComponent as ChevronIcon } from './icons/chevron.svg';
-import { ReactComponent as ArrowIcon } from './icons/arrow.svg';
-import { ReactComponent as BoltIcon } from './icons/bolt.svg';
+import styles from "../Header.module.sass";
+import "./newDropdown.css";
+import Image from "../../Image";
 
+import { ReactComponent as BellIcon } from "./icons/bell.svg";
+import { ReactComponent as MessengerIcon } from "./icons/messenger.svg";
+import { ReactComponent as CaretIcon } from "./icons/caret.svg";
+import { ReactComponent as PlusIcon } from "./icons/plus.svg";
+import { ReactComponent as CogIcon } from "./icons/cog.svg";
+import { ReactComponent as ChevronIcon } from "./icons/chevron.svg";
+import { ReactComponent as ArrowIcon } from "./icons/arrow.svg";
+import { ReactComponent as BoltIcon } from "./icons/bolt.svg";
+
+const socialIcons = {
+ Instagram :  <Image
+ src="https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/iconmonstr-instagram-15-240%20(1).png?alt=media&token=8f3379c6-3594-43c2-b071-6fd503982b4c"
+ srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-instagram-15-240.png?alt=media&token=32f17a6d-ca4c-4dba-b42d-a867e18d3432"
+ alt="Instagram Logo"
+/>,
+ Twitter :<Image
+ src="https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/iconmonstr-twitter-5-240%20(1).png?alt=media&token=1e11e3c1-eaa7-4e13-abaf-d1ceb7a2dd9f"
+ srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-twitter-5-240.png?alt=media&token=8c40f101-85ff-412e-a365-33316b67f146"
+ alt="Twitter Logo"
+/>,
+ Discord : <Image
+ src="https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/iconmonstr-discord-5-240%20(1).png?alt=media&token=2ef7d262-5c6b-471e-94c8-674d55a7d572"
+ srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-discord-5-240.png?alt=media&token=365448a8-8542-4bc4-87a6-ee52d2e93de3"
+ alt="Discord Logo"
+/>,
+ Telegram :<Image
+ src="https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/iconmonstr-telegram-5-240%20(1).png?alt=media&token=0dee66ae-5b05-4da9-8958-92203ef114e0"
+ srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-telegram-5-240.png?alt=media&token=1f1318fc-e242-48ef-8eb0-4dc0d8331299"
+ alt="Telegram Logo"
+/>,
+
+}
 
 function CommunityNav() {
   return (
     <NavItem icon={<CaretIcon />} navLink="Community">
-    <DropdownMenu/>
-      </NavItem>
+      <DropdownMenu />
+    </NavItem>
   );
 }
 
@@ -25,14 +50,11 @@ function NavItem(props) {
   const [open, setOpen] = useState(false);
 
   return (
-    <li>
-      <NavLink to="#" className={styles.navlinks} id={styles.cDrop} onClick={() => setOpen(!open)}>
-      {/* <a href="#" className="icon-button" onClick={() => setOpen(!open)}> */}
-      {props.navLink}      
-      {props.icon}
-      {/* </a> */}
+    <li className={styles.navlinksDrop} onClick={() => setOpen(!open)}>
+        <span>{props.navLink}</span>
+        <span>{props.icon}</span>
+        {/* <div className="icon-button">{props.icon}</div> */}
       {open && props.children}
-      </NavLink>
     </li>
   );
 }
@@ -53,58 +75,49 @@ function DropdownMenu() {
 
   function DropdownItem(props) {
     return (
-      <a href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
-        <span className="icon-button">{props.leftIcon}</span>
-        {props.children}
-        <span className="icon-right">{props.rightIcon}</span>
+      <a 
+      // target="_blank"
+        href={props.itemLinkTag}
+        className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+        <h1>{props.children}</h1>
       </a>
     );
   }
-
   return (
     <>
       <div className="dropdownC" style={{ height: "250px" }} ref={dropdownRef}>
-
         <CSSTransition
-          in={activeMenu === 'main'}
+          in={activeMenu === "main"}
           timeout={500}
           classNames="menu-primary"
           unmountOnExit
-          onEnter={calcHeight}>
+          onEnter={calcHeight}
+        >
           <div className="menu">
             <div className="menuSocialIcons">
-            <DropdownItem leftIcon="icon1"></DropdownItem>
-            <DropdownItem>icon2</DropdownItem>
-            <DropdownItem>icon3</DropdownItem>
-            <DropdownItem>icon4</DropdownItem>
+              <DropdownItem itemLinkTag="https://www.instagram.com/spacepathhq/" children = {socialIcons.Instagram}>
+              </DropdownItem>
+              <DropdownItem itemLinkTag="https://twitter.com/SpacePathHQ" children = {socialIcons.Twitter}>
+              </DropdownItem>
+              <DropdownItem itemLinkTag="https://discord.gg/bdUsVc5B" children = {socialIcons.Discord}>
+              </DropdownItem>
+              <DropdownItem itemLinkTag="https://t.me/spacepathtelegram" children = {socialIcons.Telegram}>
+              </DropdownItem>
             </div>
-            <DropdownItem>About SpacePath</DropdownItem>
-            <DropdownItem>$SP Token</DropdownItem>
-            <DropdownItem>FAQ</DropdownItem>
-            <DropdownItem>Contact Us</DropdownItem>
-
-             <DropdownItem
-              leftIcon={<CogIcon />}
-              rightIcon={<ChevronIcon />}
-              goToMenu="settings">
-              Settings
-            </DropdownItem>
-           {/* <DropdownItem
-              leftIcon="🦧"
-              rightIcon={<ChevronIcon />}
-              goToMenu="animals">
-              Animals
-            </DropdownItem> */}
-
+            <DropdownItem itemLinkTag="/about"  children= "About SpacePath" ></DropdownItem>
+            <DropdownItem itemLinkTag="/" children= "$SP Token"></DropdownItem>
+            <DropdownItem itemLinkTag="/" children= "FAQ"></DropdownItem>
+            <DropdownItem itemLinkTag="/"  children= "Contact Us"></DropdownItem>
           </div>
         </CSSTransition>
 
         <CSSTransition
-          in={activeMenu === 'settings'}
+          in={activeMenu === "settings"}
           timeout={500}
           classNames="menu-secondary"
           unmountOnExit
-          onEnter={calcHeight}>
+          onEnter={calcHeight}
+        >
           <div className="menu">
             <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
               <h2>My Tutorial</h2>
@@ -117,11 +130,12 @@ function DropdownMenu() {
         </CSSTransition>
 
         <CSSTransition
-          in={activeMenu === 'animals'}
+          in={activeMenu === "animals"}
           timeout={500}
           classNames="menu-secondary"
           unmountOnExit
-          onEnter={calcHeight}>
+          onEnter={calcHeight}
+        >
           <div className="menu">
             <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
               <h2>Animals</h2>
