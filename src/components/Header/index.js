@@ -8,12 +8,16 @@ import Notification from "./Notification";
 import DynamicUser from "./User/DynamicUser";
 import DynamicUserNav from "./NavDropdowns/DynamicUserNav";
 import CommunityNav from "./NavDropdowns/CommunityNav";
+import CommunityNavMobile from "./NavDropdowns/CommunityNavMobile";
 import Input from './Input/Input';
 import { useMoralis } from "react-moralis";
 import Modal from '../Modal/index';
 import Login from '../Login/index';
 import ModalTextTitle from '../ModalTextTitle/index';
 import LoadingModal from '../LoadingModal/index';
+import ListIcon from './lineIcon.png';
+import { style } from "dom-helpers";
+import Logo from "./User/logopng copy.png";
 
 const nav = [
   {
@@ -193,6 +197,12 @@ const Headers = (className) => {
               srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-light.png?alt=media&token=af5f3049-b42b-4094-956d-f8377f8986bf"
               alt="SpacePath Logo"
             />
+          <Image
+              className={styles.pic2}
+              src={Logo}
+              srcDark={Logo}
+              alt="SpacePath Logo"
+            />
           </Link>
           <div className={cn(styles.wrapper, { [styles.active]: visibleNav })}>
             <form
@@ -224,9 +234,6 @@ const Headers = (className) => {
                 </li>
                   <CommunityNav/>
               </ul>
-              <div className={styles.link}>
-
-              </div>
             </nav>
             <>
               {user ? (
@@ -249,14 +256,22 @@ const Headers = (className) => {
             </>
           </div>
           <div className={styles.usercontainer}>
+          <div className={styles.containerInput}>
+              <input className={styles.input} type="text" placeholder="Search..."/>
+              <div className={styles.Search123}></div>
+            </div>
+          <div className={styles.ListIcon}>
+                {/* <img src={ListIcon}/> */}
+                <CommunityNavMobile/>
+                </div>
             {user ? (
-              <button id={styles.btn56}
-                className={cn("button-small", styles.button)} onClick={() => logout()}
+              <button
+                className={cn("button-small", styles.button)} id={styles.logoutBtn} onClick={() => logout()}
               >
                 Logout
               </button>
             ) : (
-              <button id={styles.btn56}
+              <button id={styles.walletBtn}
                 className={cn("button-small", styles.button)}
                 onClick={() => setVisibleLoginModal(true)}
               >
@@ -271,10 +286,10 @@ const Headers = (className) => {
             )}
           <Notification className={styles.notification} />
           </div>
-          <button
+          {/* <button
             className={cn(styles.burger, { [styles.active]: visibleNav })}
             onClick={() => setVisibleNav(!visibleNav)}
-          ></button>
+          ></button> */}
         </div>
       </header>
     </>

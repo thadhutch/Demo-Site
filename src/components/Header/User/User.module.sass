@@ -27,37 +27,48 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0)
     +dark
         box-shadow: inset 0 0 0 2px $neutrals3
-    +d 
-        margin-right: 0px
-        margin-top: -5px
-    +m
-        padding: 0
-        border-radius: 0
-        box-shadow: none
+    +w 
+        min-width: 45px
+        height: 45px
+        padding: 0px
+        border-radius: 100%
+
+    // +d 
+    //     margin-right: 0px
+    //     margin-top: -5px
+    // +m
+    //     padding: 0
+    //     border-radius: 0
+    //     box-shadow: none
     +dark
         box-shadow: inset 0 0 0 2px $neutrals3
         +m
             box-shadow: none
-    &:hover
-        box-shadow: inset 0 0 0 2px $neutrals1
-        +dark
-            box-shadow: inset 0 0 0 2px #fff
-        +m
-            box-shadow: none
+    // &:hover
+    //     box-shadow: inset 0 0 0 2px $neutrals1
+    //     +dark
+    //         box-shadow: inset 0 0 0 2px #fff
+    //     +m
+    //         box-shadow: none
 
 .avatar
-    width: 32px
-    height: 32px
+    width: 45px
+    height: 45px
+    padding: 5px
+    display: flex
+    align-items: center
+    justify-content: center
+    background: black
+    border-radius: 50%
     img
-        width: 32px
-        height: 32px
+        width: 98%
+        height: 98%
         z-index: 1000
-        border-radius: 50%
-    +m 
-        display: none
     
 .wallet
     margin-left: 12px
+    +w
+        display: none
     +m
         display: none
 

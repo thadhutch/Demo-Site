@@ -66,7 +66,7 @@ function DropdownMenu() {
   return (
 
     <>
-      <div className="dropdownP" style={{ height: "500px" }} ref={dropdownRef}>
+      <div className="dropdownP" style={{ height: "525px" }} ref={dropdownRef}>
 
         <CSSTransition
           in={activeMenu === 'main'}
@@ -98,6 +98,7 @@ function DropdownMenu() {
           </div>
           <div className="menuBottom">
             <DropdownItem link={"/user/" + username}>My Profile</DropdownItem>
+            <DropdownItem link="/">Home</DropdownItem>
             <DropdownItem >Saved</DropdownItem>
             <DropdownItem >Manage Funds</DropdownItem>
             <DropdownItem >Settings</DropdownItem>

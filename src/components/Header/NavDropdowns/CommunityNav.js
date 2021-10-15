@@ -83,13 +83,13 @@ function DropdownMenu() {
             <DropdownItem>FAQ</DropdownItem>
             <DropdownItem>Contact Us</DropdownItem>
 
-            {/* <DropdownItem
+             <DropdownItem
               leftIcon={<CogIcon />}
               rightIcon={<ChevronIcon />}
               goToMenu="settings">
               Settings
             </DropdownItem>
-            <DropdownItem
+           {/* <DropdownItem
               leftIcon="🦧"
               rightIcon={<ChevronIcon />}
               goToMenu="animals">

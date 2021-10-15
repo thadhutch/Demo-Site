@@ -8,7 +8,7 @@ code {
 :root {
   --bg:  #242526;
   --bg-accent: #484a4d;
-  --text-color: #dadce1;
+  --text-color: #f6f6f6;
   --nav-size: 60px;
   --border: 1px solid #474a4d;
   --border-radius: 8px;
@@ -36,7 +36,7 @@ a {
 }
 
 .icon-button svg { 
-  fill: var(--text-color);
+  /* fill: var(--text-color); */
   width: 20px;
   height: 20px;
   text-align: center;
@@ -44,7 +44,20 @@ a {
 
 /* Dropdown Menu */
 
-.dropdownC, .dropdownP {
+.dropdown {
+  position: absolute;
+  top: 80px;
+  width: 250px;
+  z-index: 100;
+  background-color: black;
+  border: var(--border);
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px white ;
+  padding: 1rem;
+  overflow: hidden;
+  transition: height var(--speed) ease;
+}
+.dropdownC, .dropdownP, .dropdownC2 {
   position: absolute;
   top: 80px;
   width: 250px;
@@ -58,14 +71,23 @@ a {
   transition: height var(--speed) ease;
 }
 .dropdownC {
-  transform: translateX(-5%);
+  transform: translateX(-60%);
+
+}
+.dropdownC2 {
+  transform: translateY(3%) translateX(-50%);
+  /* transform: translateX(-50%); */
 
 }
 .dropdownP {
   transform: translateX(20%);
 
 }
-
+.iconsDropDown{
+  display:flex;
+  width: 95%;
+  justify-content: space-evenly;
+}
 .menu {
   width: 100%;
 }
@@ -90,7 +112,7 @@ a {
 
 .menu-item {
   height: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   color: white;
   display: flex;
   align-items: center;
@@ -118,34 +140,34 @@ a {
   height: 900px;
 }
 /* CSSTransition classes  */
-.menu-primary-enter {
+.dropdownC2  .menu-primary-enter {
   position: absolute;
   transform: translateX(-110%);
 }
-.menu-primary-enter-active {
+.dropdownC2   .menu-primary-enter-active {
   transform: translateX(0%);
   transition: all var(--speed) ease;
 }
-.menu-primary-exit {
+.dropdownC2  .menu-primary-exit {
   position: absolute;
 }
-.menu-primary-exit-active {
+.dropdownC2  .menu-primary-exit-active {
   transform: translateX(-110%);
   transition: all var(--speed) ease;
 }
 
 
-.menu-secondary-enter {
+.dropdownC2  .menu-secondary-enter {
   transform: translateX(110%);
 }
-.menu-secondary-enter-active {
+.dropdownC2  .menu-secondary-enter-active {
   transform: translateX(0%);
   transition: all var(--speed) ease;
 }
 .menu-secondary-exit {
 
 }
-.menu-secondary-exit-active {
+.dropdownC2  .menu-secondary-exit-active {
   transform: translateX(110%);
   transition: all var(--speed) ease;
 }
