@@ -47,7 +47,7 @@ const nav = [
 
 
 const Headers = (className) => {
-  const { setUsername, setUserAuthenticated } = useContext(UserContext);
+  const { setUsername, setUserAuthenticated, ethAddress, setEthAddress } = useContext(UserContext);
   const [visibleNav, setVisibleNav] = useState(false);
   const [visibleLoginModal, setVisibleLoginModal] = useState(false);
   const [visibleLogoutModal, setVisibleLogoutModal] = useState(false);
@@ -71,6 +71,7 @@ const Headers = (className) => {
 
   function handleLogout() {
     setUsername(null);
+    setEthAddress(null);
     setUserAuthenticated(false);
     logout();
   }
@@ -88,6 +89,7 @@ const Headers = (className) => {
         if (user) {
           setUsername(user.attributes.username);
           setUserAuthenticated(true);
+          setEthAddress(user.attributes.ethAddress);
           setVisibleModal(false);
           setVisibleLoginModal(false);
         } else {
@@ -116,6 +118,7 @@ const Headers = (className) => {
             setVisibleModal(false);
             setUsername(user.attributes.username);
             setUserAuthenticated(true);
+            setEthAddress(user.attributes.ethAddress);
           } else {
             setVisibleErrorModal(true);
             setVisibleModal(false);
