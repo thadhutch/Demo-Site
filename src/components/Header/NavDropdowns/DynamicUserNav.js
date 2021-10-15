@@ -37,7 +37,7 @@ function NavItem(props) {
 }
 
 function DropdownMenu() {
-  const { username } = useContext(UserContext);
+  const { username, ethAddress } = useContext(UserContext);
 
   const [activeMenu, setActiveMenu] = useState('main');
   const [menuHeight, setMenuHeight] = useState(null);
@@ -76,8 +76,8 @@ function DropdownMenu() {
           onEnter={calcHeight}>
           <div className="menu">
           <div className="menuTop">
-            <DropdownItem><h1>565523ddgfds...3324</h1></DropdownItem>
-            <DropdownItem><h4>@Username</h4></DropdownItem>
+            <DropdownItem><h1>{ethAddress?.slice(0, 8) + "..." + ethAddress?.slice(ethAddress?.length - 6, ethAddress?.length)}</h1></DropdownItem>
+            <DropdownItem><h4>@{username}</h4></DropdownItem>
             <DropdownItem rightIcon={<ChevronIcon />}><h1>$SP Balance</h1><p>38k SP</p></DropdownItem>
             <DropdownItem rightIcon={<ChevronIcon />} ><h1>Eth Balance</h1><p>2.07 Eth</p></DropdownItem>
             <DropdownItem rightIcon={<ChevronIcon />} ><h1>Voting Power</h1><p>83k</p></DropdownItem>

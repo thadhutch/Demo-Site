@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import cn from "classnames";
 import styles from "./Header.module.sass";
@@ -18,6 +18,7 @@ import LoadingModal from '../LoadingModal/index';
 import ListIcon from './lineIcon.png';
 import { style } from "dom-helpers";
 import Logo from "./User/logopng copy.png";
+import { UserContext } from "../../GlobalState";
 
 const nav = [
   {
@@ -46,7 +47,7 @@ const nav = [
 
 
 const Headers = (className) => {
-
+  const { setUsername, setUserAuthenticated } = useContext(UserContext);
   const [visibleNav, setVisibleNav] = useState(false);
   const [visibleLoginModal, setVisibleLoginModal] = useState(false);
   const [visibleLogoutModal, setVisibleLogoutModal] = useState(false);
@@ -68,26 +69,30 @@ const Headers = (className) => {
     alert();
   };
 
+  function handleLogout() {
+    setUsername(null);
+    setUserAuthenticated(false);
+    logout();
+  }
+
 
 
   async function MetaMaskAuthentication() {
     const user = Moralis.User.current();
-
     try {
       setVisibleModal(true);
       setLoadingMessage("Authenticating through MetaMask, if nothing happens please click the MetaMask extension.")
       Moralis.Web3.getSigningData = () => 'Welcome to SpacePath Marketplace! Please sign in to create an account.';
       await Moralis.Web3.authenticate().then((user) => {
-        try {
-          if (user) {
-            setVisibleModal(false);
-            setVisibleLoginModal(false);
-          } else {
-            setVisibleErrorModal(true);
-          };
-        } catch {
-
-        }
+        console.log(user)
+        if (user) {
+          setUsername(user.attributes.username);
+          setUserAuthenticated(true);
+          setVisibleModal(false);
+          setVisibleLoginModal(false);
+        } else {
+          setVisibleErrorModal(true);
+        };
       })
     } catch (error) {
       if (error.code === 4001) {
@@ -109,6 +114,8 @@ const Headers = (className) => {
         try {
           if (user) {
             setVisibleModal(false);
+            setUsername(user.attributes.username);
+            setUserAuthenticated(true);
           } else {
             setVisibleErrorModal(true);
             setVisibleModal(false);
@@ -197,7 +204,7 @@ const Headers = (className) => {
               srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-light.png?alt=media&token=af5f3049-b42b-4094-956d-f8377f8986bf"
               alt="SpacePath Logo"
             />
-          <Image
+            <Image
               className={styles.pic2}
               src={Logo}
               srcDark={Logo}
@@ -210,8 +217,8 @@ const Headers = (className) => {
               action=""
               onSubmit={() => handleSubmit()}
             >
-                <Input />
-                {/* <button className={styles.result}>
+              <Input />
+              {/* <button className={styles.result}>
                   <Icon name="search" size="20" />
                 </button> */}
             </form>
@@ -232,7 +239,7 @@ const Headers = (className) => {
                     <span>About</span>
                   </NavLink>
                 </li>
-                  <CommunityNav/>
+                <CommunityNav />
               </ul>
             </nav>
             <>
@@ -240,30 +247,30 @@ const Headers = (className) => {
                 <Link
                   className={cn("button-small", styles.mobilebutton)}
                   to="/"
-                  onClick={() => logout()}
+                  onClick={() => handleLogout()}
                 >
                   Logout
                 </Link>
               ) : (
-                <Link
-                  className={cn("button-small", styles.mobilebutton)}
-                  to="/"
-                  onClick={() => setVisibleLoginModal(true)}
-                >
-                  Connect Wallet
-                </Link>
-              )}
+                  <Link
+                    className={cn("button-small", styles.mobilebutton)}
+                    to="/"
+                    onClick={() => setVisibleLoginModal(true)}
+                  >
+                    Connect Wallet
+                  </Link>
+                )}
             </>
           </div>
           <div className={styles.usercontainer}>
-          <div className={styles.containerInput}>
-              <input className={styles.input} type="text" placeholder="Search..."/>
+            <div className={styles.containerInput}>
+              <input className={styles.input} type="text" placeholder="Search..." />
               <div className={styles.Search123}></div>
             </div>
-          <div className={styles.ListIcon}>
-                {/* <img src={ListIcon}/> */}
-                <CommunityNavMobile/>
-                </div>
+            <div className={styles.ListIcon}>
+              {/* <img src={ListIcon}/> */}
+              <CommunityNavMobile />
+            </div>
             {user ? (
               <button
                 className={cn("button-small", styles.button)} id={styles.logoutBtn} onClick={() => logout()}
@@ -271,20 +278,20 @@ const Headers = (className) => {
                 Logout
               </button>
             ) : (
-              <button id={styles.walletBtn}
-                className={cn("button-small", styles.button)}
-                onClick={() => setVisibleLoginModal(true)}
-              >
-                Connect Wallet
-              </button>
-            )}
+                <button id={styles.walletBtn}
+                  className={cn("button-small", styles.button)}
+                  onClick={() => setVisibleLoginModal(true)}
+                >
+                  Connect Wallet
+                </button>
+              )}
             {user ? (
               <DynamicUserNav />
             ) : (
-              <>
-              </>
-            )}
-          <Notification className={styles.notification} />
+                <>
+                </>
+              )}
+            <Notification className={styles.notification} />
           </div>
           {/* <button
             className={cn(styles.burger, { [styles.active]: visibleNav })}

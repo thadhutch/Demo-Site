@@ -8,9 +8,11 @@ import Footer from "../../components/Footer";
 import FooterHero from "../../components/FooterHero";
 import defaultBanner from "./profileBanner.jpeg";
 import defaultProfilePic from "./profilePic.jpeg";
+const Moralis = require('moralis');
+Moralis.initialize("7Ku6X8CPeLsTB1hNuxKbkK3zsNXRW9GrRid3wCnD");
+Moralis.serverURL = 'https://kp2g9eqiyitu.bigmoralis.com:2053/server';
 
 const Profile = (props) => {
-    const Moralis = require('moralis');
     const [userData, setUserData] = useState([]);
     const [sort, setSort] = useState("viewAll");
 
@@ -22,6 +24,7 @@ const Profile = (props) => {
         try {
             const results = await Moralis.Cloud.run("userQuery", { username: props.user });
             setUserData(results[0].attributes);
+            console.log(results[0].attributes)
         } catch (error) {
             // window.location.href = "/";
             console.log(error)
