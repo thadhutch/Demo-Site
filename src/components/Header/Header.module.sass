@@ -13,9 +13,18 @@
     padding: 0px 100px 0px 50px
     height: 90px
     border-bottom: 2px solid $neutrals5
+    +t 
+        padding: 0px 0px 0px 0px
     +m
-        padding: 10px 0 24px
-        margin-bottom: 15px
+        padding: 0 0 0 0
+        margin-bottom: 0px
+        border: none
+        height: 20px
+    +a
+        display: flex
+        justify-content: content
+        padding-top: 0px
+        height: 150px
         border: none
     +dark
         border-color: $neutrals3
@@ -24,6 +33,18 @@
     display: flex
     width: 100%
     align-items: center
+    +t 
+        width: 100%
+    +m 
+        width: 80%
+    +a 
+        width: 100%
+        margin-bottom: -100px
+        padding-left: 100px
+        display: flex 
+        justify-content: space-around
+        align-items: center
+
     & > .button
         +poppins
         text-transform: uppercase
@@ -35,28 +56,42 @@
     +t
         width: 23%
     +m
-        width: 70%
-        padding-top: 10px
+        width: 60%
+        div
+            padding: 5px
+            width: 150px
+            height: 150px
+            margin-left: -55px
+            margin-top: -50px
+            display: flex
+            justify-content: center
+            align-items: center
+            border-radius: 50%
+            background: radial-gradient($neutrals8 20%,$neutrals5 40%,$neutrals4  60%,#0000 90%)   
+            +dark
+                background: radial-gradient($neutrals5 20%,$neutrals4 40%, #0000 70%)   
 .pic
     width: 200px
     +w
         width: 175px
     +x
         width: 200px
+    +t
+        width: 150px
     +m
         display: none
         width: 400px
 .pic2
     display: none
-    width: 200px
     +w
         width: 175px
     +x
         width: 200px
-    +m
-        margin-left: 50px
+    +m 
+        padding: 5px
         display: block
-        width: 50px
+        width: 125px
+
 // Search and Nav Container
 .wrapper
     padding-left: 20px
@@ -64,11 +99,11 @@
     align-items: center
     width: 100%
     +t
-        width: 70%
+        padding-left: 0px
     +x
-        display: none
     +m
         display: none
+
 
 
 // Search\
@@ -79,7 +114,7 @@
     padding: 15px
     margin-right: 50px
     border-radius: 15px
-    border: 2px solid $neutrals5
+    border: 2px solid $neutrals2
     display: flex
     align-items: center
     +w
@@ -119,30 +154,24 @@
 .nav
     display: flex
     +w
-        display: none
+        width: 100%
+        margin-left: 70px
+    +t
+        margin-left: 25px
     +m
-        display: flex
-        flex-direction: column
-        margin: 0 0 10px
-        border: none
+        margin-left: 0px
+        margin-top: 50px
+
     +dark
         border-color: $neutrals3
 
 .link
     display: flex
     flex-direction: row
-    +dm-sans
-    color: $neutrals4
-    transition: color .2s
-    &.active
-        display: flex
-        flex-direction: column
-        margin-top: 200px
-        margin-left: -550px
-        font-size: 27px
-        &:hover
-            border: none
+    width: 100%
     +w
+    +t
+
     +m
 
 .ListIcon
@@ -150,14 +179,41 @@
     +w
         width: 45px
         height: 45px
-        background: black
-        border-radius: 100%
+        // background: black
+        // border-radius: 100%
         display: flex
         align-items: center
         justify-content: center
-    &:hover
-        transition: all 0.2s ease-out
-        box-shadow: 0px 0px 10px $white
+        border-radius: 100%
+        background: $neutrals6
+        border-radius: 50%
+        border: solid $neutrals1 2px
+        +dark
+            background: $neutrals3
+            border: solid $neutrals5 2px
+        // svg 
+        //     fill: $neutrals1
+        //     +dark
+        //         fill: $neutrals1
+
+.ListIcon li svg
+    +w
+        width: 25px
+        height: 25px        
+        fill: $neutrals1
+        +dark
+            fill: $neutrals7
+        &:hover
+            width: 232px
+.ListIcon li svg:hover
+    +w
+        transition: all .5s ease
+        width: 27px
+        height: 27px
+        fill: black
+        filter: drop-shadow(0px -2px red)
+
+
 .ListIcon li
     +w
         display: flex
@@ -178,6 +234,7 @@
         +dark
             border-bottom: 2px solid #fff
     +w
+
 .navlinksDrop
     padding: 5px
     padding-bottom: 0px
@@ -213,15 +270,24 @@
     display: flex
     justify-content: flex-end
     border: none
-    
     +w
         width: 20%
     +x
-        width: 100%
-        justify-content: flex-end
-
+        width: 50%
+    +t
+        width: 20%
     +m
-        margin-right: 50px
+        width: 10%
+        margin-right: 5px
+        margin-bottom: -30px
+    +a
+        margin-top: 0px
+        width: 50%
+        height: 50%
+        display: flex
+        align-items: center
+        justify-content: center
+        margin-top: 0px
 #logoutBtn
     +w
         display: none
@@ -234,6 +300,8 @@
     +w
         width: 75px
         font-size: 13px
+        border: none
+
 .notification
     display: none
     +m
@@ -256,7 +324,7 @@
     display: inline-block
     padding: 7px
     span
-        color: $neutrals4
+        color: $neutrals1
         transition: color .2s
         font-weight: 600
         +dark
@@ -268,7 +336,7 @@
     +dark
         color: $neutrals6
     +m
-        display: none
+        // display: none
         display: block
         margin-top: 250px
         padding-top: 10px
@@ -403,7 +471,10 @@
         padding-left: 65px
         display: flex
         align-items: center
+        display: none
+
 .Search123
+    display: none
     position: absolute
     margin: auto
     left: 0
@@ -505,3 +576,199 @@
     position: absolute
     right: 0
     top: 0
+// drop Downs
+#dropdownP #menuTop #menuItem 
+    margin-bottom: 20px
+
+#dropdownP, #dropdownC, #dropdownC2 
+    position: absolute
+    z-index: 100000
+    top: 80px
+    width: 225px
+    background-color: $neutrals5
+    border: 1px solid #474a4d
+    border-radius: 5px
+    // box-shadow: 0px 0px 10px rgb(555, 363, 140)
+    padding: 1rem
+    overflow: hidden
+    transition: height .5s ease
+    +dark
+        background-color: black
+        box-shadow: 0px 0px 10px white 
+
+#dropdownP
+    transform: translateY(3%) translateX(33%)
+    +x 
+        transform: translateY(3%) translateX(0%)
+    +a
+        top: 100px
+        transform: translateY(15%) translateX(-45%)
+#dropdownC
+    transform: translateY(8%) translateX(-30%)
+    width: 200px
+    +t
+        transform: translateY(8%) translateX(-130%)
+#dropdownC svg
+    fill: $neutrals6
+    +dark
+        fill: $neutrals1
+#menuTop
+    width: 100%
+    height: 300px
+    display: flex
+    flex-direction: column
+    margin-bottom: 10px
+#menu 
+    width: 100%
+
+#menuWords
+    padding-left: 10px
+
+#menuTop img
+    width: 30px
+
+#menuTop h1, #menuBottom h1
+    font-size: 15px
+    width: 100%
+
+#menuTop h4, #menuBottom h4
+    font-size: 12px
+    color: $neutrals3
+    +dark
+        color: #5c5c5c
+#menuTop button
+    margin-left: 15px
+    margin-right: 15px
+    margin-top: 15px
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 40px
+    border-radius: 20px
+    font-weight: 700
+    border: red solid 1px
+    color: $neutrals3
+    +dark
+        border: red solid 1px
+        color: white
+#menuTop button:hover
+    text-shadow: 1px 1px 10px $white
+    transition: ease-in-out .2s
+    box-shadow: 0px 0px 1px 1px red
+    color: $neutrals3
+    +dark
+        text-shadow: 1px 1px 10px white
+        color: $neutrals7
+
+#menuTopTop #sss h4
+    font-size: 12px
+    background: -webkit-linear-gradient(45deg, #000 0%, #f55a00 20%, #ff1c59 70%, #000 90%)
+    -webkit-background-clip: text
+    -webkit-text-fill-color: transparent
+    +dark
+        background: -webkit-linear-gradient(45deg, #ffffff 0%, #f55a00 20%, #ff1c59 51%, #ad1177 80%)
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+#menuBottom 
+    padding-top: 30px
+    height: 250px
+    border-top: solid white 2px
+    img
+        width: 25px
+        +dark 
+            width: 23px
+
+#menuItem
+    width: 100%
+    margin-bottom: 8px
+    cursor: pointer
+    color: $neutrals1
+    height: 30px
+    display: flex
+    align-items: center
+    border-radius: 15px
+    transition: background .3s ease
+    +dark
+        color: white
+#menuItem:hover
+    h1
+        font-weight: 700
+        text-shadow: 1px 1px 6px white
+#menuSocialIcons 
+    display: flex
+    width: 100%
+    padding-bottom: 10px
+    img
+        width: 35px
+        margin: 10px 5px 10px 2px
+
+#menuBottom img:hover 
+    filter: drop-shadow(0px 0px 1px white)
+    width: 25px
+    transition: ease-in-out .2s
+
+#menuTop #menuItem:hover 
+    img
+        filter: drop-shadow(0px 0px 1px white)
+        width: 33px
+        transition: ease-in-out .2s
+
+#menuSocialIcons img:hover
+    filter: drop-shadow(0px 0px 1px white)
+    width: 36px
+
+#menuBottom #menuItem:hover
+    img
+        filter: drop-shadow(0px 0px 1px white)
+        width: 26px
+/* CSSTransition classes  */
+// #menuPrimary-enter 
+//   position: absolute
+//   transform: translateX(-110%)
+
+// #menuPrimary-enter-active 
+//     transform: translateX(0%)
+//     transition: all .8s ease
+// #menuPrimary-exit 
+//     position: absolute
+
+// #menuPrimaryExitActive 
+//     transform: translateX(0%)
+//     transition: all .8s ease
+
+// #menuSecondaryEnter 
+//     transform: translateX(150%)
+//     transition: all .8s ease
+
+// #menuSecondary-enter-active 
+//     transform: translateX(0%)
+//     transition: all .8s ease
+
+// #menuSecondary-exit 
+
+
+// #menuSecondary-exit-active 
+//     transform: translateX(110%)
+//     transition: all .8s ease
+
+
+
+#arrowIconMenu
+    height: 40px
+    width: 100%
+#arrowIconMenu h1
+    padding-right: 20px
+#arrowIconMenu svg
+    fill: $neutrals6
+    width: 20px
+    padding-bottom: 5px
+#arrowIconMenu svg:hover
+    filter: drop-shadow(1px 1px 1px white)
+
+.menuItemC
+    height: 100%
+.menuItemC h1
+    font-size: 15px
+.menuItemC #menuSocialIcons
+    padding-top: 100px
+

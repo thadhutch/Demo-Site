@@ -18,7 +18,30 @@ import { ReactComponent as ChevronIcon } from './icons/chevron.svg';
 import { ReactComponent as ArrowIcon } from './icons/arrow.svg';
 import { ReactComponent as BoltIcon } from './icons/bolt.svg';
 import Image from "../../Image";
-
+import lines from "../pngwing.com.png";
+const socialIcons = {
+  Instagram :  <Image
+  src="https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/iconmonstr-instagram-15-240%20(1).png?alt=media&token=8f3379c6-3594-43c2-b071-6fd503982b4c"
+  srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-instagram-15-240.png?alt=media&token=32f17a6d-ca4c-4dba-b42d-a867e18d3432"
+  alt="Instagram Logo"
+ />,
+  Twitter :<Image
+  src="https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/iconmonstr-twitter-5-240%20(1).png?alt=media&token=1e11e3c1-eaa7-4e13-abaf-d1ceb7a2dd9f"
+  srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-twitter-5-240.png?alt=media&token=8c40f101-85ff-412e-a365-33316b67f146"
+  alt="Twitter Logo"
+ />,
+  Discord : <Image
+  src="https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/iconmonstr-discord-5-240%20(1).png?alt=media&token=2ef7d262-5c6b-471e-94c8-674d55a7d572"
+  srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-discord-5-240.png?alt=media&token=365448a8-8542-4bc4-87a6-ee52d2e93de3"
+  alt="Discord Logo"
+ />,
+  Telegram :<Image
+  src="https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/iconmonstr-telegram-5-240%20(1).png?alt=media&token=0dee66ae-5b05-4da9-8958-92203ef114e0"
+  srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-telegram-5-240.png?alt=media&token=1f1318fc-e242-48ef-8eb0-4dc0d8331299"
+  alt="Telegram Logo"
+ />,
+ 
+ }
 
 const  UserIcons= {
   SPIcon :  <Image
@@ -91,62 +114,80 @@ function NavItem(props) {
 }
 
 function DropdownMenu(props) {
-  const { username } = useContext(UserContext);
-  const Moralis = require('moralis');
-  const [userData, setUserData] = useState([]);
-  const { logout } = useMoralis();
+  
+  const dropdownRef = useRef(null);
   const [activeMenu, setActiveMenu] = useState('main');
   const [menuHeight, setMenuHeight] = useState(null);
-  const dropdownRef = useRef(null);
+  const { username } = useContext(UserContext);
+  const [userData, setUserData] = useState([]);
 
-  useEffect(() => {
-    setMenuHeight(dropdownRef.current?.firstChild.offsetHeight)
-    getData();
-  }, [])
+  const Moralis = require('moralis');
+  Moralis.initialize("7Ku6X8CPeLsTB1hNuxKbkK3zsNXRW9GrRid3wCnD");
 
+  const user = Moralis.User.current();
+  const { logout } = useMoralis();
+  const handleSubmit = (e) => {
+    alert();
+  };
+  
   function calcHeight(el) {
     const height = el.offsetHeight;
     setMenuHeight(height);
   }
-
-  async function getData() {
-    try {
-        const results = await Moralis.Cloud.run("userQuery", { username: props.user });
-        setUserData(results[0].attributes);
-    } catch (error) {
-        // window.location.href = "/";
-        console.log(error)
-    }
-}
   function DropdownItem(props) {
 
     return (
-      <a href={props.link} className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+      <a href={props.link} className="menu-item" id={styles.menuItem} onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
         {props.Iconchildren}
-        <div className="menuWords">
+        <div className="menuWords" id={styles.menuWords}  >
         <h1>{props.Headerchildren}</h1>
         <h4>{props.PTagchildren}</h4>
         </div>
       </a>
     );
   }
+  function DropdownItem2(props) {
+    return (
+      <a href={props.link} className="menu-item" id={styles.menuItem} onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+        {props.Iconchildren}
+        <div className="menuWords" id={styles.menuWords}  >
+        <h1>{props.Headerchildren}</h1>
+            {props.rightIcon}
+        </div>
+      </a>
+    );
+  }
 
+  function DropdownItemC(props) {
+    return (
+      <a 
+      // target="_blank"
+        href={props.itemLinkTag}
+        className={styles.menuItemC} id={styles.menuItem} onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+        <h1>{props.children}</h1>
+        <h2>{props.leftIcon}</h2>
+      </a>
+    );
+  }
   return (
 
     <>
-      <div className="dropdownP" style={{ height: "550px" }} ref={dropdownRef}>
+      <div className="dropdownP"  id={styles.dropdownP} style={{ height: menuHeight }}          ref={dropdownRef}
+>
 
         <CSSTransition
+          style={{ height: "575px" }}
           in={activeMenu === 'main'}
           timeout={500}
           classNames="menu-primary"
+          id={styles.menuPrimary}
           unmountOnExit
           onEnter={calcHeight}>
-          <div className="menu">
-          <div className="menuTop">
-          <div className="menuTopTop">
+          <div className="menu" id={styles.menu}>
+          <div className="menuTop" id={styles.menuTop}>
+          <div className="menuTopTop" id={styles.menuTopTop}>
             <DropdownItem Headerchildren={userData.ethAddress ? userData.ethAddress?.slice(0, 6) + "..." + userData.ethAddress?.slice(userData.ethAddress?.length - 4, userData.ethAddress?.length) : "0XDEA7...IKA9"}></DropdownItem>
-            <DropdownItem PTagchildren="@Username"></DropdownItem>
+            <DropdownItem id={styles.sss}><h4>@{userData.username || "joneslitty77"}</h4></DropdownItem>
             <div className={styles.themeNav}>
                 <Theme className={styles.theme}/>
               </div> 
@@ -154,28 +195,16 @@ function DropdownMenu(props) {
             <DropdownItem  Iconchildren={UserIcons.SPIcon} Headerchildren="$SP Balance" PTagchildren="38k SP"></DropdownItem>
             <DropdownItem  Iconchildren={UserIcons.EthIcon} Headerchildren="Balance" PTagchildren="2.07 Eth"></DropdownItem>
             <DropdownItem  Iconchildren={UserIcons.VotingIcon} Headerchildren="Voting Power" PTagchildren="83k"></DropdownItem>
-            <button>Add Funds<img src="https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/mastercardIcon.png?alt=media&token=81286a30-3205-4405-9e6d-88b483014782"/></button>
-            {/* <DropdownItem
-              leftIcon={<CogIcon />}
-              rightIcon={<ChevronIcon />}
-              goToMenu="settings">
-              Settings
-            </DropdownItem>
-            <DropdownItem
-              leftIcon="🦧"
-              rightIcon={<ChevronIcon />}
-              goToMenu="animals">
-              Animals
-            </DropdownItem> */}
+            <button >Add Funds<img src="https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/mastercardIcon.png?alt=media&token=81286a30-3205-4405-9e6d-88b483014782"/></button>
+
 
           </div>
-          <div className="menuBottom">
+          <div id={styles.menuBottom}>
             <DropdownItem Iconchildren={UserIcons.ProfileIcon} link={"/user/" + username} Headerchildren="Profile"></DropdownItem>
-            {/* <DropdownItem Iconchildren={UserIcons.SPIcon} link="/">Home</DropdownItem> */}
-            <DropdownItem Iconchildren={UserIcons.SavedIcon} Headerchildren="Saved"></DropdownItem>
-            <DropdownItem Iconchildren={UserIcons.FundsIcon} Headerchildren="Manage Funds"></DropdownItem>
-            <DropdownItem Iconchildren={UserIcons.SettingsIcon} Headerchildren="Settings"></DropdownItem>
-            <Link to="/" onClick={() => logout()}><DropdownItem Iconchildren={UserIcons.LogOutIcon} Headerchildren="Sign Out"></DropdownItem></Link>
+            <DropdownItem2 Iconchildren={UserIcons.SavedIcon} Headerchildren="Saved"></DropdownItem2>
+            <DropdownItem2 Iconchildren={UserIcons.FundsIcon} Headerchildren="Manage Funds"></DropdownItem2>
+            <DropdownItem2 goToMenu="community"  Iconchildren={UserIcons.SettingsIcon} Headerchildren="Community"></DropdownItem2>
+            <Link to="/" onClick={() => logout()}><DropdownItem2 Iconchildren={UserIcons.LogOutIcon} Headerchildren="Sign Out"></DropdownItem2></Link>
             {/* <DropdownItem
               leftIcon={<CogIcon />}
               rightIcon={<ChevronIcon />}
@@ -194,23 +223,35 @@ function DropdownMenu(props) {
         </CSSTransition>
 
         <CSSTransition
-          in={activeMenu === 'settings'}
+          style={{ height: "400px" }}
+          in={activeMenu === 'community'}
           timeout={500}
           classNames="menu-secondary"
+          // id={styles.menuPrimaryExitActive}
           unmountOnExit
           onEnter={calcHeight}>
-          <div className="menu">
-            <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
-              <h2>My Tutorial</h2>
-            </DropdownItem>
-            <DropdownItem leftIcon={<BoltIcon />}>HTML</DropdownItem>
-            <DropdownItem leftIcon={<BoltIcon />}>CSS</DropdownItem>
-            <DropdownItem leftIcon={<BoltIcon />}>JavaScript</DropdownItem>
-            <DropdownItem leftIcon={<BoltIcon />}>Awesome!</DropdownItem>
+      <div className="menu" id={styles.menu}>
+        <div id={styles.arrowIconMenu}>
+              <DropdownItemC goToMenu="main" children={<ArrowIcon/>} leftIcon="Community" />
+              </div>
+            <div className="menuSocialIcons"  id={styles.menuSocialIcons}>
+              <DropdownItemC itemLinkTag="https://www.instagram.com/spacepathhq/" children = {socialIcons.Instagram}>
+              </DropdownItemC>
+              <DropdownItemC itemLinkTag="https://twitter.com/SpacePathHQ" children = {socialIcons.Twitter}>
+              </DropdownItemC>
+              <DropdownItemC itemLinkTag="https://discord.gg/bdUsVc5B" children = {socialIcons.Discord}>
+              </DropdownItemC>
+              <DropdownItemC itemLinkTag="https://t.me/spacepathtelegram" children = {socialIcons.Telegram}>
+              </DropdownItemC>
+            </div>
+            <DropdownItemC itemLinkTag="/about"  children= "About SpacePath" ></DropdownItemC>
+            <DropdownItemC itemLinkTag="/" children= "$SP Token"></DropdownItemC>
+            <DropdownItemC itemLinkTag="/" children= "FAQ"></DropdownItemC>
+            <DropdownItemC itemLinkTag="/"  children= "Contact Us"></DropdownItemC>
           </div>
         </CSSTransition>
 
-        <CSSTransition
+        {/* <CSSTransition
           in={activeMenu === 'animals'}
           timeout={500}
           classNames="menu-secondary"
@@ -225,7 +266,7 @@ function DropdownMenu(props) {
             <DropdownItem leftIcon="🦋">Horse?</DropdownItem>
             <DropdownItem leftIcon="🦔">Hedgehog</DropdownItem>
           </div>
-        </CSSTransition>
+        </CSSTransition> */}
       </div>
     </>
   );

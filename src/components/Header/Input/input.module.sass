@@ -17,8 +17,11 @@ $gray: #9b9b9b
 .form__field 
   font-family: inherit
   font-size: 1rem
-  color: $white
+  color: $neutrals1
   background: transparent
+  +dark
+    color: $white
+
   +w 
     width: 70%
   +t
@@ -44,6 +47,6 @@ $gray: #9b9b9b
     display: none
     font-weight: 100
 
-.head, svg
-  fill: $gray
+.form__field, svg
+  fill: $neutrals3
   transition: fill .2s

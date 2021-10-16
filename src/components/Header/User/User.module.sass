@@ -2,7 +2,6 @@
 
 .user
     position: relative
-    margin-left: 15px
     // width: max-content
     +m
         position: static
@@ -20,15 +19,25 @@
     padding: 4px 16px 4px 4px
     border-radius: 20px
     // margin-right: -50px
-    box-shadow: inset 0 0 0 2px $neutrals5
+    // box-shadow: inset 0 0 0 2px $neutrals5
     +button-2
     cursor: pointer
     transition: box-shadow .2s
-    -webkit-tap-highlight-color: rgba(0,0,0,0)
+    // -webkit-tap-highlight-color: rgba(0,0,0,0)
     +dark
-        box-shadow: inset 0 0 0 2px $neutrals3
+        // box-shadow: inset 0 0 0 2px $neutrals3
     +w 
         min-width: 45px
+        height: 45px
+        padding: 0px
+        border-radius: 100%
+    +t
+        min-width: 10px
+        height: 45px
+        padding: 0px
+        border-radius: 100%
+    +a
+        min-width: 0px
         height: 45px
         padding: 0px
         border-radius: 100%
@@ -40,10 +49,6 @@
     //     padding: 0
     //     border-radius: 0
     //     box-shadow: none
-    +dark
-        box-shadow: inset 0 0 0 2px $neutrals3
-        +m
-            box-shadow: none
     // &:hover
     //     box-shadow: inset 0 0 0 2px $neutrals1
     //     +dark
@@ -58,13 +63,27 @@
     display: flex
     align-items: center
     justify-content: center
-    background: black
+    background: $neutrals6
     border-radius: 50%
+    border: solid $neutrals1 2px
+    +dark
+        background: $neutrals3
+        border: solid $neutrals5 0px
+        background: radial-gradient($neutrals5 20%,$neutrals4 40%, #0000 70%)   
     img
         width: 98%
-        height: 98%
         z-index: 1000
-    
+        +m 
+            width: 80%
+        +a 
+            width: 80%
+    +m 
+        width: 60px
+        margin-top: 10px
+    +a 
+        margin-right: 20px
+        width: 60px
+        height: 60px
 .wallet
     margin-left: 12px
     +w

@@ -78,23 +78,25 @@ function DropdownMenu() {
       <a 
       // target="_blank"
         href={props.itemLinkTag}
-        className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+        className="menu-item" id={styles.menuItem} onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
         <h1>{props.children}</h1>
       </a>
     );
   }
   return (
     <>
-      <div className="dropdownC" style={{ height: "250px" }} ref={dropdownRef}>
+      <div className="dropdownC" id={styles.dropdownC} style={{ height: "250px" }} ref={dropdownRef}>
         <CSSTransition
           in={activeMenu === "main"}
           timeout={500}
           classNames="menu-primary"
+          id={styles.menuPrimary}
+
           unmountOnExit
           onEnter={calcHeight}
         >
-          <div className="menu">
-            <div className="menuSocialIcons">
+          <div className="menu" id={styles.menu}>
+            <div className="menuSocialIcons"  id={styles.menuSocialIcons}>
               <DropdownItem itemLinkTag="https://www.instagram.com/spacepathhq/" children = {socialIcons.Instagram}>
               </DropdownItem>
               <DropdownItem itemLinkTag="https://twitter.com/SpacePathHQ" children = {socialIcons.Twitter}>
@@ -115,6 +117,8 @@ function DropdownMenu() {
           in={activeMenu === "settings"}
           timeout={500}
           classNames="menu-secondary"
+          id={styles.menuSecondary}
+
           unmountOnExit
           onEnter={calcHeight}
         >
@@ -133,6 +137,8 @@ function DropdownMenu() {
           in={activeMenu === "animals"}
           timeout={500}
           classNames="menu-secondary"
+          id={styles.menuSecondary}
+
           unmountOnExit
           onEnter={calcHeight}
         >

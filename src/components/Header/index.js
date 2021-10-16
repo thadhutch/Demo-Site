@@ -17,7 +17,7 @@ import ModalTextTitle from '../ModalTextTitle/index';
 import LoadingModal from '../LoadingModal/index';
 import ListIcon from './lineIcon.png';
 import { style } from "dom-helpers";
-import Logo from "./User/logopng copy.png";
+import Logo from "./SpacePath.png";
 
 const nav = [
   {
@@ -197,24 +197,26 @@ const Headers = (className) => {
               srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-light.png?alt=media&token=af5f3049-b42b-4094-956d-f8377f8986bf"
               alt="SpacePath Logo"
             />
+            <div>
           <Image
               className={styles.pic2}
               src={Logo}
               srcDark={Logo}
               alt="SpacePath Logo"
             />
+          </div>
           </Link>
           <div className={cn(styles.wrapper, { [styles.active]: visibleNav })}>
-            <form
+            {/* <form
               className={styles.search}
               action=""
               onSubmit={() => handleSubmit()}
             >
                 <Input />
-                {/* <button className={styles.result}>
+                <button className={styles.result}>
                   <Icon name="search" size="20" />
-                </button> */}
-            </form>
+                </button>
+            </form> */}
             <nav className={styles.nav}>
               <ul className={styles.link}>
                 <li>
@@ -251,14 +253,10 @@ const Headers = (className) => {
             </>
           </div>
           <div className={styles.usercontainer}>
-          <div className={styles.containerInput}>
+          {/* <div className={styles.containerInput}>
               <input className={styles.input} type="text" placeholder="Search..."/>
               <div className={styles.Search123}></div>
-            </div>
-          <div className={styles.ListIcon}>
-                {/* <img src={ListIcon}/> */}
-                <CommunityNavMobile/>
-                </div>
+            </div> */}
             {user ? (
               <>
               </>
