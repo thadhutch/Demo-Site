@@ -38,7 +38,7 @@ const Description = () => {
           <div className={styles.homeHeroWords}>
             <h1 className={styles.title}>Govern, Create, and Collect Digital Art</h1>
             <h2>
-              On a one of a kind feeless, ecological & defi marketplace.
+              On a one of a kind ecological & decentralized marketplace.
             </h2>
           </div>
           <div className={styles.btns}>

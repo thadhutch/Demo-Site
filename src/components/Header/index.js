@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import cn from "classnames";
 import styles from "./Header.module.sass";
@@ -18,6 +18,7 @@ import LoadingModal from '../LoadingModal/index';
 import ListIcon from './lineIcon.png';
 import { style } from "dom-helpers";
 import Logo from "./SpacePath.png";
+import { UserContext } from "../../GlobalState";
 
 const nav = [
   {
@@ -46,7 +47,7 @@ const nav = [
 
 
 const Headers = (className) => {
-
+  const { setUsername, setUserAuthenticated, ethAddress, setEthAddress } = useContext(UserContext);
   const [visibleNav, setVisibleNav] = useState(false);
   const [visibleLoginModal, setVisibleLoginModal] = useState(false);
   const [visibleLogoutModal, setVisibleLogoutModal] = useState(false);
@@ -68,26 +69,32 @@ const Headers = (className) => {
     alert();
   };
 
+  function handleLogout() {
+    setUsername(null);
+    setEthAddress(null);
+    setUserAuthenticated(false);
+    logout();
+  }
+
 
 
   async function MetaMaskAuthentication() {
     const user = Moralis.User.current();
-
     try {
       setVisibleModal(true);
       setLoadingMessage("Authenticating through MetaMask, if nothing happens please click the MetaMask extension.")
       Moralis.Web3.getSigningData = () => 'Welcome to SpacePath Marketplace! Please sign in to create an account.';
       await Moralis.Web3.authenticate().then((user) => {
-        try {
-          if (user) {
-            setVisibleModal(false);
-            setVisibleLoginModal(false);
-          } else {
-            setVisibleErrorModal(true);
-          };
-        } catch {
-
-        }
+        console.log(user)
+        if (user) {
+          setUsername(user.attributes.username);
+          setUserAuthenticated(true);
+          setEthAddress(user.attributes.ethAddress);
+          setVisibleModal(false);
+          setVisibleLoginModal(false);
+        } else {
+          setVisibleErrorModal(true);
+        };
       })
     } catch (error) {
       if (error.code === 4001) {
@@ -109,6 +116,9 @@ const Headers = (className) => {
         try {
           if (user) {
             setVisibleModal(false);
+            setUsername(user.attributes.username);
+            setUserAuthenticated(true);
+            setEthAddress(user.attributes.ethAddress);
           } else {
             setVisibleErrorModal(true);
             setVisibleModal(false);
@@ -197,14 +207,12 @@ const Headers = (className) => {
               srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-light.png?alt=media&token=af5f3049-b42b-4094-956d-f8377f8986bf"
               alt="SpacePath Logo"
             />
-            <div>
-          <Image
+            <Image
               className={styles.pic2}
               src={Logo}
               srcDark={Logo}
               alt="SpacePath Logo"
             />
-          </div>
           </Link>
           <div className={cn(styles.wrapper, { [styles.active]: visibleNav })}>
             {/* <form
@@ -220,7 +228,7 @@ const Headers = (className) => {
             <nav className={styles.nav}>
               <ul className={styles.link}>
                 <li>
-                  <NavLink to="/home" className={styles.navlinks} id="home" onClick={() => setVisibleNav(!visibleNav)}>
+                  <NavLink to="/" className={styles.navlinks} id="home" onClick={() => setVisibleNav(!visibleNav)}>
                     <span className={styles.headertitles}>Home</span>
                   </NavLink>
                 </li>
@@ -234,22 +242,27 @@ const Headers = (className) => {
                     <span>About</span>
                   </NavLink>
                 </li>
-                  <CommunityNav/>
+                <CommunityNav />
               </ul>
             </nav>
             <>
               {user ? (
-                <>
-                </>
-              ) : (
                 <Link
                   className={cn("button-small", styles.mobilebutton)}
                   to="/"
-                  onClick={() => setVisibleLoginModal(true)}
+                  onClick={() => handleLogout()}
                 >
-                  Connect Wallet
+                  Logout
                 </Link>
-              )}
+              ) : (
+                  <Link
+                    className={cn("button-small", styles.mobilebutton)}
+                    to="/"
+                    onClick={() => setVisibleLoginModal(true)}
+                  >
+                    Connect Wallet
+                  </Link>
+                )}
             </>
           </div>
           <div className={styles.usercontainer}>
@@ -261,20 +274,20 @@ const Headers = (className) => {
               <>
               </>
             ) : (
-              <button id={styles.walletBtn}
-                className={cn("button-small", styles.button)}
-                onClick={() => setVisibleLoginModal(true)}
-              >
-                Connect Wallet
-              </button>
-            )}
+                <button id={styles.walletBtn}
+                  className={cn("button-small", styles.button)}
+                  onClick={() => setVisibleLoginModal(true)}
+                >
+                  Connect Wallet
+                </button>
+              )}
             {user ? (
               <DynamicUserNav />
             ) : (
-              <>
-              </>
-            )}
-          <Notification className={styles.notification} />
+                <>
+                </>
+              )}
+            <Notification className={styles.notification} />
           </div>
           {/* <button
             className={cn(styles.burger, { [styles.active]: visibleNav })}
