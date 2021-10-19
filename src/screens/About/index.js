@@ -58,43 +58,13 @@ const About = () => {
             <div className={styles.creatorsCollectorsCards}>
               <h1>For Creators</h1>
               <div className={styles.creatorsCollectorsDiv}>
-<<<<<<< HEAD
-                Any creator is welcome to submit media for voting. As a creator,
-                all you’ll need to do is connect your wallet and apply for our
-                creator network. Any creator is eligible for our creator
-                network, but you must be approved first to prevent spam and
-                unwanted content. After you are approved as a creator, you can
-                post as many images as you want each week ahead of the deadline
-                for voting. Once voting commences, you’ll be able to see how
-                your work is performing compared to others. Getting followers
-                from other platforms to help vote on your work always helps! If
-                the media you submit is top voted in a specific week, it’ll be
-                minted for free and put up for auction. After it sells, you’ll
-                get to keep 100% of the profits with zero transaction fees.
-=======
               Any creator is welcome to submit media for voting. As a creator, all you’ll need to do is connect your wallet and apply for our creator network. Any creator is eligible for our creator network, but you must be approved first to prevent spam and unwanted content. After you are approved as a creator, you can post as many images as you want each week ahead of the deadline for voting. Once voting commences, you’ll be able to see how your work is performing compared to others. Getting followers from other platforms to help vote on your work always helps! If the media you submit is top voted in a specific week, it’ll be minted for free and put up for auction. After it sells, you’ll get to keep 100% of the profits with zero transaction fees.
->>>>>>> a0f0c1137e8c4f1b6c8dd3bf24a7e35c4cd79407
               </div>
             </div>
             <div className={styles.creatorsCollectorsCards}>
               <h1>For Collectors</h1>
               <div className={styles.creatorsCollectorsDiv}>
-<<<<<<< HEAD
-                Collectors power the SpacePath NFT Marketplace by voting through
-                the SpacePath DAO and voting to aid content curation. As a
-                collector on the SpacePath Marketplace, you get to decide what
-                gets minted on the platform! After the deadline for submissions,
-                collectors will have 48 hours to browse and vote on their
-                favorite art. At the end of the 48 hours, the top voted art,
-                decided on by the community, will be minted and put up for
-                auction. Collectors will have another 48 hours to bid on the new
-                auctions and add to their portfolios. As a collector, you’ll get
-                rewarded in SpacePath Token for participating in voting and in
-                other aspects of our site. Additionally, you’ll get to earn
-                SpacePath Token just by owning an NFT!
-=======
               Collectors power the SpacePath NFT Marketplace by voting through the SpacePath DAO and voting to aid content curation. As a collector on the SpacePath Marketplace, you get to decide what gets minted on the platform! After the deadline for submissions, collectors will have 48 hours to browse and vote on their favorite art. At the end of the 48 hours, the top voted art, decided on by the community, will be minted and put up for auction. Collectors will have another 48 hours to bid on the new auctions and add to their portfolios. As a collector, you’ll get rewarded in SpacePath Token for participating in voting and in other aspects of our site. Additionally, you’ll get to earn SpacePath Token just by owning an NFT!
->>>>>>> a0f0c1137e8c4f1b6c8dd3bf24a7e35c4cd79407
               </div>
             </div>
           </div>
