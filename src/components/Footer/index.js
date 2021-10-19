@@ -43,7 +43,7 @@ const Footers = () => {
                   alt="Twitter Logo"
                 />
               </a>
-              <a href="https://discord.gg/3PSVUmT7Mj" target="_blank" rel="noopener noreferrer">
+              <a href="https://discord.gg/bdUsVc5B" target="_blank" rel="noopener noreferrer">
                 <Image
                   src="https://firebasestorage.googleapis.com/v0/b/spacepath-94248.appspot.com/o/iconmonstr-discord-5-240%20(1).png?alt=media&token=2ef7d262-5c6b-471e-94c8-674d55a7d572"
                   srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/iconmonstr-discord-5-240.png?alt=media&token=365448a8-8542-4bc4-87a6-ee52d2e93de3"
