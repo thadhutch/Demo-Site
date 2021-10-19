@@ -59,7 +59,7 @@ const Description = () => {
           </div>
         </div>
         <div className={styles.homeHeroFeature}>
-          <h2 className={styles.featuretitle}>Artist Spotlight</h2>
+          {/* <h2 className={styles.featuretitle}>Artist Spotlight</h2> */}
           <div className={styles.FeaturedContent}>
             <HomeHeroCards />
           </div>
