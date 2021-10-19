@@ -4,7 +4,6 @@ import styles from "./About.module.sass";
 import PieChart from "./pieChart.png";
 // import AboutHeroImg from "./SPAboutLogo_1.gif";
 
-
 import Rec1 from "./Rectangle1.png";
 import Rec2 from "./Rectangle2.png";
 import Rec3 from "./Rectangle3.png";
@@ -19,10 +18,10 @@ import FooterHero from "../../components/FooterHero";
 const About = () => {
   return (
     <div>
-          <Header />
+      <Header />
       <div className={styles.aboutPageContainer}>
         <div className={styles.aboutHeroContainer}>
-        <div className={styles.aboutHeroContainerBG}></div>
+          <div className={styles.aboutHeroContainerBG}></div>
           <div className={styles.aboutHero}>
             <h1 className={styles.aboutHeroHeader}>ABOUT SPACEPATH</h1>
           </div>
@@ -59,31 +58,35 @@ const About = () => {
             <div className={styles.creatorsCollectorsCards}>
               <h1>For Creators</h1>
               <div className={styles.creatorsCollectorsDiv}>
-                Collectors are invited to join Foundation bv members of the
-                community, Once you've received an invite you'll need to set up
-                a MetaMask wallet with ETH before vou can create an artist
-                profile and mint an NFT-which means uploading your JPG, PNG, or
-                video file to IPFS, a decentrilized peer-tp-peer storage
-                network. It will then be an NFT you can price in ETH and put up
-                for auction on Foundation. Creators receive 85% of the final
-                sale price. if the piece is resold on Foundation (or Opensea and
-                Rarible), a 10% royalty goes back to the wallet that originally
-                minted the NFT-in perpetuity
+                Any creator is welcome to submit media for voting. As a creator,
+                all you’ll need to do is connect your wallet and apply for our
+                creator network. Any creator is eligible for our creator
+                network, but you must be approved first to prevent spam and
+                unwanted content. After you are approved as a creator, you can
+                post as many images as you want each week ahead of the deadline
+                for voting. Once voting commences, you’ll be able to see how
+                your work is performing compared to others. Getting followers
+                from other platforms to help vote on your work always helps! If
+                the media you submit is top voted in a specific week, it’ll be
+                minted for free and put up for auction. After it sells, you’ll
+                get to keep 100% of the profits with zero transaction fees.
               </div>
             </div>
             <div className={styles.creatorsCollectorsCards}>
               <h1>For Collectors</h1>
               <div className={styles.creatorsCollectorsDiv}>
-                Collectors are invited to join Foundation bv members of the
-                community, Once you've received an invite you'll need to set up
-                a MetaMask wallet with ETH before vou can create an artist
-                profile and mint an NFT-which means uploading your JPG, PNG, or
-                video file to IPFS, a decentrilized peer-tp-peer storage
-                network. It will then be an NFT you can price in ETH and put up
-                for auction on Foundation. Creators receive 85% of the final
-                sale price. if the piece is resold on Foundation (or Opensea and
-                Rarible), a 10% royalty goes back to the wallet that originally
-                minted the NFT-in perpetuity
+                Collectors power the SpacePath NFT Marketplace by voting through
+                the SpacePath DAO and voting to aid content curation. As a
+                collector on the SpacePath Marketplace, you get to decide what
+                gets minted on the platform! After the deadline for submissions,
+                collectors will have 48 hours to browse and vote on their
+                favorite art. At the end of the 48 hours, the top voted art,
+                decided on by the community, will be minted and put up for
+                auction. Collectors will have another 48 hours to bid on the new
+                auctions and add to their portfolios. As a collector, you’ll get
+                rewarded in SpacePath Token for participating in voting and in
+                other aspects of our site. Additionally, you’ll get to earn
+                SpacePath Token just by owning an NFT!
               </div>
             </div>
           </div>

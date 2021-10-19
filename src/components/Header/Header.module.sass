@@ -5,142 +5,140 @@
     margin: 0
     padding: 0
     font-family: 'Ubuntu', sans-serif
-.header
+.nav
     user-select: none
-    position: relative
+    height: 70px
+    width: 100vw
+    padding-left: 60px
+    padding-right: 70px
     display: flex
     align-items: center
-    padding: 0px 100px 0px 50px
-    height: 90px
-    border-bottom: 2px solid $neutrals5
-    +t 
-        padding: 0px 0px 0px 0px
-    +m
-        padding: 0 0 0 0
-        margin-bottom: 0px
-        border: none
-        height: 20px
-    +a
-        display: flex
-        justify-content: content
-        padding-top: 0px
-        height: 150px
-        border: none
     +dark
         border-color: $neutrals3
-
-.container
+    +t
+        padding-left: 30px
+        padding-right: 40px
+    +m
+        height: 50px
+        padding-left: 20px
+        padding-right: 10px
+    &.active
+.LogoLinkContainer
+    width: 60%
     display: flex
-    width: 100%
-    align-items: center
-    +t 
-        width: 100%
-    +m 
-        width: 80%
-    +a 
-        width: 100%
-        margin-bottom: -100px
-        padding-left: 100px
-        display: flex 
-        justify-content: space-around
-        align-items: center
-
-    & > .button
-        +poppins
-        text-transform: uppercase
-        +m
-            display: none
+    +w
+    +x
+    +t
+    +m
+        width: 70%
+    +a
+.usercontainer
+    width: 40%
+    display: flex
+    justify-content: flex-end
+    border: none
+    +w
+    +x
+    +t
+        padding-right: 20px
+    +m
+        width: 30%
+    +a
 
 .logo
-    width: 14%
+    width: 30%
     +t
-        width: 23%
-    +m
-        width: 60%
-        div
-            padding: 5px
-            width: 150px
-            height: 150px
-            margin-left: -55px
-            margin-top: -50px
-            display: flex
-            justify-content: center
-            align-items: center
-            border-radius: 50%
-            background: radial-gradient($neutrals8 20%,$neutrals5 40%,$neutrals4  60%,#0000 90%)   
-            +dark
-                background: radial-gradient($neutrals5 20%,$neutrals4 40%, #0000 70%)   
+        width: 40%
+    +a
+        width: 100%
 .pic
-    width: 200px
-    +w
-        width: 175px
-    +x
-        width: 200px
-    +t
-        width: 150px
-    +m
-        display: none
-        width: 400px
+    width: 100%
+
 .pic2
     display: none
-    +w
-        width: 175px
-    +x
-        width: 200px
-    +m 
-        padding: 5px
-        display: block
-        width: 125px
-
-// Search and Nav Container
-.wrapper
-    padding-left: 20px
-    display: flex
-    align-items: center
+.navLinksContainer
+    width: 55%
     width: 100%
-    +t
-        padding-left: 0px
-    +x
-    +m
-        display: none
+    margin-left: 20px
 
-
-
-// Search\
-.search
-    position: relative
-    width: 256px
-    height: 40px
-    padding: 15px
-    margin-right: 50px
-    border-radius: 15px
-    border: 2px solid $neutrals2
-    display: flex
-    align-items: center
     +w
-        margin-right: 20px
-        margin-left: 10px
-        display: none
     +t
-        position: absolute
-        width: 50px
-        height: 50px
-        right: 22%
-        border-radius: 100%
-        display: none
+        width: 70%
+        margin-left: 20px
     +m
-        right: 0%
-        position: absolute
+        width: 80%
+        position: relative
 
+.navLinks
+    width: 100%
+    height: 100%
+    display: flex 
+    justify-content: space-around
+    align-items: center
+    user-select: none
+    color: $neutrals1
+    text-decoration: none  
+    padding: 0      
+    +dark
+        color: #fff
+
+.link
+    font-size: 1vw
+    font-weight: 700
+    cursor: pointer
     +d
-.inputComponentContainer
-    width: 100%
-    height: 100%
+        font-size: 1.5vw
+    +m 
+        font-size: 2vw
+    &:hover
+        border-bottom: 2px solid $neutrals1
+        // transition: all 0.2s ease-out
+        +dark
+            border-bottom: 2px solid #fff
+.link:nth-child(1), .link:nth-child(2), .link:nth-child(3) 
+    +m
+        display: none
+.link svg
+    width: 15px
+    margin-left: 5px
+    +t
+        width: 8px
+.imgC
+    display: none
+    +m
+        display: block
+        position: absolute
+        right: -50px
+        top: 25%
+        width: 19px
+        height: 19px
+        border-radius: 5px
+        background: transparent
+        display: flex 
+        align-items: center
+        justify-content: center
+        +dark  
+            background: transparent
+    +a
+        right: -20px
 
-.input
-    width: 100%
-    height: 100%
-    background: none
+.imgC h1
+    +m
+        width: 20px
+        height: 20px
+        border: solid white 1px
+        background: url(./listIcon.png) center center no-repeat
+        background-size: 210%
+        +dark
+            width: 20px
+            height: 20px            
+            background: url(./lineIcon2.png) center center no-repeat
+            background-size: 120% 100%
+            border: solid white 0px
+
+.link span
+    +m
+        display: none
 
 .button
     margin-right: 15px
@@ -151,36 +149,12 @@
     +d
         margin-top: -5px
 
-.nav
-    display: flex
-    +w
-        width: 100%
-        margin-left: 70px
-    +t
-        margin-left: 25px
-    +m
-        margin-left: 0px
-        margin-top: 50px
-
-    +dark
-        border-color: $neutrals3
-
-.link
-    display: flex
-    flex-direction: row
-    width: 100%
-    +w
-    +t
-
-    +m
 
 .ListIcon
     display: none
     +w
         width: 45px
         height: 45px
-        // background: black
-        // border-radius: 100%
         display: flex
         align-items: center
         justify-content: center
@@ -191,10 +165,6 @@
         +dark
             background: $neutrals3
             border: solid $neutrals5 2px
-        // svg 
-        //     fill: $neutrals1
-        //     +dark
-        //         fill: $neutrals1
 
 .ListIcon li svg
     +w
@@ -219,75 +189,7 @@
         display: flex
         align-items: center
         justify-content: center
-        // width: 22px
-.navlinks, .navlinksDrop
-    user-select: none
-    color: $neutrals1
-    text-decoration: none
-    margin-right: 10px
-    padding-bottom: 3px
-    +dark
-        color: #fff
-    &:hover
-        border-bottom: 2px solid $neutrals1
-        transition: all 0.2s ease-out
-        +dark
-            border-bottom: 2px solid #fff
-    +w
 
-.navlinksDrop
-    padding: 5px
-    padding-bottom: 0px
-    margin-left: 5px
-    cursor: pointer
-.navlinksDrop svg
-    margin-left: 5px
-    width: 15px
-    
-
-// #cDrop
-//     display: flex
-//     width: 100px
-//     +w
-//         width: 100px
-//         align-items: center
-//     +w
-// #cDrop, li
-//     color: $neutrals4
-//     transition: color .2s
-//     font-weight: 600
-//     +dark
-//         color: $neutrals7
-// #cDrop svg
-//     width: 20px
-//     height: 20px
-//     margin-top: 2px
-//     cursor: pointer
-//     fill: $white
-
-.usercontainer
-    width: 45%
-    display: flex
-    justify-content: flex-end
-    border: none
-    +w
-        width: 20%
-    +x
-        width: 50%
-    +t
-        width: 20%
-    +m
-        width: 10%
-        margin-right: 5px
-        margin-bottom: -30px
-    +a
-        margin-top: 0px
-        width: 50%
-        height: 50%
-        display: flex
-        align-items: center
-        justify-content: center
-        margin-top: 0px
 #logoutBtn
     +w
         display: none
@@ -320,31 +222,13 @@
 .burger
     display: none
 
-.link, li
-    display: inline-block
-    padding: 7px
-    span
-        color: $neutrals1
-        transition: color .2s
-        font-weight: 600
-        +dark
-            color: $neutrals7
+
 
 .mobilebutton
     display: none
     color: $neutrals1
     +dark
         color: $neutrals6
-    +m
-        // display: none
-        display: block
-        margin-top: 250px
-        padding-top: 10px
-        width: 90vw
-    +a
-        width: 89vw
-    +s
-        width: 87vw
 
 .moonicon
     padding-left: 13px
@@ -473,110 +357,14 @@
         align-items: center
         display: none
 
-.Search123
-    display: none
-    position: absolute
-    margin: auto
-    left: 0
-    width: 45px
-    height: 45px
-    background: black
-    border-radius: 50%
-    transition: all 1s
-    z-index: 4
-    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4)
-    &:hover
-        cursor: pointer
-    &::before 
-        content: ""
-        position: absolute
-        margin: auto
-        top: 16px
-        right: 3px
-        bottom: 0
-        left: 20px
-        width: 10px
-        height: 2px
-        background: white
-        transform: rotate(45deg)
-        transition: all .5s
-    &::after 
-        content: ""
-        position: absolute
-        margin: auto
-        top: -5px
-        right: 0
-        bottom: 0
-        left: -5px
-        width: 17px
-        height: 17px
-        border-radius: 50%
-        border: 2px solid white
-        transition: all .5s
-.input 
-    position: absolute
-    margin: auto
-    top: 0
-    right: 0
-    bottom: 0
-    left: 0
-    width: 100%
-    height: 50px
-    outline: none
-    border: none
-    background: #f55a0083
-    color: white
-    text-shadow: 0 0 10px crimson
-    padding: 0 0 0 53px
-    border-radius: 30px
-    box-shadow: 0 0 25px 0 crimson, 0 20px 25px 0 rgba(0, 0, 0, 0.2)
-    transition: all 1s
-    opacity: 0
-    z-index: 5
-    font-weight: bolder
-    letter-spacing: 0.1em
-    &:hover 
-        cursor: pointer
-    &:focus 
-        width: 200px
-        opacity: 1
-        cursor: text
-        left: -200px
-
-    &:focus ~ .Search123 
-        left: -165px
-        background: #151515
-        z-index: 6
-        &::before 
-            top: 0
-            left: 0
-            right: 0
-            bottom: 0
-            width: 25px
-            height: 2px
-        &::after 
-            top: 0
-            left: 0
-            right: 0
-            bottom: 0
-            width: 25px
-            height: 2px
-            border: none
-            background: white
-            border-radius: 0%
-            transform: rotate(-45deg)
-    &::placeholder 
-        color: white
-        opacity: 1
-        font-weight: bolder
-
+// ==============================================================
+// drop Downs
 .themeNav
     position: relative
     width: 50px
     position: absolute
     right: 0
     top: 0
-// drop Downs
 #dropdownP #menuTop #menuItem 
     margin-bottom: 20px
 
@@ -597,17 +385,26 @@
         box-shadow: 0px 0px 10px white 
 
 #dropdownP
-    transform: translateY(3%) translateX(33%)
-    +x 
-        transform: translateY(3%) translateX(0%)
+    transform: translateY(3%) translateX(10%)
+    +t
+        top: 50px
+        transform: translateY(3%) translateX(-5%)
     +a
-        top: 100px
-        transform: translateY(15%) translateX(-45%)
+        top: 50px
+        transform: translateY(0%) translateX(-10%)
+        width: 200px
+
 #dropdownC
     transform: translateY(8%) translateX(-30%)
     width: 200px
     +t
-        transform: translateY(8%) translateX(-130%)
+        transform: translateY(8%) translateX(-100%)
+        top: 50px
+    +a
+        top: 50px
+        transform: translateY(0%) translateX(-80%)
+        width: 150px
+
 #dropdownC svg
     fill: $neutrals6
     +dark
@@ -630,7 +427,8 @@
 #menuTop h1, #menuBottom h1
     font-size: 15px
     width: 100%
-
+    +a 
+        font-size: 13px
 #menuTop h4, #menuBottom h4
     font-size: 12px
     color: $neutrals3
@@ -701,6 +499,8 @@
     img
         width: 35px
         margin: 10px 5px 10px 2px
+        +a 
+            width: 23px
 
 #menuBottom img:hover 
     filter: drop-shadow(0px 0px 1px white)
@@ -721,36 +521,6 @@
     img
         filter: drop-shadow(0px 0px 1px white)
         width: 26px
-/* CSSTransition classes  */
-// #menuPrimary-enter 
-//   position: absolute
-//   transform: translateX(-110%)
-
-// #menuPrimary-enter-active 
-//     transform: translateX(0%)
-//     transition: all .8s ease
-// #menuPrimary-exit 
-//     position: absolute
-
-// #menuPrimaryExitActive 
-//     transform: translateX(0%)
-//     transition: all .8s ease
-
-// #menuSecondaryEnter 
-//     transform: translateX(150%)
-//     transition: all .8s ease
-
-// #menuSecondary-enter-active 
-//     transform: translateX(0%)
-//     transition: all .8s ease
-
-// #menuSecondary-exit 
-
-
-// #menuSecondary-exit-active 
-//     transform: translateX(110%)
-//     transition: all .8s ease
-
 
 
 #arrowIconMenu

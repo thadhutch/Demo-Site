@@ -15,7 +15,7 @@ import Modal from '../Modal/index';
 import Login from '../Login/index';
 import ModalTextTitle from '../ModalTextTitle/index';
 import LoadingModal from '../LoadingModal/index';
-import ListIcon from './lineIcon.png';
+// import ListIcon from './lineIcon.png'
 import { style } from "dom-helpers";
 import Logo from "./SpacePath.png";
 import { UserContext } from "../../GlobalState";
@@ -198,103 +198,83 @@ const Headers = (className) => {
         <LoadingModal
           loadingMessage={loadingMessage} />
       </Modal>
-      <header className={styles.header}>
-        <div className={styles.container}>
-          <Link className={styles.logo} to="">
-            <Image
-              className={styles.pic}
-              src="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-dark.png?alt=media&token=0dc78010-319d-426b-9dc0-c17db0479ec4"
-              srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-light.png?alt=media&token=af5f3049-b42b-4094-956d-f8377f8986bf"
-              alt="SpacePath Logo"
-            />
-            <Image
-              className={styles.pic2}
-              src={Logo}
-              srcDark={Logo}
-              alt="SpacePath Logo"
-            />
-          </Link>
-          <div className={cn(styles.wrapper, { [styles.active]: visibleNav })}>
-            {/* <form
+      {/* <div className={styles.container}> */}
+      {/* <div className={cn(styles.wrapper, { [styles.active]: visibleNav })}> */}
+      {/* <form
               className={styles.search}
               action=""
               onSubmit={() => handleSubmit()}
-            >
-                <Input />
-                <button className={styles.result}>
-                  <Icon name="search" size="20" />
-                </button>
+              >
+              <Input />
+              <button className={styles.result}>
+              <Icon name="search" size="20" />
+              </button>
             </form> */}
-            <nav className={styles.nav}>
-              <ul className={styles.link}>
-                <li>
-                  <NavLink to="/" className={styles.navlinks} id="home" onClick={() => setVisibleNav(!visibleNav)}>
-                    <span className={styles.headertitles}>Home</span>
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/marketplace" className={styles.navlinks} onClick={() => setVisibleNav(!visibleNav)}>
-                    <span>Marketplace</span>
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/about" className={styles.navlinks} onClick={() => setVisibleNav(!visibleNav)}>
-                    <span>About</span>
-                  </NavLink>
-                </li>
-                <CommunityNav />
-              </ul>
-            </nav>
-            <>
-              {user ? (
-                <Link
-                  className={cn("button-small", styles.mobilebutton)}
-                  to="/"
-                  onClick={() => handleLogout()}
-                >
-                  Logout
-                </Link>
-              ) : (
-                  <Link
-                    className={cn("button-small", styles.mobilebutton)}
-                    to="/"
-                    onClick={() => setVisibleLoginModal(true)}
-                  >
-                    Connect Wallet
-                  </Link>
-                )}
-            </>
-          </div>
-          <div className={styles.usercontainer}>
-          {/* <div className={styles.containerInput}>
-              <input className={styles.input} type="text" placeholder="Search..."/>
-              <div className={styles.Search123}></div>
-            </div> */}
-            {user ? (
-              <>
-              </>
-            ) : (
-                <button id={styles.walletBtn}
-                  className={cn("button-small", styles.button)}
-                  onClick={() => setVisibleLoginModal(true)}
-                >
-                  Connect Wallet
-                </button>
-              )}
-            {user ? (
-              <DynamicUserNav />
-            ) : (
-                <>
-                </>
-              )}
-            <Notification className={styles.notification} />
-          </div>
-          {/* <button
-            className={cn(styles.burger, { [styles.active]: visibleNav })}
-            onClick={() => setVisibleNav(!visibleNav)}
-          ></button> */}
+      {/* <nav className={styles.nav, { [styles.active]: visibleNav }}> */}
+      <nav className={styles.nav}>
+        <div className={styles.LogoLinkContainer}>
+        <Link className={styles.logo} to="/">
+          <Image
+            className={styles.pic}
+            src="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-dark.png?alt=media&token=0dc78010-319d-426b-9dc0-c17db0479ec4"
+            srcDark="https://firebasestorage.googleapis.com/v0/b/spacepath-demo.appspot.com/o/logo-light.png?alt=media&token=af5f3049-b42b-4094-956d-f8377f8986bf"
+            alt="SpacePath Logo"
+          />
+          <Image
+            className={styles.pic2}
+            src={Logo}
+            srcDark={Logo}
+            alt="SpacePath Logo"
+          />
+        </Link>
+
+        <div className={styles.navLinksContainer}>
+          <ul className={styles.navLinks}>
+            <NavLink to="/" className={styles.link} id="home" onClick={() => setVisibleNav(!visibleNav)}>
+              Home
+            </NavLink>
+            
+            <NavLink to="/marketplace" className={styles.link} onClick={() => setVisibleNav(!visibleNav)}>
+              Marketplace
+            </NavLink>
+            <NavLink to="/about" className={styles.link} onClick={() => setVisibleNav(!visibleNav)}>
+              About
+            </NavLink>
+            <CommunityNav />
+          </ul>
         </div>
-      </header>
+        </div>
+        <>
+          {user ? (
+            <Link className={cn("button-small", styles.mobilebutton)} to="/" onClick={() => handleLogout()}>
+              Logout
+            </Link>
+          ) : (
+            <Link className={cn("button-small", styles.mobilebutton)} to="/" onClick={() => setVisibleLoginModal(true)}>
+              Connect Wallet
+            </Link>
+          )}
+        </>
+        <div className={styles.usercontainer}>
+          {user ? (
+            <>
+            </>
+          ) : (
+            <button id={styles.walletBtn}
+              className={cn("button-small", styles.button)}
+              onClick={() => setVisibleLoginModal(true)}
+            >
+              Connect Wallet
+            </button>
+          )}
+          {user ? (
+            <DynamicUserNav />
+          ) : (
+            <>
+            </>
+          )}
+        </div>
+      </nav>
     </>
   );
 };

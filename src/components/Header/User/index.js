@@ -41,8 +41,7 @@ function User({ className, ...props }) {
         message={errorMessage}
       />
     </Modal>
-      <div className={cn(styles.user, className)}>
-        <Link to="#">
+      <div className={styles.user, className}>
         <div className={styles.head} onClick={() => setVisibleModal(false)}>
           <div className={styles.avatar}>
             <img src={Avatar} />
@@ -51,7 +50,6 @@ function User({ className, ...props }) {
             3.0546 <span className={styles.currency}>ETH</span>
           </div>
         </div>
-        </Link>
       </div>
    </>
   );

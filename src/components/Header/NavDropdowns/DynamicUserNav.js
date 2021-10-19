@@ -105,7 +105,7 @@ function NavItem(props) {
 
   return (
     <>
-      <a href="#" className="icon-button" onClick={() => setOpen(!open)}>
+      <a href="#" onClick={() => setOpen(!open)}>
       {props.navLink}
       </a>
       {open && props.children}

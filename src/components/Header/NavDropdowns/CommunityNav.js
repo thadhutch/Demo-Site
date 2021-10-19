@@ -4,6 +4,7 @@ import { NavLink, Link } from "react-router-dom";
 import styles from "../Header.module.sass";
 import "./newDropdown.css";
 import Image from "../../Image";
+// import ListIcon from './listIcon.png'
 
 import { ReactComponent as BellIcon } from "./icons/bell.svg";
 import { ReactComponent as MessengerIcon } from "./icons/messenger.svg";
@@ -40,7 +41,7 @@ const socialIcons = {
 
 function CommunityNav() {
   return (
-    <NavItem icon={<CaretIcon />} navLink="Community">
+    <NavItem icon={<CaretIcon />} navLink="Community" >
       <DropdownMenu />
     </NavItem>
   );
@@ -50,9 +51,12 @@ function NavItem(props) {
   const [open, setOpen] = useState(false);
 
   return (
-    <li className={styles.navlinksDrop} onClick={() => setOpen(!open)}>
-        <span>{props.navLink}</span>
+    <li className={styles.link} onClick={() => setOpen(!open)}>
+        <span >{props.navLink}</span>
         <span>{props.icon}</span>
+        <div className={styles.imgC}>
+        <h1>{props.img}</h1>
+        </div>
         {/* <div className="icon-button">{props.icon}</div> */}
       {open && props.children}
     </li>
